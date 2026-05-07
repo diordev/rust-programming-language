@@ -1,9 +1,9 @@
 ---
 title: "cargo check"
 type: glossary
-status: needs-review
+status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-07
 tags: [rust, glossary, cargo]
 source_count: 1
 ---

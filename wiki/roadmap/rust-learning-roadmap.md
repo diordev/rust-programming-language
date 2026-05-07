@@ -1,7 +1,7 @@
 ---
 title: "Rust Learning Roadmap"
 type: roadmap
-status: draft
+status: active
 created: 2026-05-06
 updated: 2026-05-07
 tags: [rust, roadmap]

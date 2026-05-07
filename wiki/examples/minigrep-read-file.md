@@ -1,7 +1,7 @@
 ---
 title: "minigrep: Reading a File"
 type: example
-status: draft
+status: active
 created: 2026-05-07
 updated: 2026-05-07
 tags: [rust, cli, minigrep, example, io]

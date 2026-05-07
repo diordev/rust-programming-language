@@ -1,9 +1,9 @@
 ---
 title: "for Loop"
 type: concept
-status: needs-review
+status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-07
 tags: [rust, control-flow]
 source_count: 2
 ---

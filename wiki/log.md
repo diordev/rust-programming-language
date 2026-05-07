@@ -543,3 +543,12 @@ source_count: 55
 - **Orphan sahifalar:** 0.
 - **Frontmatter:** hamma sahifalarda to'liq.
 - Updated [[index|Rust Wiki Index]] — 4 yangi konsept, 2 yangi example qo'shildi.
+
+## 2026-05-07 optimize | Wiki bo'shliqlari va muammolar bartaraf etildi
+
+- **Status optimallashtirish:** 73 sahifa `needs-review`/`draft` → `active` (barcha 35 glossary, 22 concept, 5 tool, 11 draft).
+  - Qoldi `needs-review`: [[async-await]] va [[concurrency]] — kontent keyingi boblarda to'ldiriladi (ch16).
+- **Yaratildi:** [[11-writing-automated-tests|11. Writing Automated Tests]] bob sahifasi (11.1–11.3 source summarylaridan).
+- Updated [[index|Rust Wiki Index]] — chapter 11 qo'shildi.
+
+**Yakuniy holat:** 385 sahifa, 0 singan link, 0 orphan, 2 ta `needs-review` (intentional), 0 `draft`.

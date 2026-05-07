@@ -1,7 +1,7 @@
 ---
 title: "CLI (Command Line Interface)"
 type: concept
-status: draft
+status: active
 created: 2026-05-07
 updated: 2026-05-07
 tags: [rust, cli, tools]

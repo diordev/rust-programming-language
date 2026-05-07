@@ -97,6 +97,7 @@ source_count: 66
 - [[8-common-collections|8. Common Collections]]
 - [[9-error-handling|9. Error Handling]]
 - [[10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]]
+- [[11-writing-automated-tests|11. Writing Automated Tests]]
 - [[12-an-io-project|12. An I/O Project: Building a Command Line Program]]
 - [[13-functional-language-features|13. Functional Language Features: Iterators and Closures]]
 - [[14-more-about-cargo-and-crates-io|14. More About Cargo and Crates.io]]

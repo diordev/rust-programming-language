@@ -1,9 +1,9 @@
 ---
 title: "Hashing Function"
 type: concept
-status: draft
+status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-07
 tags: [rust, collections, hashing]
 source_count: 1
 ---

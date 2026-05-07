@@ -1,0 +1,59 @@
+---
+title: "unwrap"
+type: concept
+status: active
+created: 2026-05-07
+updated: 2026-05-07
+tags: [rust, error-handling, result, option]
+source_count: 2
+---
+
+# unwrap
+
+## Short Definition
+
+`unwrap` `Result` yoki `Option` ichidagi success value'ni qaytaradigan, failure/none holatda [[panic|panic!]] qiladigan shortcut method.
+
+## Why It Matters
+
+`unwrap` prototyping, examples, yoki "bu yerda xato bo'lishi mumkin emas" assumptioni uchun qisqa. Lekin recoverable errors uchun u error handling emas; failure bo'lsa program to'xtaydi.
+
+## Mental Model
+
+`unwrap` "value borligiga ishonaman; bo'lmasa crash qil" degani.
+
+Examples, prototype code, va testsda `unwrap` temporary yoki deliberate panic marker sifatida mos bo'lishi mumkin. Production error handlingda esa ko'pincha [[expect]] yoki explicit `Result` handling yaxshiroq.
+
+## Syntax and Examples
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let greeting_file = File::open("hello.txt").unwrap();
+}
+```
+
+`File::open` `Err` qaytarsa, `unwrap` panic qiladi.
+
+## Common Mistakes
+
+- User input, file system, network kabi normal failure holatlarida `unwrap`ni odatiy yechim qilish.
+- `unwrap` va [[expect]] orasidagi debugging message farqini hisobga olmaslik.
+- `unwrap` errorni handle qiladi deb o'ylash; u panic qiladi.
+- Prototype markerini production code'da qoldirish.
+
+## Related Concepts
+
+- [[expect]]
+- [[result|Result<T, E>]]
+- [[option|Option]]
+- [[panic|panic!]]
+- [[recoverable-errors|recoverable errors]]
+- [[panic-vs-result|panic! vs Result]]
+- [[testing]]
+
+## Sources
+
+- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]

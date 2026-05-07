@@ -1,0 +1,17 @@
+---
+title: "stdout"
+type: glossary
+status: needs-review
+created: 2026-05-06
+updated: 2026-05-06
+tags: [rust, glossary, io]
+source_count: 1
+---
+
+# stdout
+
+Standard output stream. `println!` odatda outputni shu streamga yozadi.
+
+Related: [[stderr]], [[println-macro|println! macro]]
+
+Sources: [[5-2-an-example-program-using-structs-the-rust-programming-language]]

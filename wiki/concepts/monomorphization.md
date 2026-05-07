@@ -1,0 +1,67 @@
+---
+title: "Monomorphization"
+type: concept
+status: active
+created: 2026-05-07
+updated: 2026-05-07
+tags: [rust, generics, performance]
+source_count: 1
+---
+
+# Monomorphization
+
+## Short Definition
+
+Monomorphization Rust compiler generic code'ni compile time'da ishlatilgan concrete typelar bo'yicha specialized codega aylantirish jarayoni.
+
+## Why It Matters
+
+Monomorphization sabab Rust [[generics]]i runtime'da sekinlashuv keltirmaydi. Generic abstraction code reuse beradi, compiler esa kerakli concrete versionsni yaratadi.
+
+## Mental Model
+
+Developer `Option<T>` kabi generic definition yozadi. Compiler programda `Option<i32>` va `Option<f64>` ishlatilganini ko'rsa, mental model sifatida alohida `Option_i32` va `Option_f64`ga o'xshash concrete definitions yaratadi.
+
+Bu hand-written duplicated concrete codega o'xshash runtime behavior beradi. Cost asosan compile time va mumkin bo'lgan binary size tomonda bo'lishi mumkin; source bu sectionda runtime cost yo'qligiga urg'u beradi.
+
+## Syntax and Examples
+
+Source code:
+
+```rust
+let integer = Some(5);
+let float = Some(5.0);
+```
+
+Compiler mental modelda shunga o'xshash specialized definitions yaratadi:
+
+```rust
+enum Option_i32 {
+    Some(i32),
+    None,
+}
+
+enum Option_f64 {
+    Some(f64),
+    None,
+}
+```
+
+## Common Mistakes
+
+- Generic code dynamic runtime dispatch bo'ladi deb o'ylash.
+- "No runtime cost" compile time yoki binary sizega hech qanday ta'sir yo'q degani deb o'ylash.
+- Monomorphizationni `trait object` dispatch bilan aralashtirish.
+
+## Related Concepts
+
+- [[generics]]
+- [[generic-enums|generic enums]]
+- [[zero-cost-abstractions|zero-cost abstractions]]
+- [[compiler]]
+- [[option|Option]]
+- [[performance]]
+
+## Sources
+
+- [[10-1-generic-data-types-the-rust-programming-language]]

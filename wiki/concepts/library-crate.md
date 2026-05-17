@@ -3,9 +3,9 @@ title: "Library Crate"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-17
 tags: [rust, crates, cargo]
-source_count: 2
+source_count: 3
 ---
 
 # Library Crate
@@ -25,6 +25,7 @@ Rust ecosystem reusable library crates atrofida qurilgan. Boshqa projectlar libr
 - Package eng ko'pi bilan bitta library crate tutadi.
 - Rustaceanlar ko'pincha "crate" deganda library crate'ni nazarda tutadi.
 - Binary + library package patternida module tree odatda `src/lib.rs`da define qilinadi, reusable functionality shu library crate public API'siga chiqadi.
+- Local reusable code boshqa package'ga `path` dependency sifatida ulanib ishlatilishi mumkin.
 
 ## Syntax and Examples
 
@@ -60,3 +61,4 @@ my-project/
 
 - [[7-1-packages-and-crates]]
 - [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[wiki/sources/rust-for-backend-developers-creating-library]]

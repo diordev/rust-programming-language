@@ -3,9 +3,9 @@ title: "Test Filtering"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, testing, cargo-test, filtering]
-source_count: 1
+source_count: 2
 ---
 
 # Test Filtering
@@ -24,6 +24,12 @@ Test to'plami katta bo'lganda barcha testlarni ishlatish vaqt oladi. Muayyan bir
 
 ```shell
 cargo test one_hundred
+```
+
+To'liq test nomi bilan exact moslash kerak bo'lsa:
+
+```shell
+cargo test -- --exact tests::one_hundred
 ```
 
 ```
@@ -73,3 +79,4 @@ cargo test unit_     # nomi "unit_" bilan boshlangan barcha testlar
 ## Sources
 
 - [[11-2-controlling-how-tests-are-run]]
+- [[wiki/sources/rust-for-backend-developers-testing]]

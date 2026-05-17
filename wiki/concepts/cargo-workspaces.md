@@ -3,9 +3,9 @@ title: "Cargo Workspaces"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, cargo, workspaces, package, monorepo]
-source_count: 1
+source_count: 2
 ---
 
 # Cargo Workspaces
@@ -73,6 +73,17 @@ $ cargo test -p add_one    # faqat bitta crate
 $ cargo publish -p add_one # faqat bitta crate'ni publish
 ```
 
+**Common external dependency versions:**
+```toml
+[workspace.dependencies]
+rand = "0.8"
+```
+
+```toml
+[dependencies]
+rand = { workspace = true }
+```
+
 ## Common Mistakes
 
 **1. Root `Cargo.toml`'da `[package]` bo'limi qo'shish:**
@@ -93,8 +104,10 @@ error[E0432]: unresolved import `rand`
 - [[cargo|Cargo]] — workspace boshqaruvchi tool
 - [[cargo-lock|Cargo.lock]] — workspace'da yagona, barcha crate'lar uchun
 - [[dependencies]] — ichki (`path`) va tashqi dependency'lar
+- [[workspace-dependencies]]
 - [[binary-crate|binary crate]] / [[library-crate|library crate]] — workspace a'zolari
 
 ## Sources
 
 - [[14-3-cargo-workspaces|14.3 Cargo Workspaces]]
+- [[wiki/sources/rust-for-backend-developers-workspace-project]]

@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, index]
-source_count: 148
+source_count: 155
 ---
 
 # Rust Wiki Index
@@ -165,6 +165,13 @@ source_count: 148
 - [[wiki/sources/rust-for-backend-developers-result|Rust for Backend Developers: Result]]
 - [[wiki/sources/rust-for-backend-developers-iterators|Rust for Backend Developers: Iterators]]
 - [[wiki/sources/rust-for-backend-developers-smart-pointers|Rust for Backend Developers: Smart Pointers]]
+- [[wiki/sources/rust-for-backend-developers-cargo|Rust for Backend Developers: Cargo]]
+- [[wiki/sources/rust-for-backend-developers-dependencies|Rust for Backend Developers: Dependencies]]
+- [[wiki/sources/rust-for-backend-developers-creating-library|Rust for Backend Developers: Creating Library]]
+- [[wiki/sources/rust-for-backend-developers-multiple-binaries|Rust for Backend Developers: Multiple Binaries]]
+- [[wiki/sources/rust-for-backend-developers-package-crate-module|Rust for Backend Developers: Package, Crate, Module]]
+- [[wiki/sources/rust-for-backend-developers-workspace-project|Rust for Backend Developers: Workspace Project]]
+- [[wiki/sources/rust-for-backend-developers-testing|Rust for Backend Developers: Testing]]
 
 ## Chapters
 
@@ -348,6 +355,7 @@ Core concepts and active concept pages:
 - [[test-filtering|test filtering]]
 - [[unit-tests|unit tests]]
 - [[integration-tests|integration tests]]
+- [[dev-dependencies]]
 - [[zero-cost-abstractions|zero-cost abstractions]]
 - [[variables-and-mutability|variables and mutability]]
 - [[immutability]]
@@ -422,6 +430,7 @@ Core concepts and active concept pages:
 - [[binary-crate|binary crate]]
 - [[library-crate|library crate]]
 - [[crate-root|crate root]]
+- [[src-bin|src/bin]]
 - [[module]]
 - [[module-tree|module tree]]
 - [[paths]]
@@ -460,6 +469,7 @@ Core concepts and active concept pages:
 - [[dereference-operator|dereference operator]]
 - [[dependencies]]
 - [[semver|SemVer]]
+- [[cargo-features]]
 - [[error-handling]]
 - [[recoverable-errors|recoverable errors]]
 - [[concurrency]]
@@ -591,6 +601,7 @@ Core concepts and active concept pages:
 - [[consuming-adapters|consuming adapters]]
 - [[iterator-adapters|iterator adapters]]
 - [[cargo-workspaces|cargo workspaces]]
+- [[workspace-dependencies]]
 - [[collect]]
 - [[cli|CLI (Command Line Interface)]]
 - [[file-io|File I/O]]
@@ -783,6 +794,7 @@ Core concepts and active concept pages:
 ## Tools
 
 - [[cargo|Cargo]]
+- [[cargo-nextest]]
 - [[cargo-toml|Cargo.toml]]
 - [[cargo-lock|Cargo.lock]]
 - [[crates-io|crates.io]]

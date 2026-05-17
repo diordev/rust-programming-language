@@ -3,9 +3,9 @@ title: "Integration Tests"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, testing, integration-tests]
-source_count: 1
+source_count: 2
 ---
 
 # Integration Tests
@@ -21,6 +21,8 @@ Alohida to'g'ri ishlaydigan modullar birgalikda muammo yaratishi mumkin. Integra
 ## Mental Model
 
 Integration test — kutubxonangizni ishlatadigan tashqi foydalanuvchi. U faqat `pub` deb belgilangan narsalarni ko'radi. `tests/` papkasidagi har bir fayl alohida crate bo'lgani uchun `use crate_name::fn_name` kerak — `use super::*` emas.
+
+Service-layer testing'da public trait contract'ni mock type bilan implement qilish shu modelga yaxshi mos keladi: integration test private internallarni emas, exposed behavior'ni tekshiradi.
 
 ## Syntax and Examples
 
@@ -141,3 +143,4 @@ Unit tests FAILED bo'lsa, integration tests va doc-tests ishlamaydi.
 ## Sources
 
 - [[11-3-test-organization]]
+- [[wiki/sources/rust-for-backend-developers-testing]]

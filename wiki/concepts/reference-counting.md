@@ -35,8 +35,8 @@ strong_count = 0   →  heap bo'shatiladi
 
 | Tur | Thread-safety | Performance | Foydalanish |
 |-----|---------------|-------------|-------------|
-| [[rc-t\|Rc<T>]] | Single-threaded only | Tezroq (atomik bo'lmagan counter) | Bitta thread ichida shared ownership |
-| [[arc-t\|Arc<T>]] | Thread-safe | Sekinroq (atomik counter) | Multi-thread ichida shared ownership |
+| [[rc-t|Rc<T>]] | Single-threaded only | Tezroq (atomik bo'lmagan counter) | Bitta thread ichida shared ownership |
+| [[arc-t|Arc<T>]] | Thread-safe | Sekinroq (atomik counter) | Multi-thread ichida shared ownership |
 
 `Rc<T>` `Send` va `Sync` emas — kompilyator uni boshqa thread'ga uzatishga ruxsat bermaydi.
 

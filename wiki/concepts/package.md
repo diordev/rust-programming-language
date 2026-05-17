@@ -3,9 +3,9 @@ title: "Package"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-17
 tags: [rust, cargo, crates]
-source_count: 2
+source_count: 3
 ---
 
 # Package
@@ -25,6 +25,8 @@ Rust project layoutini tushunishda package va crate farqi muhim. `Cargo.toml` pa
 - Package kamida bitta crate tutadi.
 - Package ko'p [[binary-crate|binary crates]] tutishi mumkin.
 - Package eng ko'pi bilan bitta [[library-crate|library crate]] tutadi.
+- `Cargo.toml` package darajasidagi manifest.
+- `src/bin/*.rs` package ichida qo'shimcha binary crate'lar yaratadi.
 
 ## Syntax and Examples
 
@@ -60,6 +62,7 @@ Bu package bitta binary crate va bitta library crate tutadi.
 - [[crate]]
 - [[binary-crate|binary crate]]
 - [[library-crate|library crate]]
+- [[src-bin|src/bin]]
 - [[crate-root|crate root]]
 - [[dependencies]]
 
@@ -67,3 +70,4 @@ Bu package bitta binary crate va bitta library crate tutadi.
 
 - [[wiki/sources/7-packages-crates-and-modules]]
 - [[7-1-packages-and-crates]]
+- [[wiki/sources/rust-for-backend-developers-package-crate-module]]

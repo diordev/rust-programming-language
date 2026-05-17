@@ -3,9 +3,9 @@ title: "Cargo.toml"
 type: tool
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, cargo]
-source_count: 6
+source_count: 10
 ---
 
 # Cargo.toml
@@ -25,6 +25,10 @@ $ cargo add rand@0.8.5
 
 - `[package]` ichida `name`, `version`, va `edition` kabi metadata bo'ladi.
 - `[dependencies]` external crates ro'yxatini belgilaydi.
+- `[dev-dependencies]` test va development-only crates uchun ishlatiladi.
+- `[lib]` library crate build metadata'sini, shu jumladan `crate-type`ni boshqarishi mumkin.
+- TOML `[[bin]]` section qo'shimcha executable target'larni explicit nom va path bilan beradi.
+- `[workspace]` workspace root manifestini, `[workspace.dependencies]` esa shared external versionlarni belgilaydi.
 - [[cargo-lock|Cargo.lock]] exact resolved versionsni yozib boradi.
 - `src/main.rs` yoki `src/lib.rs` odatda `Cargo.toml` ichida alohida yozilmaydi; Cargo convention orqali ularni crate root deb biladi.
 - `Cargo.toml` [[package]]ni describe qiladi; [[crate-root|crate root]] esa source file'dan boshlanadi.
@@ -43,6 +47,9 @@ panic = 'abort'
 - [[crate]]
 - [[crate-root|crate root]]
 - [[dependencies]]
+- [[cargo-features]]
+- [[workspace-dependencies]]
+- [[dev-dependencies]]
 - [[use-declarations|use declarations]]
 - [[rust-2024-edition|Rust 2024 Edition]]
 - [[release-build|release build]]
@@ -56,3 +63,7 @@ panic = 'abort'
 - [[7-1-packages-and-crates]]
 - [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
 - [[9-1-unrecoverable-errors-with-panic]]
+- [[wiki/sources/rust-for-backend-developers-cargo]]
+- [[wiki/sources/rust-for-backend-developers-creating-library]]
+- [[wiki/sources/rust-for-backend-developers-multiple-binaries]]
+- [[wiki/sources/rust-for-backend-developers-workspace-project]]

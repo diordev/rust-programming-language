@@ -5,10 +5,42 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, log]
-source_count: 148
+source_count: 155
 ---
 
 # Wiki Log
+
+## 2026-05-17 ingest | Rust for Backend Developers `2. base` 38-44
+
+- Ingested 7 ta source from `raw/books/rust-for-backend-developer/2. base/`:
+  - `38. Cargo.md`
+  - `39. Зависимости.md`
+  - `40. Создание библиотеки.md`
+  - `41. Несколько исполняемых файлов.md`
+  - `42. Пакет, крэйт, модуль.md`
+  - `43. Workspace проект.md`
+  - `44. Тестирование.md`
+- Created source summaries:
+  - [[wiki/sources/rust-for-backend-developers-cargo]]
+  - [[wiki/sources/rust-for-backend-developers-dependencies]]
+  - [[wiki/sources/rust-for-backend-developers-creating-library]]
+  - [[wiki/sources/rust-for-backend-developers-multiple-binaries]]
+  - [[wiki/sources/rust-for-backend-developers-package-crate-module]]
+  - [[wiki/sources/rust-for-backend-developers-workspace-project]]
+  - [[wiki/sources/rust-for-backend-developers-testing]]
+- Created concept/tool pages:
+  - [[cargo-features]]
+  - [[src-bin|src/bin]]
+  - [[workspace-dependencies]]
+  - [[dev-dependencies]]
+  - [[cargo-nextest]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-2-base]]: source_count 30->37; Cargo/project layout, dependency management, package/crate/module farqi, workspace workflow, va testing synthesis qo'shildi.
+- Updated existing pages:
+  - Tools: [[cargo|Cargo]], [[cargo-toml|Cargo.toml]], [[crates-io|crates.io]]
+  - Concepts: [[dependencies]], [[package]], [[crate]], [[library-crate|library crate]], [[binary-crate|binary crate]], [[cargo-workspaces|cargo workspaces]], [[testing]], [[unit-tests|unit tests]], [[integration-tests|integration tests]], [[test-macros]], [[test-filtering]], [[semver|SemVer]]
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 148->155; 7 source, 4 concept, va 1 tool link qo'shildi.
+- Appended Cargo/package/crate relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation: `edition = "2024"` source baseline sifatida saqlandi, umumiy qoida sifatida bo'rttirilmadi; library example'dagi `fn main()` wrapper clipping artifact deb o'qildi; `sum2(1,2)=2` matni typo sifatida tuzatib yozildi; testing source'dagi immutable `a = inc(a)` satri literal compile bo'ladigan example sifatida olinmadi.
 
 ## 2026-05-17 ingest | Rust for Backend Developers `2. base` 36-37
 

@@ -5,14 +5,14 @@ status: active
 created: 2026-05-16
 updated: 2026-05-17
 tags: [rust, backend, chapter, base]
-source_count: 30
+source_count: 37
 ---
 
 # Rust for Backend Developers: 2. Base
 
 ## Learning Goal
 
-`Rust for Backend Developers` kitobining `2. base` sectionini bir foundation layer sifatida tushunish: bindings, primitive types, strings, formatting, expression-oriented control flow, functions, tuples, structs, modules, traits, generics, enums, `Option`, `Result`, anonymous functions va closures, iterators, smart pointers, ownership, borrowing, lifetimes, references, arrays, vectors, slices, derive semantics, destructuring, pattern matching, declarative macros, va raw pointers.
+`Rust for Backend Developers` kitobining `2. base` sectionini bir foundation layer sifatida tushunish: bindings, primitive types, strings, formatting, expression-oriented control flow, functions, tuples, structs, modules, traits, generics, enums, `Option`, `Result`, anonymous functions va closures, iterators, smart pointers, ownership, borrowing, lifetimes, references, arrays, vectors, slices, derive semantics, destructuring, pattern matching, declarative macros, raw pointers, va shu foundation ustiga chiqadigan Cargo/project layout/dependency/testing workflow'i.
 
 ## Main Ideas
 
@@ -37,6 +37,10 @@ source_count: 30
 - `Result` bobi recoverable error modelini shu foundation'ga qo'shadi: [[result|Result<T, E>]], custom error enum, [[std-error-trait|std::error::Error]], combinatorlar, [[question-mark-operator|question mark operator]], va ignored `Result` uchun [[discarded-binding]] signali Rustning explicit error flow'ini mustahkamlaydi.
 - Iterator bobi traversal modelini syntax orqasidan chiqaradi: [[iterators]], [[into-iterator|IntoIterator]], `.iter()`/`.into_iter()`, [[range]], lazy [[iterator-adapters|iterator adapters]], va [[consuming-adapters|consuming adapters]] orqali `for` loop ownership bilan bog'lanadi.
 - Smart pointer bobi ownership modelini heap va runtime rule qatlami bilan kengaytiradi: [[smart-pointers]], [[box-t|Box<T>]], [[deref-trait|Deref]], [[rc-t|Rc<T>]], [[cell-t|Cell<T>]], [[refcell-t|RefCell<T>]], [[interior-mutability|interior mutability]], va [[arc-t|Arc<T>]] bir-biridan qaysi constraintni yechishi bilan ajratiladi.
+- Cargo qatlami `2. base`ni language syntaxdan project mechanics'ga olib chiqadi: [[cargo|Cargo]] package yaratadi, build/run/test cycle'ni boshqaradi, va `Cargo.toml` orqali package metadata hamda dependency graph'ni belgilaydi.
+- Dependency management bo'limi external crate ishlatishni alohida skill sifatida ko'rsatadi: [[dependencies]], [[crates-io|crates.io]], [[cargo-features]], [[semver|SemVer]], `cargo tree`, va test-only [[dev-dependencies]] endi Rust syntaxidan alohida ecosystem literacy talab qiladi.
+- `package`, `crate`, `module` farqi bu sectionning code organization qismini mustahkamlaydi: [[package]] Cargo container, [[crate]] compile unit, [[module]] esa crate ichidagi namespace va visibility boundary; `src/lib.rs`, `src/main.rs`, va [[src-bin|src/bin]] layouti shu modelni concrete qiladi.
+- Workspace va testing bo'limlari foundation'ni team/project scale'ga olib chiqadi: [[cargo-workspaces|cargo workspaces]], [[workspace-dependencies]], `cargo run -p ...`, [[testing]], [[unit-tests|unit tests]], [[integration-tests|integration tests]], trait-based mock, va [[cargo-nextest]] bilan Rust project endi faqat syntax collection emas, maintainable codebase workflow'iga aylanadi.
 - Ownership bobi Rustning markaziy compile-time resource modelini front-stage'ga olib chiqadi: move, deterministic cleanup, borrowing, va referential safety bitta chiziqqa tushadi.
 - Lifetimes bobi relation-level annotationlarni qo'shadi: reference umrini cho'zmaydi, lekin qaysi borrow qaysi natija bilan bog'langanini compilerga ko'rsatadi.
 - Declarative macro bobi compile-time code expansionni ochadi: `macro_rules!`, fragment specifierlar, repetition, va `vec![]` nega function emasligi.
@@ -110,7 +114,11 @@ source_count: 30
 - [[mod-declarations|mod declarations]]
 - [[module-file-layout|module file layout]]
 - [[crate]]
+- [[package]]
+- [[binary-crate|binary crate]]
+- [[library-crate|library crate]]
 - [[crate-root|crate root]]
+- [[src-bin|src/bin]]
 - [[traits]]
 - [[trait-definitions|trait definitions]]
 - [[trait-implementations|trait implementations]]
@@ -194,6 +202,17 @@ source_count: 30
 - [[std-error-trait|std::error::Error]]
 - [[question-mark-operator|question mark operator]]
 - [[error-propagation|error propagation]]
+- [[dependencies]]
+- [[semver|SemVer]]
+- [[cargo-features]]
+- [[cargo-workspaces|cargo workspaces]]
+- [[workspace-dependencies]]
+- [[testing]]
+- [[unit-tests|unit tests]]
+- [[integration-tests|integration tests]]
+- [[test-macros]]
+- [[test-filtering]]
+- [[dev-dependencies]]
 
 ## Examples
 
@@ -333,6 +352,18 @@ let maybe_name: Option<String> = Some("Ali".to_string());
 let upper = maybe_name.map(|name| name.to_uppercase());
 ```
 
+```toml
+[dependencies]
+uuid = { version = "1", features = ["v4"] }
+```
+
+```rust
+#[test]
+fn sums_numbers() {
+    assert_eq!(sum2(1, 2), 3);
+}
+```
+
 ```rust
 fn read_text_file(path: &str) -> Result<String, std::io::Error> {
     let mut file = std::fs::File::open(path)?;
@@ -441,3 +472,14 @@ fn read_text_file(path: &str) -> Result<String, std::io::Error> {
 - [[wiki/sources/rust-for-backend-developers-result]]
 - [[wiki/sources/rust-for-backend-developers-iterators]]
 - [[wiki/sources/rust-for-backend-developers-smart-pointers]]
+- [[wiki/sources/rust-for-backend-developers-cargo]]
+- [[wiki/sources/rust-for-backend-developers-dependencies]]
+- [[wiki/sources/rust-for-backend-developers-creating-library]]
+- [[wiki/sources/rust-for-backend-developers-multiple-binaries]]
+- [[wiki/sources/rust-for-backend-developers-package-crate-module]]
+- [[wiki/sources/rust-for-backend-developers-workspace-project]]
+- [[wiki/sources/rust-for-backend-developers-testing]]
+- [[cargo|Cargo]]
+- [[cargo-toml|Cargo.toml]]
+- [[crates-io|crates.io]]
+- [[cargo-nextest]]

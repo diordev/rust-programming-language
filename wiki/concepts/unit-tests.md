@@ -3,9 +3,9 @@ title: "Unit Tests"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, testing, unit-tests]
-source_count: 1
+source_count: 2
 ---
 
 # Unit Tests
@@ -70,6 +70,7 @@ src/
 - `#[cfg(test)]` yozmaslik — test kodi release binary'ga kiradi.
 - `use super::*` o'rniga to'liq path yozishga urinish — ortiqcha.
 - Private funksiyani test qilish shart deb o'ylash — Rust imkon beradi, lekin majburlamaydi; bu dizayn qaror.
+- Assertion o'rniga faqat `println!` bilan signal berish yetadi deb o'ylash — failure mexanizmi `assert!` family va `panic!`.
 
 ## Related Concepts
 
@@ -82,3 +83,4 @@ src/
 ## Sources
 
 - [[11-3-test-organization]]
+- [[wiki/sources/rust-for-backend-developers-testing]]

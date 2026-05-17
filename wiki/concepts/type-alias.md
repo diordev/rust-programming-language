@@ -20,7 +20,7 @@ Murakkab tiplar (`Box<dyn Fn() + Send + 'static>`, `Result<T, std::io::Error>`) 
 
 ## Type Alias vs Newtype Pattern
 
-| Xususiyat | Type Alias | [[newtype-pattern\|Newtype]] |
+| Xususiyat | Type Alias | [[newtype-pattern|Newtype]] |
 |-----------|------------|------------|
 | Yangi tip | Yo'q (sinonim) | Ha (alohida tip) |
 | Type safety | Yo'q | Ha (aralashtirib bo'lmaydi) |

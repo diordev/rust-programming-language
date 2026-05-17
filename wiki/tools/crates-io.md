@@ -3,9 +3,9 @@ title: "crates.io"
 type: tool
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, crates, tooling, publishing, cargo-publish, yank]
-source_count: 2
+source_count: 3
 ---
 
 # crates.io
@@ -82,6 +82,7 @@ $ cargo yank --vers 1.0.1
 - External crates odatda crates.io'dan olinadi
 - `cargo add crate_name` → `Cargo.toml`'ga qo'shib, versiyani topadi
 - `Cargo.lock` aniq versiyalarni saqlaydi — reproducible builds uchun
+- Crate sahifasi odatda available feature'lar va upstream repository'ga olib boradi; dependency capability'ni tekshirishda bu foydali start point.
 
 ## Related Pages
 
@@ -89,6 +90,7 @@ $ cargo yank --vers 1.0.1
 - [[dependencies]]
 - [[cargo|Cargo]]
 - [[cargo-toml|Cargo.toml]]
+- [[cargo-features]]
 - [[semver|SemVer]]
 - [[pub-use|pub use]] — qulay public API
 - [[documentation-comments|doc comments]]
@@ -98,3 +100,4 @@ $ cargo yank --vers 1.0.1
 
 - [[8-2-storing-utf-8-encoded-text-with-strings]]
 - [[14-2-publishing-a-crate-to-crates-io|14.2 Publishing a Crate]]
+- [[wiki/sources/rust-for-backend-developers-dependencies]]

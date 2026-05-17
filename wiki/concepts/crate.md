@@ -3,16 +3,16 @@ title: "Crate"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, crates, modules]
-source_count: 5
+source_count: 6
 ---
 
 # Crate
 
 ## Short Definition
 
-Crate Rust compiler bir vaqtda ko'rib chiqadigan eng kichik code birligi. U [[binary-crate|binary crate]] yoki [[library-crate|library crate]] bo'lishi mumkin.
+Crate Rust compiler bir vaqtda ko'rib chiqadigan compile unit. U [[binary-crate|binary crate]] yoki [[library-crate|library crate]] bo'lishi mumkin.
 
 ## Why It Matters
 
@@ -73,3 +73,4 @@ my-project/
 - [[7-1-packages-and-crates]]
 - [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
 - [[wiki/sources/rust-for-backend-developers-modules]]
+- [[wiki/sources/rust-for-backend-developers-package-crate-module]]

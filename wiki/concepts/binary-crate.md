@@ -3,9 +3,9 @@ title: "Binary Crate"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-17
 tags: [rust, crates, cargo]
-source_count: 2
+source_count: 3
 ---
 
 # Binary Crate
@@ -25,6 +25,7 @@ Command line tool, server, yoki boshqa run qilinadigan programlar binary crate s
 - `src/bin/*.rs`: har bir file alohida binary crate.
 - `main` function executable ishga tushganda bajariladigan entry point.
 - Binary + library package patternida binary crate odatda minimal entry point bo'lib, library crate public API'ni package nomi orqali ishlatadi.
+- TOML `[[bin]]` section bilan binary target nomi va path'i explicit boshqarilishi mumkin.
 
 ## Syntax and Examples
 
@@ -56,6 +57,7 @@ Bu package'da `main.rs`, `import.rs`, va `serve.rs` alohida binary crates bo'lad
 - [[main-function|main function]]
 - [[binary-executable|binary executable]]
 - [[cargo|Cargo]]
+- [[src-bin|src/bin]]
 - [[public-api|public API]]
 - [[api-design|API design]]
 
@@ -63,3 +65,4 @@ Bu package'da `main.rs`, `import.rs`, va `serve.rs` alohida binary crates bo'lad
 
 - [[7-1-packages-and-crates]]
 - [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[wiki/sources/rust-for-backend-developers-multiple-binaries]]

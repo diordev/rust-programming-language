@@ -3,9 +3,9 @@ title: "Cargo"
 type: tool
 status: active
 created: 2026-05-06
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, tool, cargo]
-source_count: 12
+source_count: 17
 ---
 
 # Cargo
@@ -19,17 +19,22 @@ Cargo Rustning build system va package manageri. U project yaratish, build qilis
 ```shell
 $ cargo --version
 $ cargo new hello_cargo
+$ cargo new my_lib --lib
 $ cargo init
 $ cargo build
 $ cargo run
+$ cargo test
+$ cargo tree
 $ cargo check
 $ cargo add rand@0.8.5
 $ cargo update
 $ cargo doc --open
 $ cargo build --release
+$ cargo build --bin import
 $ cargo fmt
 $ cargo fix
 $ cargo clippy
+$ cargo nextest run
 $ cargo install ripgrep       # binary tool o'rnatish
 $ cargo uninstall ripgrep     # o'chirish
 $ cargo publish               # crates.io'ga publish
@@ -70,19 +75,26 @@ my-project/
 - `Cargo.toml` package manifesti bo'lib, Cargo'ga package crates qanday build qilinishini bildiradi.
 - `[package]` project metadata: `name`, `version`, `edition`.
 - `[dependencies]` project ishlatadigan crates ro'yxati.
+- `[dev-dependencies]` test va development-only crates ro'yxati.
 - `Cargo.lock` dependencylarning exact versionsini saqlaydi; uni Cargo boshqaradi.
 - `src/main.rs` Cargo convention bo'yicha default binary crate root.
 - `src/lib.rs` mavjud bo'lsa, default library crate root.
 - `src/bin/*.rs` ichidagi har bir file alohida binary crate.
+- TOML `[[bin]]` section bilan executable nomi va path'i explicit boshqariladi.
+- `cargo new --lib` default library package layoutini yaratadi.
 - Cargo crate root file'larni `rustc`ga uzatadi.
 - `cargo check` executable yaratmaydi, lekin code compile bo'lishini tez tekshiradi.
 - `cargo add` dependency qo'shadi.
 - `cargo update` `Cargo.lock`dagi versionsni `Cargo.toml` constraints doirasida yangilaydi.
+- `cargo tree` top-level va transitive dependency graph'ni ko'rsatadi.
+- `cargo test` unit va integration tests'ni build qilib ishga tushiradi.
 - `cargo doc --open` project va dependency documentationni local browserda ochadi.
 - `cargo build --release` optimized binaryni `target/release/` ichiga yaratadi.
+- `cargo build --bin name` faqat bitta binary target'ni build qiladi.
 - `cargo fmt` project bo'ylab [[rustfmt]]ni ishlatadi va formattingni standardlashtiradi.
 - `cargo fix` compiler diagnostics asosida mechanical fix'larni qo'llaydi; edition migration paytida ham foydali.
 - `cargo clippy` standard compiler warninglaridan tashqari qo'shimcha lint qatlamini beradi.
+- `cargo nextest run` mavjud Rust testlarini alternativ runner bilan ishlatadi.
 
 ## Workspace
 
@@ -118,8 +130,13 @@ Workspace'da bitta `Cargo.lock` va bitta `target/` — barcha crate'lar uchun um
 - [[package]]
 - [[binary-crate|binary crate]]
 - [[library-crate|library crate]]
+- [[src-bin|src/bin]]
 - [[crate-root|crate root]]
 - [[dependencies]]
+- [[cargo-features]]
+- [[workspace-dependencies]]
+- [[dev-dependencies]]
+- [[cargo-nextest]]
 - [[rand]]
 - [[rustfmt]]
 - [[cargo-fix|cargo fix / rustfix]]
@@ -141,3 +158,8 @@ Workspace'da bitta `Cargo.lock` va bitta `target/` — barcha crate'lar uchun um
 - [[wiki/sources/rust-for-backend-developers-setup-rust]]
 - [[wiki/sources/rust-for-backend-developers-install-on-windows]]
 - [[wiki/sources/rust-for-backend-developers-development-environment]]
+- [[wiki/sources/rust-for-backend-developers-cargo]]
+- [[wiki/sources/rust-for-backend-developers-dependencies]]
+- [[wiki/sources/rust-for-backend-developers-multiple-binaries]]
+- [[wiki/sources/rust-for-backend-developers-workspace-project]]
+- [[wiki/sources/rust-for-backend-developers-testing]]

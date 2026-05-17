@@ -3,9 +3,9 @@ title: "Test Macros"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, testing, assert, macros]
-source_count: 1
+source_count: 2
 ---
 
 # Test Macros
@@ -110,3 +110,4 @@ assert_eq!(Point { x: 1, y: 2 }, Point { x: 1, y: 2 });
 ## Sources
 
 - [[11-1-how-to-write-tests]]
+- [[wiki/sources/rust-for-backend-developers-testing]]

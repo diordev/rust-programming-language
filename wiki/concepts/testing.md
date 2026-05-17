@@ -3,9 +3,9 @@ title: "Testing"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, testing, correctness]
-source_count: 5
+source_count: 6
 ---
 
 # Testing
@@ -26,6 +26,8 @@ Test body uchta bosqich:
 1. Kerakli data yoki holatni tayyorlash.
 2. Test qilinadigan kodni ishlatish.
 3. Natijani assert qilish.
+
+Back-end service code'ida mock ko'pincha alohida framework bilan emas, trait contract'ni test-specific type orqali implement qilish bilan quriladi.
 
 ## Syntax and Examples
 
@@ -144,6 +146,8 @@ Stable Rust default target bo'lsa ham, ecosystem odatda beta va nightlyni ham ku
 - [[test-filtering]] — test nomini yoki substringni argument sifatida berish
 - [[unit-tests]] — `src/` ichida, private access
 - [[integration-tests]] — `tests/` papkasida, public API
+- [[dev-dependencies]]
+- [[cargo-nextest]]
 - [[correctness]]
 - [[release-channels]]
 
@@ -154,3 +158,4 @@ Stable Rust default target bo'lsa ham, ecosystem odatda beta va nightlyni ham ku
 - [[11-2-controlling-how-tests-are-run]]
 - [[11-3-test-organization]]
 - [[wiki/sources/22-7-g-how-rust-is-made-and-nightly-rust|22.7. G - How Rust is Made and Nightly Rust]]
+- [[wiki/sources/rust-for-backend-developers-testing]]

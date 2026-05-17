@@ -118,4 +118,4 @@ Standard library `IpAddr` aynan shu pattern'dan foydalanadi: variant ichida har 
 
 ## Sources
 
-- [[6-1-defining-an-enum-the-rust-programming-language]]
+- [[6-1-defining-an-enum]]

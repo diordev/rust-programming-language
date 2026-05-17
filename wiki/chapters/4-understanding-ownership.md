@@ -116,10 +116,10 @@ fn first_word(s: &str) -> &str {
 
 ## Related Pages
 
-- [[4-understanding-ownership-the-rust-programming-language]]
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[4-3-the-slice-type-the-rust-programming-language]]
+- [[wiki/sources/4-understanding-ownership]]
+- [[4-1-what-is-ownership]]
+- [[4-2-references-and-borrowing]]
+- [[4-3-the-slice-type]]
 - [[e0382-borrow-of-moved-value|E0382 borrow of moved value]]
 - [[e0502-mutable-and-immutable-borrow-conflict|E0502 mutable and immutable borrow conflict]]
 - [[move-vs-clone]]

@@ -3,9 +3,9 @@ title: "Question Mark Operator"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-13
 tags: [rust, error-handling, result, option]
-source_count: 1
+source_count: 2
 ---
 
 # Question Mark Operator
@@ -17,6 +17,8 @@ source_count: 1
 ## Why It Matters
 
 Rustda error propagation juda ko'p uchraydi. `?` manual `match` va `return Err(e)` boilerplate'ini qisqartirib, happy pathni ko'rinarli qiladi.
+
+Appendix B bu syntax'ni operator jadvalida `expr?` ko'rinishida reference qiladi.
 
 ## Mental Model
 
@@ -81,7 +83,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 - [[from-trait|From trait]]
 - [[main-function|main function]]
 - [[e0277-trait-bound-not-satisfied|E0277 trait bound not satisfied]]
+- [[rust-operators-and-symbols]]
 
 ## Sources
 
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/22-2-b-operators-and-symbols|22.2]]

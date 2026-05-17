@@ -86,10 +86,10 @@ for element in a {
 
 ## Related Pages
 
-- [[3-common-programming-concepts-the-rust-programming-language]]
-- [[3-1-variables-and-mutability-the-rust-programming-language]]
-- [[3-2-data-types-the-rust-programming-language]]
-- [[3-3-functions-the-rust-programming-language]]
-- [[3-4-comments-the-rust-programming-language]]
-- [[3-5-control-flow-the-rust-programming-language]]
+- [[wiki/sources/3-common-programming-concepts]]
+- [[3-1-variables-and-mutability]]
+- [[3-2-data-types]]
+- [[3-3-functions]]
+- [[3-4-comments]]
+- [[3-5-control-flow]]
 - [[rust-learning-roadmap]]

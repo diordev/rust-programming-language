@@ -61,8 +61,8 @@ pub fn add_to_waitlist() {}
 
 ## Related Pages
 
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[7-5-separating-modules-into-different-files]]
 - [[pub-use|pub use]]
 - [[mod-declarations|mod declarations]]
 - [[module-file-layout|module file layout]]

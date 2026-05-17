@@ -3,9 +3,9 @@ title: "Trait Bounds"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, traits, generics]
-source_count: 1
+source_count: 2
 ---
 
 # Trait Bounds
@@ -20,7 +20,7 @@ Trait bounds generic code ichida qaysi methods yoki operations ishlatilishi mumk
 
 ## Mental Model
 
-`T: Summary` degani "`T` istalgan type emas; `Summary` implement qilgan type". Function body `T` ustida `summarize()` chaqira oladi. Multiple bounds `T: Summary + Display` bo'lsa, body `summarize()` ham, `{}` formatting ham ishlata oladi.
+`T: Summary` degani "`T` istalgan type emas; `Summary` implement qilgan type". Function body `T` ustida `summarize()` chaqira oladi. Multiple bounds `T: Summary + Display` bo'lsa, body `summarize()` ham, `{}` formatting ham ishlata oladi. Backend beginner source `impl A + B` ko'rinishidagi ixcham syntaxni ko'rsatadi, lekin bounds ko'payganda [[where-clauses|where clause]] odatda o'qilishi yaxshiroq.
 
 ## Syntax and Examples
 
@@ -68,4 +68,5 @@ pub fn notify<T: Summary + Display>(item: &T) {
 
 ## Sources
 
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

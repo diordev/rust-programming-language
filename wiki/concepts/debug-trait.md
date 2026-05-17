@@ -3,9 +3,9 @@ title: "Debug Trait"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-13
 tags: [rust, traits, debug]
-source_count: 1
+source_count: 2
 ---
 
 # Debug Trait
@@ -16,7 +16,7 @@ source_count: 1
 
 ## Why It Matters
 
-Custom [[structs]] `println!("{rect:?}")` yoki [[dbg-macro|dbg! macro]] bilan chiqarilishi uchun `Debug` implement qilishi kerak. Ko'p hollarda bu [[derive-attribute|derive attribute]] orqali qilinadi.
+Custom [[structs]] `println!("{rect:?}")` yoki [[dbg-macro|dbg! macro]] bilan chiqarilishi uchun `Debug` implement qilishi kerak. Ko'p hollarda bu [[derive-attribute|derive attribute]] orqali qilinadi. Appendix C ko'rsatadigan yana bir muhim use case: `assert_eq!` fail bo'lsa qiymatlarni chiqarish uchun ham `Debug` kerak.
 
 ## Mental Model
 
@@ -35,10 +35,18 @@ println!("rect1 is {rect1:?}");
 println!("rect1 is {rect1:#?}");
 ```
 
+`assert_eq!` bilan:
+
+```rust
+#[derive(Debug, PartialEq)]
+struct Point { x: i32, y: i32 }
+```
+
 ## Common Mistakes
 
 - `{:?}` ishlatish uchun `Debug` derive kerakligini unutish.
 - `Display` va `Debug` formattingni bir xil deb o'ylash.
+- `assert_eq!` faqat `PartialEq` talab qiladi deb o'ylash.
 
 ## Related Concepts
 
@@ -47,7 +55,10 @@ println!("rect1 is {rect1:#?}");
 - [[debug-formatting|Debug formatting]]
 - [[display-formatting|Display formatting]]
 - [[structs]]
+- [[partial-eq]]
+- [[test-macros|test macros (assert!, assert_eq!, assert_ne!)]]
 
 ## Sources
 
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
+- [[5-2-an-example-program-using-structs]]
+- [[wiki/sources/22-3-c-derivable-traits|22.3]]

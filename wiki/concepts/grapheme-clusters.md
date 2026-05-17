@@ -52,4 +52,4 @@ Standard library grapheme cluster iteration bermaydi; kerak bo'lsa crates.io'dag
 
 ## Sources
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]

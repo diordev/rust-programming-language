@@ -49,4 +49,4 @@ Panic bo'lganda default response stackni unwind qilish va programni tugatishdir.
 
 ## Sources
 
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
+- [[9-1-unrecoverable-errors-with-panic]]

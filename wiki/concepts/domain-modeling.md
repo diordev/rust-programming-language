@@ -45,4 +45,4 @@ struct User {
 
 ## Sources
 
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language]]
+- [[wiki/sources/5-using-structs-to-structure-related-data]]

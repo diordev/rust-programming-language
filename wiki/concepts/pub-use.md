@@ -59,5 +59,5 @@ External code endi `restaurant::hosting::add_to_waitlist()` pathini ishlatishi m
 
 ## Sources
 
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[7-5-separating-modules-into-different-files]]

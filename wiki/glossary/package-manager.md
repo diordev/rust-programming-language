@@ -14,4 +14,4 @@ Dependencies va package metadata bilan ishlaydigan tool.
 
 Related: [[cargo|Cargo]], [[dependencies]]
 
-Sources: [[1-3-hello-cargo-the-rust-programming-language]]
+Sources: [[1-3-hello-cargo]]

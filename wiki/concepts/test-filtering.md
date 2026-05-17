@@ -72,4 +72,4 @@ cargo test unit_     # nomi "unit_" bilan boshlangan barcha testlar
 
 ## Sources
 
-- [[11-2-controlling-how-tests-are-run-the-rust-programming-language]]
+- [[11-2-controlling-how-tests-are-run]]

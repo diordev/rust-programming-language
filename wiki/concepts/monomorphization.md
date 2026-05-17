@@ -3,9 +3,9 @@ title: "Monomorphization"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, generics, performance]
-source_count: 1
+source_count: 2
 ---
 
 # Monomorphization
@@ -20,7 +20,7 @@ Monomorphization sabab Rust [[generics]]i runtime'da sekinlashuv keltirmaydi. Ge
 
 ## Mental Model
 
-Developer `Option<T>` kabi generic definition yozadi. Compiler programda `Option<i32>` va `Option<f64>` ishlatilganini ko'rsa, mental model sifatida alohida `Option_i32` va `Option_f64`ga o'xshash concrete definitions yaratadi.
+Developer `Option<T>` kabi generic definition yozadi. Compiler programda `Option<i32>` va `Option<f64>` ishlatilganini ko'rsa, mental model sifatida alohida `Option_i32` va `Option_f64`ga o'xshash concrete definitions yaratadi. Trait parameterlari uchun `&impl Trait` yoki `T: Trait` ham shu modelda ishlaydi: concrete type ma'lum bo'lgach, compiler specialized variant yaratadi.
 
 Bu hand-written duplicated concrete codega o'xshash runtime behavior beradi. Cost asosan compile time va mumkin bo'lgan binary size tomonda bo'lishi mumkin; source bu sectionda runtime cost yo'qligiga urg'u beradi.
 
@@ -61,7 +61,9 @@ enum Option_f64 {
 - [[compiler]]
 - [[option|Option]]
 - [[performance]]
+- [[static-dispatch|static dispatch]]
 
 ## Sources
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[10-1-generic-data-types]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

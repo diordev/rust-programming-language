@@ -3,9 +3,9 @@ title: "Structs"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, structs, types]
-source_count: 6
+source_count: 7
 ---
 
 # Structs
@@ -23,6 +23,8 @@ Structs Rustda domain data'ni primitive values yoki tuples o'rniga meaningful ty
 Struct definition type template. [[struct-instances|Struct instance]] esa shu templatedagi har bir field uchun concrete value beradi. Field names data meaningni orderdan mustaqil qiladi.
 
 Structs bilan ishlash progression: separate variables yoki [[tuple]] o'rniga named fields ishlatiladi, debugging uchun [[debug-trait|Debug trait]] derive qilinadi, behavior esa [[impl-block|impl block]] ichidagi [[methods]] orqali type bilan bog'lanadi.
+
+Backend beginner source yana uchta amaliy nuqtani aniq qiladi: field init shorthand constructor-like code'ni ixchamlaydi, struct fieldini o'zgartirish uchun butun instance `mut` bo'lishi kerak, va reference field saqlansa [[lifetimes]] type definition darajasida ko'rinadi.
 
 Module privacy kontekstida `pub struct` type'ni public qiladi, lekin fields private by default qoladi. Public fields API contract bo'lib qoladi; private fields uchun public associated function constructor vazifasini bajarishi mumkin.
 
@@ -66,6 +68,7 @@ let point = Point { x: 5, y: 4.0 };
 - Custom struct avtomatik `Display` yoki `Debug` formatlanadi deb o'ylash.
 - `pub struct` fieldsni ham avtomatik public qiladi deb o'ylash.
 - `Point<T>` kabi bitta generic parameter ishlatilgan structda fields turli type bo'lishi mumkin deb o'ylash.
+- Field order memoryda har doim source code tartibida saqlanadi deb o'ylash; default layoutda padding va reorder bo'lishi mumkin, FFI uchun `#[repr(C)]` kerak bo'ladi.
 
 ## Related Concepts
 
@@ -90,9 +93,10 @@ let point = Point { x: 5, y: 4.0 };
 
 ## Sources
 
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
-- [[5-3-methods-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[wiki/sources/5-using-structs-to-structure-related-data]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[5-2-an-example-program-using-structs]]
+- [[5-3-methods]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[10-1-generic-data-types]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

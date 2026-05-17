@@ -14,4 +14,4 @@ Rust `char` single Unicode scalar value ifodalaydigan scalar type. `char` user-f
 
 Related: [[scalar-types|scalar types]], [[utf-8|UTF-8]], [[grapheme-clusters|grapheme clusters]]
 
-Sources: [[3-2-data-types-the-rust-programming-language]], [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+Sources: [[3-2-data-types]], [[8-2-storing-utf-8-encoded-text-with-strings]]

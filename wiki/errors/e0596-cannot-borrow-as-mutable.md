@@ -51,6 +51,6 @@ fn change(some_string: &mut String) {
 
 ## Related Concepts
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
 - [[borrowing]]
 - [[mutable-reference|mutable reference]]

@@ -6,12 +6,12 @@ Date: 2026-05-06
 
 Processed source:
 
-- `raw/books/the_rust_programming_language/8.3. Storing Keys with Associated Values in Hash Maps - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/8.3. Storing Keys with Associated Values in Hash Maps.md`
 
 ## Wiki Updates
 
 - Created source summary:
-  - `wiki/sources/8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language.md`
+  - `wiki/sources/8-3-storing-keys-with-associated-values-in-hash-maps.md`
 - Expanded chapter page:
   - `wiki/chapters/8-common-collections.md`
 - Expanded concept page:

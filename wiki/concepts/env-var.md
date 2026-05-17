@@ -73,4 +73,4 @@ PS> Remove-Item Env:IGNORE_CASE
 
 ## Sources
 
-- [[12-5-working-with-environment-variables-the-rust-programming-language|12.5. Working with Environment Variables]]
+- [[12-5-working-with-environment-variables|12.5. Working with Environment Variables]]

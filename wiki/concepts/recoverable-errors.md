@@ -74,7 +74,7 @@ let greeting_file = match File::open("hello.txt") {
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[9-error-handling-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[wiki/sources/9-error-handling]]
+- [[9-2-recoverable-errors-with-result]]
+- [[9-3-to-panic-or-not-to-panic]]

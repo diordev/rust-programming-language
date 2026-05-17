@@ -56,7 +56,7 @@ Har bir arm `u8` qaytaradi, shuning uchun butun `match` expression'i ham `u8` qa
 
 ## Related Pages
 
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
+- [[6-2-the-match-control-flow-construct]]
 - [[match]]
 - [[pattern-matching|pattern matching]]
 - [[enums]]

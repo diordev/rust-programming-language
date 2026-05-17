@@ -3,9 +3,9 @@ title: "Closures"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-09
 tags: [rust, closures, fn-traits, capture, functional]
-source_count: 1
+source_count: 4
 ---
 
 # Closures
@@ -81,16 +81,56 @@ list.sort_by_key(|r| {
 });
 ```
 
+## Thread kontekstida `move`
+
+`thread::spawn(move || ...)` — eng keng tarqalgan `move` closure ishlatilishi. Closure parent thread'dan qiymat ishlatishi kerak bo'lganda `move` majburiy, chunki Rust thread lifetime'ni bila olmaydi:
+
+```rust
+use std::thread;
+
+let v = vec![1, 2, 3];
+// move: v ownership thread'ga o'tadi
+let handle = thread::spawn(move || println!("{v:?}"));
+handle.join().unwrap();
+```
+
+Batafsil: [[move-closures-threads]].
+
+## Returning Closures
+
+Functiondan closure qaytarishda closure'ning concrete type nomini yozib bo'lmaydi. Bitta closure implementation uchun:
+
+```rust
+fn returns_closure() -> impl Fn(i32) -> i32 {
+    |x| x + 1
+}
+```
+
+Turli closure typelarini bitta collectionda saqlash kerak bo'lsa, [[trait-object|trait object]] ishlatiladi:
+
+```rust
+fn handler(init: i32) -> Box<dyn Fn(i32) -> i32> {
+    Box::new(move |x| x + init)
+}
+```
+
+Batafsil: [[returning-closures]] va [[opaque-types]].
+
 ## Related Concepts
 
 - [[fn-traits]] (`FnOnce`, `FnMut`, `Fn`) — closure'ning chaqirilish imkoniyatlari
+- [[returning-closures]] — `impl Fn` va `Box<dyn Fn>`
+- [[function-pointers]] — named functionlar closure traitlarini implement qiladi
 - [[iterators]] — ko'p iterator metodlari closure qabul qiladi
 - [[move-semantics]] — `move` keyword
 - [[borrowing]] — capture modlari borrow qoidalariga bo'ysunadi
 - [[type-inference]] — closure type annotation aksariyat shart emas
 - [[concurrency]] — `move` closures thread'lar uchun zarur
+- [[move-closures-threads]] — thread kontekstida `move` closure
 
 ## Sources
 
-- [[13-1-closures-the-rust-programming-language|13.1 Closures]]
-- [[13-functional-language-features-the-rust-programming-language|13. Intro]]
+- [[13-1-closures|13.1 Closures]]
+- [[13-functional-language-features-iterators-and-closures|13. Intro]]
+- [[16-1-using-threads-to-run-code-simultaneously]]
+- [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]

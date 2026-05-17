@@ -86,5 +86,5 @@ $ cargo doc --open    # browser'da ochiladi
 
 ## Sources
 
-- [[3-4-comments-the-rust-programming-language]]
-- [[14-2-publishing-a-crate-to-crates-io-the-rust-programming-language|14.2 Publishing a Crate]]
+- [[3-4-comments]]
+- [[14-2-publishing-a-crate-to-crates-io|14.2 Publishing a Crate]]

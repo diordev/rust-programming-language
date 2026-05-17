@@ -75,7 +75,7 @@ Qisqa xulosa:
 - [[borrowing]]: ownershipsiz foydalanish.
 - [[reference]]: `&value` syntax va owner emasligi.
 - [[ownership]]: owner scope'dan chiqganda value dropped bo'ladi.
-- [[4-2-references-and-borrowing-the-rust-programming-language]]: dangling reference va valid reference qoidalari.
+- [[4-2-references-and-borrowing]]: dangling reference va valid reference qoidalari.
 - [[e0106-missing-lifetime-specifier]]: return reference ortida valid owner bo'lmagan holat.
 
 ## Follow-up

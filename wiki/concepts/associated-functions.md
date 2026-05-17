@@ -3,9 +3,9 @@ title: "Associated Functions"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, structs, functions]
-source_count: 2
+source_count: 3
 ---
 
 # Associated Functions
@@ -20,7 +20,7 @@ Associated functions type bilan bog'langan behaviorni type namespace ichida tash
 
 ## Mental Model
 
-Associated function type'ga tegishli function. Agar birinchi parameter `self` bo'lmasa, u method emas; ko'pincha constructor-like helpers uchun ishlatiladi.
+Associated function type'ga tegishli function. Agar birinchi parameter `self` bo'lmasa, u method emas; ko'pincha constructor-like helpers uchun ishlatiladi. Backend struct source `new` patternini aynan shu rolda ko'rsatadi.
 
 ## Syntax and Examples
 
@@ -54,5 +54,6 @@ let sq = Rectangle::square(3);
 
 ## Sources
 
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language]]
-- [[5-3-methods-the-rust-programming-language]]
+- [[wiki/sources/5-using-structs-to-structure-related-data]]
+- [[5-3-methods]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

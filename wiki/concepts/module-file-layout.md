@@ -3,9 +3,9 @@ title: "Module File Layout"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, modules, file-layout]
-source_count: 1
+source_count: 2
 ---
 
 # Module File Layout
@@ -22,7 +22,7 @@ Module code kattalashganda uni alohida file'larga ajratish navigationni yengilla
 
 `mod front_of_house;` compilerga module body'ni qayerdan topishni aytadi. File topilgandan keyin boshqa code shu module'ga file path bilan emas, module path bilan murojaat qiladi.
 
-`mod` file'ni crate'ga ulaydi; [[use-declarations|use]] esa faqat scope ichida path shortcut yaratadi.
+`mod` file'ni crate'ga ulaydi; [[use-declarations|use]] esa faqat scope ichida path shortcut yaratadi. Beginner backend source inline module, alohida `name.rs`, va directory + `mod.rs` patternini bitta mental modelga jamlaydi; `mod.rs` supported, lekin yagona layout emas.
 
 ## Syntax and Examples
 
@@ -78,4 +78,5 @@ src/
 
 ## Sources
 
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[7-5-separating-modules-into-different-files]]
+- [[wiki/sources/rust-for-backend-developers-modules]]

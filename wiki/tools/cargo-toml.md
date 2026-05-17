@@ -50,9 +50,9 @@ panic = 'abort'
 
 ## Sources
 
-- [[0-the-rust-programming-language-the-rust-programming-language]]
-- [[1-3-hello-cargo-the-rust-programming-language]]
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[7-1-packages-and-crates-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
+- [[0-the-rust-programming-language]]
+- [[1-3-hello-cargo]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[7-1-packages-and-crates]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[9-1-unrecoverable-errors-with-panic]]

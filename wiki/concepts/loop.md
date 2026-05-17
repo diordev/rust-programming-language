@@ -3,9 +3,9 @@ title: "loop"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, control-flow]
-source_count: 2
+source_count: 4
 ---
 
 # loop
@@ -27,6 +27,8 @@ Chapter 3 `loop`dan tashqari `while` va `for` looplarni ham ko'rsatadi. Collecti
 - `continue`: hozirgi iterationni tashlab, keyingisiga o'tish.
 - `break value`: loop expressiondan value qaytarish.
 - Loop label: nested looplarda qaysi loopdan chiqishni aniqlash.
+
+`loop` shu jihatdan oddiy `while true`dan kuchliroq mental model beradi: u expression sifatida ishlashi mumkin.
 
 ## Syntax and Examples
 
@@ -66,8 +68,12 @@ let result = loop {
 - [[control-flow|control flow]]
 - [[while-loop|while loop]]
 - [[for-loop|for loop]]
+- [[never-type|never type (!)]] — `loop {}` (break'siz) `!` qaytaradi
+- [[diverging-functions|diverging functions]]
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[3-5-control-flow-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[3-5-control-flow]]
+- [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]
+- [[wiki/sources/rust-for-backend-developers-loops]]

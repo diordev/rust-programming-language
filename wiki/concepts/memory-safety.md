@@ -3,9 +3,9 @@ title: "Memory Safety"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, ownership]
-source_count: 2
+source_count: 3
 ---
 
 # Memory Safety
@@ -16,7 +16,7 @@ source_count: 2
 
 ## Why It Matters
 
-Rust [[ownership]], [[borrowing]], va [[lifetimes]] orqali garbage collectorsiz memory safety berishga harakat qiladi.
+Rust [[ownership]], [[borrowing]], va [[lifetimes]] orqali garbage collectorsiz memory safety berishga harakat qiladi. Safe Rust default holatda invalid memory access, dangling references, va [[data-race|data race]] kabi muammolarni oldini olishga qaratilgan.
 
 ## Mental Model
 
@@ -34,6 +34,7 @@ println!("{r}");
 
 - Memory safetyni faqat runtime tekshiruvi deb o'ylash.
 - [[unsafe-rust|unsafe Rust]] barcha compiler qoidalarini o'chiradi deb tushunish.
+- Memory leakni har doim memory safety violation deb hisoblash. Safe Rust leaksni to'liq imkonsiz qilmaydi; masalan reference cycles resource leak bo'lishi mumkin.
 
 ## Related Concepts
 
@@ -41,8 +42,12 @@ println!("{r}");
 - [[borrowing]]
 - [[lifetimes]]
 - [[data-race|data race]]
+- [[unsafe-rust|unsafe Rust]]
+- [[undefined-behavior|undefined behavior]]
+- [[memory-leak|memory leak]]
 
 ## Sources
 
-- [[0-1-foreword-the-rust-programming-language]]
-- [[4-understanding-ownership-the-rust-programming-language]]
+- [[0-1-foreword]]
+- [[wiki/sources/4-understanding-ownership]]
+- [[wiki/sources/rust-for-backend-developers-safe-rust]]

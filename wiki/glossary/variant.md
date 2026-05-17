@@ -16,4 +16,4 @@ To'liq tushuntirish: [[enum-variants|enum variants]].
 
 Related: [[enums]], [[option|Option]], [[pattern-matching|pattern matching]]
 
-Sources: [[6-1-defining-an-enum-the-rust-programming-language]]
+Sources: [[6-1-defining-an-enum]]

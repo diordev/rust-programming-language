@@ -46,4 +46,4 @@ Keng tarqalgan refactoring qadamlari 12-bobdan:
 
 ## Sources
 
-- [[12-3-refactoring-to-improve-modularity-and-error-handling-the-rust-programming-language]]
+- [[12-3-refactoring-to-improve-modularity-and-error-handling]]

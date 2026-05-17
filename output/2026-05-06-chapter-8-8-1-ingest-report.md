@@ -6,14 +6,14 @@ Date: 2026-05-06
 
 Processed sources:
 
-- `raw/books/the_rust_programming_language/8. Common Collections - The Rust Programming Language.md`
-- `raw/books/the_rust_programming_language/8.1 Storing Lists of Values with Vectors - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/8. Common Collections.md`
+- `raw/books/the_rust_programming_language/8.1 Storing Lists of Values with Vectors.md`
 
 ## Wiki Updates
 
 - Created source summaries:
-  - `wiki/sources/8-common-collections-the-rust-programming-language.md`
-  - `wiki/sources/8-1-storing-lists-of-values-with-vectors-the-rust-programming-language.md`
+  - `wiki/sources/8-common-collections.md`
+  - `wiki/sources/8-1-storing-lists-of-values-with-vectors.md`
 - Created chapter page:
   - `wiki/chapters/8-common-collections.md`
 - Created concept pages:

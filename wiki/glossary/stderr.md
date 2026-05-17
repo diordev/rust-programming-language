@@ -14,4 +14,4 @@ Standard error stream. `dbg!` macro debug outputni shu streamga yozadi.
 
 Related: [[stdout]], [[dbg-macro|dbg! macro]]
 
-Sources: [[5-2-an-example-program-using-structs-the-rust-programming-language]]
+Sources: [[5-2-an-example-program-using-structs]]

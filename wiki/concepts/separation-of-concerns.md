@@ -111,6 +111,6 @@ Qolgan hamma narsa `lib.rs` da — u yerda test yozish mumkin.
 
 ## Sources
 
-- [[12-2-reading-a-file-the-rust-programming-language]]
-- [[12-an-io-project-the-rust-programming-language]]
-- [[12-3-refactoring-to-improve-modularity-and-error-handling-the-rust-programming-language]]
+- [[12-2-reading-a-file]]
+- [[12-an-io-project-building-a-command-line-program]]
+- [[12-3-refactoring-to-improve-modularity-and-error-handling]]

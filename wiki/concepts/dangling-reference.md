@@ -3,9 +3,9 @@ title: "Dangling Reference"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, borrowing, memory-safety]
-source_count: 1
+source_count: 2
 ---
 
 # Dangling Reference
@@ -38,6 +38,8 @@ fn no_dangle() -> String {
 }
 ```
 
+Function imzosi ham dangling xavfni ko'rsatishi mumkin. Masalan, ikki `&str` olib `&str` qaytaradigan function relationni aytmasa [[e0106-missing-lifetime-specifier|E0106]] beradi.
+
 ## Common Mistakes
 
 - Function ichida yaratilgan local value'ga reference return qilish.
@@ -52,4 +54,5 @@ fn no_dangle() -> String {
 
 ## Sources
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
+- [[wiki/sources/rust-for-backend-developers-lifetimes]]

@@ -60,6 +60,6 @@ panic!("crash and burn");
 
 ## Sources
 
-- [[9-error-handling-the-rust-programming-language]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[wiki/sources/9-error-handling]]
+- [[9-1-unrecoverable-errors-with-panic]]
+- [[9-3-to-panic-or-not-to-panic]]

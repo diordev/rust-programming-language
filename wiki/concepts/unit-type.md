@@ -3,9 +3,9 @@ title: "Unit Type"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, types]
-source_count: 2
+source_count: 4
 ---
 
 # Unit Type
@@ -24,12 +24,24 @@ Semicolon expressionni statementga aylantiradi va ko'pincha return value `()` bo
 
 [[unit-like-structs]] field saqlamasligi bilan unit typega o'xshaydi, lekin ular named custom type bo'lib, trait implementation uchun ishlatilishi mumkin.
 
+Backend beginner source unit'ni `void` bilan chalg'itmaslikka alohida urg'u beradi: `void` bo'sh to'plam modeli bo'lsa, `()` bitta haqiqiy qiymatga ega singleton type.
+
 ## Syntax and Examples
 
 ```rust
 fn log_message() {
     println!("done");
 }
+```
+
+```rust
+let unit_value: () = ();
+```
+
+`if` branch oxiridagi semicolon ham ko'pincha `()`ga olib keladi:
+
+```rust
+let v: () = if condition { 1; } else { 2; };
 ```
 
 ## Common Mistakes
@@ -48,5 +60,7 @@ fn log_message() {
 
 ## Sources
 
-- [[3-2-data-types-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
+- [[3-2-data-types]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/rust-for-backend-developers-primitive-types]]
+- [[wiki/sources/rust-for-backend-developers-if]]

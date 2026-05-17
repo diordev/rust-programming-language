@@ -45,4 +45,4 @@ Bu ikki call method receiver uchun equivalent bo'lishi mumkin.
 
 ## Sources
 
-- [[5-3-methods-the-rust-programming-language]]
+- [[5-3-methods]]

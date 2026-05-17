@@ -97,4 +97,4 @@ impl<X1, Y1> Point<X1, Y1> {
 
 ## Sources
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[10-1-generic-data-types]]

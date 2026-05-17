@@ -49,4 +49,4 @@ Bu default hasher bilan map yaratadi.
 
 ## Sources
 
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]

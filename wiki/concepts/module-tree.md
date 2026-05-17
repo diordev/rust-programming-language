@@ -74,6 +74,6 @@ Bu code'da `front_of_house` `crate`ning child module'i, `hosting` esa `front_of_
 
 ## Sources
 
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[7-5-separating-modules-into-different-files]]

@@ -3,9 +3,9 @@ title: "if Expressions"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, control-flow]
-source_count: 1
+source_count: 2
 ---
 
 # if Expressions
@@ -26,6 +26,8 @@ let number = if condition { 5 } else { 6 };
 
 Bu yerda `if` expressionning har bir arm'i bir xil type qaytarishi kerak.
 
+Rustda har branch braces bilan yoziladi. Bu branchesni aniq block expressionga aylantiradi.
+
 ## Syntax and Examples
 
 ```rust
@@ -44,6 +46,12 @@ if number % 4 == 0 {
 }
 ```
 
+Semicolon branch natijasini `()`ga aylantirishi mumkin:
+
+```rust
+let v: () = if number > 0 { 1; } else { 0; };
+```
+
 ## Common Mistakes
 
 - `if number { ... }` yozish; Rust integerni boolga convert qilmaydi.
@@ -59,4 +67,5 @@ if number % 4 == 0 {
 
 ## Sources
 
-- [[3-5-control-flow-the-rust-programming-language]]
+- [[3-5-control-flow]]
+- [[wiki/sources/rust-for-backend-developers-if]]

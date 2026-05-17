@@ -14,4 +14,4 @@ Source code'dan build artifacts yaratish jarayonini boshqaradigan tool yoki work
 
 Related: [[cargo|Cargo]], [[compiler]]
 
-Sources: [[1-3-hello-cargo-the-rust-programming-language]]
+Sources: [[1-3-hello-cargo]]

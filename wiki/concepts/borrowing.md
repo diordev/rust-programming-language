@@ -3,9 +3,9 @@ title: "Borrowing"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, ownership, borrowing]
-source_count: 5
+source_count: 7
 ---
 
 # Borrowing
@@ -28,9 +28,13 @@ println!("The length of '{s1}' is {len}.");
 
 `calculate_length` `s1`ni borrow qiladi, owner bo'lmaydi.
 
+Eng sodda ko'rinishda borrowing `&T` yoki `&mut T` bilan boshlanadi: owner value joyida qoladi, callee esa vaqtincha access oladi. Compiler shu access original owner umridan uzun bo'lib ketmasligini tekshiradi.
+
 Struct functions va methodsda borrowing ko'p uchraydi: `area(rectangle: &Rectangle)` va `fn area(&self)` instance ownershipini olmasdan fieldsni o'qiydi. Method receiver uchun Rust [[automatic-referencing-and-dereferencing|automatic referencing and dereferencing]]ni qo'llashi mumkin.
 
 Collectionsda borrowing element references valid qolishini ham himoya qiladi. Masalan, vector elementiga reference bor paytda `push` qilish rad etiladi, chunki `push` reallocation qilib elementlarni boshqa heap joyiga ko'chirishi mumkin.
+
+Raw pointer chapter shu yerning qarama-qarshi tomonini ko'rsatadi: pointerlar orqali borrow checker cheklovlarini aylanib o'tish mumkin, lekin bu xavfsizlik kafolatini ham olib tashlaydi.
 
 [[hash-map|HashMap]]da [[entry-api|entry API]] ham borrowingni ko'rsatadi: `entry(...).or_insert(...)` value'ga mutable reference qaytaradi. Shu reference orqali value update qilinadi, lekin reference active turgan paytda mapni boshqa yo'l bilan borrow/mutate qilishga urinish borrow checker qoidalariga tushadi.
 
@@ -85,8 +89,10 @@ let count = map.entry(word).or_insert(0);
 
 ## Sources
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
-- [[5-3-methods-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
+- [[5-2-an-example-program-using-structs]]
+- [[5-3-methods]]
+- [[8-1-storing-lists-of-values-with-vectors]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]
+- [[wiki/sources/rust-for-backend-developers-references]]
+- [[wiki/sources/rust-for-backend-developers-pointers]]

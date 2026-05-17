@@ -3,9 +3,9 @@ title: "Default Trait Implementations"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, traits]
-source_count: 1
+source_count: 2
 ---
 
 # Default Trait Implementations
@@ -64,4 +64,5 @@ pub trait Summary {
 
 ## Sources
 
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

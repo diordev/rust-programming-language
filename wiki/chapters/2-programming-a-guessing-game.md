@@ -66,7 +66,7 @@ Rustning birinchi project chapteri orqali input, variables, `Result`, external c
 
 ## Related Pages
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
 - [[guessing-game]]
 - [[rand]]
 - [[cargo|Cargo]]

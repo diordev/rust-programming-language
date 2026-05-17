@@ -57,5 +57,5 @@ let v: Vec<i32> = Vec::new();
 
 ## Sources
 
-- [[3-2-data-types-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
+- [[3-2-data-types]]
+- [[8-1-storing-lists-of-values-with-vectors]]

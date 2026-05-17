@@ -70,5 +70,5 @@ fn print_name(name: Option<String>) {
 
 ## Sources
 
-- [[6-3-concise-control-flow-with-if-let-and-let-else-the-rust-programming-language]]
+- [[6-3-concise-control-flow-with-if-let-and-let-else]]
 

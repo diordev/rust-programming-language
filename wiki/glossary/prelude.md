@@ -16,4 +16,4 @@ Prelude scope'ga kiritish (Chapter 7) qaramligi bilan bog'liq: agar custom `Opti
 
 Related: [[standard-library|standard library]], [[option|Option]], [[result|Result]]
 
-Sources: [[6-1-defining-an-enum-the-rust-programming-language]]
+Sources: [[6-1-defining-an-enum]]

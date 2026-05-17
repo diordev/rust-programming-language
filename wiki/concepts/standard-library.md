@@ -55,7 +55,7 @@ use std::collections::HashMap;
 
 ## Sources
 
-- [[1-1-installation-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[8-common-collections-the-rust-programming-language]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[1-1-installation]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[wiki/sources/8-common-collections]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]

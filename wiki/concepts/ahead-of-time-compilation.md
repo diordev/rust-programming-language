@@ -41,4 +41,4 @@ $ ./main
 
 ## Sources
 
-- [[1-2-hello-world-the-rust-programming-language]]
+- [[1-2-hello-world]]

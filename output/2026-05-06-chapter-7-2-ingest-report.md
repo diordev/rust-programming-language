@@ -6,11 +6,11 @@ Date: 2026-05-06
 
 Processed source:
 
-- `raw/books/the_rust_programming_language/7.2. Control Scope and Privacy with Modules - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/7.2. Control Scope and Privacy with Modules.md`
 
 ## Wiki Updates
 
-- Created source summary: `wiki/sources/7-2-control-scope-and-privacy-with-modules-the-rust-programming-language.md`
+- Created source summary: `wiki/sources/7-2-control-scope-and-privacy-with-modules.md`
 - Expanded chapter page: `wiki/chapters/7-packages-crates-and-modules.md`
 - Created concept pages:
   - `wiki/concepts/module-tree.md`

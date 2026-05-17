@@ -114,4 +114,4 @@ fn main() {
 
 ## Sources
 
-- [[10-3-validating-references-with-lifetimes-the-rust-programming-language]]
+- [[10-3-validating-references-with-lifetimes]]

@@ -61,5 +61,5 @@ Bu package'da `main.rs`, `import.rs`, va `serve.rs` alohida binary crates bo'lad
 
 ## Sources
 
-- [[7-1-packages-and-crates-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
+- [[7-1-packages-and-crates]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]

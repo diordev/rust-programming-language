@@ -46,4 +46,4 @@ Bu path `crate` rootidan boshlanib, `front_of_house`, keyin `hosting`, keyin `ad
 
 ## Sources
 
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]

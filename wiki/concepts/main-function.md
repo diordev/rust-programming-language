@@ -3,9 +3,9 @@ title: "main Function"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, functions]
-source_count: 3
+source_count: 4
 ---
 
 # main Function
@@ -21,6 +21,8 @@ Binary crate ishga tushganda control `fn main()`dan boshlanadi.
 ## Mental Model
 
 `main` programning boshlanish nuqtasi; undan chaqirilgan functionlar actual ishni bajaradi. Default `fn main()` return type'i `()`, lekin `main` `Result<(), E>` ham qaytarishi mumkin.
+
+Single-file Hello World misolida `rustc main.rs` executable yaratadi va runtime control aynan `fn main()`ga kiradi.
 
 ## Syntax and Examples
 
@@ -64,6 +66,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 ## Sources
 
-- [[1-2-hello-world-the-rust-programming-language]]
-- [[1-getting-started|1. Getting Started]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[1-2-hello-world]]
+- [[wiki/chapters/1-getting-started|1. Getting Started]]
+- [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/rust-for-backend-developers-first-look]]

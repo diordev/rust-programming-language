@@ -45,4 +45,4 @@ match guess.cmp(&secret_number) {
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]

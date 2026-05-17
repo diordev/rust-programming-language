@@ -14,4 +14,4 @@ Shell executable commandsni qaysi foldersdan qidirishini belgilaydigan environme
 
 Related: [[rustup]], [[cargo|Cargo]], [[rustc]]
 
-Sources: [[1-1-installation-the-rust-programming-language]]
+Sources: [[1-1-installation]]

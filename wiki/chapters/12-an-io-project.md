@@ -204,17 +204,17 @@ Natija: `> output.txt` bilan ishlaganda xato xabarlari ekranda ko'rinadi, muvaff
 
 ## Related Pages
 
-- [[11-writing-automated-tests-the-rust-programming-language|11. Writing Automated Tests]] — oldingi bob
+- [[wiki/sources/11-writing-automated-tests|11. Writing Automated Tests]] — oldingi bob
 - [[env-args]]
 - [[fs-read-to-string]]
 - [[separation-of-concerns]]
 - [[unwrap-or-else]]
 - [[process-exit]]
 - [[constructor-functions]]
-- [[12-an-io-project-the-rust-programming-language]] (source)
-- [[12-1-accepting-command-line-arguments-the-rust-programming-language]] (source)
-- [[12-2-reading-a-file-the-rust-programming-language]] (source)
-- [[12-3-refactoring-to-improve-modularity-and-error-handling-the-rust-programming-language]] (source)
-- [[12-4-adding-functionality-with-test-driven-development-the-rust-programming-language]] (source)
-- [[12-5-working-with-environment-variables-the-rust-programming-language]] (source)
-- [[12-6-redirecting-errors-to-standard-error-the-rust-programming-language]] (source)
+- [[12-an-io-project-building-a-command-line-program]] (source)
+- [[12-1-accepting-command-line-arguments]] (source)
+- [[12-2-reading-a-file]] (source)
+- [[12-3-refactoring-to-improve-modularity-and-error-handling]] (source)
+- [[12-4-adding-functionality-with-test-driven-development]] (source)
+- [[12-5-working-with-environment-variables]] (source)
+- [[12-6-redirecting-errors-to-standard-error]] (source)

@@ -56,6 +56,6 @@ fn main() {
 
 ## Related Concepts
 
-- [[3-1-variables-and-mutability-the-rust-programming-language]]
+- [[3-1-variables-and-mutability]]
 - [[variables-and-mutability|variables and mutability]]
 - [[shadowing]]

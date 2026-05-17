@@ -118,7 +118,7 @@ pub fn search<'a>(
 
 ## Related Pages
 
-- [[13-3-improving-our-io-project-the-rust-programming-language|Source: 13.3]]
+- [[13-3-improving-our-io-project|Source: 13.3]]
 - [[iterators]]
 - [[iterator-adapters]]
 - [[consuming-adapters]]

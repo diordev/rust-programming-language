@@ -110,5 +110,5 @@ fn main() {
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[9-3-to-panic-or-not-to-panic]]

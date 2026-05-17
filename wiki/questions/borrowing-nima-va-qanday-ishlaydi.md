@@ -71,7 +71,7 @@ Borrowingni yaxshi tushunsangiz, ownership qachon kerakligini, qachon reference 
 - [[reference]]: `&value` syntax va ownership transfer qilmaslik.
 - [[mutable-reference|mutable reference]]: `&mut` va exclusive access qoidasi.
 - [[ownership]]: borrowing ownershipni almashtirmaydi, faqat vaqtincha foydalanish beradi.
-- [[4-2-references-and-borrowing-the-rust-programming-language]]: Rust Book’dagi asosiy izohlar va borrow checker qoidalari.
+- [[4-2-references-and-borrowing]]: Rust Book’dagi asosiy izohlar va borrow checker qoidalari.
 
 ## Follow-up
 

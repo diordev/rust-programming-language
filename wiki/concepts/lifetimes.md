@@ -3,9 +3,9 @@ title: "Lifetimes"
 type: concept
 status: stable
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, borrowing, lifetimes]
-source_count: 5
+source_count: 7
 ---
 
 # Lifetimes
@@ -23,6 +23,8 @@ Lifetimes Rustga [[dangling-reference|dangling reference]]ni compile time'da rad
 Reference owner emas — u faqat mavjud value'ga qaraydi. Owner scope'dan chiqib dropped bo'lsa, unga qaragan reference valid bo'lmaydi; Rust bunday holatni compile qilmaydi.
 
 Lifetimes annotatsiyalar references qancha yashashini **o'zgartirmaydi** — ular faqat bir nechta references o'zaro munosabatini compilerga bildiradi. Borrow checker esa bu munosabatlardan foydalanib hamma borrowlarning valid ekanini tekshiradi.
+
+Backend beginner source `take_longest` misoli bilan aynan shu nuqtani ishlatadi: `'a` return reference umrini cho'zmaydi, faqat output qaysi input borrow'lari bilan bog'langanini ko'rsatadi.
 
 Struct ichida reference fieldlar saqlansa, lifetime annotatsiya shu reference qaysi owner data'siga bog'langanini type definitionda ko'rsatishi kerak. Shuning uchun beginner stage'da [[structs]] uchun owned [[string-type|String]] fieldlar `&str` fieldlardan soddaroq.
 
@@ -134,8 +136,10 @@ where
 
 ## Sources
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language]]
-- [[10-3-validating-references-with-lifetimes-the-rust-programming-language]]
-- [[12-4-adding-functionality-with-test-driven-development-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes]]
+- [[10-3-validating-references-with-lifetimes]]
+- [[12-4-adding-functionality-with-test-driven-development]]
+- [[wiki/sources/rust-for-backend-developers-lifetimes]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

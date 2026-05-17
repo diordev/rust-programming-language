@@ -14,4 +14,4 @@ Nested loops ichida qaysi loopni `break` yoki `continue` qilishni belgilash uchu
 
 Related: [[loop]], [[break]], [[continue]]
 
-Sources: [[3-5-control-flow-the-rust-programming-language]]
+Sources: [[3-5-control-flow]]

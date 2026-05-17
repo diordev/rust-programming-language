@@ -4,7 +4,7 @@ Date: 2026-05-07
 
 ## Source Processed
 
-- `raw/books/the_rust_programming_language/9.2. Recoverable Errors with Result - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/9.2. Recoverable Errors with Result.md`
 
 ## Key Takeaways
 
@@ -20,7 +20,7 @@ Date: 2026-05-07
 
 ## Pages Created
 
-- `wiki/sources/9-2-recoverable-errors-with-result-the-rust-programming-language.md`
+- `wiki/sources/9-2-recoverable-errors-with-result.md`
 - `wiki/concepts/error-propagation.md`
 - `wiki/concepts/question-mark-operator.md`
 - `wiki/concepts/unwrap.md`

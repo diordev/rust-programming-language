@@ -69,10 +69,10 @@ Some of these already have nearby concept coverage, so they should be reviewed b
 Pages with dense Rust code examples that may be worth extracting into `wiki/snippets/` later:
 
 - `wiki/questions/if-loop-while-for-va-ularga-bogliq-control-flow.md` — 19 Rust fences
-- `wiki/sources/6-1-defining-an-enum-the-rust-programming-language.md` — 17 Rust fences
-- `wiki/sources/8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language.md` — 14 Rust fences
-- `wiki/sources/8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language.md` — 11 Rust fences
-- `wiki/sources/8-1-storing-lists-of-values-with-vectors-the-rust-programming-language.md` — 11 Rust fences
+- `wiki/sources/6-1-defining-an-enum.md` — 17 Rust fences
+- `wiki/sources/8-3-storing-keys-with-associated-values-in-hash-maps.md` — 14 Rust fences
+- `wiki/sources/8-2-storing-utf-8-encoded-text-with-strings.md` — 11 Rust fences
+- `wiki/sources/8-1-storing-lists-of-values-with-vectors.md` — 11 Rust fences
 - `wiki/chapters/6-enums-and-pattern-matching.md` — 11 Rust fences
 - `wiki/chapters/8-common-collections.md` — 10 Rust fences
 

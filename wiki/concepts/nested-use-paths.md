@@ -57,4 +57,4 @@ Bu `std::io` va `std::io::Write`ni scope'ga olib kiradi.
 
 ## Sources
 
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]

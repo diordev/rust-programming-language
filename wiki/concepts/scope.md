@@ -3,9 +3,9 @@ title: "Scope"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, ownership, modules]
-source_count: 4
+source_count: 6
 ---
 
 # Scope
@@ -61,6 +61,20 @@ mod customer {
 }
 ```
 
+Block scope expression sifatida ham ishlaydi:
+
+```rust
+let sum = {
+    let x = 1;
+    let y = 2;
+    x + y
+};
+```
+
+Oxirgi expressiondan keyin `;` qo'yilsa, block natijasi `()` bo'lib qoladi.
+
+`if` branches ham braces bilan yozilgani uchun aynan shu block qoidalariga bo'ysunadi.
+
 ## Common Mistakes
 
 - Variable declarationdan oldin valid deb o'ylash.
@@ -81,10 +95,14 @@ mod customer {
 - [[use-declarations|use declarations]]
 - [[privacy]]
 - [[use-aliases|use aliases]]
+- [[statements-and-expressions|statements and expressions]]
+- [[unit-type|unit type]]
 
 ## Sources
 
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[4-1-what-is-ownership]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[wiki/sources/rust-for-backend-developers-scopes]]
+- [[wiki/sources/rust-for-backend-developers-if]]

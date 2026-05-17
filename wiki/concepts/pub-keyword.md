@@ -3,9 +3,9 @@ title: "pub Keyword"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, modules, keywords]
-source_count: 3
+source_count: 4
 ---
 
 # pub Keyword
@@ -16,7 +16,7 @@ source_count: 3
 
 ## Why It Matters
 
-Rustda module ichidagi code private by default. `pub` public API'ni explicit qiladi: qaysi module, struct, function yoki boshqa item tashqi code ishlatishi mumkinligini developer aniq belgilaydi.
+Rustda module ichidagi code private by default. `pub` public API'ni explicit qiladi: qaysi module, struct, function yoki boshqa item tashqi code ishlatishi mumkinligini developer aniq belgilaydi. Backend beginner source aynan shu default-private qoidani module mavzusining markaziga qo'yadi.
 
 ## Mental Model
 
@@ -96,6 +96,7 @@ pub use crate::front_of_house::hosting;
 
 ## Sources
 
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[wiki/sources/rust-for-backend-developers-modules]]

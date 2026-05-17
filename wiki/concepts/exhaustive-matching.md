@@ -64,5 +64,5 @@ Bu `None` case yopilmagani uchun [[e0004-non-exhaustive-patterns|E0004]] beradi.
 
 ## Sources
 
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
+- [[6-2-the-match-control-flow-construct]]
 

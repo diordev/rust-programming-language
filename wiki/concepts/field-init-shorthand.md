@@ -3,9 +3,9 @@ title: "Field Init Shorthand"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, structs, syntax]
-source_count: 1
+source_count: 2
 ---
 
 # Field Init Shorthand
@@ -20,7 +20,7 @@ Struct instance yaratishda repetitionni kamaytiradi va constructor-like function
 
 ## Mental Model
 
-`email` yozuvi `email: email` degan ma'noni beradi, lekin faqat shu nomdagi variable scope'da mavjud bo'lsa.
+`email` yozuvi `email: email` degan ma'noni beradi, lekin faqat shu nomdagi variable scope'da mavjud bo'lsa. Bu pattern ko'pincha `new` yoki `build_*` kabi constructor-like functionsda uchraydi.
 
 ## Syntax and Examples
 
@@ -49,4 +49,5 @@ fn build_user(email: String, username: String) -> User {
 
 ## Sources
 
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

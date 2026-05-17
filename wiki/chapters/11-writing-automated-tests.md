@@ -220,9 +220,9 @@ cargo test --test integration_test
 
 ## Related Pages
 
-- [[10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]] — oldingi bob
+- [[wiki/chapters/10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]] — oldingi bob
 - [[12-an-io-project|12. An I/O Project]] — keyingi bob
-- [[11-writing-automated-tests-the-rust-programming-language]] (source)
-- [[11-1-how-to-write-tests-the-rust-programming-language]] (source 11.1)
-- [[11-2-controlling-how-tests-are-run-the-rust-programming-language]] (source 11.2)
-- [[11-3-test-organization-the-rust-programming-language]] (source 11.3)
+- [[wiki/sources/11-writing-automated-tests]] (source)
+- [[11-1-how-to-write-tests]] (source 11.1)
+- [[11-2-controlling-how-tests-are-run]] (source 11.2)
+- [[11-3-test-organization]] (source 11.3)

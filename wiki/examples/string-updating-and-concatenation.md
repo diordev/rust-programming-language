@@ -46,7 +46,7 @@ fn main() {
 
 ## Related Pages
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
 - [[string-type|String]]
 - [[string-concatenation|string concatenation]]
 - [[format-macro|format! macro]]

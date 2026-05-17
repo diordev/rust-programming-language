@@ -14,4 +14,4 @@ Rust ecosystem va language governance bilan bog'liq tashkilot.
 
 Related: [[rust-community|Rust community]]
 
-Sources: [[0-1-foreword-the-rust-programming-language]]
+Sources: [[0-1-foreword]]

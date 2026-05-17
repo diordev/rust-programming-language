@@ -3,9 +3,9 @@ title: "String Slice"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, string, slices]
-source_count: 3
+source_count: 5
 ---
 
 # String Slice
@@ -30,6 +30,13 @@ let hello = &s[0..5];
 Struct field sifatida `&str` saqlash mumkin, lekin bu borrowed data struct instance'dan kam yashamasligini ko'rsatish uchun [[lifetimes]] talab qiladi.
 
 Rustda `&str` UTF-8 encoded borrowed view. String literals program binary'sida saqlanadi va `&str` hisoblanadi. Range bilan string slice olish byte boundariesga tayanadi va UTF-8 character boundary buzilsa panic bo'lishi mumkin.
+
+Owned `String`dan `&str` olish uchun `as_str()` ishlatilishi mumkin:
+
+```rust
+let s = String::from("text");
+let slice: &str = s.as_str();
+```
 
 ## Syntax and Examples
 
@@ -73,9 +80,13 @@ let s = &hello[0..4]; // "Зд"
 - [[utf-8|UTF-8]]
 - [[string-indexing|string indexing]]
 - [[panic]]
+- [[dynamically-sized-types|DST]] — `str` o'zi DST, `&str` fat pointer
+- [[sized-trait|Sized trait]]
 
 ## Sources
 
-- [[4-3-the-slice-type-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[4-3-the-slice-type]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]
+- [[wiki/sources/rust-for-backend-developers-strings]]

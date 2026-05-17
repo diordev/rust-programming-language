@@ -3,16 +3,16 @@ title: "Module System"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, modules, crates]
-source_count: 5
+source_count: 6
 ---
 
 # Module System
 
 ## Short Definition
 
-Module system Rust code organization, scope, privacy, va item names'ni boshqaradigan feature'lar to'plami.
+Module system Rust code organization, scope, privacy, va item names'ni boshqaradigan feature'lar to'plami. Back-end beginner source buni name conflictlarni ajratish va code'ni mantiqiy guruhlarga bo'lish nuqtasidan kiritadi.
 
 ## Why It Matters
 
@@ -106,8 +106,9 @@ Bu file layout `mod front_of_house;` va `pub mod hosting;` declarations orqali m
 
 ## Sources
 
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[7-5-separating-modules-into-different-files]]
+- [[wiki/sources/rust-for-backend-developers-modules]]

@@ -43,4 +43,4 @@ fn five() -> i32 {
 
 ## Sources
 
-- [[3-3-functions-the-rust-programming-language]]
+- [[3-3-functions]]

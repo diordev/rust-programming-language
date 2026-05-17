@@ -14,4 +14,4 @@ Whole number valuesni ifodalovchi scalar types: masalan `i32`, `u32`, `usize`.
 
 Related: [[scalar-types|scalar types]], [[integer-overflow|integer overflow]]
 
-Sources: [[3-2-data-types-the-rust-programming-language]]
+Sources: [[3-2-data-types]]

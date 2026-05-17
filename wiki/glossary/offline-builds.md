@@ -14,4 +14,4 @@ Network accesssiz, local cache va installed components bilan build qilish holati
 
 Related: [[cargo|Cargo]], [[standard-library|standard library]]
 
-Sources: [[1-1-installation-the-rust-programming-language]]
+Sources: [[1-1-installation]]

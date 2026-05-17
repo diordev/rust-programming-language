@@ -56,4 +56,4 @@ Bu yerda `fix_incorrect_order` `back_of_house` ichida. `super::deliver_order()` 
 
 ## Sources
 
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]

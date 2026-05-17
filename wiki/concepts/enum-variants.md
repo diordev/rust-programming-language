@@ -3,9 +3,9 @@ title: "Enum Variants"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-09
 tags: [rust, enums]
-source_count: 3
+source_count: 4
 ---
 
 # Enum Variants
@@ -27,6 +27,8 @@ Variant nomi avtomatik ravishda bir nechta narsa bo'ladi:
 - Pattern (`match Message::Write(text) => ...`).
 - Constructor function (`IpAddr::V4` — `String` qabul qilib `IpAddr` qaytaradi).
 - Path (`Color::Red` — namespaced literal qiymat).
+
+Chapter 20.4 shu constructor function xususiyatini iterator contextida ishlatadi: `Status::Value` `u32 -> Status` initializer sifatida `map(Status::Value)` ga berilishi mumkin.
 
 Variant payload tutsa, pattern shu payloadni bind qilishi mumkin. Masalan `Coin::Quarter(state)` patterni `Quarter` variantiga mos keladi va ichidagi `UsState` value'ni `state`ga bog'laydi.
 
@@ -82,6 +84,17 @@ let make_v4 = IpAddr::V4;            // funksiya tipi: fn(u8, u8, u8, u8) -> IpA
 let home = make_v4(127, 0, 0, 1);
 ```
 
+Iterator mapping:
+
+```rust
+enum Status {
+    Value(u32),
+    Stop,
+}
+
+let statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
+```
+
 ## Common Mistakes
 
 - Variantni alohida type deb tushunish: `IpAddr::V4` o'zicha type emas, u `IpAddr` qiymatini hosil qiluvchi shakl/funksiya.
@@ -94,6 +107,8 @@ let home = make_v4(127, 0, 0, 1);
 
 - [[enums]]
 - [[constructor-functions|constructor functions]]
+- [[function-pointers|function pointers]]
+- [[map-with-named-functions|map with named functions]]
 - [[match]]
 - [[pattern-matching|pattern matching]]
 - [[catch-all-patterns|catch-all patterns]]
@@ -104,6 +119,7 @@ let home = make_v4(127, 0, 0, 1);
 
 ## Sources
 
-- [[6-1-defining-an-enum-the-rust-programming-language]]
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
+- [[6-1-defining-an-enum]]
+- [[6-2-the-match-control-flow-construct]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[wiki/sources/20-4-advanced-functions-and-closures]]

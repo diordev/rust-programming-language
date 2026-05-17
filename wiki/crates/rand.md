@@ -39,10 +39,10 @@ let secret_number = rand::thread_rng().gen_range(1..=100);
 
 ## Related Pages
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
 - [[guessing-game]]
 - [[cargo|Cargo]]
 - [[crate]]
 - [[dependencies]]
 - [[use-declarations|use declarations]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]

@@ -3,9 +3,9 @@ title: "impl Trait"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, traits, generics]
-source_count: 1
+source_count: 3
 ---
 
 # impl Trait
@@ -35,6 +35,10 @@ fn returns_summarizable() -> impl Summary
 ```
 
 Bu caller concrete type nomini bilmasdan `Summary` behavioridan foydalanishini bildiradi. Lekin function body bitta concrete return type qaytarishi kerak.
+
+Backend beginner source bu limitni juda aniq ko'rsatadi: `if`ning bir branchi `Person`, ikkinchisi `Dog` qaytarsa, `-> impl CanIntroduce` ishlamaydi. Shunday holatda ko'pincha `Box<dyn Trait>`ga o'tiladi.
+
+Return position `impl Trait` [[opaque-types|opaque type]] yaratadi: concrete type compilerga ma'lum, callerga yashirin. Har bir `impl Trait` return joyi alohida opaque type bo'ladi.
 
 ## Syntax and Examples
 
@@ -71,19 +75,27 @@ fn returns_summarizable() -> impl Summary {
 ## Common Mistakes
 
 - Return position `impl Trait` har branchda boshqa concrete type qaytarishi mumkin deb o'ylash.
+- Ikki alohida functiondagi `impl Fn(...)` return typelari bir xil bo'ladi deb o'ylash.
 - Ikkita `&impl Summary` parameter bir xil concrete type bo'lishi kerak deb o'ylash.
 - Same-type constraint kerak bo'lsa, [[trait-bounds|trait bound]] syntax ishlatish kerakligini unutish.
 - `impl Trait`ni trait object bilan bir xil deb tushunish.
+- Return position `impl Trait` muammosini branchlarni box qilib yechish mumkinligini bilmaslik.
 
 ## Related Concepts
 
 - [[traits]]
 - [[trait-bounds|trait bounds]]
+- [[opaque-types|opaque types]]
+- [[returning-closures|returning closures]]
 - [[generic-functions|generic functions]]
 - [[where-clauses|where clauses]]
 - [[summary-trait-example|Summary trait example]]
 - [[notify-trait-parameters|notify trait parameters]]
+- [[box-t|Box<T>]]
+- [[trait-object|trait object]]
 
 ## Sources
 
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/20-4-advanced-functions-and-closures]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

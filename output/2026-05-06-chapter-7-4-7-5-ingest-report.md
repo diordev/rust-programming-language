@@ -6,14 +6,14 @@ Date: 2026-05-06
 
 Processed sources:
 
-- `raw/books/the_rust_programming_language/7.4. Bringing Paths Into Scope with the use Keyword - The Rust Programming Language.md`
-- `raw/books/the_rust_programming_language/7.5. Separating Modules into Different Files - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/7.4. Bringing Paths Into Scope with the use Keyword.md`
+- `raw/books/the_rust_programming_language/7.5. Separating Modules into Different Files.md`
 
 ## Wiki Updates
 
 - Created source summaries:
-  - `wiki/sources/7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language.md`
-  - `wiki/sources/7-5-separating-modules-into-different-files-the-rust-programming-language.md`
+  - `wiki/sources/7-4-bringing-paths-into-scope-with-the-use-keyword.md`
+  - `wiki/sources/7-5-separating-modules-into-different-files.md`
 - Expanded chapter page: `wiki/chapters/7-packages-crates-and-modules.md`
 - Created concept pages:
   - `wiki/concepts/pub-use.md`
@@ -65,4 +65,4 @@ Main relation clusters:
 
 - Chapter 7 is now complete through 7.5.
 - Wikilink/frontmatter lint passed for current `wiki/**/*.md`.
-- `raw/books/the_rust_programming_language/8. Common Collections - The Rust Programming Language.md` and `8.1 Storing Lists of Values with Vectors - The Rust Programming Language.md` are present but outside this ingest scope, so they were left unprocessed.
+- `raw/books/the_rust_programming_language/8. Common Collections.md` and `8.1 Storing Lists of Values with Vectors.md` are present but outside this ingest scope, so they were left unprocessed.

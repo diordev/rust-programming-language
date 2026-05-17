@@ -53,4 +53,4 @@ if let Some(value) = v.get(99) {
 
 ## Sources
 
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
+- [[9-1-unrecoverable-errors-with-panic]]

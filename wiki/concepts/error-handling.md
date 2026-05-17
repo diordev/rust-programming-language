@@ -84,8 +84,8 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[0-2-introduction-the-rust-programming-language]]
-- [[9-error-handling-the-rust-programming-language]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[wiki/sources/0-2-introduction]]
+- [[wiki/sources/9-error-handling]]
+- [[9-1-unrecoverable-errors-with-panic]]
+- [[9-2-recoverable-errors-with-result]]

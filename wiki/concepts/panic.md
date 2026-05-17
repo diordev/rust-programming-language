@@ -3,9 +3,9 @@ title: "panic"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-08
 tags: [rust, errors]
-source_count: 7
+source_count: 8
 ---
 
 # panic
@@ -100,13 +100,16 @@ pub fn new(value: i32) -> Guess {
 - [[bad-state|bad state]]
 - [[invariants]]
 - [[function-contracts|function contracts]]
+- [[never-type|never type (!)]] — `panic!` `!` qaytaradi
+- [[diverging-functions|diverging functions]]
 
 ## Sources
 
-- [[0-2-introduction-the-rust-programming-language]]
-- [[3-2-data-types-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
-- [[9-error-handling-the-rust-programming-language]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[wiki/sources/0-2-introduction]]
+- [[3-2-data-types]]
+- [[8-1-storing-lists-of-values-with-vectors]]
+- [[wiki/sources/9-error-handling]]
+- [[9-1-unrecoverable-errors-with-panic]]
+- [[9-2-recoverable-errors-with-result]]
+- [[9-3-to-panic-or-not-to-panic]]
+- [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]

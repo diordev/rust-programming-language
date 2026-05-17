@@ -96,5 +96,5 @@ $ cargo yank --vers 1.0.1
 
 ## Sources
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
-- [[14-2-publishing-a-crate-to-crates-io-the-rust-programming-language|14.2 Publishing a Crate]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[14-2-publishing-a-crate-to-crates-io|14.2 Publishing a Crate]]

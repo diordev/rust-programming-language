@@ -57,5 +57,5 @@ let spaces = spaces.len();
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[3-1-variables-and-mutability-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[3-1-variables-and-mutability]]

@@ -79,5 +79,5 @@ impl Config {
 
 ## Sources
 
-- [[5-3-methods-the-rust-programming-language]]
-- [[12-3-refactoring-to-improve-modularity-and-error-handling-the-rust-programming-language]]
+- [[5-3-methods]]
+- [[12-3-refactoring-to-improve-modularity-and-error-handling]]

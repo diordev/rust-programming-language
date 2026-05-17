@@ -43,7 +43,7 @@ fn main() {
 
 ## Related Pages
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
 - [[utf-8|UTF-8]]
 - [[string-indexing|string indexing]]
 - [[string-slice|String slice]]

@@ -45,7 +45,7 @@ fn main() {
 
 ## Related Pages
 
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
+- [[8-1-storing-lists-of-values-with-vectors]]
 - [[vector|Vec<T>]]
 - [[vec-macro|vec! macro]]
 - [[vector-indexing|vector indexing]]

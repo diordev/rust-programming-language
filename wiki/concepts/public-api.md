@@ -77,6 +77,6 @@ pub trait Summary {
 
 ## Sources
 
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[10-2-defining-shared-behavior-with-traits]]

@@ -3,9 +3,9 @@ title: "Struct Fields"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, structs]
-source_count: 2
+source_count: 3
 ---
 
 # Struct Fields
@@ -20,7 +20,7 @@ Field names valuesning ma'nosini explicit qiladi. Shu sababli struct [[tuple]]ga
 
 ## Mental Model
 
-Field type struct definitionda belgilanadi; field value esa har bir [[struct-instances|instance]]da beriladi.
+Field type struct definitionda belgilanadi; field value esa har bir [[struct-instances|instance]]da beriladi. Beginner source nomlash konventsiyasini ham aniq beradi: field names odatda snake_case bo'ladi.
 
 Module privacy kontekstida `pub struct` fieldsni avtomatik public qilmaydi. Har bir field alohida `pub` bo'lmasa private by default qoladi.
 
@@ -72,5 +72,6 @@ Bu yerda `toast` public field, `seasonal_fruit` private field.
 
 ## Sources
 
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

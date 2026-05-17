@@ -49,4 +49,4 @@ $ RUST_BACKTRACE=full cargo run
 
 ## Sources
 
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
+- [[9-1-unrecoverable-errors-with-panic]]

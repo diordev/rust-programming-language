@@ -109,5 +109,5 @@ impl<T: Display + PartialOrd> Pair<T> {
 
 ## Sources
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-1-generic-data-types]]
+- [[10-2-defining-shared-behavior-with-traits]]

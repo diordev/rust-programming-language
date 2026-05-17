@@ -3,9 +3,9 @@ title: "mod Declarations"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, modules, keywords]
-source_count: 1
+source_count: 2
 ---
 
 # mod Declarations
@@ -20,7 +20,7 @@ source_count: 1
 
 ## Mental Model
 
-`mod hosting;` "shu joyda `hosting` child module bor" degani. Declaration qayerda turgani module tree'dagi parent-child munosabatni belgilaydi.
+`mod hosting;` "shu joyda `hosting` child module bor" degani. Declaration qayerda turgani module tree'dagi parent-child munosabatni belgilaydi. `mod name { ... }` inline body bo'lishi ham mumkin; alohida file bo'lsa, compiler uni layout qoidalari bo'yicha topadi.
 
 ## Syntax and Examples
 
@@ -53,4 +53,5 @@ pub mod hosting;
 
 ## Sources
 
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[7-5-separating-modules-into-different-files]]
+- [[wiki/sources/rust-for-backend-developers-modules]]

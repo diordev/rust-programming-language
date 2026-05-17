@@ -85,8 +85,8 @@ $ cargo run
 
 ## Related Pages
 
-- [[1-getting-started-the-rust-programming-language]]
-- [[1-1-installation-the-rust-programming-language]]
-- [[1-2-hello-world-the-rust-programming-language]]
-- [[1-3-hello-cargo-the-rust-programming-language]]
+- [[wiki/sources/1-getting-started]]
+- [[1-1-installation]]
+- [[1-2-hello-world]]
+- [[1-3-hello-cargo]]
 - [[rust-learning-roadmap]]

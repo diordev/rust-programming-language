@@ -74,4 +74,4 @@ fn read_username_from_file() -> Result<String, io::Error> {
 
 ## Sources
 
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[9-2-recoverable-errors-with-result]]

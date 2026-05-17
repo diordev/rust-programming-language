@@ -3,9 +3,9 @@ title: "Struct Update Syntax"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, structs, ownership]
-source_count: 1
+source_count: 2
 ---
 
 # Struct Update Syntax
@@ -50,4 +50,5 @@ let user2 = User {
 
 ## Sources
 
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

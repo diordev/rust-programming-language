@@ -42,4 +42,4 @@ let x: u8 = 255;
 
 ## Sources
 
-- [[3-2-data-types-the-rust-programming-language]]
+- [[3-2-data-types]]

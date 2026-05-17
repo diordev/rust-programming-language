@@ -3,9 +3,9 @@ title: "Iterators"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-09
 tags: [rust, iterators, lazy, traits, functional]
-source_count: 1
+source_count: 4
 ---
 
 # Iterators
@@ -71,6 +71,13 @@ fn shoes_in_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
 }
 ```
 
+```rust
+// map closure o'rniga named function ham qabul qiladi
+let list_of_numbers = vec![1, 2, 3];
+let list_of_strings: Vec<String> =
+    list_of_numbers.iter().map(ToString::to_string).collect();
+```
+
 ## Common Mistakes
 
 **1. Iterator adapter'ni consume qilmasdan qoldirish:**
@@ -102,11 +109,16 @@ let v2: Vec<_> = v1.iter().map(...).collect(); // ok
 - [[consuming-adapters]] (`sum`, `collect`, `count`, `fold`)
 - [[iterator-adapters]] (`map`, `filter`, `zip`, `enumerate`)
 - [[closures]] — iterator metodlari closure qabul qiladi
+- [[function-pointers|function pointers]] — named functionlar `map` callbacki bo'lishi mumkin
+- [[map-with-named-functions|map with named functions]]
 - [[traits]] — `Iterator` standart trait
 - [[zero-cost-abstractions]] — iterator vs for-loop tezlik farqi yo'q
 - [[for-loop]] — `for` loop ichida implicit iterator ishlatiladi
+- [[associated-types|associated types]] — `Iterator::Item` placeholder
 
 ## Sources
 
-- [[13-2-processing-a-series-of-items-with-iterators-the-rust-programming-language|13.2 Iterators]]
-- [[13-functional-language-features-the-rust-programming-language|13. Intro]]
+- [[13-2-processing-a-series-of-items-with-iterators|13.2 Iterators]]
+- [[13-functional-language-features-iterators-and-closures|13. Intro]]
+- [[wiki/sources/20-2-advanced-traits|20.2 Advanced Traits — associated types]]
+- [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]

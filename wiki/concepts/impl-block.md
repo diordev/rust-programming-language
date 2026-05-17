@@ -3,9 +3,9 @@ title: "impl Block"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, methods, structs]
-source_count: 2
+source_count: 3
 ---
 
 # impl Block
@@ -20,7 +20,7 @@ source_count: 2
 
 ## Mental Model
 
-Struct data shape; `impl` block shu shape bilan bajariladigan operations. `impl` ichidagi `Self` shu type aliasi.
+Struct data shape; `impl` block shu shape bilan bajariladigan operations. `impl` ichidagi `Self` shu type aliasi. Rust beginner source uchun yana bir muhim framing: methodlar struct body ichida emas, alohida `impl` block ichida yoziladi.
 
 Trait implementationda `impl Trait for Type` shakli ishlatiladi. Generic conditional methods uchun `impl<T: Display + PartialOrd> Pair<T>` kabi trait bounds `impl` headeriga qo'shilishi mumkin.
 
@@ -74,5 +74,6 @@ impl<T: Display + PartialOrd> Pair<T> {
 
 ## Sources
 
-- [[5-3-methods-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[5-3-methods]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

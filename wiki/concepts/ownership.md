@@ -3,9 +3,9 @@ title: "Ownership"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, ownership, memory-safety]
-source_count: 6
+source_count: 7
 ---
 
 # Ownership
@@ -27,6 +27,8 @@ Ownership rules:
 - Owner scope'dan chiqqanda value dropped bo'ladi.
 
 Heap data uchun ownership ayniqsa muhim: kim cleanup qilishini ownership aniqlaydi.
+
+Amaliy move nuqtalari faqat assignment emas: function argumenti, function return value, va keyinroq closure capture ham ownershipni ko'chirishi mumkin.
 
 Ownership bilan bog'liq keyingi model: [[borrowing]] ownershipni transfer qilmasdan value'ga reference orqali kirish imkonini beradi. [[slices]] esa collectionning bir qismiga reference beradi.
 
@@ -59,12 +61,21 @@ map.insert(field_name, field_value);
 // field_name va field_value endi valid emas.
 ```
 
+Borrowing bilan ownershipni saqlab qolish:
+
+```rust
+fn len_of_string(s: &String) -> usize {
+    s.len()
+}
+```
+
 ## Common Mistakes
 
 - Move bo'lgan value'ni yana ishlatishga urinish.
 - `clone()`siz heap data deep copied bo'ladi deb o'ylash.
 - Functionga `String` berish ownershipni transfer qilishini unutish.
 - `HashMap::insert` owned key/value'ni map ichiga move qilishini unutish.
+- Deterministic cleanup bor ekan, safe Rust'da leak mutlaqo imkonsiz deb o'ylash.
 
 ## Related Concepts
 
@@ -82,9 +93,10 @@ map.insert(field_name, field_value);
 
 ## Sources
 
-- [[4-understanding-ownership-the-rust-programming-language]]
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[4-3-the-slice-type-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[wiki/sources/4-understanding-ownership]]
+- [[4-1-what-is-ownership]]
+- [[4-2-references-and-borrowing]]
+- [[4-3-the-slice-type]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]
+- [[wiki/sources/rust-for-backend-developers-ownership]]

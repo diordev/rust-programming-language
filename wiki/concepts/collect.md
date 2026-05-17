@@ -65,4 +65,4 @@ let map: HashMap<_, _> = vec![("a", 1), ("b", 2)]
 
 ## Sources
 
-- [[12-1-accepting-command-line-arguments-the-rust-programming-language]]
+- [[12-1-accepting-command-line-arguments]]

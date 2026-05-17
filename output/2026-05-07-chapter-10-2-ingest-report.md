@@ -14,13 +14,13 @@ source_count: 1
 
 Processed source:
 
-- `raw/books/the_rust_programming_language/10.2. Defining Shared Behavior with Traits - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/10.2. Defining Shared Behavior with Traits.md`
 
 ## Wiki Updates
 
 Created source summary:
 
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-2-defining-shared-behavior-with-traits]]
 
 Created concept pages:
 
@@ -42,7 +42,7 @@ Created examples:
 
 Updated existing pages:
 
-- [[10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]]
+- [[wiki/chapters/10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]]
 - [[traits]]
 - [[generics]]
 - [[generic-functions|generic functions]]

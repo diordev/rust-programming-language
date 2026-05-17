@@ -3,9 +3,9 @@ title: "Variables and Mutability"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, variables]
-source_count: 2
+source_count: 3
 ---
 
 # Variables and Mutability
@@ -35,6 +35,15 @@ Guessing gameda input string `read_line` tomonidan o'zgartirilishi kerak, shunin
 let mut guess = String::new();
 ```
 
+Bindingni declaration va initial assignmentga ajratish mumkin:
+
+```rust
+let request_id;
+request_id = 42;
+```
+
+Bu bir martalik initializatsiya. Keyin yana boshqa qiymat yozish uchun baribir `mut` kerak bo'ladi.
+
 ## Syntax and Examples
 
 ```rust
@@ -45,6 +54,11 @@ io::stdin().read_line(&mut guess).expect("Failed to read line");
 ```rust
 let mut x = 5;
 x = 6;
+```
+
+```rust
+let user_id;
+user_id = 7;
 ```
 
 ## Common Mistakes
@@ -60,8 +74,11 @@ x = 6;
 - [[e0384-cannot-assign-twice|E0384 cannot assign twice]]
 - [[mutable-reference|mutable reference]]
 - [[reference]]
+- [[raw-identifiers]]
+- [[discarded-binding]]
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[3-1-variables-and-mutability-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[3-1-variables-and-mutability]]
+- [[wiki/sources/rust-for-backend-developers-variables]]

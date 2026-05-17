@@ -64,7 +64,7 @@ Bu chapter code example bermaydi, lekin keyingi chapterlarda uch turdagi pedagog
 
 ## Related Pages
 
-- [[0-2-introduction-the-rust-programming-language]]
-- [[0-1-foreword-the-rust-programming-language]]
-- [[0-the-rust-programming-language-the-rust-programming-language]]
+- [[wiki/sources/0-2-introduction]]
+- [[0-1-foreword]]
+- [[0-the-rust-programming-language]]
 - [[rust-learning-roadmap]]

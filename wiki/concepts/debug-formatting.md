@@ -3,9 +3,9 @@ title: "Debug Formatting"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, formatting, debug]
-source_count: 1
+source_count: 2
 ---
 
 # Debug Formatting
@@ -29,6 +29,13 @@ println!("rect1 is {rect1:?}");
 println!("rect1 is {rect1:#?}");
 ```
 
+Bu beginner backend source'da array misoli bilan juda amaliy ko'rinadi:
+
+```rust
+let arr = [192, 168, 0, 1];
+println!("{arr:?}");
+```
+
 ## Common Mistakes
 
 - `Debug` derive qilmasdan `{:?}` ishlatish.
@@ -43,4 +50,5 @@ println!("rect1 is {rect1:#?}");
 
 ## Sources
 
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
+- [[5-2-an-example-program-using-structs]]
+- [[wiki/sources/rust-for-backend-developers-console-output]]

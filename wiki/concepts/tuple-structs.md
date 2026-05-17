@@ -3,9 +3,9 @@ title: "Tuple Structs"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, structs, types]
-source_count: 1
+source_count: 2
 ---
 
 # Tuple Structs
@@ -20,7 +20,7 @@ Tuple struct bir xil field typelarga ega valuesni distinct domain typega aylanti
 
 ## Mental Model
 
-Regular tuple position-based. Tuple struct ham position-based, lekin type name qo'shib meaning va type safety beradi.
+Regular tuple position-based. Tuple struct ham position-based, lekin type name qo'shib meaning va type safety beradi. Backend source RGB misoli bilan `.0`, `.1`, `.2` access va method qo'shish birga ishlashini ko'rsatadi.
 
 ## Syntax and Examples
 
@@ -48,4 +48,5 @@ let Point(x, y, z) = origin;
 
 ## Sources
 
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

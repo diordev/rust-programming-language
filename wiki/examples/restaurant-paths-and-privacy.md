@@ -98,7 +98,7 @@ Failing versionda ikkala path ham `add_to_waitlist`ga to'g'ri boradi, lekin `hos
 
 ## Related Pages
 
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
 - [[paths]]
 - [[absolute-path|absolute path]]
 - [[relative-path|relative path]]

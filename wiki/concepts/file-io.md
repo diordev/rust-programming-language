@@ -59,4 +59,4 @@ fn read_file(path: &str) -> Result<String, Box<dyn Error>> {
 
 ## Sources
 
-- [[12-2-reading-a-file-the-rust-programming-language]]
+- [[12-2-reading-a-file]]

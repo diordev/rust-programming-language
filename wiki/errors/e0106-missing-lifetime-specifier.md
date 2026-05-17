@@ -3,9 +3,9 @@ title: "E0106 missing lifetime specifier"
 type: error
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, compiler-error, lifetimes]
-source_count: 3
+source_count: 4
 ---
 
 # E0106 missing lifetime specifier
@@ -25,6 +25,8 @@ Funksiya yoki struct reference qaytaradi yoki reference field saqlaydi, lekin co
 **Holat 2 — struct reference fields (Ch. 5.1):** Struct fieldlari `&str` bo'lsa, compiler bu references qancha yashashini struct type definitionidan bilishi kerak.
 
 **Holat 3 — funksiya ikkita reference qabul qilib reference qaytaradi (Ch. 10.3):** Compiler qaysi parametrning lifetimesi qaytarilayotganini aniqlay olmaydi.
+
+Backend beginner source shu xatoni `take_longest(x: &str, y: &str) -> &str` misoli bilan qayta ko'rsatadi va nega relation explicit bo'lishi kerakligini ancha intuitiv qiladi.
 
 ```rust
 // Xato — Ch. 10.3
@@ -102,6 +104,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str { x }
 
 ## Sources
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[10-3-validating-references-with-lifetimes-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[10-3-validating-references-with-lifetimes]]
+- [[wiki/sources/rust-for-backend-developers-lifetimes]]

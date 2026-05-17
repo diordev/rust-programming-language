@@ -3,9 +3,9 @@ title: "Struct Instances"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, structs]
-source_count: 1
+source_count: 2
 ---
 
 # Struct Instances
@@ -20,7 +20,7 @@ Instance orqali program runtime data'ni named, checked shape bilan saqlaydi va u
 
 ## Mental Model
 
-Struct definition blueprint; instance shu blueprintdan yaratilgan value. Field order instance yaratishda definition orderiga bog'liq emas, chunki field names ishlatiladi.
+Struct definition blueprint; instance shu blueprintdan yaratilgan value. Field order instance yaratishda definition orderiga bog'liq emas, chunki field names ishlatiladi. Fieldlarni keyin o'zgartirish kerak bo'lsa, butun instance `mut` bo'lishi shart.
 
 ## Syntax and Examples
 
@@ -54,4 +54,5 @@ user1.email = String::from("anotheremail@example.com");
 
 ## Sources
 
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

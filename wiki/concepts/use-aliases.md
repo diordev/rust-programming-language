@@ -55,4 +55,4 @@ Bu yerda `std::fmt::Result` qisqa `Result` nomi bilan, `std::io::Result` esa `Io
 
 ## Sources
 
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]

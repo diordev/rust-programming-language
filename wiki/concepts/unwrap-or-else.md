@@ -73,4 +73,4 @@ Katta yoki tez hisoblash talab qiladigan default uchun `unwrap_or_else` yaxshiro
 
 ## Sources
 
-- [[12-3-refactoring-to-improve-modularity-and-error-handling-the-rust-programming-language]]
+- [[12-3-refactoring-to-improve-modularity-and-error-handling]]

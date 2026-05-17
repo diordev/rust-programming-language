@@ -112,11 +112,11 @@ fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str>
 
 ## Related Pages
 
-- [[13-functional-language-features-the-rust-programming-language|Source: 13. Intro]]
-- [[13-1-closures-the-rust-programming-language|Source: 13.1 Closures]]
-- [[13-2-processing-a-series-of-items-with-iterators-the-rust-programming-language|Source: 13.2 Iterators]]
-- [[13-3-improving-our-io-project-the-rust-programming-language|Source: 13.3 Improving I/O Project]]
-- [[13-4-performance-in-loops-vs-iterators-the-rust-programming-language|Source: 13.4 Performance]]
+- [[13-functional-language-features-iterators-and-closures|Source: 13. Intro]]
+- [[13-1-closures|Source: 13.1 Closures]]
+- [[13-2-processing-a-series-of-items-with-iterators|Source: 13.2 Iterators]]
+- [[13-3-improving-our-io-project|Source: 13.3 Improving I/O Project]]
+- [[13-4-performance-in-loops-vs-iterators|Source: 13.4 Performance]]
 - [[minigrep-iterator-refactor|Example: minigrep iterator refactor]]
 - [[closures]]
 - [[fn-traits]]

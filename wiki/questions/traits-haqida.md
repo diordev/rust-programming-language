@@ -138,8 +138,8 @@ Bu `impl` block, lekin trait implement emas. Trait implement bo'lsa `impl TraitN
 - [[display-formatting|Display formatting]]
 - [[copy-trait|Copy trait]]
 - [[clone]]
-- [[5-3-methods-the-rust-programming-language]]
-- [[0-2-introduction-the-rust-programming-language]]
+- [[5-3-methods]]
+- [[wiki/sources/0-2-introduction]]
 
 ## Follow-up
 

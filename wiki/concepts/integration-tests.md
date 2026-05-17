@@ -140,4 +140,4 @@ Unit tests FAILED bo'lsa, integration tests va doc-tests ishlamaydi.
 
 ## Sources
 
-- [[11-3-test-organization-the-rust-programming-language]]
+- [[11-3-test-organization]]

@@ -54,9 +54,9 @@ let total: i32 = [1, 2, 3].iter().sum();
 
 ## Sources
 
-- [[0-2-introduction-the-rust-programming-language]]
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language]]
-- [[10-1-generic-data-types-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
-- [[13-functional-language-features-the-rust-programming-language]]
-- [[13-4-performance-in-loops-vs-iterators-the-rust-programming-language]]
+- [[wiki/sources/0-2-introduction]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes]]
+- [[10-1-generic-data-types]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[13-functional-language-features-iterators-and-closures]]
+- [[13-4-performance-in-loops-vs-iterators]]

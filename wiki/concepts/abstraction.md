@@ -46,4 +46,4 @@ fn largest(list: &[i32]) -> &i32 {
 
 ## Sources
 
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes]]

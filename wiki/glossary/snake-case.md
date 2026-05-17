@@ -14,4 +14,4 @@ Rustda function va variable names uchun ishlatiladigan naming style.
 
 Related: [[functions]], [[readable-code|readable code]]
 
-Sources: [[3-3-functions-the-rust-programming-language]]
+Sources: [[3-3-functions]]

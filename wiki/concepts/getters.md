@@ -46,4 +46,4 @@ impl Rectangle {
 
 ## Sources
 
-- [[5-3-methods-the-rust-programming-language]]
+- [[5-3-methods]]

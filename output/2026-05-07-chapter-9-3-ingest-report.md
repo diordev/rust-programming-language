@@ -4,7 +4,7 @@ Date: 2026-05-07
 
 ## Source Processed
 
-- `raw/books/the_rust_programming_language/9.3. To panic! or Not to panic! - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/9.3. To panic! or Not to panic!.md`
 
 ## Key Takeaways
 
@@ -18,7 +18,7 @@ Date: 2026-05-07
 
 ## Pages Created
 
-- `wiki/sources/9-3-to-panic-or-not-to-panic-the-rust-programming-language.md`
+- `wiki/sources/9-3-to-panic-or-not-to-panic.md`
 - `wiki/concepts/panic-vs-result.md`
 - `wiki/concepts/bad-state.md`
 - `wiki/concepts/invariants.md`

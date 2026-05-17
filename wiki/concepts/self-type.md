@@ -3,9 +3,9 @@ title: "Self Type"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, methods, types]
-source_count: 1
+source_count: 2
 ---
 
 # Self Type
@@ -20,7 +20,7 @@ source_count: 1
 
 ## Mental Model
 
-`impl Rectangle` ichida `Self` degani `Rectangle`.
+`impl Rectangle` ichida `Self` degani `Rectangle`. Trait definition ichida esa `Self` hali noma'lum future implementor type'ni bildiradi: masalan `fn make_default() -> Self;`.
 
 ## Syntax and Examples
 
@@ -47,4 +47,5 @@ impl Rectangle {
 
 ## Sources
 
-- [[5-3-methods-the-rust-programming-language]]
+- [[5-3-methods]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

@@ -34,7 +34,7 @@ Chapter 3dagi variables, data types, functions, comments, va control flow concep
 
 ## Related Pages
 
-- [[3-common-programming-concepts|3. Common Programming Concepts]]
+- [[wiki/chapters/3-common-programming-concepts|3. Common Programming Concepts]]
 - [[functions]]
 - [[control-flow|control flow]]
 - [[data-types|data types]]

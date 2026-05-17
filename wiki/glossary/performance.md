@@ -14,4 +14,4 @@ Runtime speed, memory use, va resource efficiency bilan bog'liq umumiy sifat.
 
 Related: [[zero-cost-abstractions|zero-cost abstractions]], [[compiler]]
 
-Sources: [[0-1-foreword-the-rust-programming-language]]
+Sources: [[0-1-foreword]]

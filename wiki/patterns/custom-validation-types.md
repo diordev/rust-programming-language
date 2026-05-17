@@ -56,4 +56,4 @@ impl Guess {
 - [[bad-state|bad state]]
 - [[privacy]]
 - [[api-design|API design]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[9-3-to-panic-or-not-to-panic]]

@@ -3,9 +3,9 @@ title: "unwrap"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-08
 tags: [rust, error-handling, result, option]
-source_count: 2
+source_count: 3
 ---
 
 # unwrap
@@ -52,8 +52,11 @@ fn main() {
 - [[recoverable-errors|recoverable errors]]
 - [[panic-vs-result|panic! vs Result]]
 - [[testing]]
+- [[never-type|never type (!)]] — `panic!` `!` qaytaradi → `match` da `T` ga coerce
+- [[diverging-functions|diverging functions]]
 
 ## Sources
 
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[9-2-recoverable-errors-with-result]]
+- [[9-3-to-panic-or-not-to-panic]]
+- [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]

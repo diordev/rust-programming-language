@@ -3,9 +3,9 @@ title: "PartialOrd"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-13
 tags: [rust, traits, comparisons]
-source_count: 2
+source_count: 3
 ---
 
 # PartialOrd
@@ -23,6 +23,8 @@ Generic code comparison ishlatsa, compiler type parameter hamma possible type uc
 `T` degani "istalgan type" emas, "signature ruxsat bergan type". Agar function body `>` ishlatsa, `T` kamida `PartialOrd` implement qilgan type bo'lishi kerak. `i32` va `char` buni implement qiladi, shuning uchun `largest` ular bilan ishlaydi.
 
 Chapter 10.2da `Pair<T>` example'i `PartialOrd`ni [[display-formatting|Display]] bilan birga conditional method bound sifatida ishlatadi: `cmp_display` methodi `>=` comparison uchun `PartialOrd`, `{}` output uchun `Display` talab qiladi.
+
+Appendix C esa `PartialOrd`ning derive semantics'ini to'ldiradi: `partial_cmp` `Option<Ordering>` qaytaradi va ba'zi qiymatlar, masalan `NaN`, ordering bermasligi mumkin.
 
 ## Syntax and Examples
 
@@ -54,11 +56,24 @@ impl<T: Display + PartialOrd> Pair<T> {
 }
 ```
 
+Derived ordering:
+
+```rust
+#[derive(PartialEq, PartialOrd)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+```
+
+Structlarda derive field definition orderi bo'yicha, enumlarda esa variant declaration orderi bo'yicha comparison qiladi.
+
 ## Common Mistakes
 
 - `T` har qanday operationni support qiladi deb o'ylash.
 - Compiler errorida `PartialOrd` taklifini ko'rib, bu generic syntax emas, behavior constraint ekanini sezmaslik.
 - `PartialOrd` va boshqa comparison/order traits orasidagi farqni keyinroq aniqlashtirmaslik.
+- `PartialOrd` total orderingni kafolatlaydi deb o'ylash.
 
 ## Related Concepts
 
@@ -69,9 +84,12 @@ impl<T: Display + PartialOrd> Pair<T> {
 - [[trait-bounds|trait bounds]]
 - [[conditional-method-implementations|conditional method implementations]]
 - [[display-formatting|Display]]
+- [[partial-eq]]
+- [[ord-trait|Ord]]
 - [[e0369-binary-operation-cannot-be-applied|E0369 binary operation cannot be applied]]
 
 ## Sources
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-1-generic-data-types]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/22-3-c-derivable-traits|22.3]]

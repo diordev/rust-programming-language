@@ -4,8 +4,8 @@ Date: 2026-05-07
 
 ## Sources Processed
 
-- `raw/books/the_rust_programming_language/9. Error Handling - The Rust Programming Language.md`
-- `raw/books/the_rust_programming_language/9.1. Unrecoverable Errors with panic! - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/9. Error Handling.md`
+- `raw/books/the_rust_programming_language/9.1. Unrecoverable Errors with panic!.md`
 
 ## Key Takeaways
 
@@ -18,8 +18,8 @@ Date: 2026-05-07
 
 ## Pages Created
 
-- `wiki/sources/9-error-handling-the-rust-programming-language.md`
-- `wiki/sources/9-1-unrecoverable-errors-with-panic-the-rust-programming-language.md`
+- `wiki/sources/9-error-handling.md`
+- `wiki/sources/9-1-unrecoverable-errors-with-panic.md`
 - `wiki/chapters/9-error-handling.md`
 - `wiki/concepts/recoverable-errors.md`
 - `wiki/concepts/unrecoverable-errors.md`

@@ -72,5 +72,5 @@ Method behaviorni `Rectangle` type bilan birga tashkil qiladi.
 
 ## Sources
 
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
-- [[5-3-methods-the-rust-programming-language]]
+- [[5-2-an-example-program-using-structs]]
+- [[5-3-methods]]

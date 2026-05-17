@@ -3,9 +3,9 @@ title: "Unit-Like Structs"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, structs, traits]
-source_count: 1
+source_count: 2
 ---
 
 # Unit-Like Structs
@@ -20,7 +20,7 @@ Data saqlash kerak bo'lmasa ham, biror type uchun behavior yoki [[traits]] imple
 
 ## Mental Model
 
-Type bor, lekin instance ichida data yo'q. Shuning uchun definition va instantiation juda ixcham.
+Type bor, lekin instance ichida data yo'q. Shuning uchun definition va instantiation juda ixcham. Backend source buni singleton-style yoki marker-like type sifatida ko'rsatadi.
 
 ## Syntax and Examples
 
@@ -43,4 +43,5 @@ let subject = AlwaysEqual;
 
 ## Sources
 
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

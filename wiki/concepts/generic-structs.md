@@ -68,4 +68,4 @@ let integer_and_float = Point { x: 5, y: 4.0 };
 
 ## Sources
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[10-1-generic-data-types]]

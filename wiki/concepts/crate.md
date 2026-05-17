@@ -3,9 +3,9 @@ title: "Crate"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, crates, modules]
-source_count: 4
+source_count: 5
 ---
 
 # Crate
@@ -26,6 +26,7 @@ Crate Rust build modelining markazida turadi: compiler crate'ni compile qiladi, 
 - Crate ichida [[module|modules]] bo'lishi mumkin; module'lar boshqa file'larda define qilinsa ham crate bilan birga compile qilinadi.
 - Rustaceanlar ko'pincha "crate" deganda library crate'ni nazarda tutadi.
 - External crate pathlari crate nomidan boshlanadi, masalan `rand::thread_rng()` yoki `std::collections::HashMap`.
+- Backend beginner source'ning foydali, lekin soddalashtirilgan mental modeli: crate root va u ulagan modulelar "go'yo bitta katta translation unit"dek compile qilinadi. Buni literal textual copy deb emas, compile unit intuition deb tushunish kerak.
 
 ## Syntax and Examples
 
@@ -67,7 +68,8 @@ my-project/
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-1-packages-and-crates-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-1-packages-and-crates]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[wiki/sources/rust-for-backend-developers-modules]]

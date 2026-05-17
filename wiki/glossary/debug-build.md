@@ -14,4 +14,4 @@ Development uchun tezroq compile bo'ladigan, odatda kamroq optimized build mode.
 
 Related: [[release-build|release build]], [[cargo|Cargo]]
 
-Sources: [[1-3-hello-cargo-the-rust-programming-language]]
+Sources: [[1-3-hello-cargo]]

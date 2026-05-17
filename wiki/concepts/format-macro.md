@@ -3,9 +3,9 @@ title: "format! macro"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, strings, macros, formatting]
-source_count: 1
+source_count: 2
 ---
 
 # format! macro
@@ -22,6 +22,8 @@ Bir nechta string yoki value'ni readable tarzda birlashtirishda `format!` `+` op
 
 `format!` "formatlangan matnni `String` qilib qaytar" degani.
 
+`println!` bilan syntax deyarli bir xil, lekin natija side effect emas, owned `String`.
+
 ## Syntax and Examples
 
 ```rust
@@ -30,6 +32,10 @@ let s2 = String::from("tac");
 let s3 = String::from("toe");
 
 let s = format!("{s1}-{s2}-{s3}");
+```
+
+```rust
+let s: String = format!("{} in the power of the 2 is {}", 3, 9);
 ```
 
 ## Common Mistakes
@@ -47,4 +53,5 @@ let s = format!("{s1}-{s2}-{s3}");
 
 ## Sources
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[wiki/sources/rust-for-backend-developers-strings]]

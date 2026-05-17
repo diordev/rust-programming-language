@@ -46,4 +46,4 @@ Testingda ba'zan tested module'dagi hamma public item'larni `tests` module ichig
 
 ## Sources
 
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]

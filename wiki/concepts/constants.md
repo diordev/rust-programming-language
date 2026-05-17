@@ -3,9 +3,9 @@ title: "Constants"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, variables]
-source_count: 1
+source_count: 2
 ---
 
 # Constants
@@ -26,10 +26,16 @@ const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 
 Constants compile-time constant expressionga bog'lanadi va declared scope ichida program davomida valid bo'ladi.
 
+Backend beginner source yana ikkita amaliy qoidani aniq qiladi: type annotation har doim majburiy va naming convention odatda `UPPER_SNAKE_CASE`.
+
 ## Syntax and Examples
 
 ```rust
 const MAX_POINTS: u32 = 100_000;
+```
+
+```rust
+const ANONYMOUS_NAME: &str = "anonymous";
 ```
 
 ## Common Mistakes
@@ -43,7 +49,9 @@ const MAX_POINTS: u32 = 100_000;
 - [[variables-and-mutability|variables and mutability]]
 - [[immutability]]
 - [[type-annotations|type annotations]]
+- [[static-items]]
 
 ## Sources
 
-- [[3-1-variables-and-mutability-the-rust-programming-language]]
+- [[3-1-variables-and-mutability]]
+- [[wiki/sources/rust-for-backend-developers-variables]]

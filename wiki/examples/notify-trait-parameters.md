@@ -75,4 +75,4 @@ pub fn notify<T: Summary + Display>(item: &T) {
 
 ## Sources
 
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-2-defining-shared-behavior-with-traits]]

@@ -48,4 +48,4 @@ fn open_file() -> Result<File, io::Error> {
 
 ## Sources
 
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[9-2-recoverable-errors-with-result]]

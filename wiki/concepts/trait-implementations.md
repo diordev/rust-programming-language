@@ -3,9 +3,9 @@ title: "Trait Implementations"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, traits, impl]
-source_count: 1
+source_count: 2
 ---
 
 # Trait Implementations
@@ -21,6 +21,8 @@ Trait implementation shared behaviorni concrete type'ga bog'laydi. Shu implement
 ## Mental Model
 
 `impl Summary for SocialPost` "SocialPost Summary behaviorini beradi" degani. Block ichida trait definition talab qilgan methods body bilan yoziladi. Agar trait default method bersa, implementation empty bo'lishi ham mumkin.
+
+Muhim practical boundary: local traitni external type uchun implement qilish mumkin, external traitni local type uchun ham mumkin, lekin ikkalasi ham external bo'lsa [[orphan-rule|orphan rule]] to'sadi. `unsafe trait` bo'lsa, implement ham `unsafe impl` bo'ladi.
 
 External crate trait methodini call qilishi uchun type bilan birga traitni ham scope'ga olib kirishi kerak.
 
@@ -75,4 +77,5 @@ fn main() {
 
 ## Sources
 
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

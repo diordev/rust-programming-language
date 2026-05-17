@@ -49,5 +49,5 @@ struct Point(i32, i32, i32);
 
 ## Sources
 
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[wiki/sources/5-using-structs-to-structure-related-data]]
+- [[9-3-to-panic-or-not-to-panic]]

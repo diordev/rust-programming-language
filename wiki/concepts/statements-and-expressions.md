@@ -3,9 +3,9 @@ title: "Statements and Expressions"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, expressions]
-source_count: 1
+source_count: 4
 ---
 
 # Statements and Expressions
@@ -43,6 +43,23 @@ fn plus_one(x: i32) -> i32 {
 }
 ```
 
+Semicolon qo'shilsa expression statementga aylanadi va ko'pincha `()` chiqadi:
+
+```rust
+let unit_value: () = {
+    let x = 3;
+    x + 1;
+};
+```
+
+Xuddi shu qoida `if` branches uchun ham ishlaydi:
+
+```rust
+let abs_value = if x < 0 { -x } else { x };
+```
+
+Declarative macros ham aynan shu syntactic kategoriyalarni farqlaydi: `expr`, `stmt`, `block`, `item` fragmentlari bir xil narsa emas.
+
 ## Common Mistakes
 
 - Final expressionga semicolon qo'yish.
@@ -58,4 +75,7 @@ fn plus_one(x: i32) -> i32 {
 
 ## Sources
 
-- [[3-3-functions-the-rust-programming-language]]
+- [[3-3-functions]]
+- [[wiki/sources/rust-for-backend-developers-scopes]]
+- [[wiki/sources/rust-for-backend-developers-if]]
+- [[wiki/sources/rust-for-backend-developers-declarative-macros]]

@@ -3,9 +3,9 @@ title: "Stack and Heap"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
-tags: [rust, memory]
-source_count: 2
+updated: 2026-05-08
+tags: [rust, memory, heap, box]
+source_count: 3
 ---
 
 # Stack and Heap
@@ -35,6 +35,12 @@ let s = String::from("hello"); // stack metadata + heap text data
 
 Common collections, masalan [[vector|Vec<T>]] va [[string-type|String]], runtime'da grow/shrink qilishi uchun heap-backed data ishlatadi.
 
+[[box-t|Box<T>]] ham value'ni heapda saqlaydi, stackda esa fixed-size pointer metadata turadi:
+
+```rust
+let b = Box::new(5);
+```
+
 ## Common Mistakes
 
 - `String` assignment heap data'ni automatic copy qiladi deb o'ylash.
@@ -47,11 +53,14 @@ Common collections, masalan [[vector|Vec<T>]] va [[string-type|String]], runtime
 - [[string-type|String]]
 - [[collections]]
 - [[vector|Vec<T>]]
+- [[box-t|Box<T>]]
+- [[smart-pointers]]
 - [[move-semantics|move semantics]]
 - [[copy-trait|Copy trait]]
 - [[drop]]
 
 ## Sources
 
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[8-common-collections-the-rust-programming-language]]
+- [[4-1-what-is-ownership]]
+- [[wiki/sources/8-common-collections]]
+- [[15-1-using-box-t-to-point-to-data-on-the-heap]]

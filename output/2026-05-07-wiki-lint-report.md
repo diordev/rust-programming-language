@@ -69,14 +69,14 @@ Bular lint failure emas. Ular deeper ingest bu pagesni kengaytirguncha yoki reti
 Rust examples zich bo'lgan va keyinroq `wiki/snippets/`ga extraction qilinishi mumkin bo'lgan pages:
 
 - `wiki/questions/if-loop-while-for-va-ularga-bogliq-control-flow.md`: 19 Rust fences
-- `wiki/sources/6-1-defining-an-enum-the-rust-programming-language.md`: 17 Rust fences
-- `wiki/sources/8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language.md`: 14 Rust fences
-- `wiki/sources/9-2-recoverable-errors-with-result-the-rust-programming-language.md`: 13 Rust fences
+- `wiki/sources/6-1-defining-an-enum.md`: 17 Rust fences
+- `wiki/sources/8-3-storing-keys-with-associated-values-in-hash-maps.md`: 14 Rust fences
+- `wiki/sources/9-2-recoverable-errors-with-result.md`: 13 Rust fences
 - `wiki/errors/e0277-trait-bound-not-satisfied.md`: 12 Rust fences
 - `wiki/chapters/6-enums-and-pattern-matching.md`: 11 Rust fences
-- `wiki/sources/8-1-storing-lists-of-values-with-vectors-the-rust-programming-language.md`: 11 Rust fences
-- `wiki/sources/8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language.md`: 11 Rust fences
-- `wiki/sources/6-2-the-match-control-flow-construct-the-rust-programming-language.md`: 10 Rust fences
+- `wiki/sources/8-1-storing-lists-of-values-with-vectors.md`: 11 Rust fences
+- `wiki/sources/8-2-storing-utf-8-encoded-text-with-strings.md`: 11 Rust fences
+- `wiki/sources/6-2-the-match-control-flow-construct.md`: 10 Rust fences
 - `wiki/concepts/option.md`: 10 Rust fences
 - `wiki/concepts/generics.md`: 10 Rust fences
 - `wiki/chapters/8-common-collections.md`: 10 Rust fences

@@ -243,10 +243,10 @@ for word in text.split_whitespace() {
 
 ## Related Pages
 
-- [[8-common-collections-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[wiki/sources/8-common-collections]]
+- [[8-1-storing-lists-of-values-with-vectors]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]
 - [[collections]]
 - [[vector|Vec<T>]]
 - [[vec-macro|vec! macro]]

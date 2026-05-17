@@ -50,4 +50,4 @@ fn main() -> Result<(), Box<dyn Error>> {
 
 ## Sources
 
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[9-2-recoverable-errors-with-result]]

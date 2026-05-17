@@ -76,4 +76,4 @@ fn make_owned() -> String {
 
 ## Sources
 
-- [[10-3-validating-references-with-lifetimes-the-rust-programming-language]]
+- [[10-3-validating-references-with-lifetimes]]

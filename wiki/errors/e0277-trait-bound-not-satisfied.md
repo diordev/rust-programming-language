@@ -3,9 +3,9 @@ title: "E0277 trait bound not satisfied"
 type: error
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-08
 tags: [rust, compiler-error, traits, debug]
-source_count: 5
+source_count: 7
 ---
 
 # E0277 trait bound not satisfied
@@ -16,9 +16,10 @@ Type kerakli traitni implement qilmaganida `error[E0277]` chiqishi mumkin. Tushi
 
 1. Chapter 5.2 — custom `Rectangle`ni `println!("{rect1}")` yoki `println!("{rect1:?}")` bilan chiqarishga urinish.
 2. Chapter 6.1 — `Option<i8>`'ni `i8`'ga to'g'ridan-to'g'ri qo'shishga urinish.
-3. Chapter 8.2 — `String` yoki `str`ni integer index bilan access qilishga urinish.
-4. Chapter 9.2 — `?` operatorni `()` qaytaradigan functionda `Result` ustida ishlatishga urinish.
-5. Chapter 10.2 — trait bound talab qilgan functionga traitni implement qilmagan type berishga urinish.
+3. Chapter 8.2 - `String` yoki `str`ni integer index bilan access qilishga urinish.
+4. Chapter 9.2 - `?` operatorni `()` qaytaradigan functionda `Result` ustida ishlatishga urinish.
+5. Chapter 10.2 - trait bound talab qilgan functionga traitni implement qilmagan type berishga urinish.
+6. Chapter 15.2 - integer value bilan reference'ni to'g'ridan-to'g'ri compare qilishga urinish.
 
 ## Cause
 
@@ -31,6 +32,8 @@ Type kerakli traitni implement qilmaganida `error[E0277]` chiqishi mumkin. Tushi
 **`?` operator uchun:** `?` errorni current functiondan early return qiladi. Shuning uchun function return type'i `Result`, `Option`, yoki compatible residual type bo'lishi kerak. `fn main()` default `()` qaytaradi, shuning uchun `File::open("hello.txt")?` bu signature ichida ishlamaydi.
 
 **Trait bound uchun:** `fn notify<T: Summary>(item: &T)` faqat `Summary` implement qilgan typelarni qabul qiladi. `String` yoki `i32` `Summary` implement qilmagan bo'lsa, compiler kerakli trait bound bajarilmaganini bildiradi.
+
+**Reference compare uchun:** `assert_eq!(5, y)` da `y: &i32` bo'lsa, `i32` bilan `&i32` solishtirilmoqda. Avval [[dereference-operator|dereference operator]] bilan `*y` orqali inner value'ga yetish kerak.
 
 ## Fix Pattern
 
@@ -49,6 +52,12 @@ println!("rect1 is {rect1:?}");
 User-facing output uchun keyinchalik `Display`ni custom implement qilish kerak bo'ladi.
 
 Trait bound xatosida yoki type uchun kerakli traitni implement qiling, yoki functionga boundni qanoatlantiradigan type bering.
+
+Reference bilan value solishtirilayotgan bo'lsa, reference'ni dereference qiling:
+
+```rust
+assert_eq!(5, *y);
+```
 
 ## Minimal Example
 
@@ -208,6 +217,50 @@ pub fn notify<T: Summary>(item: &T) {
 }
 ```
 
+### Comparing value with reference
+
+Failing:
+
+```rust
+fn main() {
+    let x = 5;
+    let y = &x;
+
+    assert_eq!(5, y);
+}
+```
+
+Fixed:
+
+```rust
+fn main() {
+    let x = 5;
+    let y = &x;
+
+    assert_eq!(5, *y);
+}
+```
+
+## Thread kontekstida E0277 — `Send` emas
+
+`thread::spawn` `Send` bound talab qiladi. `Rc<T>` `Send` implement qilmaydi:
+
+```rust
+use std::rc::Rc;
+use std::sync::Mutex;
+use std::thread;
+
+let counter = Rc::new(Mutex::new(0));
+let counter2 = Rc::clone(&counter);
+thread::spawn(move || {
+    *counter2.lock().unwrap() += 1;
+    // XATO: `Rc<Mutex<i32>>` cannot be sent between threads safely
+    // the trait `Send` is not implemented for `Rc<Mutex<i32>>`
+});
+```
+
+**Yechim:** `Rc<T>` o'rniga `Arc<T>` ishlatish — `Arc<T>: Send + Sync`.
+
 ## Related Concepts
 
 - [[debug-trait|Debug trait]]
@@ -218,6 +271,8 @@ pub fn notify<T: Summary>(item: &T) {
 - [[structs]]
 - [[option|Option]]
 - [[enums]]
+- [[reference]]
+- [[dereference-operator]]
 - [[string-indexing|string indexing]]
 - [[utf-8|UTF-8]]
 - [[question-mark-operator|question mark operator]]
@@ -227,8 +282,17 @@ pub fn notify<T: Summary>(item: &T) {
 - [[trait-bounds|trait bounds]]
 - [[impl-trait|impl Trait]]
 - [[trait-implementations|trait implementations]]
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
-- [[6-1-defining-an-enum-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[send-trait|Send trait]]
+- [[arc-t|Arc<T>]]
+- [[rc-t|Rc<T>]]
+- [[threads]]
+
+## Sources
+
+- [[5-2-an-example-program-using-structs]]
+- [[6-1-defining-an-enum]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[9-2-recoverable-errors-with-result]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[15-2-treating-smart-pointers-like-regular-references]]
+- [[16-3-shared-state-concurrency]]

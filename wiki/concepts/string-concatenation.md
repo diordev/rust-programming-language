@@ -58,4 +58,4 @@ let s = format!("{s1}-{s2}-{s3}");
 
 ## Sources
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]

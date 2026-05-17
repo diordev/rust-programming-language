@@ -236,11 +236,11 @@ fn print_name(name: Option<String>) {
 
 ## Related Pages
 
-- [[6-enums-and-pattern-matching-the-rust-programming-language]]
-- [[6-1-defining-an-enum-the-rust-programming-language]]
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
-- [[6-3-concise-control-flow-with-if-let-and-let-else-the-rust-programming-language]]
-- [[5-using-structs-to-structure-related-data|5. Using Structs to Structure Related Data]]
+- [[wiki/sources/6-enums-and-pattern-matching]]
+- [[6-1-defining-an-enum]]
+- [[6-2-the-match-control-flow-construct]]
+- [[6-3-concise-control-flow-with-if-let-and-let-else]]
+- [[wiki/chapters/5-using-structs-to-structure-related-data|5. Using Structs to Structure Related Data]]
 - [[ip-addr-enum|IP address enum example]]
 - [[message-enum|Message enum example]]
 - [[coin-match|Coin match example]]

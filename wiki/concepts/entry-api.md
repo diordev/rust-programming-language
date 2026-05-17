@@ -55,4 +55,4 @@ let count = map.entry(word).or_insert(0);
 
 ## Sources
 
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]

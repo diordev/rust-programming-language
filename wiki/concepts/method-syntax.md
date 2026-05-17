@@ -42,4 +42,4 @@ let fits = rect1.can_hold(&rect2);
 
 ## Sources
 
-- [[5-3-methods-the-rust-programming-language]]
+- [[5-3-methods]]

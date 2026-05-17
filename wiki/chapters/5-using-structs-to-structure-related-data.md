@@ -178,11 +178,11 @@ impl Rectangle {
 
 ## Related Pages
 
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
-- [[5-3-methods-the-rust-programming-language]]
-- [[4-understanding-ownership|4. Understanding Ownership]]
+- [[wiki/sources/5-using-structs-to-structure-related-data]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[5-2-an-example-program-using-structs]]
+- [[5-3-methods]]
+- [[wiki/chapters/4-understanding-ownership|4. Understanding Ownership]]
 - [[tuple]]
 - [[string-type|String]]
 - [[string-slice|String slice]]

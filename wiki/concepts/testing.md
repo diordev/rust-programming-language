@@ -3,9 +3,9 @@ title: "Testing"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-13
 tags: [rust, testing, correctness]
-source_count: 4
+source_count: 5
 ---
 
 # Testing
@@ -122,6 +122,10 @@ fn it_works() -> Result<(), String> {
 
 `?` operator ishlatish imkonini beradi. `#[should_panic]` bilan mos kelmaydi.
 
+### Release channels bilan testing
+
+Stable Rust default target bo'lsa ham, ecosystem odatda beta va nightlyni ham kuzatadi. Library yoki tool yaratganda CI'da beta channelni qo'shib qo'yish upcoming stable regressiyalarni oldinroq ko'rishga yordam beradi.
+
 ## Common Mistakes
 
 - `use super::*;` yozmaslik — test module ichidan tashqi modul itemlari ko'rinmaydi.
@@ -141,10 +145,12 @@ fn it_works() -> Result<(), String> {
 - [[unit-tests]] — `src/` ichida, private access
 - [[integration-tests]] — `tests/` papkasida, public API
 - [[correctness]]
+- [[release-channels]]
 
 ## Sources
 
-- [[11-writing-automated-tests-the-rust-programming-language]]
-- [[11-1-how-to-write-tests-the-rust-programming-language]]
-- [[11-2-controlling-how-tests-are-run-the-rust-programming-language]]
-- [[11-3-test-organization-the-rust-programming-language]]
+- [[wiki/sources/11-writing-automated-tests]]
+- [[11-1-how-to-write-tests]]
+- [[11-2-controlling-how-tests-are-run]]
+- [[11-3-test-organization]]
+- [[wiki/sources/22-7-g-how-rust-is-made-and-nightly-rust|22.7. G - How Rust is Made and Nightly Rust]]

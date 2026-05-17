@@ -108,4 +108,4 @@ fn longest(x: &str, y: &str) -> &str { ... } // E0106
 
 ## Sources
 
-- [[10-3-validating-references-with-lifetimes-the-rust-programming-language]]
+- [[10-3-validating-references-with-lifetimes]]

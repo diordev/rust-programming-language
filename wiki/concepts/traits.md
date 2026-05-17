@@ -3,9 +3,9 @@ title: "Traits"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, traits]
-source_count: 7
+source_count: 9
 ---
 
 # Traits
@@ -23,6 +23,8 @@ Traits [[generics]] bilan birga ishlaganda code reuse, abstraction, va compile-t
 Trait "bu type mana shu behaviorni bajaradi" degan shartga o'xshaydi. Function generic type qabul qilsa, trait bound orqali undan qanday behavior kutishini aytadi.
 
 Traitning o'zi behavior contract, `impl` esa shu contractni konkret type uchun bajarishdir.
+
+Backend beginner source shu story'ni yanada amaliy frame qiladi: traitning asosiy foydasi polymorphism. Rust bunda ikki boshqa model beradi: [[static-dispatch|static dispatch]] (`impl Trait`, trait bounds, [[monomorphization]]) va [[dynamic-dispatch|dynamic dispatch]] (`dyn Trait`, [[trait-object|trait object]], vtable).
 
 Chapter 9.2da [[from-trait|From trait]] `?` operator error type conversionida tilga olinadi, [[box-dyn-error|Box<dyn Error>]] esa trait object mavzusiga oldindan signal beradi.
 
@@ -137,6 +139,14 @@ fn returns_summarizable() -> impl Summary {
 }
 ```
 
+Dynamic dispatch bilan:
+
+```rust
+fn print_introduction(v: &dyn CanIntroduce) {
+    println!("{}", v.introduce());
+}
+```
+
 ## Common Mistakes
 
 - Traitni inheritance deb tushunish.
@@ -148,6 +158,7 @@ fn returns_summarizable() -> impl Summary {
 - Trait method call uchun trait scope'da bo'lishi kerak bo'lgan holatlarni unutish.
 - Return-position `impl Trait` har branchda turli concrete type qaytarishi mumkin deb o'ylash.
 - Default methodni override qilgan method ichidan default implementationni chaqirish mumkin deb o'ylash.
+- Bare `dyn Trait` oddiy value sifatida ishlaydi deb o'ylash; amalda odatda `&dyn Trait` yoki `Box<dyn Trait>` kerak.
 
 ## Related Concepts
 
@@ -169,6 +180,10 @@ fn returns_summarizable() -> impl Summary {
 - [[default-trait-implementations|default trait implementations]]
 - [[trait-bounds|trait bounds]]
 - [[impl-trait|impl Trait]]
+- [[static-dispatch|static dispatch]]
+- [[trait-object|trait object]]
+- [[dynamic-dispatch|dynamic dispatch]]
+- [[polymorphism]]
 - [[where-clauses|where clauses]]
 - [[orphan-rule|orphan rule]]
 - [[blanket-implementations|blanket implementations]]
@@ -176,13 +191,23 @@ fn returns_summarizable() -> impl Summary {
 - [[summary-trait-example|Summary trait example]]
 - [[notify-trait-parameters|notify trait parameters]]
 - [[e0369-binary-operation-cannot-be-applied|E0369 binary operation cannot be applied]]
+- [[associated-types|associated types]] — `type Item;` placeholder
+- [[default-generic-parameters|default generic parameters]] — `<Rhs = Self>`
+- [[operator-overloading|operator overloading]] — `std::ops::Add` va boshqalar
+- [[fully-qualified-syntax|fully qualified syntax]] — `<Type as Trait>::fn()`
+- [[supertraits]] — trait body'da boshqa trait method'lari
+- [[newtype-pattern|newtype pattern]] — orphan rule chetlab o'tish
+- [[dyn-compatibility|dyn compatibility]]
+- [[unsafe-trait|unsafe trait]] — `unsafe impl Send`
 
 ## Sources
 
-- [[0-2-introduction-the-rust-programming-language]]
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language]]
-- [[10-1-generic-data-types-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[wiki/sources/0-2-introduction]]
+- [[4-1-what-is-ownership]]
+- [[5-2-an-example-program-using-structs]]
+- [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes]]
+- [[10-1-generic-data-types]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/20-2-advanced-traits|20.2 Advanced Traits]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

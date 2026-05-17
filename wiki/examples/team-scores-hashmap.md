@@ -44,7 +44,7 @@ Iteration order arbitrary, shuning uchun output orderiga tayanmaslik kerak.
 
 ## Related Pages
 
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]
 - [[hash-map|HashMap]]
 - [[option|Option]]
 - [[copy-trait|Copy trait]]

@@ -55,7 +55,7 @@ use rand::Rng;
 
 ## Sources
 
-- [[1-3-hello-cargo-the-rust-programming-language]]
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[1-3-hello-cargo]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]

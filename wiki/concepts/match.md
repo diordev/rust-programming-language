@@ -3,9 +3,9 @@ title: "match"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, control-flow]
-source_count: 4
+source_count: 7
 ---
 
 # match
@@ -25,6 +25,8 @@ source_count: 4
 Rust barcha kerakli holatlar ko'rib chiqilganini tekshiradi. Agar `Option<T>`da `None` unutilsa, compiler [[e0004-non-exhaustive-patterns|E0004]] beradi. Qolgan casesni ongli default bilan yopish uchun [[catch-all-patterns|catch-all pattern]] ishlatiladi.
 
 Chapter 9.2da `match` [[result|Result<T, E>]]ni handle qilishning primitive tool'i sifatida ishlatiladi: `Ok(file)` success value'ni ochadi, `Err(error)` esa recovery yoki panic branchiga o'tadi.
+
+Keyinroq pattern familyasi ranges, `|`, [[at-binding|@ binding]], [[match-guard|match guard]], struct patterns, va [[slice-patterns|slice patterns]] bilan kengayadi. String content matchingda esa `String`ni ko'pincha `as_str()` qilib literal patternlarga solishtirish kerak bo'ladi.
 
 ## Syntax and Examples
 
@@ -117,10 +119,15 @@ let greeting_file = match File::open("hello.txt") {
 - [[question-mark-operator|question mark operator]]
 - [[ordering|Ordering]]
 - [[e0004-non-exhaustive-patterns|E0004 non-exhaustive patterns]]
+- [[never-type|never type (!)]] — `match` arm coercion
+- [[diverging-functions|diverging functions]] — `panic!`, `continue` arm
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
-- [[6-3-concise-control-flow-with-if-let-and-let-else-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[6-2-the-match-control-flow-construct]]
+- [[6-3-concise-control-flow-with-if-let-and-let-else]]
+- [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/19-1-all-the-places-patterns-can-be-used]]
+- [[wiki/sources/rust-for-backend-developers-pattern-matching]]
+- [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]

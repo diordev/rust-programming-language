@@ -3,9 +3,9 @@ title: "for Loop"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, control-flow]
-source_count: 2
+source_count: 3
 ---
 
 # for Loop
@@ -21,6 +21,8 @@ Rustda collection iteration uchun `for` odatda eng safe va idiomatic loop.
 ## Mental Model
 
 `for` har iterationda navbatdagi itemni bindingga beradi va collection chegaralarini qo'lda boshqarishni kamaytiradi.
+
+Rustdagi `for` C-style `for(init; cond; step)` emas. Numeric iteration kerak bo'lsa range ishlatiladi: `0..10`, `0..=10`.
 
 ## Syntax and Examples
 
@@ -48,6 +50,14 @@ for value in &mut v {
 }
 ```
 
+Range bilan:
+
+```rust
+for i in 0..=10 {
+    print!("{i} ");
+}
+```
+
 ## Common Mistakes
 
 - Index bilan manual loop yozib bounds xatolarini ko'paytirish.
@@ -65,5 +75,6 @@ for value in &mut v {
 
 ## Sources
 
-- [[3-5-control-flow-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
+- [[3-5-control-flow]]
+- [[8-1-storing-lists-of-values-with-vectors]]
+- [[wiki/sources/rust-for-backend-developers-loops]]

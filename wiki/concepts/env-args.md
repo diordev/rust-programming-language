@@ -83,4 +83,4 @@ fn main() {
 
 ## Sources
 
-- [[12-1-accepting-command-line-arguments-the-rust-programming-language]]
+- [[12-1-accepting-command-line-arguments]]

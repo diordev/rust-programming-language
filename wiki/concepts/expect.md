@@ -62,5 +62,5 @@ let home: std::net::IpAddr = "127.0.0.1"
 
 ## Sources
 
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[9-2-recoverable-errors-with-result]]
+- [[9-3-to-panic-or-not-to-panic]]

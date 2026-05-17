@@ -51,7 +51,7 @@ Rustda `ownership` aynan heap data qachon va kim tomonidan tozalanishini aniqlas
 ## Evidence
 
 - [[stack-and-heap]]: stack va heapning asosiy modeli.
-- [[4-1-what-is-ownership-the-rust-programming-language]]: `String` metadata stackda, text heapda ekanini tushuntiradi.
+- [[4-1-what-is-ownership]]: `String` metadata stackda, text heapda ekanini tushuntiradi.
 - [[string-type|String]]: growable text type va heap allocation.
 - [[ownership]]: heap data cleanup ownership orqali boshqariladi.
 

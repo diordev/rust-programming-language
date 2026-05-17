@@ -78,7 +78,7 @@ fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
 
 ## Related Concepts
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[10-1-generic-data-types]]
 - [[generic-functions|generic functions]]
 - [[generic-type-parameters|generic type parameters]]
 - [[traits]]

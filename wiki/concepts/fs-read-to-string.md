@@ -74,4 +74,4 @@ fn read_poem() -> Result<String, io::Error> {
 
 ## Sources
 
-- [[12-2-reading-a-file-the-rust-programming-language]]
+- [[12-2-reading-a-file]]

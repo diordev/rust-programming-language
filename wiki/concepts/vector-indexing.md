@@ -59,5 +59,5 @@ Rust bu holatda invalid memory o'qishni davom ettirmaydi; [[buffer-overread|buff
 
 ## Sources
 
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
+- [[8-1-storing-lists-of-values-with-vectors]]
+- [[9-1-unrecoverable-errors-with-panic]]

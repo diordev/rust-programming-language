@@ -61,6 +61,6 @@ panic = 'abort'      # stack unwind o'rniga to'xtatish — binary kichikroq
 
 ## Sources
 
-- [[1-3-hello-cargo-the-rust-programming-language]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
-- [[14-1-customizing-builds-with-release-profiles-the-rust-programming-language|14.1 Release Profiles]]
+- [[1-3-hello-cargo]]
+- [[9-1-unrecoverable-errors-with-panic]]
+- [[14-1-customizing-builds-with-release-profiles|14.1 Release Profiles]]

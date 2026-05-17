@@ -3,9 +3,9 @@ title: "Tuple"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, types]
-source_count: 2
+source_count: 3
 ---
 
 # Tuple
@@ -31,6 +31,14 @@ let point: (i32, i32) = (10, 20);
 let (x, y) = point;
 ```
 
+Multiple return values:
+
+```rust
+fn split_pair() -> (i32, i32) {
+    (1, 2)
+}
+```
+
 ## Common Mistakes
 
 - Tuple elementlariga field name bilan murojaat qilishga urinish.
@@ -44,8 +52,11 @@ let (x, y) = point;
 - [[copy-trait|Copy trait]]
 - [[structs]]
 - [[tuple-structs]]
+- [[functions]]
+- [[slices]]
 
 ## Sources
 
-- [[3-2-data-types-the-rust-programming-language]]
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language]]
+- [[3-2-data-types]]
+- [[wiki/sources/5-using-structs-to-structure-related-data]]
+- [[wiki/sources/rust-for-backend-developers-tuples]]

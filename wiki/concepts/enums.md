@@ -158,11 +158,11 @@ enum Result<T, E> {
 
 ## Sources
 
-- [[6-enums-and-pattern-matching-the-rust-programming-language]]
-- [[6-1-defining-an-enum-the-rust-programming-language]]
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
-- [[6-3-concise-control-flow-with-if-let-and-let-else-the-rust-programming-language]]
-- [[5-3-methods-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[wiki/sources/6-enums-and-pattern-matching]]
+- [[6-1-defining-an-enum]]
+- [[6-2-the-match-control-flow-construct]]
+- [[6-3-concise-control-flow-with-if-let-and-let-else]]
+- [[5-3-methods]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[8-1-storing-lists-of-values-with-vectors]]
+- [[10-1-generic-data-types]]

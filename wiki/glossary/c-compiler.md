@@ -14,4 +14,4 @@ Ayrim Rust toolchain yoki dependency buildlari uchun kerak bo'lishi mumkin bo'lg
 
 Related: [[linker]], [[compiler]]
 
-Sources: [[1-1-installation-the-rust-programming-language]]
+Sources: [[1-1-installation]]

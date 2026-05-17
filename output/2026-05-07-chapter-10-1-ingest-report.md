@@ -14,13 +14,13 @@ source_count: 1
 
 Processed source:
 
-- `raw/books/the_rust_programming_language/10.1. Generic Data Types - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/10.1. Generic Data Types.md`
 
 ## Wiki Updates
 
 Created source summary:
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[10-1-generic-data-types]]
 
 Created concept pages:
 
@@ -42,7 +42,7 @@ Created error page:
 
 Updated existing pages:
 
-- [[10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]]
+- [[wiki/chapters/10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]]
 - [[generics]]
 - [[generic-type-parameters|generic type parameters]]
 - [[traits]]

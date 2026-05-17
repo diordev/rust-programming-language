@@ -75,7 +75,7 @@ Bu yerda `hosting` module ham, `add_to_waitlist` function ham public.
 
 ## Sources
 
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]

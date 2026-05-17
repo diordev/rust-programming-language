@@ -28,8 +28,8 @@ Chapter 8 yakunidagi uch mashq [[vector|Vec<T>]], [[string-type|String]], [[stri
 
 ## Related Pages
 
-- [[8-common-collections|8. Common Collections]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[wiki/chapters/8-common-collections|8. Common Collections]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]
 - [[vector|Vec<T>]]
 - [[hash-map|HashMap]]
 - [[entry-api|entry API]]

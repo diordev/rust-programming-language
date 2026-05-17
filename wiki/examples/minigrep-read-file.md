@@ -63,4 +63,4 @@ Are you nobody, too?
 - [[result|Result]]
 - [[expect]]
 - [[cli]]
-- [[12-2-reading-a-file-the-rust-programming-language]]
+- [[12-2-reading-a-file]]

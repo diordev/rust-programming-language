@@ -14,4 +14,4 @@ Standard output stream. `println!` odatda outputni shu streamga yozadi.
 
 Related: [[stderr]], [[println-macro|println! macro]]
 
-Sources: [[5-2-an-example-program-using-structs-the-rust-programming-language]]
+Sources: [[5-2-an-example-program-using-structs]]

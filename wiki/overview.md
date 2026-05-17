@@ -3,9 +3,9 @@ title: "Rust Wiki Overview"
 type: overview
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, overview]
-source_count: 59
+source_count: 141
 ---
 
 # Rust Wiki Overview
@@ -21,71 +21,160 @@ Current focus:
 
 Ingested Rust Book materials:
 
-- [[0-the-rust-programming-language-the-rust-programming-language|0. The Rust Programming Language]]
-- [[0-1-foreword-the-rust-programming-language|0.1. Foreword]]
-- [[0-2-introduction-the-rust-programming-language|0.2. Introduction]]
-- [[1-getting-started-the-rust-programming-language|1. Getting Started]]
-- [[1-1-installation-the-rust-programming-language|1.1. Installation]]
-- [[1-2-hello-world-the-rust-programming-language|1.2. Hello, World!]]
-- [[1-3-hello-cargo-the-rust-programming-language|1.3. Hello, Cargo!]]
-- [[2-programming-a-guessing-game-the-rust-programming-language|2. Programming a Guessing Game]]
-- [[3-common-programming-concepts-the-rust-programming-language|3. Common Programming Concepts]]
-- [[3-1-variables-and-mutability-the-rust-programming-language|3.1. Variables and Mutability]]
-- [[3-2-data-types-the-rust-programming-language|3.2. Data Types]]
-- [[3-3-functions-the-rust-programming-language|3.3. Functions]]
-- [[3-4-comments-the-rust-programming-language|3.4. Comments]]
-- [[3-5-control-flow-the-rust-programming-language|3.5. Control Flow]]
-- [[4-understanding-ownership-the-rust-programming-language|4. Understanding Ownership]]
-- [[4-1-what-is-ownership-the-rust-programming-language|4.1. What Is Ownership?]]
-- [[4-2-references-and-borrowing-the-rust-programming-language|4.2. References and Borrowing]]
-- [[4-3-the-slice-type-the-rust-programming-language|4.3. The Slice Type]]
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language|5. Using Structs to Structure Related Data]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language|5.1. Defining and Instantiating Structs]]
-- [[5-2-an-example-program-using-structs-the-rust-programming-language|5.2. An Example Program Using Structs]]
-- [[5-3-methods-the-rust-programming-language|5.3. Methods]]
-- [[6-enums-and-pattern-matching-the-rust-programming-language|6. Enums and Pattern Matching]]
-- [[6-1-defining-an-enum-the-rust-programming-language|6.1. Defining an Enum]]
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language|6.2. The match Control Flow Construct]]
-- [[6-3-concise-control-flow-with-if-let-and-let-else-the-rust-programming-language|6.3. Concise Control Flow with if let and let...else]]
-- [[7-packages-crates-and-modules-the-rust-programming-language|7. Packages, Crates, and Modules]]
-- [[7-1-packages-and-crates-the-rust-programming-language|7.1. Packages and Crates]]
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language|7.2. Control Scope and Privacy with Modules]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language|7.3. Paths for Referring to an Item in the Module Tree]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language|7.4. Bringing Paths Into Scope with the use Keyword]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language|7.5. Separating Modules into Different Files]]
-- [[8-common-collections-the-rust-programming-language|8. Common Collections]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language|8.1. Storing Lists of Values with Vectors]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language|8.2. Storing UTF-8 Encoded Text with Strings]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language|8.3. Storing Keys with Associated Values in Hash Maps]]
-- [[9-error-handling-the-rust-programming-language|9. Error Handling]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language|9.1. Unrecoverable Errors with panic!]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language|9.2. Recoverable Errors with Result]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language|9.3. To panic! or Not to panic!]]
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language|10. Generic Types, Traits, and Lifetimes]]
-- [[10-1-generic-data-types-the-rust-programming-language|10.1. Generic Data Types]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language|10.2. Defining Shared Behavior with Traits]]
-- [[10-3-validating-references-with-lifetimes-the-rust-programming-language|10.3. Validating References with Lifetimes]]
-- [[11-writing-automated-tests-the-rust-programming-language|11. Writing Automated Tests]]
-- [[11-1-how-to-write-tests-the-rust-programming-language|11.1. How to Write Tests]]
-- [[11-2-controlling-how-tests-are-run-the-rust-programming-language|11.2. Controlling How Tests Are Run]]
-- [[11-3-test-organization-the-rust-programming-language|11.3. Test Organization]]
-- [[13-functional-language-features-the-rust-programming-language|13. Functional Language Features: Iterators and Closures]]
-- [[13-1-closures-the-rust-programming-language|13.1. Closures]]
-- [[13-2-processing-a-series-of-items-with-iterators-the-rust-programming-language|13.2. Processing a Series of Items with Iterators]]
-- [[13-3-improving-our-io-project-the-rust-programming-language|13.3. Improving Our I/O Project]]
-- [[13-4-performance-in-loops-vs-iterators-the-rust-programming-language|13.4. Performance: Comparing Loops and Iterators]]
-- [[14-more-about-cargo-and-crates-io-the-rust-programming-language|14. More About Cargo and Crates.io]]
-- [[14-1-customizing-builds-with-release-profiles-the-rust-programming-language|14.1. Customizing Builds with Release Profiles]]
-- [[14-2-publishing-a-crate-to-crates-io-the-rust-programming-language|14.2. Publishing a Crate to Crates.io]]
-- [[14-3-cargo-workspaces-the-rust-programming-language|14.3. Cargo Workspaces]]
-- [[14-4-installing-binaries-with-cargo-install-the-rust-programming-language|14.4. Installing Binaries with cargo install]]
-- [[14-5-extending-cargo-with-custom-commands-the-rust-programming-language|14.5. Extending Cargo with Custom Commands]]
+- [[0-the-rust-programming-language|0. The Rust Programming Language]]
+- [[0-1-foreword|0.1. Foreword]]
+- [[wiki/sources/0-2-introduction|0.2. Introduction]]
+- [[wiki/sources/1-getting-started|1. Getting Started]]
+- [[1-1-installation|1.1. Installation]]
+- [[1-2-hello-world|1.2. Hello, World!]]
+- [[1-3-hello-cargo|1.3. Hello, Cargo!]]
+- [[wiki/sources/2-programming-a-guessing-game|2. Programming a Guessing Game]]
+- [[wiki/sources/3-common-programming-concepts|3. Common Programming Concepts]]
+- [[3-1-variables-and-mutability|3.1. Variables and Mutability]]
+- [[3-2-data-types|3.2. Data Types]]
+- [[3-3-functions|3.3. Functions]]
+- [[3-4-comments|3.4. Comments]]
+- [[3-5-control-flow|3.5. Control Flow]]
+- [[wiki/sources/4-understanding-ownership|4. Understanding Ownership]]
+- [[4-1-what-is-ownership|4.1. What Is Ownership?]]
+- [[4-2-references-and-borrowing|4.2. References and Borrowing]]
+- [[4-3-the-slice-type|4.3. The Slice Type]]
+- [[wiki/sources/5-using-structs-to-structure-related-data|5. Using Structs to Structure Related Data]]
+- [[5-1-defining-and-instantiating-structs|5.1. Defining and Instantiating Structs]]
+- [[5-2-an-example-program-using-structs|5.2. An Example Program Using Structs]]
+- [[5-3-methods|5.3. Methods]]
+- [[wiki/sources/6-enums-and-pattern-matching|6. Enums and Pattern Matching]]
+- [[6-1-defining-an-enum|6.1. Defining an Enum]]
+- [[6-2-the-match-control-flow-construct|6.2. The match Control Flow Construct]]
+- [[6-3-concise-control-flow-with-if-let-and-let-else|6.3. Concise Control Flow with if let and let...else]]
+- [[wiki/sources/7-packages-crates-and-modules|7. Packages, Crates, and Modules]]
+- [[7-1-packages-and-crates|7.1. Packages and Crates]]
+- [[7-2-control-scope-and-privacy-with-modules|7.2. Control Scope and Privacy with Modules]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree|7.3. Paths for Referring to an Item in the Module Tree]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword|7.4. Bringing Paths Into Scope with the use Keyword]]
+- [[7-5-separating-modules-into-different-files|7.5. Separating Modules into Different Files]]
+- [[wiki/sources/8-common-collections|8. Common Collections]]
+- [[8-1-storing-lists-of-values-with-vectors|8.1. Storing Lists of Values with Vectors]]
+- [[8-2-storing-utf-8-encoded-text-with-strings|8.2. Storing UTF-8 Encoded Text with Strings]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps|8.3. Storing Keys with Associated Values in Hash Maps]]
+- [[wiki/sources/9-error-handling|9. Error Handling]]
+- [[9-1-unrecoverable-errors-with-panic|9.1. Unrecoverable Errors with panic!]]
+- [[9-2-recoverable-errors-with-result|9.2. Recoverable Errors with Result]]
+- [[9-3-to-panic-or-not-to-panic|9.3. To panic! or Not to panic!]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]]
+- [[10-1-generic-data-types|10.1. Generic Data Types]]
+- [[10-2-defining-shared-behavior-with-traits|10.2. Defining Shared Behavior with Traits]]
+- [[10-3-validating-references-with-lifetimes|10.3. Validating References with Lifetimes]]
+- [[wiki/sources/11-writing-automated-tests|11. Writing Automated Tests]]
+- [[11-1-how-to-write-tests|11.1. How to Write Tests]]
+- [[11-2-controlling-how-tests-are-run|11.2. Controlling How Tests Are Run]]
+- [[11-3-test-organization|11.3. Test Organization]]
+- [[12-an-io-project-building-a-command-line-program|12. An I/O Project: Building a Command Line Program]]
+- [[12-1-accepting-command-line-arguments|12.1. Accepting Command Line Arguments]]
+- [[12-2-reading-a-file|12.2. Reading a File]]
+- [[12-3-refactoring-to-improve-modularity-and-error-handling|12.3. Refactoring to Improve Modularity and Error Handling]]
+- [[12-4-adding-functionality-with-test-driven-development|12.4. Adding Functionality with Test-Driven Development]]
+- [[12-5-working-with-environment-variables|12.5. Working with Environment Variables]]
+- [[12-6-redirecting-errors-to-standard-error|12.6. Redirecting Errors to Standard Error]]
+- [[13-functional-language-features-iterators-and-closures|13. Functional Language Features: Iterators and Closures]]
+- [[13-1-closures|13.1. Closures]]
+- [[13-2-processing-a-series-of-items-with-iterators|13.2. Processing a Series of Items with Iterators]]
+- [[13-3-improving-our-io-project|13.3. Improving Our I/O Project]]
+- [[13-4-performance-in-loops-vs-iterators|13.4. Performance: Comparing Loops and Iterators]]
+- [[wiki/sources/14-more-about-cargo-and-crates-io|14. More About Cargo and Crates.io]]
+- [[14-1-customizing-builds-with-release-profiles|14.1. Customizing Builds with Release Profiles]]
+- [[14-2-publishing-a-crate-to-crates-io|14.2. Publishing a Crate to Crates.io]]
+- [[14-3-cargo-workspaces|14.3. Cargo Workspaces]]
+- [[14-4-installing-binaries-with-cargo-install|14.4. Installing Binaries with cargo install]]
+- [[14-5-extending-cargo-with-custom-commands|14.5. Extending Cargo with Custom Commands]]
+- [[wiki/sources/15-smart-pointers|15. Smart Pointers]]
+- [[15-1-using-box-t-to-point-to-data-on-the-heap|15.1. Using Box<T> to Point to Data on the Heap]]
+- [[15-2-treating-smart-pointers-like-regular-references|15.2. Treating Smart Pointers Like Regular References]]
+- [[15-3-running-code-on-cleanup-with-the-drop-trait|15.3. Running Code on Cleanup with the Drop Trait]]
+- [[15-4-rc-the-reference-counted-smart-pointer|15.4. Rc<T>, the Reference-Counted Smart Pointer]]
+- [[15-5-refcell-t-and-the-interior-mutability-pattern|15.5. RefCell<T> and the Interior Mutability Pattern]]
+- [[15-6-reference-cycles-can-leak-memory|15.6. Reference Cycles Can Leak Memory]]
+- [[wiki/sources/16-fearless-concurrency|16. Fearless Concurrency]]
+- [[16-1-using-threads-to-run-code-simultaneously|16.1. Using Threads to Run Code Simultaneously]]
+- [[16-2-transfer-data-between-threads-with-message-passing|16.2. Transfer Data Between Threads with Message Passing]]
+- [[16-3-shared-state-concurrency|16.3. Shared-State Concurrency]]
+- [[16-4-extensible-concurrency-with-send-and-sync|16.4. Extensible Concurrency with Send and Sync]]
+- [[17-fundamentals-of-asynchronous-programming|17. Fundamentals of Asynchronous Programming]]
+- [[17-1-futures-and-the-async-syntax|17.1. Futures and the Async Syntax]]
+- [[wiki/sources/17-2-applying-concurrency-with-async|17.2. Applying Concurrency with Async]]
+- [[wiki/sources/17-3-working-with-any-number-of-futures|17.3. Working With Any Number of Futures]]
+- [[wiki/sources/17-4-streams-futures-in-sequence|17.4. Streams: Futures in Sequence]]
+- [[wiki/sources/17-5-a-closer-look-at-the-traits-for-async|17.5. A Closer Look at the Traits for Async]]
+- [[wiki/sources/17-6-futures-tasks-and-threads|17.6. Futures, Tasks, and Threads]]
+- [[18-object-oriented-programming-features|18. Object Oriented Programming Features]]
+- [[wiki/sources/18-1-characteristics-of-object-oriented-languages|18.1. Characteristics of Object-Oriented Languages]]
+- [[18-2-using-trait-objects-to-abstract-over-shared-behavior|18.2. Using Trait Objects to Abstract over Shared Behavior]]
+- [[wiki/sources/18-3-implementing-an-object-oriented-design-pattern|18.3. Implementing an Object-Oriented Design Pattern]]
+- [[wiki/sources/19-patterns-and-matching|19. Patterns and Matching]]
+- [[wiki/sources/19-1-all-the-places-patterns-can-be-used|19.1. All the Places Patterns Can Be Used]]
+- [[wiki/sources/19-2-refutability-whether-a-pattern-might-fail-to-match|19.2. Refutability: Whether a Pattern Might Fail to Match]]
+- [[wiki/sources/19-3-pattern-syntax|19.3. Pattern Syntax]]
+- [[wiki/sources/20-advanced-features|20. Advanced Features]]
+- [[wiki/sources/20-1-unsafe-rust|20.1. Unsafe Rust]]
+- [[wiki/sources/20-2-advanced-traits|20.2. Advanced Traits]]
+- [[wiki/sources/20-3-advanced-types|20.3. Advanced Types]]
+- [[wiki/sources/20-4-advanced-functions-and-closures|20.4. Advanced Functions and Closures]]
+- [[wiki/sources/20-5-macros|20.5. Macros]]
+- [[wiki/sources/21-final-project-building-a-multithreaded-web-server|21. Final Project: Building a Multithreaded Web Server]]
+- [[wiki/sources/21-1-building-a-single-threaded-web-server|21.1. Building a Single-Threaded Web Server]]
+- [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2. From Single-Threaded to Multithreaded Server]]
+- [[wiki/sources/21-3-graceful-shutdown-and-cleanup|21.3. Graceful Shutdown and Cleanup]]
+- [[wiki/sources/22-appendix|22. Appendix]]
+- [[wiki/sources/22-1-a-keywords|22.1. A - Keywords]]
+- [[wiki/sources/22-2-b-operators-and-symbols|22.2. B - Operators and Symbols]]
+- [[wiki/sources/22-3-c-derivable-traits|22.3. C - Derivable Traits]]
+- [[wiki/sources/22-4-d-useful-development-tools|22.4. D - Useful Development Tools]]
+- [[wiki/sources/22-5-e-editions|22.5. E - Editions]]
+- [[wiki/sources/22-6-f-translations-of-the-book|22.6. F - Translations of the Book]]
+- [[wiki/sources/22-7-g-how-rust-is-made-and-nightly-rust|22.7. G - How Rust is Made and Nightly Rust]]
+
+Ingested Rust for Backend Developers materials (`1. intro` so far):
+
+- [[wiki/sources/rust-for-backend-developers-preface|Preface]]
+- [[wiki/sources/rust-for-backend-developers-setup-rust|Setup Rust]]
+- [[wiki/sources/rust-for-backend-developers-install-on-windows|Install on Windows]]
+- [[wiki/sources/rust-for-backend-developers-install-on-linux|Install on Linux]]
+- [[wiki/sources/rust-for-backend-developers-development-environment|Development Environment]]
+- [[wiki/sources/rust-for-backend-developers-first-look|First Look]]
+- [[wiki/sources/rust-for-backend-developers-safe-rust|Safe Rust]]
+
+Ingested Rust for Backend Developers materials (`2. base` so far):
+
+- [[wiki/sources/rust-for-backend-developers-variables|Variables]]
+- [[wiki/sources/rust-for-backend-developers-primitive-types|Primitive Types]]
+- [[wiki/sources/rust-for-backend-developers-console-output|Console Output]]
+- [[wiki/sources/rust-for-backend-developers-scopes|Scopes]]
+- [[wiki/sources/rust-for-backend-developers-references|References]]
+- [[wiki/sources/rust-for-backend-developers-arrays|Arrays]]
+- [[wiki/sources/rust-for-backend-developers-vector|Vector]]
+- [[wiki/sources/rust-for-backend-developers-slices|Slices]]
+- [[wiki/sources/rust-for-backend-developers-strings|Strings]]
+- [[wiki/sources/rust-for-backend-developers-if|If]]
+- [[wiki/sources/rust-for-backend-developers-loops|Loops]]
+- [[wiki/sources/rust-for-backend-developers-functions|Functions]]
+- [[wiki/sources/rust-for-backend-developers-tuples|Tuples]]
+- [[wiki/sources/rust-for-backend-developers-ownership|Ownership]]
+- [[wiki/sources/rust-for-backend-developers-lifetimes|Lifetimes]]
+- [[wiki/sources/rust-for-backend-developers-declarative-macros|Declarative Macros]]
+- [[wiki/sources/rust-for-backend-developers-pointers|Pointers]]
+- [[wiki/sources/rust-for-backend-developers-structs|Structs]]
+- [[wiki/sources/rust-for-backend-developers-modules|Modules]]
+- [[wiki/sources/rust-for-backend-developers-traits|Traits]]
+- [[wiki/sources/rust-for-backend-developers-auto-derive-traits|Auto-Derive Traits]]
+- [[wiki/sources/rust-for-backend-developers-destructuring|Destructuring]]
+- [[wiki/sources/rust-for-backend-developers-pattern-matching|Pattern Matching]]
 
 Current source baseline:
 
 - Rust Book material assumes Rust `1.90.0` or later.
 - Project examples should be read with `edition = "2024"` in `Cargo.toml`.
 - Official Rust Book can be used online or offline through `rustup doc --book`.
+- Rust for Backend Developers material targets experienced back-end engineers and assumes prior knowledge of HTTP, databases, JSON, console work, stack/heap, and multithreading.
 
 Current learning frame:
 
@@ -93,23 +182,24 @@ Current learning frame:
 - Rust's compiler is part of the learning and development workflow, not just a final checker.
 - The book mixes concept chapters with project chapters; Chapter 2, Chapter 12, and Chapter 21 are the main project chapters.
 - Compiler error messages should be collected into `wiki/errors/` once concrete examples appear.
+- Backend-focused material should avoid repeating Rust Book basics unless it adds platform setup, tooling, or server-side context.
 
 Chapter 1 synthesis:
 
-- [[1-getting-started|1. Getting Started]] establishes the local workflow: install with [[rustup]], verify with [[rustc]], write [[hello-world]], then switch to [[cargo|Cargo]].
+- [[wiki/chapters/1-getting-started|1. Getting Started]] establishes the local workflow: install with [[rustup]], verify with [[rustc]], write [[hello-world]], then switch to [[cargo|Cargo]].
 - Direct `rustc` is useful for seeing compile/run mechanics, but Cargo is the normal Rust project workflow.
 - `cargo check` is the fast feedback command; `cargo build --release` is for optimized release binaries and benchmarks.
 
 Chapter 2 synthesis:
 
-- [[2-programming-a-guessing-game|2. Programming a Guessing Game]] introduces Rust concepts through a project rather than a reference-style explanation.
+- [[wiki/chapters/2-programming-a-guessing-game|2. Programming a Guessing Game]] introduces Rust concepts through a project rather than a reference-style explanation.
 - The project practices [[variables-and-mutability|variables and mutability]], [[result|Result]], [[match]], [[loop]], [[shadowing]], [[crate]], and [[rand]].
 - The first saved compiler diagnostic is [[e0308-mismatched-types|E0308 mismatched types]], caused by comparing `String` input with a numeric secret value.
 - Chapter 3 now explains those concepts more systematically.
 
 Chapter 3 synthesis:
 
-- [[3-common-programming-concepts|3. Common Programming Concepts]] turns Chapter 2's hands-on concepts into a reference foundation.
+- [[wiki/chapters/3-common-programming-concepts|3. Common Programming Concepts]] turns Chapter 2's hands-on concepts into a reference foundation.
 - Rust defaults to immutable variables, supports explicit `mut`, and uses [[shadowing]] for transformations that may change type.
 - [[data-types|Data types]] are known at compile time; ambiguity such as `"42".parse()` needs explicit type annotations.
 - Rust functions are expression-oriented: final expressions return values, while semicolons turn expressions into statements.
@@ -118,7 +208,7 @@ Chapter 3 synthesis:
 
 Chapter 4 synthesis:
 
-- [[4-understanding-ownership|4. Understanding Ownership]] starts Rust's unique memory model.
+- [[wiki/chapters/4-understanding-ownership|4. Understanding Ownership]] starts Rust's unique memory model.
 - [[ownership]] gives Rust memory safety without garbage collection by enforcing owner/scope/drop rules at compile time.
 - [[string-type|String]] is the key example because it has stack metadata and heap data; assignment moves ownership instead of deep-copying heap data.
 - [[copy-trait|Copy trait]] explains why simple stack-only values like integers remain valid after assignment.
@@ -131,7 +221,7 @@ Chapter 4 synthesis:
 
 Chapter 5 synthesis:
 
-- [[5-using-structs-to-structure-related-data|5. Using Structs to Structure Related Data]] Rustda related data'ni named custom types bilan model qilishni boshlaydi.
+- [[wiki/chapters/5-using-structs-to-structure-related-data|5. Using Structs to Structure Related Data]] Rustda related data'ni named custom types bilan model qilishni boshlaydi.
 - [[structs]] [[tuple]]dan farqli ravishda fieldsni nomlaydi, shu sababli meaning orderga kamroq bog'lanadi.
 - [[struct-instances|Struct instances]] concrete valuesni saqlaydi; field access dot notation orqali bo'ladi.
 - Mutation butun instance darajasida beriladi, ayrim fields alohida `mut` qilinmaydi.
@@ -150,7 +240,7 @@ Chapter 5 synthesis:
 
 Chapter 6 synthesis:
 
-- [[6-enums-and-pattern-matching|6. Enums and Pattern Matching]] Rustning value "qaysidir bittasi" tabiatiga ega bo'lgan domenlarni modellash imkoniyatini ochadi.
+- [[wiki/chapters/6-enums-and-pattern-matching|6. Enums and Pattern Matching]] Rustning value "qaysidir bittasi" tabiatiga ega bo'lgan domenlarni modellash imkoniyatini ochadi.
 - [[enums]] mumkin bo'lgan variantlarni sanab type yaratadi; struct related fieldsni group qilsa, enum value qaysi shaklida ekanini bildiradi.
 - [[enum-variants|Variantlar]] enum identifier ostida namespacelangan; har biri datasiz, tuple-like, yoki struct-like shaklda bo'lishi mumkin.
 - Variant ichida data tutish struct + enum patternidan ko'pincha qisqaroq, shu bilan birga variantlar har xil shape va data miqdorida bo'lishi mumkin.
@@ -171,7 +261,7 @@ Chapter 6 synthesis:
 
 Chapter 7 synthesis:
 
-- [[7-packages-crates-and-modules|7. Packages, Crates, and Modules]] katta Rust projectlarni tartiblash muammosini ochadi: code bitta file va bitta [[module]]dan bir nechta modules, files, [[crate|crates]], va [[package|packages]]ga o'sadi.
+- [[wiki/chapters/7-packages-crates-and-modules|7. Packages, Crates, and Modules]] katta Rust projectlarni tartiblash muammosini ochadi: code bitta file va bitta [[module]]dan bir nechta modules, files, [[crate|crates]], va [[package|packages]]ga o'sadi.
 - [[module-system|Module system]] to'rtta asosiy feature'ni bog'laydi: [[package|packages]], [[crate|crates]], [[module|modules]] + [[use-declarations|use]], va [[paths|paths]].
 - [[package]] Cargo boshqaradigan bundle; u crate'larni build, test, va share qilishga yordam beradi.
 - [[crate]] compiler bir vaqtda ko'radigan eng kichik compile unit; u [[binary-crate|binary crate]] yoki [[library-crate|library crate]] bo'lishi mumkin.
@@ -199,7 +289,7 @@ Chapter 7 synthesis:
 
 Chapter 8 synthesis:
 
-- [[8-common-collections|8. Common Collections]] standard librarydagi runtime grow/shrink qiladigan heap-backed [[collections|collections]] mavzusini ochadi.
+- [[wiki/chapters/8-common-collections|8. Common Collections]] standard librarydagi runtime grow/shrink qiladigan heap-backed [[collections|collections]] mavzusini ochadi.
 - Chapter 8 uchta common collectionni ko'rsatadi: [[vector|Vec<T>]], [[string-type|String]], va [[hash-map|HashMap]].
 - [[vector|Vec<T>]] bir xil concrete type elementlarini contiguous memoryda saqlaydigan growable list.
 - Empty `Vec::new()` type context bo'lmasa annotation talab qiladi; [[vec-macro|vec! macro]] initial values orqali type inferencega yordam beradi.
@@ -226,7 +316,7 @@ Chapter 8 synthesis:
 
 Chapter 9 synthesis:
 
-- [[9-error-handling|9. Error Handling]] Rustda xatolarni explicit design decision sifatida ko'rsatadi: [[recoverable-errors|recoverable errors]] uchun [[result|Result<T, E>]], [[unrecoverable-errors|unrecoverable errors]] uchun [[panic|panic!]].
+- [[wiki/chapters/9-error-handling|9. Error Handling]] Rustda xatolarni explicit design decision sifatida ko'rsatadi: [[recoverable-errors|recoverable errors]] uchun [[result|Result<T, E>]], [[unrecoverable-errors|unrecoverable errors]] uchun [[panic|panic!]].
 - Rust exceptions ishlatmaydi; error ehtimoli function return type, `match`, yoki explicit panic orqali ko'rinadi.
 - Recoverable error - program userga xabar berib, retry qilib, yoki callerga error qaytarib davom etishi mumkin bo'lgan holat.
 - Unrecoverable error odatda bug yoki impossible state belgisi; bunday pathda programni davom ettirish to'g'ri emas.
@@ -255,7 +345,7 @@ Chapter 9 synthesis:
 
 Chapter 10 synthesis:
 
-- [[10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]] Rust abstraction toolsini ochadi: [[generics]], [[traits]], va [[lifetimes]].
+- [[wiki/chapters/10-generic-types-traits-and-lifetimes|10. Generic Types, Traits, and Lifetimes]] Rust abstraction toolsini ochadi: [[generics]], [[traits]], va [[lifetimes]].
 - Generics concrete type yoki property o'rnida abstract placeholder beradi; oldingi examples: [[option|Option<T>]], [[vector|Vec<T>]], [[hash-map|HashMap<K, V>]], va [[result|Result<T, E>]].
 - Chapter 10 opening o'zimiz generic functions, structs, enums, va methods define qilishga tayyorlaydi.
 - [[traits]] generic type qaysi behaviorga ega bo'lishi kerakligini constraint qiladi.
@@ -291,19 +381,19 @@ Chapter 10 synthesis:
 
 Chapter 11 synthesis (qisman — 11.0 va 11.1):
 
-- [[11-writing-automated-tests-the-rust-programming-language|Chapter 11]] Rust testlash mexanikasini ochadi: annotatsiyalar/macrolar (11.1), test ishlatish optsiyalari (11.2), unit va integration tests tashkiloti (11.3).
+- [[wiki/sources/11-writing-automated-tests|Chapter 11]] Rust testlash mexanikasini ochadi: annotatsiyalar/macrolar (11.1), test ishlatish optsiyalari (11.2), unit va integration tests tashkiloti (11.3).
 - [[testing|Testing]] Rustda type system va borrow checker yetib bormagan mantiqiy xatolarni ushlaydi; Dijkstra: "testlar buglar borligini ko'rsatadi, yo'qligini isbotlamaydi."
 - [[cfg-test|`#[cfg(test)]`]] faqat `cargo test`da compile bo'ladigan `mod tests` blokini belgilaydi; release binary'ga test kodi kirmaydi.
 - [[test-macros|Test macro'lar]]: `assert!` boolean tekshiradi; `assert_eq!` / `assert_ne!` tenglik/tengsizlik tekshirib, xatoda ikkala qiymatni chiqaradi — `PartialEq + Debug` talab qiladi.
 - Custom failure messages — `assert!`, `assert_eq!`, `assert_ne!`ga format string qo'shimcha argument sifatida beriladi.
 - [[should-panic|`#[should_panic]`]] kodning panic qilishini testlaydi; `expected = "substring"` bilan aniqlashtirish mumkin.
 - `Result<T, E>` returning testlar `?` operator ishlatishga imkon beradi; `#[should_panic]` bilan mos kelmaydi.
-- 11.2 [[11-2-controlling-how-tests-are-run-the-rust-programming-language|Controlling How Tests Are Run]] test binary argumentlarini `--` bilan ajratishni o'rgatdi.
+- 11.2 [[11-2-controlling-how-tests-are-run|Controlling How Tests Are Run]] test binary argumentlarini `--` bilan ajratishni o'rgatdi.
 - Default parallel ishlatish shared state muammolariga olib kelishi mumkin; `--test-threads=1` ketma-ket ishlatish beradi.
 - O'tgan testlar outputi default'da ushlanadi; `-- --show-output` bilan ko'rsatish mumkin.
 - [[test-filtering|Test filtrlash]]: `cargo test <pattern>` — nomi substringga mos barcha testlar ishlaydi; modul nomi ham qidiriladi.
 - `#[ignore]` og'ir testlarni standart rundan chiqaradi; `-- --ignored` va `-- --include-ignored` maxsus holatlarda ishlatiladi.
-- 11.3 [[11-3-test-organization-the-rust-programming-language|Test Organization]] ikki kategoriyani rasmiylashtirdi: [[unit-tests]] va [[integration-tests]].
+- 11.3 [[11-3-test-organization|Test Organization]] ikki kategoriyani rasmiylashtirdi: [[unit-tests]] va [[integration-tests]].
 - [[unit-tests|Unit tests]] `src/` ichida, `#[cfg(test)] mod tests` pattern bilan; `use super::*` private funksiyalarni ham ko'radi — to'g'ridan-to'g'ri test qilish mumkin.
 - [[integration-tests|Integration tests]] `tests/` papkasida; har bir fayl alohida crate, `use crate_name::fn` kerak, `#[cfg(test)]` shart emas.
 - `cargo test` output uch bo'lim: unit → integration → doc-tests; birinchi bo'lim FAILED bo'lsa keyingisi ishlamaydi.
@@ -332,11 +422,219 @@ Chapter 13 synthesis (13.0, 13.1, 13.2):
 
 Chapter 14 synthesis (14.0–14.5):
 
-- [[14-more-about-cargo-and-crates-io|Chapter 14]] Cargo'ning ilg'or imkoniyatlarini ochadi: release profillari, crates.io'ga publish qilish, workspaces, `cargo install`, va custom subcommandlar.
+- [[wiki/chapters/14-more-about-cargo-and-crates-io|Chapter 14]] Cargo'ning ilg'or imkoniyatlarini ochadi: release profillari, crates.io'ga publish qilish, workspaces, `cargo install`, va custom subcommandlar.
 - 14.1: [[release-build|Release profiles]] — `dev` (`opt-level = 0`, tez compile) va `release` (`opt-level = 3`, tez runtime). `Cargo.toml`'da `[profile.*]` bo'limlari orqali override qilish mumkin.
 - 14.2: [[documentation-comments|Doc comments]] — `///` keyingi item, `//!` container (crate/module) uchun; `cargo doc --open` HTML generatsiya qiladi. `# Examples` bloki `cargo test` bilan doc-test sifatida ishga tushadi — dokumentatsiya va kod sinxronligini ta'minlaydi. [[pub-use|pub use]] ichki modul tuzilmasidan mustaqil, foydalanuvchi uchun qulay public API yaratishga imkon beradi.
 - 14.2: [[crates-io|crates.io]] publish workflow — `cargo login`, majburiy metadata (`description`, `license` SPDX), `cargo publish` (mangu, o'chirib bo'lmaydi), `cargo yank` (yangi loyihalarga bloklash, mavjudlarni buzmasdan).
 - 14.3: [[cargo-workspaces|Cargo workspaces]] — bitta `Cargo.lock` va `target/` ostida bir nechta package; ichki dependency `path = ...` bilan explicit; tashqi dependency har crate'da alohida; `cargo run/test -p name`.
 - 14.4: `cargo install` binary target bo'lgan crate'larni `~/.cargo/bin/` ga o'rnatadi; `$PATH`'da bo'lishi kerak.
-- 14.5: `cargo-something` naming pattern — `cargo something` sifatida chaqirish; `cargo --list` barcha subcommandlarni ko'rsatadi.
+- 14.5: `cargo-something` naming pattern - `cargo something` sifatida chaqirish; `cargo --list` barcha subcommandlarni ko'rsatadi.
 - Chapter 14 to'liq yakunlandi. Keyingi: Chapter 15 (Smart Pointers).
+
+Chapter 15 synthesis (15.0-15.2):
+
+- [[wiki/chapters/15-smart-pointers|Chapter 15]] Rustdagi pointer-like abstractionlarni ochadi: [[reference|references]] data'ni borrow qiladi, [[smart-pointers|smart pointers]] esa ko'pincha data'ga ownership va qo'shimcha behavior beradi.
+- 15.0: smart pointerlar odatda [[structs|struct]] sifatida implement qilinadi va [[deref-trait|Deref trait]] hamda [[drop|Drop trait]] bilan bog'liq. Bob keyin `Box<T>`, `Rc<T>`, `RefCell<T>`, interior mutability, va reference cyclesga o'tadi.
+- 15.1: [[box-t|Box<T>]] value'ni heapda saqlaydi; stackda pointer metadata turadi. `Box<T>`ning boshlang'ich asosiy use case'i [[recursive-types|recursive types]] uchun indirection berish: `Cons(i32, List)` infinite size, `Cons(i32, Box<List>)` finite size.
+- 15.1: yangi diagnostic [[e0072-recursive-type-has-infinite-size|E0072]] recursive enum direct self-reference qilganda chiqadi. [[box-cons-list|Box cons list]] example sahifasi saqlandi.
+- 15.2: [[dereference-operator|Dereference operator]] `*` oddiy reference va `Deref` implement qilgan smart pointer uchun inner value'ga yetadi. Custom `MyBox<T>` uchun `Deref` implement qilinmasa [[e0614-type-cannot-be-dereferenced|E0614]] chiqadi.
+- 15.2: [[deref-coercions|Deref coercions]] `&MyBox<String>`ni `&String`, keyin `&str`ga function call paytida avtomatik moslaydi; bu compile time'da hal bo'ladi, runtime cost keltirmaydi. [[mybox-deref|MyBox Deref example]] saqlandi.
+- Chapter 15 qisman qoplandi (15.0, 15.1, 15.2). Keyingi: 15.3 (`Drop trait`) va undan keyingi smart pointer patterns.
+
+Chapter 17 synthesis (17.0, 17.1):
+
+- [[17-async-programming|Chapter 17]] thread'li concurrencyga muqobil yondashuv — async programmingni ochadi: [[future|Future]] trait, [[async-await|async/await]] sintaksisi, va runtime/executor roli.
+- [[cpu-bound|CPU-bound]] (video render) vs [[io-bound|I/O-bound]] (tarmoq yuklab olish) farqi muhim: I/O-bound holatda CPU ko'p vaqt kutadi; async shu kutish vaqtida boshqa ishlarni bajarish imkonini beradi.
+- Concurrency (navbat bilan almashinish) va parallelism (haqiqiy bir vaqtda) aniq ajratildi; async Rust odatda concurrent ishlaydi, runtime va hardware ga qarab parallelism ham mumkin.
+- [[future|Future]] trait — lazy qiymat: `.await` bo'lmasa hech narsa bajarmaydi. Iterator `next()` bilan o'xshashlik: ikkalasi ham so'rab olinmasa harakatlanmaydi.
+- `async fn` compilator tomonidan `fn -> impl Future<Output = T>` ga desugared bo'ladi; `await` esa polling + state machine transitioni.
+- Har bir `await point` compilator yaratadigan yashirin [[async-state-machine|state machine]]ning bir holati. Ownership/borrowing bu state machine uchun ham compile time'da tekshiriladi.
+- `main` funksiyasi async bo'lolmaydi — `trpl::block_on` yoki `#[tokio::main]` orqali runtime ishga tushiriladi.
+- `trpl::select` ikkita future'dan birinchi tayyor bo'lganini `Either::Left / Right` sifatida qaytaradi — birinchi amaliy concurrent racing pattern.
+- [[async-page-scraper|Async page scraper]] — ikki URL'dan `<title>` ni concurrent oluvchi to'liq ishlaydigan mini dastur (Listing 17-1 dan 17-5 gacha).
+- [[wiki/chapters/17-2-applying-concurrency-with-async|17.2]] thread-based concurrencyning async ekvivalentlarini ko'rsatdi: `spawn_task` vs `thread::spawn`, async channel vs `std::sync::mpsc`, `join`/`join!` vs `.join()`.
+- Bitta `async {}` blok ichidagi hamma kod ketma-ket bajariladi — concurrent bo'lish uchun `trpl::join` bilan alohida bloklar kerak.
+- `async move` — closure'dagi `move` kabi; ownership async blokka o'tkazadi; channel sender'ni blok oxirida drop qilish uchun zarur.
+- `trpl::join` — ikki future; `trpl::join!` — N ta future (compile-time soni); `join_all` — noma'lum sondagi future'lar (keyingi bo'lim).
+- [[wiki/chapters/17-3-working-with-any-number-of-futures|17.3]]: `await` nuqtasi orasidagi kod sinxron — uzoq CPU ish boshqa future'larni "ochlik"ka mahkum etadi (starvation). `trpl::yield_now().await` — runtime'ga kooperativ boshqaruv qaytaradi; `sleep(1ms)`dan tez chunki timer yaratmaydi.
+- 17.3: `timeout` funksiyasi — `select` + `sleep` bilan compose qilingan custom async abstraktsiya. Pattern: `Left(result)` → `Ok`, `Right(())` → `Err(duration)`.
+- [[wiki/chapters/17-4-streams-futures-in-sequence|17.4]] (qisman): Stream — async iterator. `stream_from_iter`, `StreamExt::next()`, `while let Some(v) = stream.next().await`. Raw fayl to'liq emas.
+- [[wiki/chapters/17-5-a-closer-look-at-the-traits-for-async|17.5]] async trait'larning ichini ochadi. `Future::poll` aslida `Poll<T>` qaytaradigan metod; `await` shu polling loopining ergonomik yozuvi. Async state machine **self-referential** bo'lishi mumkin — ko'chirilsa dangling reference. `Pin<Box<T>>` va `pin!` macro bu muammoni hal qiladi.
+- 17.5: `Unpin` — marker trait: "ko'chirish xavfsiz" degani. `String`, `Vec` kabi aksariyat tiplar `Unpin`; async future'lar `!Unpin`. `join_all` bilan `Vec` ichida future'lar ishlatish uchun `pin!` macro kerak.
+- 17.5: `Stream` trait — `poll_next(Pin<&mut Self>, cx) -> Poll<Option<Item>>`. Iterator + Future birikmas. `StreamExt` yuqori qatlam metodlari — `Stream` implementatsiyasi yetarli, `StreamExt` avtomatik ishlaydi.
+- [[wiki/chapters/17-6-futures-tasks-and-threads|17.6]] yakunlaydi: Future (eng mayda) → Task (runtime-boshqariluvchi) → Thread (OS-boshqariluvchi). CPU-bound → thread, I/O-bound → async. Birgalikda ham ishlaydi: thread produce + async consume (Listing 17-25). Work stealing: runtime task'larni thread'lar orasida avtomatik ko'chiradi.
+- Keyingi: 17.4 raw faylni to'ldirish.
+
+Chapter 18 synthesis (18.0, 18.1, 18.2):
+
+- [[18-object-oriented-programming|18-bob]] OOPning asosiy uch xususiyatini Rust'da qanday ifodalanishini ko'rsatdi. Rust ba'zi OOP xususiyatlarini (objects, encapsulation, polymorphism) qo'llaydi, lekin **inheritance yo'q** — bu ataylab qilingan dizayn qarori.
+- [[encapsulation]]: `pub`/private orqali. `AveragedCollection` — klassik namuna: `list` va `average` private, invariant metodlar orqali himoyalangan. Implementation o'zgarganda klient kodi o'zgarmaydi.
+- Inheritance'ning ikkita maqsadi Rust'da boshqacha yechiladi: **kod qayta ishlatish** → default trait metodlar; **runtime polimorfizm** → trait objects (`dyn Trait`).
+- [[trait-object|Trait objects]] (`Box<dyn Draw>`) heterojen to'plam beradi: kutubxona yozilgandan keyin foydalanuvchi yangi turlar qo'sha oladi. Generics esa homojen + static dispatch.
+- [[dynamic-dispatch|Dynamic dispatch]]: vtable orqali runtime'da to'g'ri metod topiladi. Statik dispatch'ga nisbatan overhead bor, lekin kengaytiriluvchilik kerak bo'lganda zarur tradeoff.
+- [[gui-draw-trait|GUI namunasi]]: `Screen` + `Vec<Box<dyn Draw>>` + `Button`/`SelectBox` — trait objects'ning kanonik ko'rsatmasi.
+- [[wiki/chapters/18-3-implementing-an-object-oriented-design-pattern|18.3]] ikki usulni solishtirdi: OOP state pattern (`Box<dyn State>`) va Rust-idiomatic typestate pattern (holat → tur). OOP'da invalide holat runtime'da tutiladi; typestate'da compile-time'da taqiqlanadi (`DraftPost::content()` metodi yo'q).
+- `self: Box<Self>` receiver — faqat `Box` ichida chaqiriladi, ownership oladi. `Option::take()` triki — `&mut self` orqali field'dan ownership olish.
+- Typestate qoidasi: `DraftPost::request_review(self) -> PendingReviewPost` — eski tur consumed, caller `let post = post.x()` shadowing bilan davom etadi.
+- Keyingi: Chapter 19 (Pattern Matching).
+
+Chapter 19 synthesis (19.0, 19.1, 19.2):
+
+- [[wiki/chapters/19-patterns-and-matching|Chapter 19]] [[pattern-matching|pattern matching]]ning to'liq manzarasini ochadi: kirish (19.0), barcha joylari (19.1), va refutability (19.2).
+- 19.0: [[pattern-matching|Pattern]] — type strukturasiga mos keluvchi maxsus sintaksis. Komponentlari: literals, destructured arrays/enums/structs/tuples, variables, wildcards (`_`), placeholders (`..`).
+- 19.1: Patternlar 6 ta kontekstda ishlatiladi: `match` armlar, `let` iboralari, `if let`, `while let`, `for` looplari, funksiya parametrlari. Ko'pincha bilmasdan ishlatiladi (`let x = 5;`da ham pattern bor).
+- [[pattern-destructuring|Pattern destructuring]] `let (x, y, z) = (1, 2, 3);`, `for (i, v) in v.iter().enumerate()`, `fn f(&(x, y): &(i32, i32))` misollari orqali murakkab typelarni ichki qismlarga ajratadi.
+- [[while-let|while let]] loop — pattern mos kelgunicha davom etadi; channel'dan `Ok(v)` kelguncha o'qish uchun ideal. `Err` qaytganda loop to'xtaydi.
+- `if let` bilan `else if`, `else if let` zanjirini aralashtirib ishlatish mumkin; `match`dan farqi — exhaustiveness tekshirilmaydi.
+- Shadowing eslatma: `if let Ok(age) = age` yangi `age` yaratadi, eski `age` shadow bo'ladi; `if let Ok(age) = age && age > 30` yozib bo'lmaydi.
+- 19.2: [[irrefutable-pattern|Irrefutable pattern]] — har qanday qiymatga mos keladi (`x`, `(a, b)`). [[refutable-pattern|Refutable pattern]] — ba'zi qiymatlar uchun mos kelmaydi (`Some(x)`, `Ok(v)`).
+- Qoida: `let`, `fn` params, `for` → faqat irrefutable; `if let`, `while let`, `let...else` → refutable ham qabul qiladi (irrefutable bo'lsa warning).
+- `let Some(x) = value;` — `E0005: refutable pattern in local binding`; yechim: `let Some(x) = value else { return; };`.
+Chapter 19.3 synthesis:
+
+- [[wiki/chapters/19-3-pattern-syntax|19.3]] barcha pattern sintaksis variantlarini to'plagan reference bo'lim.
+- **Literal pattern** — aniq qiymat bilan mos kelish: `1 => ...`, `'a' => ...`.
+- **Named variable shadowing** — `match`/`if let` ichidagi pattern nom tashqi o'zgaruvchini shadow qiladi. Outer qiymat bilan solishtirish uchun [[match-guard|match guard]] kerak: `Some(n) if n == y`.
+- **`|` or-pattern** — bir arm'da bir nechta pattern: `1 | 2 => ...`. Match guard bilan: `4 | 5 | 6 if cond` — `if` butun guruhga tegishli.
+- **`..=` range pattern** — faqat numeric va `char`: `1..=5`, `'a'..='j'`.
+- **Struct destructuring** — shorthand `Point { x, y }`, rename `Point { x: a, y: b }`, literal field `Point { x, y: 0 }`.
+- **Enum destructuring** — variant shakliga qarab: no-data, tuple-like, struct-like. Nested enum/struct ham mumkin.
+- **`_` va `_name` farqi** — `_` bind qilmaydi (ownership saqlanadi); `_name` bind qiladi va non-Copy typelarni move qiladi.
+- **`..` placeholder** — struct'ning qolgan fieldlarini yoki tuple o'rtasini ignore qiladi. Ikki marta ishlatish noaniqlik — compile xatosi.
+- **[[match-guard|Match guard]]** — pattern'dan keyin `if` sharti; faqat `match`da; exhaustiveness checker qiyinlashadi.
+- **[[at-binding|@ binding]]** — `id @ 3..=7`: test + bind bitta yozuvda.
+- Chapter 19 to'liq yakunlandi (19.0–19.3).
+
+Chapter 20 + 20.1 synthesis (Advanced Features kirish + Unsafe Rust):
+
+- [[wiki/chapters/20-advanced-features|Chapter 20]] kirish — 5 ta advanced mavzu sanab o'tiladi: unsafe, advanced traits, advanced types, advanced functions/closures, macros. Bu xususiyatlar har kuni emas, kerak bo'lganda murojaat qilinadigan reference.
+- [[wiki/chapters/20-1-unsafe-rust|20.1]] [[unsafe-rust|Unsafe Rust]] ni batafsil ochadi. Asosiy xulosa: `unsafe` "tekshiruvlarni o'chirmaydi" — borrow checker, type checker, lifetime'lar — barchasi davom etadi. `unsafe` faqat **5 ta superpower** ga ruxsat beradi.
+- [[unsafe-superpowers|5 ta superpower]]: (1) [[raw-pointer|raw pointer]] dereference, (2) unsafe function chaqirish, (3) [[mutable-static|mutable static]]ga kirish, (4) [[unsafe-trait|unsafe trait]] implement, (5) [[union-type|union]] field'iga kirish.
+- **Yangi sintaksis (Rust 2024):** [[raw-borrow-operators|raw borrow operators]] `&raw const x`, `&raw mut x` — eski `&x as *const _` cast'idan xavfsizroq, oraliq reference yaratmaydi. `unsafe extern "C"` blokda `safe fn` keyword — xavfsiz tashqi funksiyalarni alohida belgilash. `#[unsafe(no_mangle)]` — Rust funksiyasini boshqa tilga ochish.
+- **Eng muhim pattern:** [[safe-abstraction|Safe abstraction over unsafe]] — ichkarida `unsafe`, tashqarida safe API. Klassik misol: `split_at_mut` ([[split-at-mut-unsafe]]). Borrow checker bir slice'ni ikki marta mutably borrow qila olmaydi (E0499), lekin invariant (`mid <= len`) saqlangani uchun safe abstraction. Standart kutubxona deyarli butunlay shu pattern ustida qurilgan.
+- **[[ffi|FFI]]** (`extern "C"` orqali) — C kutubxonalari bilan ishlash. `unsafe extern "C"` blokdagi har item implicitly unsafe; `safe fn` istisnosi mumkin. Rust 2024'da `#[unsafe(no_mangle)]` attribute nomli to'qnashuv xavfini ifodalaydi.
+- **[[mutable-static|Mutable static]]** — global mutable. O'qish va yozish unsafe. `&COUNTER` reference — `static_mut_refs` lint orqali deny; raw borrow operator (`*(&raw const COUNTER)`) ishlatish kerak. Multi-thread'da deyarli har doim noto'g'ri tanlov; `Atomic*`, `Mutex<T>`, `OnceLock` ishlatish kerak.
+- **[[unsafe-trait|Unsafe trait]]** — `Send` va `Sync` ning kelib chiqishi. Auto-derived; raw pointer'li struct uchun `unsafe impl Send` qo'lda yozish mumkin (dasturchi va'da beradi).
+- **[[union-type|Union]]** — C interop uchun. Sof Rust'da `enum` (tagged union) idiomatic alternativ. `Drop` impl'li turlar uchun `ManuallyDrop<T>` kerak.
+- **[[miri|Miri]]** — runtime [[undefined-behavior|UB detector]]. Static borrow checker'ni to'ldiradi. Nightly toolchain. `cargo +nightly miri test` — testlar Miri ostida UB'ni ushlash uchun.
+- **`SAFETY:` izohi konventsiyasi** — har `unsafe fn` tepasida va har `unsafe` blok yonida; saqlash kerak bo'lgan invariantlarni hujjatlash.
+
+Chapter 20.2 synthesis (Advanced Traits):
+
+- [[wiki/chapters/20-2-advanced-traits|20.2]] trait'larni chuqurroq ochadi: 5 ta asosiy mavzu — [[associated-types|associated types]], [[default-generic-parameters|default generic parameters]], method [[fully-qualified-syntax|disambiguation]], [[supertraits]], va [[newtype-pattern]].
+- **[[associated-types|Associated type]]** — `type Item;` placeholder. Generic'dan farq qiladi: associated bilan **bitta tip uchun bitta implementatsiya** mumkin → caller annotatsiya bermaydi (`counter.next()` avtomatik `Option<u32>`). `Iterator::Item` klassik misol. API kontrakt qismi.
+- **[[default-generic-parameters|Default generic parameter]]** — `<Rhs = Self>` sintaksisi. `Add` traitining haqiqiy ta'rifi: `trait Add<Rhs = Self> { type Output; fn add(self, rhs: Rhs) -> Self::Output; }`. Default ikki maqsadda: (1) backward-compatible kengaytirish, (2) maxsus holatlarda customization (`Millimeters + Meters` — Rhs = Meters).
+- **[[operator-overloading|Operator overloading]]** — `std::ops` ichidagi trait'larni implement qilish. Rust faqat **mavjud** operatorlarni overload qilishga ruxsat beradi (`+` → `Add`, `-` → `Sub`, va h.k.). Yangi operator yaratib bo'lmaydi.
+- **Method disambiguation** — bir tip ko'p trait implement qilsa bir xil nomli metod bilan: `person.fly()` default'da type'ga to'g'ridan-to'g'ri impl'ga boradi. `Pilot::fly(&person)` — `&person` orqali aniq trait implementatsiyasi tanlanadi. Method'lar uchun (`&self` bilan) shu yetarli.
+- **[[fully-qualified-syntax|Fully qualified syntax]]** — `<Type as Trait>::function(args)` — `self`'siz associated function'lar uchun zarur. Misol: `<Dog as Animal>::baby_name()`. Aks holda [[e0790-cannot-call-associated-function|E0790]] xato.
+- **[[supertraits]]** — `trait OutlinePrint: fmt::Display` — `OutlinePrint`'ni implement qilmoqchi bo'lgan har tip `Display`'ni ham implementatsiya qilishi shart. Trait body'da `to_string()` ishlatish uchun zarur. Implementor unutsa: [[e0277-trait-bound-not-satisfied|E0277]].
+- **[[newtype-pattern]]** — `struct Wrapper(InnerType)` orqali tashqi tipni mahalliy qilish. [[orphan-rule|Orphan rule]] tashqi trait'ni tashqi tip uchun implement qilishni man qiladi (`impl Display for Vec<T>` — E0117). Newtype bilan `Wrapper(Vec<String>)` mahalliy → istalgan trait. Compile time'da `Wrapper` qatlami yo'qoladi (zero overhead). Lekin inner method'lar avtomatik kelmaydi — qo'lda delegate yoki [[deref-trait|Deref]].
+- Newtype faqat orphan rule chetlab o'tish emas: type safety (`Millimeters(u32)` ↔ `Meters(u32)`), API yashirish (`UserId(u64)`), va [[domain-modeling|domain modeling]] uchun ham.
+
+Chapter 20.3 synthesis (Advanced Types):
+
+- [[wiki/chapters/20-3-advanced-types|20.3]] type system'ning yana to'rt xususiyatini ochadi: [[newtype-pattern|newtype]] qayta ko'rib (encapsulation kontekstida), [[type-alias|type aliases]], [[never-type|never type (`!`)]], [[dynamically-sized-types|DST]] va [[sized-trait|`Sized`]].
+- **Newtype qayta ko'rib:** 20.2'da orphan rule chetlab o'tish vositasi sifatida, 20.3'da yana ikki rol — (1) statik type safety (`Millimeters(u32)` ↔ `Meters(u32)`), (2) implementation yashirish (`People(HashMap<i32, String>)` ichidagi shakl noma'lum). Yengil [[encapsulation]].
+- **[[type-alias|Type alias]]** (`type Name = ExistingType;`) — sinonim, yangi tip emas. `Kilometers = i32` da `Kilometers + i32` ishlaydi (newtype'dan farqli, type safety yo'q). Asosiy maqsad — uzun tip nomini qisqartirish: `type Thunk = Box<dyn Fn() + Send + 'static>;`. Standart kutubxonadagi klassik misol: `std::io::Result<T> = Result<T, std::io::Error>` — `Write` trait'i `Result<usize>` deb yozadi, lekin barcha `Result<T, E>` method'lari (`?`, `map`) ishlaydi.
+- **[[never-type|Never type (`!`)]]** — qiymatga ega bo'la olmaydigan empty type. Funksiya hech qachon qaytmaganda return tipi: [[diverging-functions]] (`panic!`, `loop {}` break'siz, `process::exit`). `!` har tipga **coerce** bo'la oladi → `match` arm'lari bir xil tipda bo'lishi kerak qoidasi `panic!`/`continue` arm'i `T` tipdagi arm bilan birga ishlay olishini beradi. `unwrap` implementatsiyasi shu pattern'ga asoslangan: `Some(val) => val (T)` va `None => panic!() (!)` → match natijasi `T`.
+- **[[dynamically-sized-types|DST]]** — compile-time'da o'lchami noma'lum tiplar: `str`, `[T]`, `dyn Trait`. **Oltin qoida:** har doim pointer orqali ishlatish (`&str`, `&[T]`, `Box<str>`, `&dyn Trait`). DST referensi — *fat pointer* (ptr + metadata: length yoki vtable). Compile-time'da fat pointer'ning o'lchami ma'lum (2 word).
+- **[[sized-trait|`Sized` trait]]** — auto-derived marker. Generic funksiyalar default'da `T: Sized` (kompilyator implicit qo'shadi). `?Sized` cheklovni bo'shatadi: `fn print<T: ?Sized + Display>(t: &T)` — DST ham qabul qiladi (`t: T` → `t: &T`). `?Trait` sintaksisi **faqat `Sized` uchun**.
+Chapter 20.4 synthesis (Advanced Functions and Closures):
+
+- [[wiki/chapters/20-4-advanced-functions-and-closures|20.4]] Rust'da function va closure'larning advanced ishlatilishini ochadi: [[function-pointers|function pointers]], named functionlarni iterator callback sifatida uzatish, va [[returning-closures|closure qaytarish]].
+- **`fn` vs `Fn`:** lowercase `fn(i32) -> i32` concrete function pointer type; `Fn`, `FnMut`, `FnOnce` esa [[fn-traits|closure traitlari]]. Function pointer uchala `Fn*` traitni implement qiladi, shuning uchun closure kutadigan joyga named function berish mumkin.
+- API design qoidasi: agar faqat function pointer shart bo'lmasa, `fn(...)`dan ko'ra `F: Fn(...)` moslashuvchanroq. `F: Fn` named function ham, capturing closure ham qabul qiladi.
+- [[ffi|FFI]] function pointer uchun asosiy maxsus holat: C closure tushunchasini bilmaydi, shuning uchun callback uchun ko'pincha plain function pointer kerak bo'ladi.
+- `Iterator::map` closure bilan ham, named function bilan ham ishlaydi: `map(|i| i.to_string())` va `map(ToString::to_string)`. `ToString::to_string` [[fully-qualified-syntax|fully qualified syntax]] talab qiladi, chunki method nomi aniq trait kontekstiga bog'langan.
+- [[enum-variants|Enum variant]] nomi initializer function sifatida ishlaydi: `Status::Value` `u32 -> Status` kabi ishlatiladi, shu sababli `(0u32..20).map(Status::Value).collect()` mumkin.
+- Closure qaytarishda `impl Fn(i32) -> i32` bitta concrete closure typeni yashiradi. Bu [[opaque-types|opaque type]]: compiler type'ni biladi, caller faqat trait contractini ko'radi.
+- Har closure alohida concrete type. Shuning uchun ikki function ikkalasi ham `impl Fn(i32) -> i32` qaytarsa ham, return typelari bir xil emas. Ularni bitta `Vec` ichida saqlashga urinish [[e0308-mismatched-types|E0308]] beradi.
+- Common type kerak bo'lsa, [[trait-object|trait object]] ishlatiladi: `Box<dyn Fn(i32) -> i32>`. Bu heterogeneous closure handlers collectionini beradi, lekin heap allocation va [[dynamic-dispatch|dynamic dispatch]] narxini kiritadi.
+Chapter 20.5 synthesis (Macros):
+
+- [[wiki/chapters/20-5-macros|20.5]] Rust macro tizimini yakunlaydi. [[macro|Macro]] - compile-time'da code generatsiya qiladigan code, ya'ni [[metaprogramming]].
+- Macro functiondan farq qiladi: function runtime'da ishlaydi va argument soni/type'lari signatureda aniq; macro compile-time'da expand bo'ladi, variable number of arguments qabul qilishi va trait implementation generatsiya qilishi mumkin. Narxi: definition murakkabroq va macro call oldin scope'da bo'lishi kerak.
+- **[[declarative-macros|Declarative macros]]** `macro_rules!` bilan yoziladi. Ular source code structure patternlariga match qilib, replacement code generate qiladi. Simplified [[vec-macro|`vec!` macro]] patterni `( $( $x:expr ),* )`: `$x:expr` expression capture, `$()` repetition group, comma separator, `*` zero-or-more repetition.
+- `vec![1, 2, 3]` soddalashtirilgan expansioni `Vec::new()`, uch marta `push`, va `temp_vec` return expressiondan iborat. Haqiqiy `vec!` allocationni oldindan qilish kabi optimizatsiyalar ham ishlatadi.
+- **[[procedural-macros|Procedural macros]]** `TokenStream -> TokenStream` compile-time transformatsiyasi. Ular alohida `proc-macro` crate ichida turadi (`[lib] proc-macro = true`). Asosiy helper crates: `proc_macro` (compiler API), `syn` (parse), `quote` (Rust code tokenlari generatsiyasi).
+- Procedural macro uch tur: [[custom-derive-macros|custom derive]] (`#[derive(HelloMacro)]`), [[attribute-like-macros|attribute-like]] (`#[route(GET, "/")]`), va [[function-like-macros|function-like]] (`sql!(...)`).
+- `HelloMacro` derive example Rustda runtime reflection yo'qligini ko'rsatadi: type nomi (`Pancakes`) asosida `impl HelloMacro for Pancakes` code'i compile-time'da generatsiya qilinadi. `syn::parse` `DeriveInput` beradi, `ast.ident` type nomini chiqaradi, `quote!` generated code yaratadi, `stringify!` tokenni string literalga aylantiradi.
+- Attribute-like macro signature: `#[proc_macro_attribute] fn route(attr: TokenStream, item: TokenStream) -> TokenStream`; `attr` attribute argumentlari, `item` esa target item.
+- Function-like macro signature: `#[proc_macro] fn sql(input: TokenStream) -> TokenStream`; input oddiy Rust expression bo'lishi shart emas, shuning uchun DSL parsing uchun mos.
+- Chapter 20 yakunlandi: unsafe, advanced traits, advanced types, advanced functions/closures, va macros birgalikda Rust'dagi kamroq ishlatiladigan, lekin kutubxona va frameworklar uchun muhim advanced toolboxni beradi.
+
+Chapter 21 + 21.1 + 21.2 + 21.3 synthesis:
+
+- [[wiki/chapters/21-final-project-building-a-multithreaded-web-server|Chapter 21]] oldingi mavzularni bitta real tizimga yig'adi: manual [[web-server]] qurish. Bu Rust Book'dagi uchinchi katta project chapter bo'lib, Chapter 2 va Chapter 12'dan keyingi amaliy yakuniy loyihadir.
+- Mualliflar tayyor crate ishlatmaydi; maqsad raw [[tcp]] va [[http]] ustida ishlaydigan minimal server ichki mexanizmini ko'rish. Bu yerda `async/await` emas, thread-based yondashuv tanlangan, lekin ko'p async runtime'lar ham ichkarida worker thread'lar ishlatishi eslatiladi.
+- [[wiki/chapters/21-1-building-a-single-threaded-web-server|21.1]] ikki protocol qatlamini ajratadi: [[tcp]] bytes tashiydi, [[http]] esa request/response formatini belgilaydi. Ikkalasi ham bu kontekstda [[request-response]] modelida ishlaydi.
+- `TcpListener::bind("127.0.0.1:7878")` va `incoming()` loop'i serverning kirish nuqtasini beradi. Har connection `TcpStream` bilan ifodalanadi; browser bitta sahifa uchun bir nechta connection ochishi mumkin.
+- `BufReader::new(&stream)` + `lines()` pipeline'i HTTP request satrlarini o'qiydi. Request line `GET / HTTP/1.1` bo'yicha route tanlanadi; headers bo'sh satrgacha davom etadi.
+- Minimal response `HTTP/1.1 200 OK\r\n\r\n` blank page qaytaradi; keyin `hello.html` fayli `fs::read_to_string` bilan o'qilib, `Content-Length` header bilan birga yuboriladi.
+- `GET / HTTP/1.1` bo'lsa `hello.html`, aks holda `404.html` qaytarish orqali eng sodda routing quriladi. `(status_line, filename)` tuple destructuring refactori duplicated code'ni kamaytiradi.
+- 21.2 bu bottleneck'ni `GET /sleep HTTP/1.1` bilan ko'zga ko'rinadigan qiladi: bitta sekin request butun single-threaded serverni ushlab qoladi.
+- Birinchi concurrent qadam `thread::spawn(move || handle_connection(stream))` bilan har request uchun alohida thread yaratish, lekin bu operational jihatdan xavfli: cheksiz thread growth DoS yoki resource exhaustionga olib kelishi mumkin.
+- To'g'ri yo'nalish - fixed-size [[thread-pool]]: `ThreadPool::new(4)` + `pool.execute(...)`. Chapter 21.2 bu API'ni avval yozib, keyin compiler xatolari bo'yicha implementation'ni quradi; bu [[compiler-driven-development]]ning aniq namunasi.
+- Thread pool design'ining markazi: `type Job = Box<dyn FnOnce() + Send + 'static>`. `FnOnce` - job bir marta bajariladi, `Send` - worker threadga ko'chiriladi, `'static` - worker qancha vaqt ushlab turishi noma'lum.
+- Std `mpsc` receiver single-consumer bo'lgani uchun `Receiver<Job>`ni workerlarga ownership bilan loop ichida tarqatib bo'lmaydi (`E0382`). Yechim: `Arc<Mutex<Receiver<Job>>>`.
+- Juda nozik, lekin muhim detail: `let job = receiver.lock().unwrap().recv().unwrap();` lock'ni job bajarilishidan oldin qo'yib yuboradi. `while let Ok(job) = receiver.lock().unwrap().recv()` esa `MutexGuard`ni body oxirigacha ushlab qolib, butun pool'ni amalda seriallashtiradi.
+- 21.3 shu yerdan keyingi real muammoni ko'rsatadi: "ishlaydigan" [[thread-pool]] hali "to'g'ri tugaydigan" pool emas. [[graceful-shutdown]] uchun server request olishni to'xtatgach, workerlar orderly ravishda chiqishi va main thread ularni kutishi kerak.
+- Buning lifecycle hook'i [[drop]] bo'ladi: `ThreadPool` scope'dan chiqayotganda `Drop` impl ishga tushadi. Lekin `JoinHandle::join(self)` ownership olgani uchun `worker.thread.join()` borrowed field ustida ishlamaydi va [[e0507-cannot-move-out-of-borrowed-content|E0507]] beradi.
+- Chapter 21.3 ownership extraction uchun ikki patternni ko'rsatadi: narrative fix sifatida `Vec::drain(..)`, final code sifatida esa `Option<JoinHandle<()>>` + `take()`. Ikkalasi ham cleanup ichida owned qiymatni borrowed struct ichidan xavfsiz chiqarish uchun.
+- Channel bu bosqichda faqat queue emas, shutdown signal ham bo'ladi: `sender: Option<Sender<Job>>` va `drop(self.sender.take())` barcha senderlar yopilganini bildiradi.
+- Worker tomonda `recv()` endi `unwrap()` qilinmaydi; `Err(_)` "endi yangi job yo'q" degan signal bo'lib, worker loop'dan `break` qiladi. Shundan keyin `join()` haqiqatan tugashi mumkin.
+- `listener.incoming().take(2)` demo production pattern emas; u shunchaki shutdown sequence'ni tez ko'rsatish uchun ishlatiladi: ikki request, keyin pool drop, channel close, worker exit, join.
+
+Chapter 22 + 22.1 synthesis:
+
+- [[wiki/chapters/22-appendix|Chapter 22]] oddiy narrative chapter emas; u qolgan appendixlar Rust journey uchun reference material ekanini belgilaydi. Demak bu bo'limlar wiki'da lookup/reference layer sifatida ko'riladi.
+- [[wiki/chapters/22-1-a-keywords|22.1]] lexical reference beradi: Rust keywordlari current va future reserved guruhlarga bo'linadi va odatda oddiy [[identifiers]] sifatida ishlatilmaydi.
+- Eng amaliy takeaway [[raw-identifiers]]: `r#keyword` syntax'i keyword bilan naming conflictni hal qiladi. Canonical misol `fn r#match(...)` va `r#match(...)` call site.
+- Raw identifiers faqat naming freedom emas, [[edition]] compatibility vositasi hamdir. Book'dagi `r#try` misoli 2015 edition library API'ni 2018/2021/2024 edition code'dan chaqirish uchun kerak bo'lishi mumkin.
+- Appendix A shuningdek keywordlar existing concept xaritasini ham mustahkamlaydi: `async`/`await` -> [[async-await]] va [[future]], `dyn` -> [[trait-object]] va [[dynamic-dispatch]], `extern` -> [[extern-block]], `unsafe` -> [[unsafe-rust]], `pub` -> [[pub-keyword]], `where` -> [[where-clauses]], `crate` -> [[crate]], `match` -> [[match]].
+
+Chapter 22.2 + 22.3 synthesis:
+
+- [[wiki/chapters/22-2-b-operators-and-symbols|22.2]] Rust syntax'ni atlasga aylantiradi: operatorlar, path notation, generics notation, trait bounds, macros, comments, va qavslar bir reference qatlamiga yig'iladi.
+- Eng practical syntax reference'lar: operator -> trait mapping ([[operator-overloading]]), expression context generic specialization `::<...>` yani [[turbofish]], va `r#"..."#` ko'rinishidagi [[raw-string-literals]].
+- Appendix B bir belgi bir nechta rol o'ynashini aniq ko'rsatadi: `*` multiplication/dereference/raw pointer type, `!` macro call yoki logical complement, `..` range yoki struct update/pattern shorthand.
+- [[wiki/chapters/22-3-c-derivable-traits|22.3]] esa `#[derive(...)]`ning standard-library reach'ini reference qiladi: [[debug-trait|Debug]], [[partial-eq|PartialEq]], [[eq-trait|Eq]], [[partial-ord]], [[ord-trait|Ord]], [[clone]], [[copy-trait|Copy]], [[hash-trait|Hash]], va [[default-trait|Default]].
+- Eng muhim semantic chegaralardan biri: hamma trait derive qilinmaydi. `Display` user-facing format bo'lgani uchun compiler meaningful default bera olmaydi; shu sabab qo'lda implement qilinadi.
+- Appendix C practical contractsni ham mustahkamlaydi: `assert_eq!` odatda [[partial-eq|PartialEq]] va [[debug-trait|Debug]] talab qiladi, [[eq-trait|Eq]] hash key semantics'iga ulanadi, [[ord-trait|Ord]] total ordering collectionlariga kerak bo'ladi, [[default-trait|Default]] esa `..Default::default()` va `unwrap_or_default` patternlarida yashaydi.
+
+Chapter 22.4 + 22.5 + 22.6 + 22.7 synthesis:
+
+- [[wiki/chapters/22-4-d-useful-development-tools|22.4]] Rustning official developer-tooling qatlamini ixcham qiladi: formatting uchun [[rustfmt]], compiler-driven mechanical fixlar uchun [[cargo-fix|cargo fix / rustfix]], qo'shimcha lintlar uchun [[clippy]], va editor intelligence uchun [[rust-analyzer]].
+- Bu Appendix D batchi oldingi tool stublarni aniqroq joyiga qo'ydi: [[cargo|Cargo]] endi build system bo'lish bilan birga formatting/lint/fix orchestration nuqtasi ekanligi ko'rinadi, [[tooling]] esa bir nechta asbob qatlamlari orasidagi umbrella page bo'lib mustahkamlandi.
+- [[wiki/chapters/22-5-e-editions|22.5]] muhim boundary'ni aniq ajratadi: compiler version boshqa narsa, [[edition]] esa source qaysi compatibility qoidalari bilan parse qilinishini bildiradi. Shu sabab Rust yangi syntax va rules'ni ecosystemni sindirmasdan bosqichma-bosqich kiritadi.
+- Editions opt-in bo'lsa ham ecosystem fragmentatsiyasi paydo qilmaydi: turli editiondagi crates bir-biri bilan link bo'la oladi. Migration workflowida [[edition-migration]] va [[cargo-fix-edition-migration]] practical bridge bo'lib xizmat qiladi.
+- [[wiki/chapters/22-6-f-translations-of-the-book|22.6]] knowledge-management nuqtasidan live registry emas, balki source-time snapshot. Wiki ichida [[rust-book-translations]] sahifasi aynan shu snapshotni saqlaydi; unda Uzbek translation alohida qayd etildi, lekin aktual holat web verification'siz tasdiqlanmagan.
+- [[wiki/chapters/22-7-g-how-rust-is-made-and-nightly-rust|22.7]] Rustning "stability without stagnation" modelini yakuniy reference qatlamga aylantiradi: [[release-channels]] (`stable`, `beta`, `nightly`), nightly-only [[feature-flags]], `rustup override` bilan per-project toolchain, va language evolution uchun [[rust-rfc-process]].
+- Shu to'rtta appendix birga qaralganda Appendix 22 faqat syntax/reference qo'shimchasi emasligi ko'rinadi; u Rust ecosystem'ning operational layerini ham jamlaydi: kodni qanday formatlash, lintlash, migrate qilish, qaysi editionda o'qish, qaysi channelda sinash, va knowledge'ni qaysi historical snapshot sifatida saqlash.
+
+Rust for Backend Developers `1. intro` synthesis:
+
+- [[wiki/chapters/rust-for-backend-developers-1-intro|1. Intro]] bu source oilasini beginner Rust course emas, balki experienced back-end developers uchun fast onboarding sifatida joylaydi. O'quvchi [[http|HTTP]], relational databases, JSON, [[threads|multithreading]], va [[stack-and-heap|stack/heap]] kabi mavzularni oldindan biladi deb qabul qilinadi.
+- Setup boblari Rust installni ikki qatlamga ajratadi: [[rustup]] bilan Rust toolchain va platformaga bog'liq [[c-toolchain|C/C++ toolchain]]/[[linker]] qatlami. Windowsda [[msvc-toolchain|MSVC]] default yo'l, [[mingw|MinGW]] esa GNU target alternativasi; Linuxda GCC + rustup ketma-ketligi ko'rsatiladi.
+- Development environment bobida [[rust-analyzer]] va [[language-server-protocol|Language Server Protocol]] editor feedback loop markaziga qo'yiladi. [[vscode|VSCode]] extension talab qiladi, [[zed-editor|Zed]] esa rust-analyzer bilan tayyor keladi; [[rust-rover|Rust Rover]] alohida IDE/analyzer modeliga ega.
+- First Look Rust Bookdagi [[hello-world]] materialini backend kitob kontekstida takrorlaydi: `fn main`, [[println-macro|println! macro]], [[rustc]] bilan single-file compile, va OSga bog'liq run command.
+- Safe Rust bobi [[memory-safety]] va [[unsafe-rust]] chegarasini erta belgilaydi. Muhim tuzatish: source memory leakni safe Rust oldini oladigan xatolar ro'yxatiga kiritadi, lekin wiki'da bu ehtiyotkorroq yozildi - safe Rust UB va memory unsafetyni oldini oladi, leaks esa alohida resource-management muammosi bo'lishi mumkin.
+
+Rust for Backend Developers `2. base` synthesis:
+
+- [[wiki/chapters/rust-for-backend-developers-2-base|2. Base]] Rust syntaxini reference-style foundationga aylantiradi: bindings, primitive types, formatting, block expressions, references, arrays, vectors, va slices bir section ichida jamlangan.
+- Variables bobi [[variables-and-mutability|variables and mutability]]ni beginner darajada tozalaydi: `let`, delayed initialization, [[immutability]], `mut`, [[constants]], [[static-items]], [[raw-identifiers]], va [[discarded-binding]] bir joyga yig'iladi.
+- Primitive types bobi `i32`/`f64` default inference, Unicode `char`, singleton [[unit-type|unit type]], conceptual [[never-type|never type (!)]], va explicit [[type-casting]] orqali Rustning "no hidden conversions" tip intizomini ko'rsatadi.
+- Console output bobi [[println-macro|println! macro]]ni shunchaki log chiqarish vositasi emas, balki [[display-formatting|Display formatting]] va [[debug-formatting|Debug formatting]] boundarysiga kirish nuqtasi sifatida ko'rsatadi.
+- Scopes bobi [[scope]]ni ownership oldidan ham muhim qiladi: block variable lifetime'ini cheklaydi va bir vaqtning o'zida value ham qaytaradi; bu [[statements-and-expressions|statements and expressions]] va `()` modeliga tayanch.
+- References, arrays, vector, va slices ketma-ketligi contiguous memory mental modelini yig'adi: `[T; N]` compile-time shape, [[vector|Vec<T>]] runtime shape, [[slices]] esa ownershipsiz window. Shu yerning o'zida borrowing va reallocation haqidagi keyingi ownership materiallari uchun zamin tayyorlanadi.
+- Strings bobi shu foundation'ga textni olib kiradi: [[string-type|String]] owned heap buffer, [[string-slice|String slice]] borrowed UTF-8 view, [[format-macro|format! macro]] esa text composition'ning owned natijasini beradi.
+- `if` va loops bo'limlari control flow'ni yana ham aniqroq expression modeliga bog'laydi: [[if-expressions|if expressions]] branch result qaytaradi, [[loop]] esa `break value` bilan natija bera oladi, [[for-loop|for loop]] esa iterator/range traversal uchun Rustning default yo'li.
+- Functions va tuples bo'limlari typed syntaxni data-flow bilan bog'laydi: final expression return, explicit `return`, conceptual [[never-type|never type (!)]], multiple valuesni [[tuple]] orqali qaytarish, va `&[T]` parameter bilan array hamda vector uchun bitta API yozish.
+- Structs bo'limi foundation'ni domain modelingga olib boradi: [[structs]] named fields beradi, [[struct-update-syntax]] ownershipni ko'rinadigan qiladi, [[methods]] va [[impl-block|impl block]] esa behaviorni type yoniga olib keladi. Tuple struct va unit-like structlar esa "struct = faqat record" degan tor tasavvurni kengaytiradi.
+- Ownership va lifetimes bo'limlari `2. base`ni haqiqiy Rust mental modeliga yakunlaydi: [[ownership]] move va cleanupni boshqaradi, [[borrow-checker]] reference safety'ni ushlaydi, [[lifetimes]] esa reference relation'larini signature darajasida ifodalaydi. Shu joydan boshlab `&str` vs `String`, vector reallocation, va borrow conflictlar tasodifiy qoidalar emas, bitta tizim bo'lib ko'rina boshlaydi.
+- Declarative macro va pointer bo'limlari `2. base`ni safe surface'dan bir qadam tashqariga olib chiqadi: bir tomonda [[declarative-macros|macro_rules!]] bilan compile-time code generation, ikkinchi tomonda [[raw-pointer]] va [[unsafe-rust|unsafe Rust]] bilan low-level escape hatch. Shu ikki bo'lim birga Rustning ikkita kuchli, lekin ehtiyotkor ishlatilishi kerak bo'lgan qirrasini beradi.
+- Modules bo'limi shu foundation'ni code organization bilan tugatadi: [[module-system|module system]], [[pub-keyword|pub keyword]], [[use-declarations|use declarations]], va [[crate]] orqali Rust project bitta file'dan oshganda qaysi mental model bilan o'sishini ko'rsatadi.
+- Traits bo'limi esa shu foundation'ni abstraction qatlami bilan yopadi: [[traits]] behavior contractini beradi, [[static-dispatch|static dispatch]] `impl Trait` va [[monomorphization]] bilan compile-time specialization beradi, [[trait-object|trait object]] esa [[dynamic-dispatch|dynamic dispatch]] orqali runtime polymorphism ochadi. Shu yerda [[orphan-rule|orphan rule]], default impl, supertraits, `Self`, va [[unsafe-trait|unsafe trait]] bir joyga tushadi.
+- Auto-derive bo'limi data-carrying type'larni trait semanticsiga ulaydi: `#[derive(...)]` [[attribute]] sifatida ishlaydi, [[partial-eq|PartialEq]] equality'ni, [[clone]] explicit duplication'ni, [[copy-trait|Copy trait]] esa implicit copy semanticsni ajratadi. Shu joyda [[marker-trait|marker trait]] degan signal-model ham aniq ko'rinadi.
+- Destructuring va pattern matching bo'limlari `2. base`ni syntaxdan semantikaga olib o'tadi: tuple/array/struct/function-param [[pattern-destructuring|destructuring]]i, keyin esa [[match]] orqali range, [[at-binding|@ binding]], [[match-guard|match guard]], [[slice-patterns|slice patterns]], va [[ref-pattern|ref pattern]] bilan branch + binding modeli yakunlanadi.

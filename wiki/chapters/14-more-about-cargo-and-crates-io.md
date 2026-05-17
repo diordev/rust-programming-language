@@ -128,12 +128,12 @@ license = "MIT OR Apache-2.0"
 
 ## Related Pages
 
-- [[14-more-about-cargo-and-crates-io-the-rust-programming-language|Source: 14. Intro]]
-- [[14-1-customizing-builds-with-release-profiles-the-rust-programming-language|Source: 14.1]]
-- [[14-2-publishing-a-crate-to-crates-io-the-rust-programming-language|Source: 14.2]]
-- [[14-3-cargo-workspaces-the-rust-programming-language|Source: 14.3]]
-- [[14-4-installing-binaries-with-cargo-install-the-rust-programming-language|Source: 14.4]]
-- [[14-5-extending-cargo-with-custom-commands-the-rust-programming-language|Source: 14.5]]
+- [[wiki/sources/14-more-about-cargo-and-crates-io|Source: 14. Intro]]
+- [[14-1-customizing-builds-with-release-profiles|Source: 14.1]]
+- [[14-2-publishing-a-crate-to-crates-io|Source: 14.2]]
+- [[14-3-cargo-workspaces|Source: 14.3]]
+- [[14-4-installing-binaries-with-cargo-install|Source: 14.4]]
+- [[14-5-extending-cargo-with-custom-commands|Source: 14.5]]
 - [[cargo|Cargo]]
 - [[crates-io|crates.io]]
 - [[cargo-workspaces|cargo workspaces]]

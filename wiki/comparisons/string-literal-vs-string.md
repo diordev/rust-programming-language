@@ -43,5 +43,5 @@ owned.push_str(", world!");
 - [[utf-8|UTF-8]]
 - [[ownership]]
 - [[move-semantics|move semantics]]
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[4-1-what-is-ownership]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]

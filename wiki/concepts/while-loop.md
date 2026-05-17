@@ -3,9 +3,9 @@ title: "while Loop"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, control-flow]
-source_count: 1
+source_count: 2
 ---
 
 # while Loop
@@ -21,6 +21,8 @@ Conditionga bog'liq repetition kerak bo'lganda `while` ishlatiladi, lekin collec
 ## Mental Model
 
 Har iteration boshida condition tekshiriladi; `false` bo'lsa loop tugaydi.
+
+Rustda alohida `do-while` syntax yo'q. Shuning uchun "kamida bir marta bajarilsin" semantikasi kerak bo'lsa, odatda `loop` + `break` yoki boshqa qayta yozish tanlanadi.
 
 ## Syntax and Examples
 
@@ -44,4 +46,5 @@ while n != 0 {
 
 ## Sources
 
-- [[3-5-control-flow-the-rust-programming-language]]
+- [[3-5-control-flow]]
+- [[wiki/sources/rust-for-backend-developers-loops]]

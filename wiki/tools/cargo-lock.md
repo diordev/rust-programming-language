@@ -36,5 +36,5 @@ $ cargo update
 
 ## Sources
 
-- [[1-3-hello-cargo-the-rust-programming-language]]
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
+- [[1-3-hello-cargo]]
+- [[wiki/sources/2-programming-a-guessing-game]]

@@ -3,9 +3,9 @@ title: "Borrow Checker"
 type: concept
 status: stable
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, borrowing, lifetimes, memory-safety]
-source_count: 3
+source_count: 4
 ---
 
 # Borrow Checker
@@ -34,6 +34,20 @@ let r2 = &s;      // OK: bir nechta immutable reference
 println!("{r1}, {r2}");
 ```
 
+Vector reallocation bilan intuition:
+
+```rust
+let mut vector: Vec<i32> = Vec::with_capacity(3);
+vector.push(1);
+vector.push(2);
+vector.push(3);
+let reference = &vector[1];
+let vec_ref = &mut vector;
+vec_ref.push(4);
+```
+
+Bu pattern rad etiladi, chunki `push` yangi buffer ajratib, eski element reference'ini dangling holatga olib kelishi mumkin.
+
 ## Common Mistakes
 
 - Immutable reference doirasida mutable borrow olishga urinish → [[e0502-mutable-and-immutable-borrow-conflict]]
@@ -50,3 +64,12 @@ println!("{r1}, {r2}");
 - [[dangling-reference]]
 - [[data-race]]
 - [[memory-safety]]
+- [[e0499-multiple-mutable-borrows|E0499 multiple mutable borrows]]
+- [[e0502-mutable-and-immutable-borrow-conflict|E0502 mutable and immutable borrow conflict]]
+
+## Sources
+
+- [[4-2-references-and-borrowing]]
+- [[10-3-validating-references-with-lifetimes]]
+- [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
+- [[wiki/sources/rust-for-backend-developers-ownership]]

@@ -49,4 +49,4 @@ Bu setting [[cargo-toml|Cargo.toml]] ichida yoziladi.
 
 ## Sources
 
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
+- [[9-1-unrecoverable-errors-with-panic]]

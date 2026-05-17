@@ -3,9 +3,9 @@ title: "Reference"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, ownership, borrowing]
-source_count: 2
+source_count: 4
 ---
 
 # Reference
@@ -35,6 +35,18 @@ fn area(rectangle: &Rectangle) -> u32 {
 }
 ```
 
+Basic dereference modeli:
+
+```rust
+let a: i32 = 5;
+let ref_a: &i32 = &a;
+println!("{}", *ref_a);
+```
+
+Reference pointerga o'xshaydi, lekin Rust compiler uning lifetime va aliasing qoidalarini tekshiradi.
+
+Raw pointer bilan boundary shu yerda boshlanadi: reference compiler tomonidan tekshiriladi, raw pointer esa low-level adres bo'lib, dereference uchun `unsafe` talab qiladi.
+
 ## Syntax and Examples
 
 ```rust
@@ -62,5 +74,7 @@ fn calculate_length(s: &String) -> usize {
 
 ## Sources
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
+- [[5-2-an-example-program-using-structs]]
+- [[wiki/sources/rust-for-backend-developers-references]]
+- [[wiki/sources/rust-for-backend-developers-pointers]]

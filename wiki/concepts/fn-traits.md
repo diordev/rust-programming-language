@@ -3,9 +3,9 @@ title: "Fn Traits: FnOnce, FnMut, Fn"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-13
 tags: [rust, fn-traits, closures, traits, functional]
-source_count: 1
+source_count: 3
 ---
 
 # Fn Traits: FnOnce, FnMut, Fn
@@ -32,6 +32,8 @@ Agar closure `FnOnce` bo'lsa — `FnMut` yoki `Fn` bo'lmaydi.
 Agar `FnMut` bo'lsa — `FnOnce` ham bo'ladi, lekin `Fn` emas.
 Agar `Fn` bo'lsa — uchala trait ham implement qilingan.
 
+[[function-pointers|Function pointer]] (`fn(...) -> ...`) closure emas, lekin uchala `Fn*` traitni implement qiladi. Shuning uchun `F: Fn(...)` bound named functionni ham, closure'ni ham qabul qiladi.
+
 ## Syntax and Examples
 
 ```rust
@@ -54,6 +56,17 @@ fn apply_shared<F: Fn() -> i32>(f: F) -> i32 {
 ```
 
 ```rust
+fn add_one(x: i32) -> i32 { x + 1 }
+
+fn apply<F: Fn(i32) -> i32>(f: F) -> i32 {
+    f(5)
+}
+
+assert_eq!(apply(add_one), 6);      // function pointer ham Fn
+assert_eq!(apply(|x| x + 1), 6);    // closure ham Fn
+```
+
+```rust
 // unwrap_or_else — FnOnce (eng moslashuvchan)
 impl<T> Option<T> {
     pub fn unwrap_or_else<F>(self, f: F) -> T
@@ -63,6 +76,18 @@ impl<T> Option<T> {
 // sort_by_key — FnMut (bir necha marta chaqiriladi)
 list.sort_by_key(|r| r.width); // bu closure FnMut
 ```
+
+```rust
+pub fn execute<F>(&self, f: F)
+where
+    F: FnOnce() + Send + 'static,
+{
+    let job = Box::new(f);
+    self.sender.send(job).unwrap();
+}
+```
+
+Thread pool `execute` uchun `FnOnce` to'g'ri bound, chunki har job worker tomonidan aynan bir marta bajariladi. `Fn` yoki `FnMut` ham ishlashi mumkin bo'lgan closure'lar allaqachon `FnOnce`ni implement qiladi.
 
 ```rust
 // FnOnce closure sort_by_key'da ISHLAYDI:
@@ -96,11 +121,18 @@ Concurrent kontekstda `Fn` talab qilinishi mumkin, `FnMut` thread-safe emas.
 ## Related Concepts
 
 - [[closures]] — `Fn` traitlarini implement qiluvchi asosiy tuzilma
+- [[function-pointers|function pointers]] — uchala `Fn*` traitni implement qiladi
+- [[returning-closures|returning closures]] — return type sifatida `impl Fn` yoki `Box<dyn Fn>`
 - [[traits]] — `FnOnce`, `FnMut`, `Fn` standart trait'lar
 - [[trait-bounds]] — `F: FnMut()` kabi generic bound
 - [[generics]] — closure qabul qiluvchi funksiyalar generic bo'ladi
 - [[concurrency]] — `Fn` concurrent xavfsiz, `FnMut` emas
+- [[thread-pool]]
+- [[send-trait|Send trait]]
+- [[static-lifetime|static lifetime]]
 
 ## Sources
 
-- [[13-1-closures-the-rust-programming-language|13.1 Closures]]
+- [[13-1-closures|13.1 Closures]]
+- [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]
+- [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]

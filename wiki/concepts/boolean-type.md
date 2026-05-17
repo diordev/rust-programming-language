@@ -44,4 +44,4 @@ if active {
 
 ## Sources
 
-- [[3-2-data-types-the-rust-programming-language]]
+- [[3-2-data-types]]

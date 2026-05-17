@@ -3,9 +3,9 @@ title: "Display Formatting"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, formatting]
-source_count: 3
+source_count: 4
 ---
 
 # Display Formatting
@@ -32,6 +32,14 @@ Chapter 10.2da `Display` trait bound sifatida ishlatiladi: `T: Summary + Display
 println!("number is {}", 42);
 ```
 
+Inline capture va named arguments ham baribir `Display` formattingning o'zi:
+
+```rust
+let magic_number = 5;
+println!("Number is {magic_number}");
+println!("Number is {num}", num = magic_number);
+```
+
 ```rust
 let s = "initial contents".to_string();
 ```
@@ -41,6 +49,8 @@ Custom struct uchun bu ishlamasligi mumkin:
 ```rust
 println!("rect1 is {rect1}");
 ```
+
+Array kabi ko'p standard typelar `Display`ni bermaydi. Bunday paytda `{:?}` bilan [[debug-formatting|Debug formatting]] ishlatiladi.
 
 Trait bound:
 
@@ -70,6 +80,7 @@ pub fn notify<T: Summary + Display>(item: &T) {
 
 ## Sources
 
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[5-2-an-example-program-using-structs]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-console-output]]

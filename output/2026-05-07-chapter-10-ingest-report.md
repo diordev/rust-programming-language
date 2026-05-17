@@ -4,7 +4,7 @@ Date: 2026-05-07
 
 ## Source Processed
 
-- `raw/books/the_rust_programming_language/10. Generic Types, Traits, and Lifetimes - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/10. Generic Types, Traits, and Lifetimes.md`
 
 ## Key Takeaways
 
@@ -19,7 +19,7 @@ Date: 2026-05-07
 
 ## Pages Created
 
-- `wiki/sources/10-generic-types-traits-and-lifetimes-the-rust-programming-language.md`
+- `wiki/sources/10-generic-types-traits-and-lifetimes.md`
 - `wiki/chapters/10-generic-types-traits-and-lifetimes.md`
 - `wiki/concepts/code-duplication.md`
 - `wiki/concepts/function-extraction.md`

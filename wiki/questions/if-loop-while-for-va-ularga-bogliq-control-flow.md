@@ -225,9 +225,9 @@ Farqi:
 - [[break]]
 - [[continue]]
 - [[loop-labels|loop labels]]
-- [[3-5-control-flow-the-rust-programming-language]]
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
-- [[6-3-concise-control-flow-with-if-let-and-let-else-the-rust-programming-language]]
+- [[3-5-control-flow]]
+- [[6-2-the-match-control-flow-construct]]
+- [[6-3-concise-control-flow-with-if-let-and-let-else]]
 
 ## Follow-up
 

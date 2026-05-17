@@ -312,12 +312,12 @@ pub fn add_to_waitlist() {}
 
 ## Related Pages
 
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-1-packages-and-crates-the-rust-programming-language]]
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-1-packages-and-crates]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[7-5-separating-modules-into-different-files]]
 - [[cargo|Cargo]]
 - [[cargo-toml|Cargo.toml]]
 - [[module]]

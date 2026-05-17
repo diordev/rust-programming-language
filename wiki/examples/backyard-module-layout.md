@@ -63,7 +63,7 @@ Har bir public access alohida ochilgan: `garden` public module, `vegetables` pub
 
 ## Related Pages
 
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
+- [[7-2-control-scope-and-privacy-with-modules]]
 - [[module-system|module system]]
 - [[module-tree|module tree]]
 - [[module]]

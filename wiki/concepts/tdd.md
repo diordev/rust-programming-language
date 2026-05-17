@@ -105,4 +105,4 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
 
 ## Sources
 
-- [[12-4-adding-functionality-with-test-driven-development-the-rust-programming-language]]
+- [[12-4-adding-functionality-with-test-driven-development]]

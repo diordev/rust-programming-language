@@ -101,5 +101,5 @@ for word in text.split_whitespace() {
 
 ## Sources
 
-- [[8-common-collections-the-rust-programming-language]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[wiki/sources/8-common-collections]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]

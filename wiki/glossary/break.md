@@ -3,15 +3,15 @@ title: "break"
 type: glossary
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, glossary]
-source_count: 1
+source_count: 2
 ---
 
 # break
 
-Loopni tugatadigan Rust keyword; `loop` ichida value qaytarishi ham mumkin.
+Loopni tugatadigan Rust keyword; `loop` ichida value qaytarishi ham mumkin: `break value`.
 
 Related: [[loop]], [[loop-labels|loop labels]]
 
-Sources: [[3-5-control-flow-the-rust-programming-language]]
+Sources: [[3-5-control-flow]], [[wiki/sources/rust-for-backend-developers-loops]]

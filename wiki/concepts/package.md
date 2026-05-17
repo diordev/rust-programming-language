@@ -65,5 +65,5 @@ Bu package bitta binary crate va bitta library crate tutadi.
 
 ## Sources
 
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-1-packages-and-crates-the-rust-programming-language]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-1-packages-and-crates]]

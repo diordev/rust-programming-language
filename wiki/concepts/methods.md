@@ -3,9 +3,9 @@ title: "Methods"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, structs, methods, enums]
-source_count: 4
+source_count: 5
 ---
 
 # Methods
@@ -20,7 +20,7 @@ Methods behaviorni [[structs]] yoki [[enums]] data modeliga yaqin joyda ifodalas
 
 ## Mental Model
 
-Struct yoki enum data shape beradi; method shu data bilan bajariladigan behaviorni beradi. Birinchi parameter `self` bo'lgani uchun method qaysi instance ustida ishlayotganini biladi. Enum'da method body odatda `match self { ... }` orqali variantga qarab har xil branch tanlaydi.
+Struct yoki enum data shape beradi; method shu data bilan bajariladigan behaviorni beradi. Birinchi parameter `self` bo'lgani uchun method qaysi instance ustida ishlayotganini biladi. Backend beginner source `&self`, `&mut self`, va `self` receiverlari orasidagi ownership farqini juda toza ko'rsatadi: faqat o'qish, mutation, yoki ownershipni olib ketish.
 
 Generic types uchun method yozilganda `impl<T> Point<T>` kabi `impl` headerida generic parameter e'lon qilinadi. Concrete-only method kerak bo'lsa, `impl Point<f32>` kabi yoziladi va method faqat shu concrete instantiation uchun mavjud bo'ladi.
 
@@ -117,7 +117,8 @@ impl Point<f32> {
 
 ## Sources
 
-- [[5-using-structs-to-structure-related-data-the-rust-programming-language]]
-- [[5-3-methods-the-rust-programming-language]]
-- [[6-1-defining-an-enum-the-rust-programming-language]]
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[wiki/sources/5-using-structs-to-structure-related-data]]
+- [[5-3-methods]]
+- [[6-1-defining-an-enum]]
+- [[10-1-generic-data-types]]
+- [[wiki/sources/rust-for-backend-developers-structs]]

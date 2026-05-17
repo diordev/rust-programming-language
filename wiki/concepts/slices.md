@@ -3,9 +3,9 @@ title: "Slices"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, slices, borrowing]
-source_count: 3
+source_count: 5
 ---
 
 # Slices
@@ -27,7 +27,16 @@ let a = [1, 2, 3, 4, 5];
 let slice = &a[1..3];
 ```
 
+Inclusive range ham ishlaydi:
+
+```rust
+let arr = [0, 1, 2, 3, 4];
+let slice: &[i32] = &arr[2..=4];
+```
+
 String slices range indicesni bytes sifatida oladi va UTF-8 character boundarylarda bo'lishi kerak.
+
+Shu ma'noda `&str` - text uchun maxsus slice. `String`dan `as_str()` bilan olinadigan borrowed view ham aslida slice modelining o'zi.
 
 Chapter 10 openingda `largest(list: &[i32]) -> &i32` functioni slice parameter ishlatadi. Bu function har qanday `i32` slice'ni borrow qiladi, owned `Vec<i32>` talab qilmaydi.
 
@@ -59,6 +68,14 @@ fn largest(list: &[i32]) -> &i32 {
 }
 ```
 
+Mutable subrange:
+
+```rust
+let mut v = vec![0, 1, 2, 3];
+let slice: &mut [i32] = &mut v[1..3];
+slice[0] = 9;
+```
+
 ## Common Mistakes
 
 - Byte indexni string state'i bilan syncda saqlashga urinish.
@@ -78,6 +95,8 @@ fn largest(list: &[i32]) -> &i32 {
 
 ## Sources
 
-- [[4-3-the-slice-type-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language]]
+- [[4-3-the-slice-type]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes]]
+- [[wiki/sources/rust-for-backend-developers-slices]]
+- [[wiki/sources/rust-for-backend-developers-strings]]

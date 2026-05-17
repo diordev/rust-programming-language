@@ -51,4 +51,4 @@ Shundan keyin `Result<_, std::io::Error>` ustidagi `?` `OurError` qaytaradigan f
 
 ## Sources
 
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
+- [[9-2-recoverable-errors-with-result]]

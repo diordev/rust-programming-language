@@ -59,4 +59,4 @@ enum Result<T, E> {
 
 ## Sources
 
-- [[10-1-generic-data-types-the-rust-programming-language]]
+- [[10-1-generic-data-types]]

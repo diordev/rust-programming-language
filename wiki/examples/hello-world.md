@@ -3,9 +3,9 @@ title: "Hello, World!"
 type: example
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, example, beginner]
-source_count: 1
+source_count: 2
 ---
 
 # Hello, World!
@@ -47,8 +47,13 @@ Hello, world!
 
 ## Related Pages
 
-- [[1-2-hello-world-the-rust-programming-language]]
-- [[1-getting-started|Getting Started]]
+- [[1-2-hello-world]]
+- [[wiki/chapters/1-getting-started|Getting Started]]
 - [[rustc]]
 - [[main-function|main function]]
 - [[println-macro|println! macro]]
+
+## Sources
+
+- [[1-2-hello-world]]
+- [[wiki/sources/rust-for-backend-developers-first-look]]

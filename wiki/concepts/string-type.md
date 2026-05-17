@@ -3,9 +3,9 @@ title: "String"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, string, ownership]
-source_count: 4
+source_count: 5
 ---
 
 # String
@@ -28,6 +28,8 @@ Chapter 8 `String`ni common [[collections|collection]]lardan biri sifatida qayta
 
 Rustda "string" deganda `String` yoki [[string-slice|`&str`]] nazarda tutilishi mumkin. `String` owned/mutable/growable; `&str` borrowed view.
 
+Backend beginner source `String`ning amaliy constructor setini juda aniq beradi: `String::from("text")`, `String::new()`, va `"text".to_string()`. Shuningdek `as_str()` borrowed view'ga qaytish uchun natural bridge ekanini ko'rsatadi.
+
 ## Syntax and Examples
 
 ```rust
@@ -42,6 +44,13 @@ Creation:
 let s = String::new();
 let s = "initial contents".to_string();
 let s = String::from("initial contents");
+```
+
+Borrowed view:
+
+```rust
+let owned = String::from("text");
+let borrowed: &str = owned.as_str();
 ```
 
 Append:
@@ -102,7 +111,8 @@ let s2 = s1.clone();
 
 ## Sources
 
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[8-common-collections-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[4-1-what-is-ownership]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[wiki/sources/8-common-collections]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[wiki/sources/rust-for-backend-developers-strings]]

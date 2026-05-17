@@ -41,4 +41,4 @@ rand = "0.8.5"
 
 ## Sources
 
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
+- [[wiki/sources/2-programming-a-guessing-game]]

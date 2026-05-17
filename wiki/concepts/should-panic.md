@@ -78,4 +78,4 @@ assert!(value.is_err());
 
 ## Sources
 
-- [[11-1-how-to-write-tests-the-rust-programming-language]]
+- [[11-1-how-to-write-tests]]

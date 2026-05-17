@@ -42,7 +42,7 @@ let guess: u32 = "42".parse().expect("Not a number!");
 
 ## Related Concepts
 
-- [[3-2-data-types-the-rust-programming-language]]
+- [[3-2-data-types]]
 - [[data-types|data types]]
 - [[type-inference|type inference]]
 - [[type-annotations|type annotations]]

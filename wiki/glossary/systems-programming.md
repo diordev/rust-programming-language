@@ -14,4 +14,4 @@ Operating systems, embedded code, networking, runtime infrastructure, va low-lev
 
 Related: [[memory-safety|memory safety]], [[performance]]
 
-Sources: [[0-1-foreword-the-rust-programming-language]]
+Sources: [[0-1-foreword]]

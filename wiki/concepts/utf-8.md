@@ -3,9 +3,9 @@ title: "UTF-8"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, strings, unicode]
-source_count: 1
+source_count: 2
 ---
 
 # UTF-8
@@ -21,6 +21,8 @@ UTF-8 sababli string length, indexing, slicing, va iteration oddiy ASCII mental 
 ## Mental Model
 
 `String` bytes saqlaydi, lekin bu bytes valid UTF-8 bo'lishi kerak. Bitta user-facing "harf" bir nechta byte, bir nechta `char`, yoki bitta [[grapheme-clusters|grapheme cluster]] sifatida ko'rinishi mumkin.
+
+Backend beginner source `&str` va `String`ni aynan UTF-8 buffer bilan bog'laydi: biri buffer egasi emas, biri esa egasi.
 
 ## Syntax and Examples
 
@@ -55,4 +57,5 @@ for b in "Зд".bytes() {
 
 ## Sources
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[wiki/sources/rust-for-backend-developers-strings]]

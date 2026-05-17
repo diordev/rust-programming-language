@@ -3,9 +3,9 @@ title: "Use Declarations"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, modules]
-source_count: 5
+source_count: 6
 ---
 
 # Use Declarations
@@ -20,7 +20,7 @@ Chapter 7 opener `modules and use`ni paths organization, scope, va privacy'sini 
 
 ## Mental Model
 
-`use` path'ni yo'qotmaydi; u faqat item nomini muayyan scope'da qulayroq qiladi. `use` module tree'ni o'zgartirmaydi, file'ni compile qilmaydi, va [[privacy]] qoidalarini chetlab o'tmaydi.
+`use` path'ni yo'qotmaydi; u faqat item nomini muayyan scope'da qulayroq qiladi. `use` module tree'ni o'zgartirmaydi, file'ni compile qilmaydi, va [[privacy]] qoidalarini chetlab o'tmaydi. Backend beginner source `mod my_module;` va `use my_module::get_num;` misoli bilan aynan shu farqni ko'rsatadi.
 
 Functionlar uchun odatda parent module import qilinadi, struct/enums uchun esa itemning o'zi full path bilan import qilinadi. [[pub-use|pub use]] bu shortcutni tashqi code uchun public re-exportga aylantiradi.
 
@@ -102,8 +102,9 @@ pub use crate::front_of_house::hosting;
 
 ## Sources
 
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-4-bringing-paths-into-scope-with-the-use-keyword-the-rust-programming-language]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
-- [[8-3-storing-keys-with-associated-values-in-hash-maps-the-rust-programming-language]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-4-bringing-paths-into-scope-with-the-use-keyword]]
+- [[7-5-separating-modules-into-different-files]]
+- [[8-3-storing-keys-with-associated-values-in-hash-maps]]
+- [[wiki/sources/rust-for-backend-developers-modules]]

@@ -132,6 +132,6 @@ impl<X1, Y1> Point<X1, Y1> {
 
 ## Sources
 
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language]]
-- [[10-1-generic-data-types-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes]]
+- [[10-1-generic-data-types]]
+- [[10-2-defining-shared-behavior-with-traits]]

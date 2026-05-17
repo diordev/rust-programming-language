@@ -3,9 +3,9 @@ title: "Cargo"
 type: tool
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, tool, cargo]
-source_count: 7
+source_count: 12
 ---
 
 # Cargo
@@ -27,6 +27,9 @@ $ cargo add rand@0.8.5
 $ cargo update
 $ cargo doc --open
 $ cargo build --release
+$ cargo fmt
+$ cargo fix
+$ cargo clippy
 $ cargo install ripgrep       # binary tool o'rnatish
 $ cargo uninstall ripgrep     # o'chirish
 $ cargo publish               # crates.io'ga publish
@@ -77,6 +80,9 @@ my-project/
 - `cargo update` `Cargo.lock`dagi versionsni `Cargo.toml` constraints doirasida yangilaydi.
 - `cargo doc --open` project va dependency documentationni local browserda ochadi.
 - `cargo build --release` optimized binaryni `target/release/` ichiga yaratadi.
+- `cargo fmt` project bo'ylab [[rustfmt]]ni ishlatadi va formattingni standardlashtiradi.
+- `cargo fix` compiler diagnostics asosida mechanical fix'larni qo'llaydi; edition migration paytida ham foydali.
+- `cargo clippy` standard compiler warninglaridan tashqari qo'shimcha lint qatlamini beradi.
 
 ## Workspace
 
@@ -97,11 +103,13 @@ Workspace'da bitta `Cargo.lock` va bitta `target/` — barcha crate'lar uchun um
 
 `$PATH`'da `cargo-something` binary bo'lsa → `cargo something` sifatida ishlatiladi. `cargo --list` barcha subcommandlarni ko'rsatadi.
 
+`cargo new` va `cargo run` yangi Rust install yoki editor setup ishlayotganini smoke test qilish uchun ham ishlatiladi.
+
 ## Related Pages
 
-- [[1-3-hello-cargo-the-rust-programming-language]]
-- [[2-programming-a-guessing-game-the-rust-programming-language]]
-- [[1-getting-started|1. Getting Started]]
+- [[1-3-hello-cargo]]
+- [[wiki/sources/2-programming-a-guessing-game]]
+- [[wiki/chapters/1-getting-started|1. Getting Started]]
 - [[cargo-toml|Cargo.toml]]
 - [[cargo-workspaces|cargo workspaces]]
 - [[crates-io|crates.io]]
@@ -113,3 +121,23 @@ Workspace'da bitta `Cargo.lock` va bitta `target/` — barcha crate'lar uchun um
 - [[crate-root|crate root]]
 - [[dependencies]]
 - [[rand]]
+- [[rustfmt]]
+- [[cargo-fix|cargo fix / rustfix]]
+- [[clippy]]
+- [[vscode|VSCode]]
+- [[zed-editor|Zed]]
+
+## Sources
+
+- [[wiki/sources/2-programming-a-guessing-game|2. Programming a Guessing Game]]
+- [[wiki/sources/14-more-about-cargo-and-crates-io|14. More About Cargo and Crates.io]]
+- [[14-1-customizing-builds-with-release-profiles|14.1. Customizing Builds with Release Profiles]]
+- [[14-2-publishing-a-crate-to-crates-io|14.2. Publishing a Crate to Crates.io]]
+- [[14-3-cargo-workspaces|14.3. Cargo Workspaces]]
+- [[14-4-installing-binaries-with-cargo-install|14.4. Installing Binaries with cargo install]]
+- [[14-5-extending-cargo-with-custom-commands|14.5. Extending Cargo with Custom Commands]]
+- [[wiki/sources/22-4-d-useful-development-tools|22.4. D - Useful Development Tools]]
+- [[wiki/sources/22-5-e-editions|22.5. E - Editions]]
+- [[wiki/sources/rust-for-backend-developers-setup-rust]]
+- [[wiki/sources/rust-for-backend-developers-install-on-windows]]
+- [[wiki/sources/rust-for-backend-developers-development-environment]]

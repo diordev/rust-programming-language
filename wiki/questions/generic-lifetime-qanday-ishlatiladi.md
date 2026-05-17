@@ -77,7 +77,7 @@ Qisqa qoida:
 - [[generics]]: type parameterlardan foydalanish.
 - [[borrowing]]: ownershipsiz foydalanish.
 - [[reference]]: `&value` syntax.
-- [[4-2-references-and-borrowing-the-rust-programming-language]]: lifetime annotationlar va valid reference qoidalari.
+- [[4-2-references-and-borrowing]]: lifetime annotationlar va valid reference qoidalari.
 
 ## Follow-up
 

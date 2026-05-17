@@ -3,9 +3,9 @@ title: "Module"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, modules]
-source_count: 4
+source_count: 5
 ---
 
 # Module
@@ -22,7 +22,7 @@ Katta programlarda modules code organization, visibility, va API surface'ni bosh
 
 [[module-tree|Module tree]] [[crate]] ichidagi yo'llarni belgilaydi. Item public bo'lishi uchun [[pub-keyword|pub]] kerak. Module'lar code'ni file'lar bo'yicha ajratishi mumkin, lekin ular faqat filesystem emas: ular names, scope, va privacy chegaralarini ham belgilaydi.
 
-Module ichida boshqa modules, functions, structs, enums, constants, traits va boshqa Rust item'lar bo'lishi mumkin. Module'lar parent, child, va sibling munosabatlari bilan nested bo'ladi.
+Module ichida boshqa modules, functions, structs, enums, constants, traits va boshqa Rust item'lar bo'lishi mumkin. Module'lar parent, child, va sibling munosabatlari bilan nested bo'ladi. Default holatda module ichidagi items private bo'ladi; bu visibility boundary ham module modelining bir qismi.
 
 Module body inline yozilishi yoki [[module-file-layout|module file layout]] orqali alohida file'da turishi mumkin. File'ga ajratish module tree'ni o'zgartirmaydi; `mod` declaration module'ni crate'ga ulaydi, [[use-declarations|use]] esa path shortcut yaratadi.
 
@@ -80,7 +80,8 @@ Bu layoutda `front_of_house` root child module, `hosting` esa uning child module
 
 ## Sources
 
-- [[0-2-introduction-the-rust-programming-language]]
-- [[7-packages-crates-and-modules-the-rust-programming-language]]
-- [[7-2-control-scope-and-privacy-with-modules-the-rust-programming-language]]
-- [[7-5-separating-modules-into-different-files-the-rust-programming-language]]
+- [[wiki/sources/0-2-introduction]]
+- [[wiki/sources/7-packages-crates-and-modules]]
+- [[7-2-control-scope-and-privacy-with-modules]]
+- [[7-5-separating-modules-into-different-files]]
+- [[wiki/sources/rust-for-backend-developers-modules]]

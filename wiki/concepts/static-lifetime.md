@@ -3,9 +3,9 @@ title: "Static Lifetime"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, lifetimes, static]
-source_count: 1
+source_count: 3
 ---
 
 # Static Lifetime
@@ -36,11 +36,29 @@ let greeting = "Hello, world!"; // &'static str
 
 String literallar dastur binary'sida saqlanadi va har doim mavjud bo'ladi, shuning uchun ularga reference har doim valid.
 
+Bu beginner backend source'da ham to'g'ridan-to'g'ri beriladi:
+
+```rust
+const TEXT: &'static str = "some string";
+```
+
+```rust
+pub fn execute<F>(&self, f: F)
+where
+    F: FnOnce() + Send + 'static,
+{
+    // worker thread qachon bajarishini bilmaymiz
+}
+```
+
+Bu joydagi `'static` "closure abadiy yashaydi" degani emas. Ma'nosi: closure ichidagi borrow'lar dasturdan qisqaroq umrli reference'larga bog'lanmagan bo'lishi kerak. Owned `String`, `Vec<T>`, `TcpStream` kabi qiymatlar `move` bilan closure ichiga o'tsa bu bound'ni qondira oladi.
+
 ## Common Mistakes
 
 - Compiler `'static` taklif qilganda darhol qo'llash — ko'pincha bu to'g'ri yechim emas.
 - `'static` bilan hamma lifetime muammolarini "hal qilishga" urinish — bu asl muammoni yashiradi.
 - `'static` faqat string literallarga tegishli deb o'ylash — aslida istalgan turdagi ma'lumot `'static` bo'lishi mumkin (global static, `Box::leak` orqali).
+- `thread::spawn` yoki thread pool'dagi `'static`ni "memory leak qil" degan maslahat deb tushunish — ko'pincha owned data'ni move qilish kifoya.
 
 ## Related Concepts
 
@@ -48,7 +66,11 @@ String literallar dastur binary'sida saqlanadi va har doim mavjud bo'ladi, shuni
 - [[lifetime-elision]]
 - [[string-slice]]
 - [[reference]]
+- [[thread-pool]]
+- [[send-trait|Send trait]]
 
 ## Sources
 
-- [[10-3-validating-references-with-lifetimes-the-rust-programming-language]]
+- [[10-3-validating-references-with-lifetimes]]
+- [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
+- [[wiki/sources/rust-for-backend-developers-lifetimes]]

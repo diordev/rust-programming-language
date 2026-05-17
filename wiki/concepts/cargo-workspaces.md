@@ -97,4 +97,4 @@ error[E0432]: unresolved import `rand`
 
 ## Sources
 
-- [[14-3-cargo-workspaces-the-rust-programming-language|14.3 Cargo Workspaces]]
+- [[14-3-cargo-workspaces|14.3 Cargo Workspaces]]

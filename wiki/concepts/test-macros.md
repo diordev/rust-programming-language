@@ -109,4 +109,4 @@ assert_eq!(Point { x: 1, y: 2 }, Point { x: 1, y: 2 });
 
 ## Sources
 
-- [[11-1-how-to-write-tests-the-rust-programming-language]]
+- [[11-1-how-to-write-tests]]

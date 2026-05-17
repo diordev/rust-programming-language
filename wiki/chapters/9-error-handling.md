@@ -262,10 +262,10 @@ impl Guess {
 
 ## Related Pages
 
-- [[9-error-handling-the-rust-programming-language]]
-- [[9-1-unrecoverable-errors-with-panic-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[wiki/sources/9-error-handling]]
+- [[9-1-unrecoverable-errors-with-panic]]
+- [[9-2-recoverable-errors-with-result]]
+- [[9-3-to-panic-or-not-to-panic]]
 - [[error-handling]]
 - [[panic|panic!]]
 - [[result|Result<T, E>]]

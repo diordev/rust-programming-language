@@ -80,4 +80,4 @@ $ cargo run -- to poem.txt > output.txt
 
 ## Sources
 
-- [[12-6-redirecting-errors-to-standard-error-the-rust-programming-language|12.6. Redirecting Errors to Standard Error]]
+- [[12-6-redirecting-errors-to-standard-error|12.6. Redirecting Errors to Standard Error]]

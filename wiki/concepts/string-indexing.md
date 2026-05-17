@@ -69,4 +69,4 @@ let s = &hello[0..4]; // "Зд"
 
 ## Sources
 
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]

@@ -3,9 +3,9 @@ title: "Generics"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-08
 tags: [rust, generics]
-source_count: 7
+source_count: 8
 ---
 
 # Generics
@@ -177,13 +177,18 @@ pub fn notify<T: Summary + Display>(item: &T) {
 - [[vector|Vec<T>]]
 - [[hash-map|HashMap]]
 - [[e0369-binary-operation-cannot-be-applied|E0369 binary operation cannot be applied]]
+- [[default-generic-parameters|default generic parameters]]
+- [[sized-trait|Sized trait]] — generic'larda implicit `T: Sized`
+- [[dynamically-sized-types|DST]] — `?Sized` cheklovi
+- [[associated-types|associated types]]
 
 ## Sources
 
-- [[0-2-introduction-the-rust-programming-language]]
-- [[6-1-defining-an-enum-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
-- [[9-2-recoverable-errors-with-result-the-rust-programming-language]]
-- [[10-generic-types-traits-and-lifetimes-the-rust-programming-language]]
-- [[10-1-generic-data-types-the-rust-programming-language]]
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[wiki/sources/0-2-introduction]]
+- [[6-1-defining-an-enum]]
+- [[8-1-storing-lists-of-values-with-vectors]]
+- [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/10-generic-types-traits-and-lifetimes]]
+- [[10-1-generic-data-types]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]

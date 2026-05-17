@@ -48,7 +48,7 @@ fn main() {
 
 ## Related Pages
 
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
+- [[8-1-storing-lists-of-values-with-vectors]]
 - [[vector|Vec<T>]]
 - [[enums]]
 - [[enum-variants|enum variants]]

@@ -3,9 +3,9 @@ title: "Move Semantics"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, ownership]
-source_count: 3
+source_count: 4
 ---
 
 # Move Semantics
@@ -30,6 +30,14 @@ Bu stack metadata'ni copy qiladi, heap data'ni emas. `s1` invalid bo'ladi, `s2` 
 Struct update syntaxda ham move semantics amal qiladi: `..user1` orqali `String` field yangi instance'ga move bo'lishi mumkin.
 
 String concatenationda `+` operatori left `String`ni move qiladi: `let s3 = s1 + &s2;`dan keyin `s1` invalid bo'ladi, `s2` valid qoladi.
+
+Function call va return ham move nuqtalari:
+
+```rust
+fn greet(name: String) -> String {
+    format!("Hello {}!!!", name)
+}
+```
 
 ## Syntax and Examples
 
@@ -63,6 +71,7 @@ takes_ownership(s);
 
 ## Sources
 
-- [[4-1-what-is-ownership-the-rust-programming-language]]
-- [[5-1-defining-and-instantiating-structs-the-rust-programming-language]]
-- [[8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language]]
+- [[4-1-what-is-ownership]]
+- [[5-1-defining-and-instantiating-structs]]
+- [[8-2-storing-utf-8-encoded-text-with-strings]]
+- [[wiki/sources/rust-for-backend-developers-ownership]]

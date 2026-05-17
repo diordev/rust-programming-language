@@ -82,4 +82,4 @@ let c: Vec<_> = v.iter().collect(); // ok
 
 ## Sources
 
-- [[13-2-processing-a-series-of-items-with-iterators-the-rust-programming-language|13.2 Iterators]]
+- [[13-2-processing-a-series-of-items-with-iterators|13.2 Iterators]]

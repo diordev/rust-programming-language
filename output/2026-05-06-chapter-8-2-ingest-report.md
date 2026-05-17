@@ -6,12 +6,12 @@ Date: 2026-05-06
 
 Processed source:
 
-- `raw/books/the_rust_programming_language/8.2. Storing UTF-8 Encoded Text with Strings - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/8.2. Storing UTF-8 Encoded Text with Strings.md`
 
 ## Wiki Updates
 
 - Created source summary:
-  - `wiki/sources/8-2-storing-utf-8-encoded-text-with-strings-the-rust-programming-language.md`
+  - `wiki/sources/8-2-storing-utf-8-encoded-text-with-strings.md`
 - Expanded chapter page:
   - `wiki/chapters/8-common-collections.md`
 - Created concept pages:

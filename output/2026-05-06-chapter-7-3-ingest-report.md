@@ -6,11 +6,11 @@ Date: 2026-05-06
 
 Processed source:
 
-- `raw/books/the_rust_programming_language/7.3. Paths for Referring to an Item in the Module Tree - The Rust Programming Language.md`
+- `raw/books/the_rust_programming_language/7.3. Paths for Referring to an Item in the Module Tree.md`
 
 ## Wiki Updates
 
-- Created source summary: `wiki/sources/7-3-paths-for-referring-to-an-item-in-the-module-tree-the-rust-programming-language.md`
+- Created source summary: `wiki/sources/7-3-paths-for-referring-to-an-item-in-the-module-tree.md`
 - Expanded chapter page: `wiki/chapters/7-packages-crates-and-modules.md`
 - Created concept pages:
   - `wiki/concepts/absolute-path.md`

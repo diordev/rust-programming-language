@@ -14,4 +14,4 @@ Parameter function definitionidagi named input; argument function call paytida b
 
 Related: [[functions]], [[type-annotations|type annotations]]
 
-Sources: [[3-3-functions-the-rust-programming-language]]
+Sources: [[3-3-functions]]

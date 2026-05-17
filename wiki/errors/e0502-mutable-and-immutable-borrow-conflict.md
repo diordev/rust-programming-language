@@ -3,9 +3,9 @@ title: "E0502 mutable and immutable borrow conflict"
 type: error
 status: active
 created: 2026-05-06
-updated: 2026-05-06
+updated: 2026-05-16
 tags: [rust, compiler-error, borrowing]
-source_count: 3
+source_count: 4
 ---
 
 # E0502 mutable and immutable borrow conflict
@@ -19,6 +19,8 @@ Immutable borrow hali active bo'lgan paytda mutable borrow olishga uringanda `er
 Rust immutable readers active bo'lgan paytda writer/mutable borrow'ga ruxsat bermaydi. Immutable reference users value o'zgarmaydi deb kutadi.
 
 Vector contextida bu qoida reallocation bilan bog'lanadi: elementga reference ushlab turgan paytda `push` qilish vectorni yangi heap allocationga ko'chirishi mumkin, shunda eski element reference'i dangling bo'lardi.
+
+Backend beginner ownership source aynan shu vector reallocation misolini bosqichma-bosqich ko'rsatadi va qoidaning sababi intuition darajasida ochiladi.
 
 ## Fix Pattern
 
@@ -72,17 +74,18 @@ println!("The first element is: {first}");
 
 ## Related Concepts
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[4-3-the-slice-type-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
+- [[4-3-the-slice-type]]
 - [[borrowing]]
 - [[mutable-reference|mutable reference]]
 - [[slices]]
 - [[vector|Vec<T>]]
 - [[vector-indexing|vector indexing]]
 - [[data-race|data race]]
+- [[wiki/sources/rust-for-backend-developers-ownership]]
 
 ## Sources
 
-- [[4-2-references-and-borrowing-the-rust-programming-language]]
-- [[4-3-the-slice-type-the-rust-programming-language]]
-- [[8-1-storing-lists-of-values-with-vectors-the-rust-programming-language]]
+- [[4-2-references-and-borrowing]]
+- [[4-3-the-slice-type]]
+- [[8-1-storing-lists-of-values-with-vectors]]

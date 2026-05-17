@@ -3,9 +3,9 @@ title: "Trait Definitions"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-16
 tags: [rust, traits]
-source_count: 1
+source_count: 2
 ---
 
 # Trait Definitions
@@ -20,7 +20,7 @@ Trait definition shared behaviorni abstract contractga aylantiradi. Generic code
 
 ## Mental Model
 
-Trait "bu behavior mavjud bo'lishi kerak" degan ro'yxat. Method signature semicolon bilan tugasa, implementor body yozishi shart. Method body trait ichida berilsa, bu [[default-trait-implementations|default implementation]] bo'ladi.
+Trait "bu behavior mavjud bo'lishi kerak" degan ro'yxat. Method signature semicolon bilan tugasa, implementor body yozishi shart. Method body trait ichida berilsa, bu [[default-trait-implementations|default implementation]] bo'ladi. Trait definition ichida concrete type nomi noma'lum bo'lgani uchun `Self` ham ko'p ishlatiladi: masalan `fn make_default() -> Self;`.
 
 Trait `pub` bo'lsa, crate users uni import qilib ishlatishi yoki local typelari uchun implement qilishi mumkin.
 
@@ -61,4 +61,5 @@ pub trait Summary {
 
 ## Sources
 
-- [[10-2-defining-shared-behavior-with-traits-the-rust-programming-language]]
+- [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-traits]]

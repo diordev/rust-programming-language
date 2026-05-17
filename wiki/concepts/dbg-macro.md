@@ -49,4 +49,4 @@ dbg!(&rect1);
 
 ## Sources
 
-- [[5-2-an-example-program-using-structs-the-rust-programming-language]]
+- [[5-2-an-example-program-using-structs]]

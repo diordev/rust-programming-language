@@ -44,7 +44,7 @@ Ownershipni to'g'ri tushunsa, keyingi mavzular ancha osonlashadi: [[borrowing]] 
 ## Evidence
 
 - [[ownership]]: Rust memoryni boshqaradigan compile-time rules sistemi.
-- [[4-1-what-is-ownership-the-rust-programming-language]]: ownershipning uchta asosiy qoidasi va move semantics.
+- [[4-1-what-is-ownership]]: ownershipning uchta asosiy qoidasi va move semantics.
 - [[move-semantics]]: assignment va function call paytida move qanday ishlashi.
 - [[copy-trait]]: `Copy` type'lar move emas, copy bo'lishi.
 - [[drop]]: owner scope'dan chiqqanda automatic cleanup.

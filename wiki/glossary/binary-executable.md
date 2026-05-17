@@ -14,4 +14,4 @@ Operating system ishga tushira oladigan compiled program file.
 
 Related: [[main-function|main function]], [[ahead-of-time-compilation|ahead-of-time compilation]]
 
-Sources: [[1-2-hello-world-the-rust-programming-language]]
+Sources: [[1-2-hello-world]]

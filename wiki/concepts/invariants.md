@@ -58,4 +58,4 @@ Private field outside code invariantni chetlab o'tmasligini ta'minlaydi.
 
 ## Sources
 
-- [[9-3-to-panic-or-not-to-panic-the-rust-programming-language]]
+- [[9-3-to-panic-or-not-to-panic]]

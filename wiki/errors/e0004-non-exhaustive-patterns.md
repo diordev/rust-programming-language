@@ -74,5 +74,5 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 - [[catch-all-patterns|catch-all patterns]]
 - [[option|Option]]
 - [[enums]]
-- [[6-2-the-match-control-flow-construct-the-rust-programming-language]]
+- [[6-2-the-match-control-flow-construct]]
 

@@ -73,4 +73,4 @@ let v: i32 = n.unwrap_or(0);     // explicit conversion
 
 ## Sources
 
-- [[6-1-defining-an-enum-the-rust-programming-language]]
+- [[6-1-defining-an-enum]]

@@ -78,4 +78,4 @@ Har bir variant nomi constructor sifatida ham ishlaydi:
 
 ## Sources
 
-- [[6-1-defining-an-enum-the-rust-programming-language]]
+- [[6-1-defining-an-enum]]

@@ -24,8 +24,21 @@ Most explanations and notes are in Uzbek. Standard Rust terms stay in English.
 2. Start with `wiki/index.md`.
 3. Use `wiki/overview.md` for the current big picture.
 4. Read source material in `raw/` and the processed learning pages in `wiki/`.
+5. Use the wiki as the primary context for AI-assisted questions about Rust in this project.
 
 Opening the project in Obsidian is the most convenient way to use it.
+
+## Sources and Attribution
+
+The `raw/` folder mainly contains source material from official Rust documentation and author-owned books or learning resources. In this repository, those materials are used as study inputs for building a structured Rust wiki.
+
+The main purpose is not to replace the original works. The purpose is to let AI-assisted study stay grounded in this curated wiki and its source-based notes instead of relying on random outside context.
+
+Original rights remain with the relevant authors, publishers, and maintainers of the original materials. This repository does not claim ownership over third-party source texts stored in `raw/`.
+
+If you want the original material, use the official Rust documentation and the original author or publisher websites whenever possible. This repository should be understood as a learning workspace built on top of those sources, not as a substitute for them.
+
+If a rights holder prefers attribution changes, linking instead of local copies, or removal of specific source text, the project should be adjusted accordingly.
 
 ## Project Structure
 

@@ -3,9 +3,9 @@ title: "unwrap"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, error-handling, result, option]
-source_count: 3
+source_count: 5
 ---
 
 # unwrap
@@ -16,7 +16,7 @@ source_count: 3
 
 ## Why It Matters
 
-`unwrap` prototyping, examples, yoki "bu yerda xato bo'lishi mumkin emas" assumptioni uchun qisqa. Lekin recoverable errors uchun u error handling emas; failure bo'lsa program to'xtaydi.
+`unwrap` prototyping, examples, yoki "bu yerda xato bo'lishi mumkin emas" assumptioni uchun qisqa. Lekin recoverable errors uchun u error handling emas; failure bo'lsa program to'xtaydi. Muhim aniqlik: `unwrap` Rust `unsafe` mexanizmi emas; u panic qilishi mumkin bo'lgan convenience shortcut.
 
 ## Mental Model
 
@@ -36,12 +36,20 @@ fn main() {
 
 `File::open` `Err` qaytarsa, `unwrap` panic qiladi.
 
+`Option` bilan:
+
+```rust
+let o: Option<i32> = Some(5);
+let i: i32 = o.unwrap();
+```
+
 ## Common Mistakes
 
 - User input, file system, network kabi normal failure holatlarida `unwrap`ni odatiy yechim qilish.
 - `unwrap` va [[expect]] orasidagi debugging message farqini hisobga olmaslik.
 - `unwrap` errorni handle qiladi deb o'ylash; u panic qiladi.
 - Prototype markerini production code'da qoldirish.
+- `unwrap`ni `unsafe` deb atash.
 
 ## Related Concepts
 
@@ -60,3 +68,5 @@ fn main() {
 - [[9-2-recoverable-errors-with-result]]
 - [[9-3-to-panic-or-not-to-panic]]
 - [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]
+- [[wiki/sources/rust-for-backend-developers-option]]
+- [[wiki/sources/rust-for-backend-developers-result]]

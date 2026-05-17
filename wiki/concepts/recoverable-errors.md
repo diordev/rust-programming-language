@@ -3,9 +3,9 @@ title: "Recoverable Errors"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, error-handling]
-source_count: 4
+source_count: 5
 ---
 
 # Recoverable Errors
@@ -25,6 +25,8 @@ Recoverable error "bu operation fail bo'lishi mumkin, lekin programning butun mo
 Recovery local bo'lishi mumkin: `ErrorKind::NotFound` bo'lsa file yaratish. Yoki error callerga [[error-propagation|propagate]] qilinishi mumkin.
 
 Expected failures recoverable bo'lishi kerak: malformed parser input, HTTP rate limit, user wrong format kabi holatlar normal hayotda uchraydi va `Result` orqali callerga qaytarilishi kerak.
+
+Backend beginner result source bu modelga custom error enum qatlamini qo'shadi. `NameParseError::EmptyString` va `NameParseError::NoMiddleName` singari variantlar recoverable failure'ni stringdan ko'ra aniqroq ifodalaydi.
 
 ## Syntax and Examples
 
@@ -52,6 +54,16 @@ let greeting_file = match File::open("hello.txt") {
 };
 ```
 
+Custom recoverable error:
+
+```rust
+#[derive(Debug)]
+enum NameParseError {
+    EmptyString,
+    NoMiddleName,
+}
+```
+
 ## Common Mistakes
 
 - User input xatosini [[panic|panic!]] bilan tugatish.
@@ -60,6 +72,7 @@ let greeting_file = match File::open("hello.txt") {
 - Barcha `Err` holatlarini bir xil deb ko'rish.
 - Caller yaxshiroq qaror qila oladigan errorni local panic bilan tugatish.
 - Expected failure'ni caller-side bug deb belgilash.
+- Recoverable errorni string bilan ifodalab, programmatic branching imkonini yo'qotish.
 
 ## Related Concepts
 
@@ -69,6 +82,7 @@ let greeting_file = match File::open("hello.txt") {
 - [[error-kind|ErrorKind]]
 - [[error-propagation|error propagation]]
 - [[question-mark-operator|question mark operator]]
+- [[std-error-trait|std::error::Error]]
 - [[panic-vs-result|panic! vs Result]]
 - [[unrecoverable-errors|unrecoverable errors]]
 
@@ -78,3 +92,4 @@ let greeting_file = match File::open("hello.txt") {
 - [[wiki/sources/9-error-handling]]
 - [[9-2-recoverable-errors-with-result]]
 - [[9-3-to-panic-or-not-to-panic]]
+- [[wiki/sources/rust-for-backend-developers-result]]

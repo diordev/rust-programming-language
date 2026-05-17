@@ -72,9 +72,9 @@ Closure body nima qilishiga qarab bir, ikki, yoki uchta `Fn` trait implement qil
 |-------|--------------|-----------------|
 | `FnOnce` | Faqat bir marta chaqirish | Captured qiymatni tashqariga move qiladi |
 | `FnMut` | Bir necha marta, mutatsiya bo'lishi mumkin | Move qilmaydi, lekin mutatsiya qilishi mumkin |
-| `Fn` | Bir necha marta, concurrent xavfsiz | Ne move, ne mutatsiya |
+| `Fn` | Bir necha marta, shared borrow bilan chaqiriladi | Ne move, ne mutatsiya |
 
-Barcha closures kamida `FnOnce` implement qiladi.
+Barcha closures kamida `FnOnce` implement qiladi. Bu jadval thread-safety jadvali emas; boshqa thread bilan ishlash uchun qo'shimcha `Send`/`Sync`/`'static` boundlar kerak bo'lishi mumkin.
 
 `unwrap_or_else` → `FnOnce` (eng moslashuvchan, f ko'pi bilan bir marta chaqiriladi)
 `sort_by_key` → `FnMut` (har element uchun bir marta chaqiriladi)

@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-16
 tags: [rust, traits]
-source_count: 9
+source_count: 10
 ---
 
 # Traits
@@ -33,6 +33,8 @@ Chapter 10 traitsni generic behavior constraints sifatida frame qiladi: generic 
 Chapter 10.1da `largest<T>` example'i `>` operation sabab [[partial-ord|PartialOrd]] trait bound talab qiladi. Compiler [[e0369-binary-operation-cannot-be-applied|E0369]] orqali `T`ni `std::cmp::PartialOrd` bilan restrict qilishni taklif qiladi.
 
 Chapter 10.2 traitsni full shared behavior system sifatida ko'rsatadi: [[trait-definitions|trait definitions]], [[trait-implementations|trait implementations]], [[default-trait-implementations|default implementations]], [[trait-bounds|trait bounds]], [[impl-trait|impl Trait]], [[where-clauses|where clauses]], [[orphan-rule|orphan rule]], [[conditional-method-implementations|conditional methods]], va [[blanket-implementations|blanket implementations]].
+
+Backend beginner generics source traits mavzusiga yana bir qatlam qo'shadi: traitning o'zi ham generic bo'lishi mumkin. Lekin generic trait va [[associated-types|associated types]] orasida dizayn farqi bor. Generic trait bir concrete type uchun bir nechta impl variantiga yo'l ochishi mumkin, associated type esa implementor tanlagan bitta bog'langan type bilan contractni qotiradi.
 
 ```rust
 trait Summary {
@@ -147,6 +149,14 @@ fn print_introduction(v: &dyn CanIntroduce) {
 }
 ```
 
+Generic trait:
+
+```rust
+trait ValueProducer<T> {
+    fn produce() -> T;
+}
+```
+
 ## Common Mistakes
 
 - Traitni inheritance deb tushunish.
@@ -159,6 +169,7 @@ fn print_introduction(v: &dyn CanIntroduce) {
 - Return-position `impl Trait` har branchda turli concrete type qaytarishi mumkin deb o'ylash.
 - Default methodni override qilgan method ichidan default implementationni chaqirish mumkin deb o'ylash.
 - Bare `dyn Trait` oddiy value sifatida ishlaydi deb o'ylash; amalda odatda `&dyn Trait` yoki `Box<dyn Trait>` kerak.
+- Generic trait va associated type bir xil API tradeoff beradi deb o'ylash.
 
 ## Related Concepts
 
@@ -192,6 +203,7 @@ fn print_introduction(v: &dyn CanIntroduce) {
 - [[notify-trait-parameters|notify trait parameters]]
 - [[e0369-binary-operation-cannot-be-applied|E0369 binary operation cannot be applied]]
 - [[associated-types|associated types]] — `type Item;` placeholder
+- [[const-generics|const generics]]
 - [[default-generic-parameters|default generic parameters]] — `<Rhs = Self>`
 - [[operator-overloading|operator overloading]] — `std::ops::Add` va boshqalar
 - [[fully-qualified-syntax|fully qualified syntax]] — `<Type as Trait>::fn()`
@@ -211,3 +223,4 @@ fn print_introduction(v: &dyn CanIntroduce) {
 - [[10-2-defining-shared-behavior-with-traits]]
 - [[wiki/sources/20-2-advanced-traits|20.2 Advanced Traits]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

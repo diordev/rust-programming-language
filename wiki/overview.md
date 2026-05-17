@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, overview]
-source_count: 141
+source_count: 146
 ---
 
 # Rust Wiki Overview
@@ -168,6 +168,11 @@ Ingested Rust for Backend Developers materials (`2. base` so far):
 - [[wiki/sources/rust-for-backend-developers-auto-derive-traits|Auto-Derive Traits]]
 - [[wiki/sources/rust-for-backend-developers-destructuring|Destructuring]]
 - [[wiki/sources/rust-for-backend-developers-pattern-matching|Pattern Matching]]
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions|Anonymous Functions]]
+- [[wiki/sources/rust-for-backend-developers-generics|Generics]]
+- [[wiki/sources/rust-for-backend-developers-enums|Enums]]
+- [[wiki/sources/rust-for-backend-developers-option|Option]]
+- [[wiki/sources/rust-for-backend-developers-result|Result]]
 
 Current source baseline:
 
@@ -407,7 +412,7 @@ Chapter 13 synthesis (13.0, 13.1, 13.2):
 - [[closures]] — `|params| body` shaklida anonim funksiya; o'zgaruvchida saqlanadi yoki argument sifatida uzatiladi. Oddiy funksiyadan asosiy farqi: aniqlangan scope'dagi qiymatlarni **capture** qila oladi.
 - Capture uch xil bo'ladi: **immutable borrow** (faqat o'qish), **mutable borrow** (o'zgartirish), va **`move`** (ownership o'tkazish — thread'larda zarur).
 - **Type inference**: closure type annotatsiyasi shart emas, lekin birinchi chaqiruvda tip qotib qoladi; boshqa tip bilan chaqirib bo'lmaydi (E0308).
-- [[fn-traits|Fn traits]] — additive pog'onali hierarchy: `FnOnce` (bir marta, captured qiymat move bo'lsa), `FnMut` (bir necha marta, mutatsiya bo'lishi mumkin), `Fn` (bir necha marta, concurrent xavfsiz). Barcha closures kamida `FnOnce` implement qiladi.
+- [[fn-traits|Fn traits]] — additive pog'onali hierarchy: `FnOnce` (bir marta chaqirish kafolati yetadi), `FnMut` (bir necha marta chaqirish mumkin, mutatsiya bo'lishi mumkin), `Fn` (shared borrow bilan qayta-qayta chaqirish mumkin). Barcha closures kamida `FnOnce` implement qiladi; concurrency uchun hali `Send`/`Sync`/`'static` kabi alohida boundlar kerak bo'lishi mumkin.
 - `unwrap_or_else` → `FnOnce` (eng moslashuvchan); `sort_by_key` → `FnMut` (har element uchun bir marta chaqiriladi).
 - [[iterators]] — **lazy** pattern: `Iterator` trait `next()` metodini talab qiladi; `for` loop ichida implicit ravishda ishlatiladi.
 - Uch xil iterator: `.iter()` (`&T`), `.into_iter()` (`T` — owned), `.iter_mut()` (`&mut T`).
@@ -638,3 +643,6 @@ Rust for Backend Developers `2. base` synthesis:
 - Traits bo'limi esa shu foundation'ni abstraction qatlami bilan yopadi: [[traits]] behavior contractini beradi, [[static-dispatch|static dispatch]] `impl Trait` va [[monomorphization]] bilan compile-time specialization beradi, [[trait-object|trait object]] esa [[dynamic-dispatch|dynamic dispatch]] orqali runtime polymorphism ochadi. Shu yerda [[orphan-rule|orphan rule]], default impl, supertraits, `Self`, va [[unsafe-trait|unsafe trait]] bir joyga tushadi.
 - Auto-derive bo'limi data-carrying type'larni trait semanticsiga ulaydi: `#[derive(...)]` [[attribute]] sifatida ishlaydi, [[partial-eq|PartialEq]] equality'ni, [[clone]] explicit duplication'ni, [[copy-trait|Copy trait]] esa implicit copy semanticsni ajratadi. Shu joyda [[marker-trait|marker trait]] degan signal-model ham aniq ko'rinadi.
 - Destructuring va pattern matching bo'limlari `2. base`ni syntaxdan semantikaga olib o'tadi: tuple/array/struct/function-param [[pattern-destructuring|destructuring]]i, keyin esa [[match]] orqali range, [[at-binding|@ binding]], [[match-guard|match guard]], [[slice-patterns|slice patterns]], va [[ref-pattern|ref pattern]] bilan branch + binding modeli yakunlanadi.
+- Anonymous functions bo'limi shu foundation'ga callable values qatlamini qo'shadi: non-capturing callable [[function-pointers|function pointer]] bo'lishi mumkin, capturing callable esa [[closures]] bo'ladi. Shu yerda [[higher-order-functions|higher-order functions]], [[fn-traits|Fn traits]], `move` capture, `impl Fn` opaque return, va `Box<dyn Fn>` dynamic dispatch yechimi bitta amaliy chiziqqa tushadi.
+- Generics bo'limi `2. base`ni compile-time abstraction bilan to'ldiradi: `Holder<T>` template modeli, [[monomorphization]], [[turbofish]], generic trait vs [[associated-types|associated types]], [[trait-bounds|trait bounds]], [[where-clauses|where clauses]], va [[const-generics|const generics]] Rustning "parametrizatsiya, keyin specialization" mental modelini yig'adi. Shu yerda `impl Trait` nested `Fn` return boundning universal o'rnini bosa olmasligi ham ochiq ko'rsatiladi.
+- Enums, Option, va Result bo'limlari `2. base`ni "shape va failure" qatlami bilan tugatadi: [[enums]] payloadli ADT sifatida keladi, [[if-let|if let]] single-variant branch beradi, [[option|Option]] absence'ni type systemga ko'taradi, [[result|Result]] esa recoverable errorni explicit qiladi. Shu yerda `map`/`flatten`/`and_then` combinatorlari, [[std-error-trait|std::error::Error]], [[question-mark-operator|question mark operator]], va ignored `Result` uchun [[discarded-binding]] bir joyga tushadi.

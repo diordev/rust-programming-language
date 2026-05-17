@@ -3,9 +3,9 @@ title: "Enum Variants"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-09
+updated: 2026-05-17
 tags: [rust, enums]
-source_count: 4
+source_count: 5
 ---
 
 # Enum Variants
@@ -33,6 +33,8 @@ Chapter 20.4 shu constructor function xususiyatini iterator contextida ishlatadi
 Variant payload tutsa, pattern shu payloadni bind qilishi mumkin. Masalan `Coin::Quarter(state)` patterni `Quarter` variantiga mos keladi va ichidagi `UsState` value'ni `state`ga bog'laydi.
 
 Module privacy kontekstida `pub enum` variantsni ham public qiladi. Struct fieldsdan farqli ravishda enum variants uchun alohida `pub` yozilmaydi.
+
+Backend beginner source yana ikki nuance beradi. Birinchisi, unit-like variantlar semantik jihatdan singleton shape sifatida o'qilishi mumkin: `V4` va `V6` "son" emas, datasiz variantlar. Ikkinchisi, explicit numeric value berilganda variantning discriminanti belgilanadi; bu variantning butun ma'nosini faqat raqamga tushirib yubormaydi.
 
 ## Syntax and Examples
 
@@ -95,6 +97,15 @@ enum Status {
 let statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
 ```
 
+Explicit discriminantli variant:
+
+```rust
+enum HttpStatus {
+    Ok = 200,
+    NotFound = 404,
+}
+```
+
 ## Common Mistakes
 
 - Variantni alohida type deb tushunish: `IpAddr::V4` o'zicha type emas, u `IpAddr` qiymatini hosil qiluvchi shakl/funksiya.
@@ -102,6 +113,7 @@ let statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
 - Datasiz variantni constructor function deb chaqirish (`IpAddrKind::V4()` xato; to'g'risi `IpAddrKind::V4`).
 - Tuple-like va struct-like variantlar uchun mos pattern syntaxini aralashtirib yuborish.
 - `pub enum` variants alohida `pub` talab qiladi deb o'ylash.
+- Explicit discriminant variantni oddiy integer bilan teng deb o'ylash.
 
 ## Related Concepts
 
@@ -116,6 +128,7 @@ let statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
 - [[unit-like-structs]]
 - [[privacy]]
 - [[pub-keyword|pub keyword]]
+- [[match]]
 
 ## Sources
 
@@ -123,3 +136,4 @@ let statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
 - [[6-2-the-match-control-flow-construct]]
 - [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
 - [[wiki/sources/20-4-advanced-functions-and-closures]]
+- [[wiki/sources/rust-for-backend-developers-enums]]

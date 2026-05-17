@@ -3,9 +3,9 @@ title: "Generic Structs"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, generics, structs]
-source_count: 1
+source_count: 2
 ---
 
 # Generic Structs
@@ -23,6 +23,8 @@ Generic structs bir xil data shape'ni turli concrete typelar bilan qayta ishlata
 `struct Point<T> { x: T, y: T }` bitta generic parameter ishlatadi. Shu sabab bitta `Point<T>` instance ichida `x` va `y` bir xil concrete type bo'lishi kerak.
 
 `struct Point<T, U> { x: T, y: U }` esa `x` va `y` turli concrete type bo'lishiga ruxsat beradi. Generic parameterlar soni design signalidir: ular juda ko'payib ketsa, type'ni kichikroq qismlarga ajratish kerak bo'lishi mumkin.
+
+Backend beginner source `Holder<T>` bilan yana bitta muhim nuance beradi: generic structni mental modelda "type template" deb o'qish foydali. `Holder<T>`ning o'zi final concrete type emas; `Holder<i32>` yoki `Holder<String>` concrete instantiation bo'lganda haqiqiy type identity paydo bo'ladi.
 
 ## Syntax and Examples
 
@@ -49,12 +51,24 @@ struct Point<T, U> {
 let integer_and_float = Point { x: 5, y: 4.0 };
 ```
 
+Wrapper-style generic struct:
+
+```rust
+struct Holder<T> {
+    v: T,
+}
+
+let n: Holder<i32> = Holder { v: 5 };
+let s: Holder<String> = Holder { v: String::from("hi") };
+```
+
 ## Common Mistakes
 
 - `Point<T>` ichida `x` va `y` turli type bo'lishi mumkin deb o'ylash.
 - `Point { x: 5, y: 4.0 }` uchun bitta `T` yetarli deb o'ylash; bu [[e0308-mismatched-types|E0308]] beradi.
 - Har bir fieldga alohida generic parameter qo'shaverish; readability va designni tekshirish kerak.
 - Generic struct concrete instancelari bir-biriga implicit convert bo'ladi deb o'ylash.
+- `Holder<T>` kabi declarationning o'zini concrete runtime type deb o'ylash.
 
 ## Related Concepts
 
@@ -62,6 +76,7 @@ let integer_and_float = Point { x: 5, y: 4.0 };
 - [[generics]]
 - [[generic-type-parameters|generic type parameters]]
 - [[generic-methods|generic methods]]
+- [[monomorphization]]
 - [[type-inference|type inference]]
 - [[e0308-mismatched-types|E0308 mismatched types]]
 - [[generic-point|generic Point]]
@@ -69,3 +84,4 @@ let integer_and_float = Point { x: 5, y: 4.0 };
 ## Sources
 
 - [[10-1-generic-data-types]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

@@ -3,9 +3,9 @@ title: "Enums"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, enums]
-source_count: 8
+source_count: 9
 ---
 
 # Enums
@@ -31,6 +31,10 @@ Module privacy kontekstida `pub enum` variantsni public qiladi. Bu structsdan fa
 Collections kontekstida enum bir [[vector|Vec<T>]] ichida turli value shape'larini bitta concrete type sifatida saqlashga yordam beradi. Masalan, `Vec<SpreadsheetCell>` ichida `Int(i32)`, `Float(f64)`, va `Text(String)` variants bo'lishi mumkin.
 
 Generic enums variant payload typelarini [[generic-type-parameters|generic type parameters]] bilan abstract qiladi. `Option<T>` bitta payload type'i orqali optional value'ni, `Result<T, E>` esa success type va error type'ni alohida ifodalaydi.
+
+Backend beginner source shu modelni ikki bo'lakda ko'rsatadi: C-like enums va payload enums. Muhim nuance shuki, C-like ko'rinish Rust enum'ning faqat eng sodda qatlami. `HttpStatus::Ok = 200` kabi explicit discriminant berish mumkin, lekin wiki uchun buni "layout endi to'liq ma'lum" deb o'qish noto'g'ri; discriminant mental modeli foydali, real representation esa `repr` va compiler optimizatsiyalariga bog'liq bo'lishi mumkin.
+
+O'sha source `Shape` enum'iga method qo'shib, enum va `impl` orasidagi aloqani ham amaliy ko'rsatadi. Demak behavior faqat structlarga tegishli emas; enum ham domain object bo'la oladi.
 
 ## Syntax and Examples
 
@@ -125,6 +129,17 @@ enum Result<T, E> {
 }
 ```
 
+Numeric discriminant:
+
+```rust
+enum HttpStatus {
+    Ok = 200,
+    NotFound = 404,
+}
+
+let code = HttpStatus::Ok as usize;
+```
+
 ## Common Mistakes
 
 - Variantni qabul qiluvchi funksiyada enum type emas, alohida variant typeini kutish (variant — type emas, qiymat shakli).
@@ -135,6 +150,7 @@ enum Result<T, E> {
 - Public enum variants alohida `pub` talab qiladi deb o'ylash.
 - Vector ichida har xil typelar kerak bo'lganda enum bilan bitta concrete type yaratish mumkinligini unutish.
 - Generic enum variants payload type'lari concrete call site yoki annotation orqali aniqlanishini unutish.
+- Explicit discriminant ko'rib, enum memory layouti har doim to'liq qo'lda boshqariladi deb o'ylash.
 
 ## Related Concepts
 
@@ -166,3 +182,4 @@ enum Result<T, E> {
 - [[7-3-paths-for-referring-to-an-item-in-the-module-tree]]
 - [[8-1-storing-lists-of-values-with-vectors]]
 - [[10-1-generic-data-types]]
+- [[wiki/sources/rust-for-backend-developers-enums]]

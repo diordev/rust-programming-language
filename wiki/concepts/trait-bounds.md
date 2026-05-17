@@ -3,9 +3,9 @@ title: "Trait Bounds"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, traits, generics]
-source_count: 2
+source_count: 3
 ---
 
 # Trait Bounds
@@ -21,6 +21,8 @@ Trait bounds generic code ichida qaysi methods yoki operations ishlatilishi mumk
 ## Mental Model
 
 `T: Summary` degani "`T` istalgan type emas; `Summary` implement qilgan type". Function body `T` ustida `summarize()` chaqira oladi. Multiple bounds `T: Summary + Display` bo'lsa, body `summarize()` ham, `{}` formatting ham ishlata oladi. Backend beginner source `impl A + B` ko'rinishidagi ixcham syntaxni ko'rsatadi, lekin bounds ko'payganda [[where-clauses|where clause]] odatda o'qilishi yaxshiroq.
+
+O'sha backend source yana ikkita practical signal beradi. Birinchisi, oddiy capability constraint: `duplicate<T: Copy>(v: T) -> T` kabi bound compilerga body ichida copy semantics halol ekanini aytadi. Ikkinchisi, `T: Trait` bilan `impl Trait` syntaxlari ko'p holatda bir xil static dispatch modeliga olib borsa ham, expressiveness bir xil emas: `FnMut() -> R` kabi nested return relationshiplarda alohida generic parameter kerak bo'ladi.
 
 ## Syntax and Examples
 
@@ -47,12 +49,33 @@ pub fn notify<T: Summary + Display>(item: &T) {
 }
 ```
 
+Capability bound:
+
+```rust
+fn duplicate<T: Copy>(v: T) -> T {
+    v
+}
+```
+
+Nested bound:
+
+```rust
+fn print_produced<F, R>(mut f: F)
+where
+    F: FnMut() -> R,
+    R: Display,
+{
+    println!("{}", f());
+}
+```
+
 ## Common Mistakes
 
 - `impl Trait` va `T: Trait` har doim bir xil expressiveness beradi deb o'ylash.
 - Ikki parameter bir xil concrete type bo'lishi kerak bo'lsa ham `&impl Trait` ishlatish.
 - `+` bilan multiple bounds yozilganda function body nima qila olishini aniq ko'rmaslik.
 - Bounds ko'payganda [[where-clauses|where clause]] ishlatmasdan signature'ni o'qilmas qilish.
+- Body ichida kerak bo'lgan capability uchun bound yozmaslik, masalan duplicate yoki array-fill patternlarda `Copy`ni unutish.
 
 ## Related Concepts
 
@@ -65,8 +88,10 @@ pub fn notify<T: Summary + Display>(item: &T) {
 - [[display-formatting|Display]]
 - [[partial-ord|PartialOrd]]
 - [[conditional-method-implementations|conditional method implementations]]
+- [[fn-traits|Fn traits]]
 
 ## Sources
 
 - [[10-2-defining-shared-behavior-with-traits]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

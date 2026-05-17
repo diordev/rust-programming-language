@@ -3,9 +3,9 @@ title: "Option"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, enums, option]
-source_count: 9
+source_count: 10
 ---
 
 # Option
@@ -28,6 +28,8 @@ Rustda *null yo'q*. Tony Hoare null'ni "billion dollar mistake" deb atagan, chun
 
 Chapter 10.1 `Option<T>`ni [[generic-enums|generic enum]] syntax'i sifatida qayta ko'rsatadi. `T` `Some(T)` ichidagi value type'ini bildiradi, `None` esa data saqlamaydi.
 
+Backend beginner source `Option`ni uchta eski absence modeli bilan kontrast qiladi: sentinel value, qo'shimcha boolean flag, va null pointer. Muhim durable takeaway: `Option` tashqi flag emas; enum bo'lgani uchun absence signali type ichida yuradi.
+
 Vector accessda `get` methodi `Option<&T>` qaytaradi: index bor bo'lsa `Some(&element)`, out-of-bounds bo'lsa `None`.
 
 [[hash-map|HashMap]] lookupda ham `get` `Option<&V>` qaytaradi: key mavjud bo'lsa `Some(&value)`, missing key bo'lsa `None`. Shu sabab map lookupdan keyin absence case explicit handle qilinadi.
@@ -37,6 +39,8 @@ Vector accessda `get` methodi `Option<&T>` qaytaradi: index bor bo'lsa `Some(&el
 Type-system guideline: function parameteri `Option<T>` emas, `T` bo'lsa, function body `None` case'ni runtime handle qilmaydi. Compiler caller haqiqiy `T` berganini tekshiradi.
 
 Performance modeli: compiler [[monomorphization]] orqali `Option<i32>` va `Option<f64>` kabi concrete uses uchun specialized code yaratadi.
+
+Option bilan ishlashda backend source ayniqsa uchta combinatorni ajratadi: `map`, `flatten`, va `and_then`. `map` `Some(v)` ichidagi qiymatni transform qiladi, `flatten` `Option<Option<T>>`ni bitta qatlamga tushiradi, `and_then` esa shu ikki qadamni bitta optional chaining operatoriga aylantiradi.
 
 ## Syntax and Examples
 
@@ -90,6 +94,19 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
         Some(i) => Some(i + 1),
     }
 }
+```
+
+`flatten`:
+
+```rust
+let nested: Option<Option<i32>> = Some(Some(2));
+let flat: Option<i32> = nested.flatten();
+```
+
+`and_then`:
+
+```rust
+let value = Some(1).and_then(|x| Some(x + 1));
 ```
 
 Bitta case qiziq bo'lsa:
@@ -149,6 +166,7 @@ Bu pattern ayniqsa `Drop` impl ichida foydali, chunki `&mut self` bilan borrowed
 - `Option<T>` ichidagi `T`ni to'g'ridan-to'g'ri ishlatishga urinish (E0277).
 - `let x = None;` deb yozib annotation bermaslik (compiler `T`ni bilolmaydi).
 - Hamma joyda `unwrap()` ishlatish — bu `None` paytda panic. Beginner kod uchun ham `expect("...")` to'g'riroq, chunki message debugging uchun foydali.
+- `unwrap`ni Rust `unsafe` mexanizmi bilan aralashtirish.
 - `Option<&T>` va `&Option<T>` orasidagi farqni hisobga olmaslik.
 - `match`da `None` case'ni unutish ([[e0004-non-exhaustive-patterns|E0004]]).
 - Out-of-bounds vector access uchun `get` o'rniga indexing ishlatib, recoverable holatda panic qilish.
@@ -156,6 +174,7 @@ Bu pattern ayniqsa `Drop` impl ichida foydali, chunki `&mut self` bilan borrowed
 - `Result` qaytaradigan function ichida `Option` ustida `?` avtomatik ishlaydi deb o'ylash.
 - `Option` va `Result` conversion uchun `ok` yoki `ok_or` kabi explicit methodlar kerak bo'lishi mumkinligini unutish.
 - `Option::take()` faqat convenience method deb o'ylash — u ko'pincha ownership-safe cleanup patternining markazi bo'ladi.
+- `map` bilan `and_then` farqini yo'qotib, keraksiz nested `Option` hosil qilish.
 
 ## Related Concepts
 
@@ -172,6 +191,8 @@ Bu pattern ayniqsa `Drop` impl ichida foydali, chunki `&mut self` bilan borrowed
 - [[exhaustive-matching|exhaustive matching]]
 - [[result|Result]]
 - [[question-mark-operator|question mark operator]]
+- [[unwrap]]
+- [[closures]]
 - [[type-checking|type checking]]
 - [[prelude]]
 - [[standard-library|standard library]]
@@ -193,3 +214,4 @@ Bu pattern ayniqsa `Drop` impl ichida foydali, chunki `&mut self` bilan borrowed
 - [[9-3-to-panic-or-not-to-panic]]
 - [[10-1-generic-data-types]]
 - [[wiki/sources/21-3-graceful-shutdown-and-cleanup|21.3]]
+- [[wiki/sources/rust-for-backend-developers-option]]

@@ -3,9 +3,9 @@ title: "Opaque Types"
 type: concept
 status: active
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-17
 tags: [rust, traits, impl-trait, type-system]
-source_count: 1
+source_count: 2
 ---
 
 # Opaque Types
@@ -27,6 +27,8 @@ fn returns_closure() -> impl Fn(i32) -> i32 {
 ```
 
 Compiler ichkarida closure uchun maxfiy type yaratadi. Caller uning nomini bilmaydi, faqat `Fn(i32) -> i32` sifatida ishlata oladi.
+
+Har closure alohida concrete type ekanini esdan chiqarmaslik kerak. Hatto ikkita closure'ning signature'si va implement qilgan `Fn` traiti bir xil ko'rinsa ham, opaque type nuqtai nazaridan ular boshqa-boshqa concrete type.
 
 Muhim qoida:
 
@@ -95,4 +97,5 @@ Endi ikkala function ham bir xil concrete return type qaytaradi: `Box<dyn Fn(i32
 
 ## Sources
 
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions]]
 - [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]

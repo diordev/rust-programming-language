@@ -3,9 +3,9 @@ title: "Error Propagation"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, error-handling, result]
-source_count: 1
+source_count: 2
 ---
 
 # Error Propagation
@@ -21,6 +21,8 @@ Ba'zan function ichida to'g'ri recovery qarori uchun yetarli context bo'lmaydi. 
 ## Mental Model
 
 Propagation "men bu errorni ko'rdim, lekin uni hal qilish mening vazifam emas; caller hal qilsin" degani. Rustda bu odatda `Result<T, E>` return type va [[question-mark-operator|question mark operator]] bilan yoziladi.
+
+Backend beginner result source propagationning uch ko'rinishini yonma-yon beradi: manual `match` + `return Err(e)`, combinatorlar (`map`, `and_then`), va `?`. Muhim signal: `?` aynan propagation instrumenti, handling instrumenti emas.
 
 ## Syntax and Examples
 
@@ -58,11 +60,21 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 
+Combinator style:
+
+```rust
+File::open(file_name).and_then(|mut file| {
+    let mut contents = String::new();
+    file.read_to_string(&mut contents).map(|_| contents)
+})
+```
+
 ## Common Mistakes
 
 - Caller yaxshiroq qaror qila oladigan holatda function ichida `panic!` qilish.
 - Function return type'ini `Result` qilmasdan `?` ishlatishga urinish.
 - Propagation errorni "yo'q qildi" deb o'ylash; error callerga ko'chadi.
+- `?` va handlingni bir narsa deb o'ylash.
 
 ## Related Concepts
 
@@ -71,7 +83,9 @@ fn read_username_from_file() -> Result<String, io::Error> {
 - [[recoverable-errors|recoverable errors]]
 - [[io-error|io::Error]]
 - [[from-trait|From trait]]
+- [[std-error-trait|std::error::Error]]
 
 ## Sources
 
 - [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/rust-for-backend-developers-result]]

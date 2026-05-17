@@ -3,9 +3,9 @@ title: "Closures"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-09
+updated: 2026-05-17
 tags: [rust, closures, fn-traits, capture, functional]
-source_count: 4
+source_count: 7
 ---
 
 # Closures
@@ -16,11 +16,13 @@ source_count: 4
 
 ## Why It Matters
 
-Closures iterator metodlari (`map`, `filter`, `sort_by_key`), optional qiymatlar (`unwrap_or_else`), va multithreading (`thread::spawn`) uchun asosiy building block. Capture qilish imkoniyati closure'ni funksiyadan ancha moslashuvchan qiladi.
+Closures iterator metodlari (`map`, `filter`, `sort_by_key`), optional qiymatlar (`unwrap_or_else`, `Option::map`, `Option::and_then`), `Result` composition (`map`, `and_then`), va multithreading (`thread::spawn`) uchun asosiy building block. Capture qilish imkoniyati closure'ni funksiyadan ancha moslashuvchan qiladi.
 
 ## Mental Model
 
 Closure — funksiya + "xotira": u aniqlangan joydan zarur qiymatlarni olib, keyinchalik boshqa joyda bajarilganida ham ulardan foydalana oladi. Xuddi lambdalar kabi (Python, JavaScript, Java), lekin ownership qoidalariga to'liq bo'ysunadi.
+
+Muhim chegara: non-capturing anonymous function ko'pincha [[function-pointers|function pointer]]ga koerce bo'lishi mumkin, capturing closure esa alohida compiler-generated object bo'ladi va `Fn*` traitlaridan birini implement qiladi.
 
 ## Syntax and Examples
 
@@ -50,9 +52,19 @@ thread::spawn(move || println!("{list:?}")).join().unwrap();
 ```
 
 ```rust
+// Non-capturing closure function pointerga koerce bo'ladi
+let inc: fn(i32) -> i32 = |x| x + 1;
+```
+
+```rust
 // Argument sifatida uzatish
 let result = Some(ShirtColor::Blue)
     .unwrap_or_else(|| ShirtColor::Red);
+```
+
+```rust
+let next = Some(5).map(|x| x + 1);
+let chained = Ok::<i32, String>(2).map(|x| x * 2);
 ```
 
 ## Common Mistakes
@@ -80,6 +92,9 @@ list.sort_by_key(|r| {
     r.width
 });
 ```
+
+**4. `move` har doim majburiy deb o'ylash:**
+Local scope ichida ko'p closure'larda compiler capture usulini o'zi tanlaydi. `move` ayniqsa returned closure, thread, yoki ownershipni ataylab ichkariga o'tkazish kerak bo'lganda muhim.
 
 ## Thread kontekstida `move`
 
@@ -133,4 +148,7 @@ Batafsil: [[returning-closures]] va [[opaque-types]].
 - [[13-1-closures|13.1 Closures]]
 - [[13-functional-language-features-iterators-and-closures|13. Intro]]
 - [[16-1-using-threads-to-run-code-simultaneously]]
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions]]
 - [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]
+- [[wiki/sources/rust-for-backend-developers-option]]
+- [[wiki/sources/rust-for-backend-developers-result]]

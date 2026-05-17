@@ -5,7 +5,7 @@ status: active
 created: 2026-05-07
 updated: 2026-05-16
 tags: [rust, traits, generics]
-source_count: 3
+source_count: 4
 ---
 
 # impl Trait
@@ -40,6 +40,8 @@ Backend beginner source bu limitni juda aniq ko'rsatadi: `if`ning bir branchi `P
 
 Return position `impl Trait` [[opaque-types|opaque type]] yaratadi: concrete type compilerga ma'lum, callerga yashirin. Har bir `impl Trait` return joyi alohida opaque type bo'ladi.
 
+Backend beginner source yana bitta foydali chegarani ko'rsatadi: `impl Trait` nested trait bound ichidagi return type'ni ifodalay olmaydi. Masalan `impl FnMut() -> impl Display` yozuvi rad etiladi; bunday holatda outer function generic parametrlari bilan `F: FnMut() -> R, R: Display` shakliga o'tish kerak.
+
 ## Syntax and Examples
 
 Parameter:
@@ -72,6 +74,26 @@ fn returns_summarizable() -> impl Summary {
 }
 ```
 
+Not allowed inside `Fn` trait bound:
+
+```rust
+fn print_produced(mut f: impl FnMut() -> impl Display) {
+    println!("{}", f());
+}
+```
+
+Instead:
+
+```rust
+fn print_produced<F, R>(mut f: F)
+where
+    F: FnMut() -> R,
+    R: Display,
+{
+    println!("{}", f());
+}
+```
+
 ## Common Mistakes
 
 - Return position `impl Trait` har branchda boshqa concrete type qaytarishi mumkin deb o'ylash.
@@ -80,6 +102,7 @@ fn returns_summarizable() -> impl Summary {
 - Same-type constraint kerak bo'lsa, [[trait-bounds|trait bound]] syntax ishlatish kerakligini unutish.
 - `impl Trait`ni trait object bilan bir xil deb tushunish.
 - Return position `impl Trait` muammosini branchlarni box qilib yechish mumkinligini bilmaslik.
+- `impl Trait`ni `Fn` trait bounds ichidagi return type'ga qo'yish mumkin deb o'ylash.
 
 ## Related Concepts
 
@@ -93,9 +116,11 @@ fn returns_summarizable() -> impl Summary {
 - [[notify-trait-parameters|notify trait parameters]]
 - [[box-t|Box<T>]]
 - [[trait-object|trait object]]
+- [[fn-traits|Fn traits]]
 
 ## Sources
 
 - [[10-2-defining-shared-behavior-with-traits]]
 - [[wiki/sources/20-4-advanced-functions-and-closures]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

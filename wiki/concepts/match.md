@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, control-flow]
-source_count: 7
+source_count: 10
 ---
 
 # match
@@ -27,6 +27,8 @@ Rust barcha kerakli holatlar ko'rib chiqilganini tekshiradi. Agar `Option<T>`da 
 Chapter 9.2da `match` [[result|Result<T, E>]]ni handle qilishning primitive tool'i sifatida ishlatiladi: `Ok(file)` success value'ni ochadi, `Err(error)` esa recovery yoki panic branchiga o'tadi.
 
 Keyinroq pattern familyasi ranges, `|`, [[at-binding|@ binding]], [[match-guard|match guard]], struct patterns, va [[slice-patterns|slice patterns]] bilan kengayadi. String content matchingda esa `String`ni ko'pincha `as_str()` qilib literal patternlarga solishtirish kerak bo'ladi.
+
+Backend beginner enum source `match`ning enum bilan tabiiy juftligini `Shape` misoli bilan ko'rsatadi: `Square` va `Rectangle` payloadlari bir branch ichida ochiladi. `Option` va `Result` source'lari shu modelni extraction instrumentiga aylantiradi: `Some(v)`/`None` va `Ok(v)`/`Err(e)` branchlari explicit control flow beradi.
 
 ## Syntax and Examples
 
@@ -97,6 +99,15 @@ let greeting_file = match File::open("hello.txt") {
 };
 ```
 
+Struct-like enum variant:
+
+```rust
+match shape {
+    Shape::Square { width } => width * width,
+    Shape::Rectangle { width, height } => width * height,
+}
+```
+
 ## Common Mistakes
 
 - Arm patternsni exhaustive qilmaslik.
@@ -104,6 +115,7 @@ let greeting_file = match File::open("hello.txt") {
 - Arm expressionlari turli type qaytarishiga yo'l qo'yish.
 - Bitta case qiziq bo'lgan joyda haddan tashqari verbose `match` yozish; bu holatda [[if-let|if let]] aniqroq bo'lishi mumkin.
 - Nested `Result` handling juda chuqurlashsa, [[question-mark-operator|?]] yoki helper methods borligini unutish.
+- C-like enum va payload enum patternlarini bir xil syntax bilan yozishga urinish.
 
 ## Related Concepts
 
@@ -131,3 +143,6 @@ let greeting_file = match File::open("hello.txt") {
 - [[wiki/sources/19-1-all-the-places-patterns-can-be-used]]
 - [[wiki/sources/rust-for-backend-developers-pattern-matching]]
 - [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]
+- [[wiki/sources/rust-for-backend-developers-enums]]
+- [[wiki/sources/rust-for-backend-developers-option]]
+- [[wiki/sources/rust-for-backend-developers-result]]

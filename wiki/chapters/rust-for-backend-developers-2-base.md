@@ -5,14 +5,14 @@ status: active
 created: 2026-05-16
 updated: 2026-05-17
 tags: [rust, backend, chapter, base]
-source_count: 23
+source_count: 28
 ---
 
 # Rust for Backend Developers: 2. Base
 
 ## Learning Goal
 
-`Rust for Backend Developers` kitobining `2. base` sectionini bir foundation layer sifatida tushunish: bindings, primitive types, strings, formatting, expression-oriented control flow, functions, tuples, structs, modules, traits, derive semantics, destructuring, pattern matching, ownership, borrowing, lifetimes, references, arrays, vectors, slices, declarative macros, va raw pointers.
+`Rust for Backend Developers` kitobining `2. base` sectionini bir foundation layer sifatida tushunish: bindings, primitive types, strings, formatting, expression-oriented control flow, functions, tuples, structs, modules, traits, generics, enums, `Option`, `Result`, derive semantics, destructuring, pattern matching, anonymous functions va closures, ownership, borrowing, lifetimes, references, arrays, vectors, slices, declarative macros, va raw pointers.
 
 ## Main Ideas
 
@@ -30,6 +30,11 @@ source_count: 23
 - Auto-derive bobi trait ecosystemni everyday data modelga tushiradi: `#[derive(...)]` [[attribute]] sifatida mechanical impl generatsiya qiladi, [[partial-eq|PartialEq]], [[clone]], va [[copy-trait|Copy trait]] esa equality/copy semanticsni aniq ajratadi.
 - Destructuring bobi pattern syntaxni control flow'dan oldin tayyorlaydi: tuple, array, struct, va function parametrlari value shape'ini ochib beradi; fixed-size [[array-destructuring|array destructuring]] bilan runtime-size slice o'rtasidagi chegara shu yerda ko'rinadi.
 - Pattern matching bobi esa `match`ni syntax emas, semantics darajasida yakunlaydi: range, [[at-binding|@ binding]], [[match-guard|match guard]], [[slice-patterns|slice patterns]], struct patterns, va [[ref-pattern|ref pattern]] orqali branch + binding bir joyga tushadi.
+- Anonymous functions bobi behavior'ni value sifatida ko'taradi: non-capturing callable [[function-pointers|function pointer]] bo'lishi mumkin, capturing callable esa [[closures]] bo'ladi; shu yerda [[higher-order-functions|higher-order functions]], [[fn-traits|Fn traits]], returned closure, va `impl Fn`/`Box<dyn Fn>` chegaralari ko'rinadi.
+- Generics bobi abstractionni syntax-level convenience emas, compile-time specialization modeli sifatida ko'rsatadi: generic struct/function/method, [[turbofish]], generic traits vs [[associated-types|associated types]], [[trait-bounds|trait bounds]], [[where-clauses|where clauses]], conditional impl, va [[const-generics|const generics]] shu yerda bitta systemga yig'iladi.
+- Enums bobi Rustdagi ADT modelini front-stage'ga olib chiqadi: C-like variants, payloadli variants, methods, approximate discriminant mental modeli, va [[if-let|if let]] bilan single-variant branch shu yerda birga ko'rinadi.
+- `Option` bobi absence'ni sentinel value yoki null bilan emas, [[option|Option]] bilan ifodalashni normaga aylantiradi: `Some`/`None`, [[unwrap]], `unwrap_or`, [[match]], [[if-let|if let]], va `map`/`flatten`/`and_then` combinatorlari shu qatlamda keladi.
+- `Result` bobi recoverable error modelini shu foundation'ga qo'shadi: [[result|Result<T, E>]], custom error enum, [[std-error-trait|std::error::Error]], combinatorlar, [[question-mark-operator|question mark operator]], va ignored `Result` uchun [[discarded-binding]] signali Rustning explicit error flow'ini mustahkamlaydi.
 - Ownership bobi Rustning markaziy compile-time resource modelini front-stage'ga olib chiqadi: move, deterministic cleanup, borrowing, va referential safety bitta chiziqqa tushadi.
 - Lifetimes bobi relation-level annotationlarni qo'shadi: reference umrini cho'zmaydi, lekin qaysi borrow qaysi natija bilan bog'langanini compilerga ko'rsatadi.
 - Declarative macro bobi compile-time code expansionni ochadi: `macro_rules!`, fragment specifierlar, repetition, va `vec![]` nega function emasligi.
@@ -64,6 +69,21 @@ source_count: 23
 - [[break]]
 - [[continue]]
 - [[functions]]
+- [[function-pointers|function pointers]]
+- [[higher-order-functions|higher-order functions]]
+- [[closures]]
+- [[fn-traits|Fn traits]]
+- [[returning-closures|returning closures]]
+- [[opaque-types|opaque types]]
+- [[generics]]
+- [[generic-type-parameters|generic type parameters]]
+- [[generic-functions|generic functions]]
+- [[generic-structs|generic structs]]
+- [[generic-methods|generic methods]]
+- [[turbofish]]
+- [[enums]]
+- [[enum-variants|enum variants]]
+- [[generic-enums|generic enums]]
 - [[tuple]]
 - [[pattern-destructuring|pattern destructuring]]
 - [[structs]]
@@ -104,6 +124,8 @@ source_count: 23
 - [[default-trait-implementations|default trait implementations]]
 - [[supertraits]]
 - [[trait-bounds|trait bounds]]
+- [[where-clauses|where clauses]]
+- [[associated-types|associated types]]
 - [[self-type|Self type]]
 - [[box-t|Box<T>]]
 - [[sized-trait|Sized trait]]
@@ -111,6 +133,7 @@ source_count: 23
 - [[unsafe-trait|unsafe trait]]
 - [[send-trait|Send trait]]
 - [[sync-trait|Sync trait]]
+- [[const-generics|const generics]]
 - [[ownership]]
 - [[move-semantics|move semantics]]
 - [[drop]]
@@ -141,11 +164,20 @@ source_count: 23
 - [[pattern-matching|pattern matching]]
 - [[exhaustive-matching|exhaustive matching]]
 - [[catch-all-patterns|catch-all patterns]]
+- [[if-let|if let]]
 - [[or-pattern|or-pattern (`|`)]]
 - [[match-guard|match guard]]
 - [[at-binding|@ binding]]
 - [[slice-patterns|slice patterns]]
 - [[ref-pattern|ref pattern]]
+- [[option|Option]]
+- [[unwrap]]
+- [[result|Result]]
+- [[error-handling]]
+- [[recoverable-errors|recoverable errors]]
+- [[std-error-trait|std::error::Error]]
+- [[question-mark-operator|question mark operator]]
+- [[error-propagation|error propagation]]
 
 ## Examples
 
@@ -224,6 +256,61 @@ match packet.as_slice() {
 }
 ```
 
+```rust
+fn transform<F>(a: i32, f: F) -> i32
+where
+    F: Fn(i32) -> i32,
+{
+    f(a)
+}
+
+let step = 5;
+let add_step = move |x| x + step;
+println!("{}", transform(2, add_step));
+```
+
+```rust
+struct Holder<T> {
+    v: T,
+}
+
+impl<T: Clone> Holder<T> {
+    fn clone_value(&self) -> T {
+        self.v.clone()
+    }
+}
+
+fn make_array<T: Copy, const SIZE: usize>(init_value: T) -> [T; SIZE] {
+    [init_value; SIZE]
+}
+```
+
+```rust
+enum Shape {
+    Square { width: f32 },
+    Rectangle { width: f32, height: f32 },
+}
+
+if let Shape::Square { width } = Shape::Square { width: 4.0 } {
+    println!("{width}");
+}
+```
+
+```rust
+let maybe_name: Option<String> = Some("Ali".to_string());
+let upper = maybe_name.map(|name| name.to_uppercase());
+```
+
+```rust
+fn read_text_file(path: &str) -> Result<String, std::io::Error> {
+    let mut file = std::fs::File::open(path)?;
+    let mut contents = String::new();
+    use std::io::Read;
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+```
+
 ## Exercises
 
 - `const`, `static`, `let`, va `let mut` uchun bitta domain example ishlab chiqing.
@@ -242,6 +329,16 @@ match packet.as_slice() {
 - `Point2D` yoki `UserId` uchun qaysi traitlarni derive qilish mantiqli ekanini tanlab, nega ekanini yozing.
 - Fixed-length array destructuring va `match`dagi slice patternni bir xil data ustida solishtiring.
 - `match`da `@` binding, guard, va `ref mut`ni birlashtiradigan kichik parser yoki state updater yozing.
+- `fn(i32) -> i32` qabul qiladigan va `F: Fn(i32) -> i32` qabul qiladigan ikki API yozib, qaysi biri capturing closure'ni qabul qilishini ko'rsating.
+- `FnMut` stateful counter closure va `FnOnce` consuming closure yozib, farqini ko'rsating.
+- `Holder<T>` uchun `impl Holder<i32>` va `impl<T: Clone> Holder<T>` yozib, qaysi method qaysi instantiationda mavjud bo'lishini tekshiring.
+- `make_empty_vec::<i32>()` va `let xs: Vec<i32> = make_empty_vec();` orasidagi inference farqini yozing.
+- Generic traitni associated type bilan qayta yozib, qaysi API signal o'zgarganini tushuntiring.
+- `make_array<T: Copy, const SIZE: usize>`ga o'xshash yana bitta `const generics` helper yozing.
+- C-like enum va payloadli enum bilan bitta domainni ikki xil modellashtirib, qaysi joyda `match` va `if let` o'zgarishini ko'rsating.
+- `Option<User>`dan `Option<String>` field extractionni `map`, `flatten`, va `and_then` bilan yozib solishtiring.
+- String error qaytaradigan functionni custom enum error + `?` bilan qayta yozing.
+- Ignored `Result` warningini chaqirib, keyin `let _ = ...;` bilan ongli bosib ko'ring.
 
 ## Review Questions
 
@@ -261,6 +358,18 @@ match packet.as_slice() {
 - `derive(PartialEq)` bilan qo'lda `impl PartialEq` orasida qachon semantik farq paydo bo'ladi?
 - Nega oddiy destructuringda slice ishlamaydi, lekin `match`da slice pattern ishlaydi?
 - `ref pattern` bilan `match &value` orasida qaysi tradeoff bor?
+- Qachon callable `fn` pointer bo'ladi, qachon closure object bo'ladi?
+- Nega `Fn`, `FnMut`, `FnOnce` thread-safety emas, callability/capture behavior modeli?
+- Nega ikki xil closure branchini `impl Fn` bilan bitta return type ostida ushlab bo'lmaydi?
+- Nega `Holder<T>`ni compile-time template deb o'qish `generic struct`ni oddiy type deb o'qishdan to'g'riroq?
+- `turbofish` qachon zarur, qachon variable type annotationning o'zi yetarli?
+- Generic trait va associated type orasidagi eng muhim ikkita design farqi nima?
+- `const generics` oddiy type parameterdan qaysi jihati bilan sifat jihatdan boshqa?
+- Nega enum memory layoutini faqat discriminant + payload sxemasi bilan to'liq tasdiqlangan representation deb qabul qilish xato?
+- `Option` nega empty string, `-1`, yoki null pointerdan kuchliroq signal beradi?
+- `unwrap` nega `unsafe` emas, lekin baribir productionda ehtiyotkor ishlatilishi kerak?
+- `?` operator nega error handling emas, error propagation instrumenti?
+- Ignored `Result` uchun `let _ = ...;` nega oddiy warning suppression emas, semantic signal?
 
 ## Related Pages
 
@@ -287,3 +396,8 @@ match packet.as_slice() {
 - [[wiki/sources/rust-for-backend-developers-auto-derive-traits]]
 - [[wiki/sources/rust-for-backend-developers-destructuring]]
 - [[wiki/sources/rust-for-backend-developers-pattern-matching]]
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions]]
+- [[wiki/sources/rust-for-backend-developers-generics]]
+- [[wiki/sources/rust-for-backend-developers-enums]]
+- [[wiki/sources/rust-for-backend-developers-option]]
+- [[wiki/sources/rust-for-backend-developers-result]]

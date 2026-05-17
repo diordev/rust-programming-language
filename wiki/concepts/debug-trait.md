@@ -3,9 +3,9 @@ title: "Debug Trait"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, traits, debug]
-source_count: 2
+source_count: 3
 ---
 
 # Debug Trait
@@ -21,6 +21,8 @@ Custom [[structs]] `println!("{rect:?}")` yoki [[dbg-macro|dbg! macro]] bilan ch
 ## Mental Model
 
 `Display` user-facing outputga o'xshaydi; `Debug` developerga internal state ko'rish uchun. Rust custom struct uchun output shaklini taxmin qilmaydi, shuning uchun explicit opt in talab qiladi.
+
+`derive` oilasi ichida `Debug` odatda eng birinchi qo'shiladigan trait bo'ladi: auto-derive source'lari bu traitning "developer-facing default" rolini aniq ko'rsatadi.
 
 ## Syntax and Examples
 
@@ -61,4 +63,5 @@ struct Point { x: i32, y: i32 }
 ## Sources
 
 - [[5-2-an-example-program-using-structs]]
+- [[wiki/sources/rust-for-backend-developers-auto-derive-traits]]
 - [[wiki/sources/22-3-c-derivable-traits|22.3]]

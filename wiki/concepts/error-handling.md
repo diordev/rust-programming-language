@@ -3,9 +3,9 @@ title: "Error Handling"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, error-handling]
-source_count: 5
+source_count: 6
 ---
 
 # Error Handling
@@ -29,6 +29,8 @@ Error yashirin exception emas. Caller uchta asosiy qarordan birini qiladi:
 Beginner mental model: user/environment xatolari ko'pincha recoverable; violated invariant, impossible state, yoki invalid internal operation ko'pincha unrecoverable.
 
 Chapter 9.2dan keyingi practical rule: local context recovery qilishga yetarli bo'lsa `match` yoki helper method bilan handle qiling; caller yaxshiroq qaror qila olsa [[question-mark-operator|?]] bilan [[error-propagation|propagate]] qiling.
+
+Backend beginner result source bu modelni uchta qo'shimcha signal bilan mustahkamlaydi: custom error enumlar stringdan yaxshiroq API signal bo'lishi mumkin, [[std-error-trait|std::error::Error]] ecosystem uchun umumiy contract beradi, va `?` linear code beradi, lekin errorni handle qilmaydi.
 
 ## Syntax and Examples
 
@@ -60,6 +62,12 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 
+Ignored `Result`ni explicit discard:
+
+```rust
+let _ = function_that_may_fail();
+```
+
 ## Common Mistakes
 
 - Har bir `Result` uchun `.unwrap()` ishlatish.
@@ -68,6 +76,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 - Panic va compile-time compiler errorni bir xil narsa deb o'ylash.
 - `unwrap`ni error handling deb qabul qilish.
 - `?` errorni avtomatik hal qiladi deb o'ylash.
+- Custom error type kerak joyda hamma narsani stringga tushirib yuborish.
 
 ## Related Concepts
 
@@ -79,6 +88,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 - [[pattern-matching|pattern matching]]
 - [[error-propagation|error propagation]]
 - [[question-mark-operator|question mark operator]]
+- [[std-error-trait|std::error::Error]]
 - [[unwrap]]
 - [[expect]]
 
@@ -89,3 +99,4 @@ fn read_username_from_file() -> Result<String, io::Error> {
 - [[wiki/sources/9-error-handling]]
 - [[9-1-unrecoverable-errors-with-panic]]
 - [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/rust-for-backend-developers-result]]

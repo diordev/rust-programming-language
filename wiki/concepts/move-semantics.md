@@ -3,9 +3,9 @@ title: "Move Semantics"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, ownership]
-source_count: 4
+source_count: 5
 ---
 
 # Move Semantics
@@ -36,6 +36,22 @@ Function call va return ham move nuqtalari:
 ```rust
 fn greet(name: String) -> String {
     format!("Hello {}!!!", name)
+}
+```
+
+Closure capture ham move nuqtasi bo'lishi mumkin:
+
+```rust
+let text = String::from("hello");
+let consume = || println!("{}", text);
+// `text` closure ichida by-value ishlatilsa, closure `FnOnce` bo'lishi mumkin
+```
+
+`move` keyword esa ownership transfer'ni explicit qiladi:
+
+```rust
+fn make_printer(text: String) -> impl Fn() {
+    move || println!("{text}")
 }
 ```
 
@@ -75,3 +91,4 @@ takes_ownership(s);
 - [[5-1-defining-and-instantiating-structs]]
 - [[8-2-storing-utf-8-encoded-text-with-strings]]
 - [[wiki/sources/rust-for-backend-developers-ownership]]
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions]]

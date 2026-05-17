@@ -3,9 +3,9 @@ title: "Fn Traits: FnOnce, FnMut, Fn"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, fn-traits, closures, traits, functional]
-source_count: 3
+source_count: 5
 ---
 
 # Fn Traits: FnOnce, FnMut, Fn
@@ -26,13 +26,17 @@ Fn  ⊂  FnMut  ⊂  FnOnce
 
 - `FnOnce` — eng keng: barcha closures kiradi
 - `FnMut` — bir necha marta chaqiriladi, capture mutatsiya bo'lishi mumkin
-- `Fn` — eng tor: concurrent xavfsiz, muhitni o'zgartirmaydi
+- `Fn` — eng tor: shared reference bilan qayta-qayta chaqirish mumkin, muhitni consume yoki mutate qilmaydi
 
 Agar closure `FnOnce` bo'lsa — `FnMut` yoki `Fn` bo'lmaydi.
 Agar `FnMut` bo'lsa — `FnOnce` ham bo'ladi, lekin `Fn` emas.
 Agar `Fn` bo'lsa — uchala trait ham implement qilingan.
 
+Bu hierarchy thread-safety hierarchy emas. Concurrency uchun alohida [[send-trait|Send]], [[sync-trait|Sync]], va ba'zan [[static-lifetime|'static lifetime]] kabi boundlar kerak bo'ladi. Trait closure qanday capture qilgani bilan emas, captured qiymatga body qanday muomala qilgani bilan aniqlanadi.
+
 [[function-pointers|Function pointer]] (`fn(...) -> ...`) closure emas, lekin uchala `Fn*` traitni implement qiladi. Shuning uchun `F: Fn(...)` bound named functionni ham, closure'ni ham qabul qiladi.
+
+Backend beginner generics source `Fn` traitlarni generic bounds bilan birlashtirib juda foydali boundary ko'rsatadi: `F: FnMut() -> R, R: Display` yozuvi halol, lekin `impl FnMut() -> impl Display` halol emas. Demak `Fn` traitlar bilan ishlaganda outer function generic parameterlari ko'pincha `impl Trait` syntaxidan kuchliroq.
 
 ## Syntax and Examples
 
@@ -49,7 +53,7 @@ fn apply_multiple<F: FnMut()>(mut f: F) {
     f();
 }
 
-// Fn: concurrent xavfsiz, bir necha marta
+// Fn: shared borrow bilan bir necha marta
 fn apply_shared<F: Fn() -> i32>(f: F) -> i32 {
     f() + f()
 }
@@ -89,6 +93,18 @@ where
 
 Thread pool `execute` uchun `FnOnce` to'g'ri bound, chunki har job worker tomonidan aynan bir marta bajariladi. `Fn` yoki `FnMut` ham ishlashi mumkin bo'lgan closure'lar allaqachon `FnOnce`ni implement qiladi.
 
+Nested return bound:
+
+```rust
+fn print_produced<F, R>(mut f: F)
+where
+    F: FnMut() -> R,
+    R: std::fmt::Display,
+{
+    println!("{}", f());
+}
+```
+
 ```rust
 // FnOnce closure sort_by_key'da ISHLAYDI:
 let mut num = 0;
@@ -115,8 +131,11 @@ increment(); // ok
 // lekin: let increment = || ... — mut siz E0596
 ```
 
-**3. `Fn` kerak joyda `FnMut` uzatish:**
-Concurrent kontekstda `Fn` talab qilinishi mumkin, `FnMut` thread-safe emas.
+**3. `Fn`ni thread-safe bilan tenglashtirish:**
+`Fn` closure'ni `&self` bilan chaqirish mumkinligini bildiradi, xolos. Uni boshqa threadga uzatish uchun hali `Send`, shared reference bilan ishlatish uchun esa contextga qarab `Sync` ham kerak bo'lishi mumkin.
+
+**4. `impl FnMut() -> impl Display` ishlaydi deb o'ylash:**
+`impl Trait` `Fn` trait bound ichidagi return positionda ruxsat etilmaydi; bu yerda `R` kabi alohida generic parameter kerak.
 
 ## Related Concepts
 
@@ -126,7 +145,8 @@ Concurrent kontekstda `Fn` talab qilinishi mumkin, `FnMut` thread-safe emas.
 - [[traits]] — `FnOnce`, `FnMut`, `Fn` standart trait'lar
 - [[trait-bounds]] — `F: FnMut()` kabi generic bound
 - [[generics]] — closure qabul qiluvchi funksiyalar generic bo'ladi
-- [[concurrency]] — `Fn` concurrent xavfsiz, `FnMut` emas
+- [[where-clauses|where clauses]]
+- [[concurrency]]
 - [[thread-pool]]
 - [[send-trait|Send trait]]
 - [[static-lifetime|static lifetime]]
@@ -134,5 +154,7 @@ Concurrent kontekstda `Fn` talab qilinishi mumkin, `FnMut` thread-safe emas.
 ## Sources
 
 - [[13-1-closures|13.1 Closures]]
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions]]
 - [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

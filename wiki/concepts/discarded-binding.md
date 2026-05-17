@@ -5,7 +5,7 @@ status: active
 created: 2026-05-16
 updated: 2026-05-17
 tags: [rust, variables, bindings]
-source_count: 2
+source_count: 3
 ---
 
 # Discarded Binding
@@ -23,6 +23,8 @@ Unused value yoki resultni ataylab tashlab yuborayotganingizni kodda ko'rsatadi.
 - `_name` real binding: compiler unused warningni bosadi, lekin name mavjud.
 - `_` discarded binding: qiymat olinadi, lekin name saqlanmaydi va unga keyin murojaat qilib bo'lmaydi.
 
+Backend beginner result source bu patternning juda amaliy ishlatilishini ko'rsatadi: intentionally ignored `Result` uchun `let _ = function_that_may_fail();`. Bu compilerga "ha, men warningni ko'rdim va bu resultni ataylab tashlayapman" degan signal beradi.
+
 ## Syntax and Examples
 
 ```rust
@@ -36,11 +38,18 @@ Pattern sifatida ham ishlaydi:
 let (_, status_code) = (request_id, 200);
 ```
 
+Ignored `Result`:
+
+```rust
+let _ = function_that_may_fail();
+```
+
 ## Common Mistakes
 
 - `_name` va `_` bir xil deb o'ylash.
 - Muhim `Result` yoki error signalini `let _ = ...;` bilan bexosdan yutib yuborish.
 - `_` bor ekan, ownership umuman ta'sir qilmaydi deb o'ylash.
+- Compiler warningini bosish bilan errorni "hal qildim" deb o'ylash.
 
 ## Related Concepts
 
@@ -49,8 +58,10 @@ let (_, status_code) = (request_id, 200);
 - [[result|Result]]
 - [[pattern-matching]]
 - [[raw-identifiers]]
+- [[error-handling]]
 
 ## Sources
 
 - [[wiki/sources/rust-for-backend-developers-variables]]
 - [[wiki/sources/rust-for-backend-developers-destructuring]]
+- [[wiki/sources/rust-for-backend-developers-result]]

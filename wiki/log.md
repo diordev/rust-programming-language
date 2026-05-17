@@ -5,36 +5,78 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, log]
-source_count: 141
+source_count: 146
 ---
 
 # Wiki Log
 
-## 2026-05-17 ingest | Rust for Backend Developers `2. base` 28-30
+## 2026-05-17 ingest | Rust for Backend Developers `2. base` 33-35
 
 - Ingested 3 ta source from `raw/books/rust-for-backend-developer/2. base/`:
+  - `33. Перечисления.md`
+  - `34. Option.md`
+  - `35. Result.md`
+- Created source summaries:
+  - [[wiki/sources/rust-for-backend-developers-enums]]
+  - [[wiki/sources/rust-for-backend-developers-option]]
+  - [[wiki/sources/rust-for-backend-developers-result]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-enums]]
+  - [[wiki/chapters/rust-for-backend-developers-option]]
+  - [[wiki/chapters/rust-for-backend-developers-result]]
+- Created concept page:
+  - [[std-error-trait|std::error::Error]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-2-base]]: source_count 25->28; enums, enum payloads, discriminant mental modeli, [[if-let|if let]], [[option|Option]], [[result|Result]], combinatorlar, [[std-error-trait|std::error::Error]], [[question-mark-operator|question mark operator]], va ignored `Result` synthesis qo'shildi.
+- Updated concept pages: [[enums]], [[enum-variants|enum variants]], [[generic-enums|generic enums]], [[match]], [[if-let|if let]], [[option|Option]], [[unwrap]], [[closures]], [[result|Result]], [[error-handling]], [[recoverable-errors|recoverable errors]], [[question-mark-operator|question mark operator]], [[error-propagation|error propagation]], va [[discarded-binding]].
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 143->146; 3 source, 3 chapter, va 1 concept link qo'shildi.
+- Appended enums/option/result relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation: enum memory layout taxminiy yozildi; [[unwrap]] `unsafe` deb emas, panic qilishi mumkin bo'lgan shortcut sifatida yozildi; `?` errorni handle qilmasdan propagate qilishi ochiq aytildi; [[std-error-trait|std::error::Error]] qo'lda implement qilinishi mumkinligi, lekin helper crate/macrolar amalda ko'p ishlatilishi qayd etildi.
+
+## 2026-05-17 ingest | Rust for Backend Developers `2. base` 32
+
+- Ingested 1 ta source from `raw/books/rust-for-backend-developer/2. base/`:
+  - `32. Генерики.md`
+- Created source summary:
+  - [[wiki/sources/rust-for-backend-developers-generics]]
+- Created chapter page:
+  - [[wiki/chapters/rust-for-backend-developers-generics]]
+- Created concept page:
+  - [[const-generics|const generics]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-2-base]]: source_count 24->25; `Holder<T>`, generic functions, generic `impl`, [[monomorphization]], [[turbofish]], generic traits vs [[associated-types|associated types]], [[trait-bounds|trait bounds]], [[where-clauses|where clauses]], conditional impl, va [[const-generics|const generics]] synthesis qo'shildi.
+- Updated concept pages: [[generics]], [[generic-type-parameters|generic type parameters]], [[generic-functions|generic functions]], [[generic-structs|generic structs]], [[generic-methods|generic methods]], [[monomorphization]], [[turbofish]], [[trait-bounds|trait bounds]], [[where-clauses|where clauses]], [[impl-trait|impl Trait]], [[associated-types|associated types]], [[traits]], [[function-pointers|function pointers]], va [[fn-traits|Fn traits]].
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 142->143; 1 source, 1 chapter, va 1 concept link qo'shildi.
+- Appended generics relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation: Java/C# type erasure comparison beginner contrast sifatida cheklab yozildi; associated type implementor tanlaydigan bitta bog'langan type ekani ochiq aytildi; `make_array<T: Copy, const SIZE: usize>` va `[T; SIZE]` const-generics uchun asosiy example sifatida saqlandi.
+
+## 2026-05-17 ingest | Rust for Backend Developers `2. base` 28-31
+
+- Ingested 4 ta source from `raw/books/rust-for-backend-developer/2. base/`:
   - `28. Авто-реализация трэйтов.md`
   - `29. Деструктурирование.md`
   - `30. Паттерн матчинг.md`
+  - `31. Анонимные функции.md`
 - Created source summaries:
   - [[wiki/sources/rust-for-backend-developers-auto-derive-traits]]
   - [[wiki/sources/rust-for-backend-developers-destructuring]]
   - [[wiki/sources/rust-for-backend-developers-pattern-matching]]
+  - [[wiki/sources/rust-for-backend-developers-anonymous-functions]]
 - Created chapter pages:
   - [[wiki/chapters/rust-for-backend-developers-auto-derive-traits]]
   - [[wiki/chapters/rust-for-backend-developers-destructuring]]
   - [[wiki/chapters/rust-for-backend-developers-pattern-matching]]
+  - [[wiki/chapters/rust-for-backend-developers-anonymous-functions]]
 - Created concept pages:
   - [[attribute]]
   - [[marker-trait|marker trait]]
   - [[array-destructuring|array destructuring]]
   - [[slice-patterns|slice patterns]]
   - [[ref-pattern|ref pattern]]
-- Updated section chapter [[wiki/chapters/rust-for-backend-developers-2-base]]: source_count 20->23; derive, auto trait implementations, destructuring, `match`, guards, `ref`, va slice/struct patterns synthesis qo'shildi.
-- Updated concept pages: [[derive-attribute|derive attribute]], [[partial-eq|PartialEq]], [[clone]], [[copy-trait|Copy trait]], [[pattern-destructuring|pattern destructuring]], [[match]], [[pattern-matching|pattern matching]], [[match-guard|match guard]], [[at-binding|@ binding]], [[discarded-binding]].
-- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 138->141; 3 source, 3 chapter, va 5 concept link qo'shildi.
-- Appended derive/destructuring/pattern matching relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
-- Source caveat preservation: `Copy` semantics literal `.clone()` call deb emas, implicit copy modeli sifatida yozildi; slice destructuringning oddiy binding va `match` ichidagi farqi alohida qayd qilindi; bare variable pattern string comparison emas, binding ekanligi ochiq yozildi.
+  - [[higher-order-functions|higher-order functions]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-2-base]]: source_count 20->24; derive, Clone, Copy, destructuring, `match`, closure, function pointer, `Fn`/`FnMut`/`FnOnce`, va `impl Fn`/`Box<dyn Fn>` synthesis qo'shildi.
+- Updated concept pages: [[derive-attribute|derive attribute]], [[partial-eq|PartialEq]], [[clone]], [[copy-trait|Copy trait]], [[debug-trait|Debug trait]], [[default-trait|Default trait]], [[hash-trait|Hash trait]], [[pattern-destructuring|pattern destructuring]], [[match]], [[pattern-matching|pattern matching]], [[match-guard|match guard]], [[at-binding|@ binding]], [[discarded-binding]], [[closures]], [[function-pointers|function pointers]], [[fn-traits|Fn traits]], [[returning-closures|returning closures]], [[opaque-types|opaque types]], [[move-semantics|move semantics]].
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 138->142; 4 source, 4 chapter, va 6 concept link qo'shildi.
+- Appended derive/destructuring/pattern matching/anonymous-functions relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation: `Copy` semantics literal `.clone()` call deb emas, implicit copy modeli sifatida yozildi; `Fn`/`FnMut`/`FnOnce` thread-safety kategoriyasi sifatida emas, callability/capture behavior sifatida tushuntirildi; `impl Fn` bitta concrete closure type ekanligi va turli branchlar uchun `Box<dyn Fn>` kerak bo'lishi ochiq yozildi.
 
 ## 2026-05-08 ingest | 19.3. Pattern Syntax
 

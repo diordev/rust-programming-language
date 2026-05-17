@@ -3,9 +3,9 @@ title: "Generics"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, generics]
-source_count: 8
+source_count: 9
 ---
 
 # Generics
@@ -35,6 +35,14 @@ Generic code body ishlatadigan behavior signature'da ko'rinishi kerak. Masalan `
 Rust generics runtime'da sekinlashtirmaydi: compiler [[monomorphization]] orqali generic code'ni ishlatilgan concrete typelar bo'yicha specialized codega aylantiradi.
 
 Chapter 10.2 generic code'ni [[trait-bounds|trait bounds]] bilan bog'laydi. `T: Summary`, `T: Summary + Display`, va `where` clauses generic type qaysi behaviorni support qilishi kerakligini compile time'da bildiradi.
+
+Backend beginner source bu modelni `Holder<T>` bilan konkretlashtiradi: generic struct, generic constructor function, va `impl<T> Holder<T>` block birga o'qilganda generic item concrete type emas, template ekani ko'rinadi. `Holder<i32>` va `Holder<bool>` alohida concrete typelar bo'ladi.
+
+Shu source yana uchta muhim extension beradi. Birinchisi [[turbofish]]: inference yetmaydigan `make_empty_vec::<i32>()` kabi chaqiriqlarda expression-context specialization kerak bo'ladi. Ikkinchisi generic traits va [[associated-types|associated types]] orasidagi boundary: generic trait bir type uchun bir nechta impl olishiga yo'l ochishi mumkin, associated type esa implementor tanlagan bitta bog'langan type'ni qotiradi. Uchinchisi [[const-generics|const generics]]: Rust generics faqat typelar bilan emas, compile-time constantlar bilan ham parametrizatsiya qilinadi.
+
+Backend source `monomorphization`ni Java/C# type erasure bilan beginner comparison orqali kontrast qiladi. Durable takeaway comparisonning o'zi emas, shuki Rust generic code'ni concrete variantsga specialization qiladi.
+
+Generic APIs method surface'ni ham toraytirishi mumkin: `impl Holder<i32>` concrete-only method beradi, `impl<T: Clone> Holder<T>` esa capability-based method beradi. Demak generic design faqat reuse emas, compile-time availability modelidir.
 
 ## Syntax and Examples
 
@@ -130,6 +138,14 @@ pub fn notify<T: Summary>(item: &T) {
 }
 ```
 
+Const generic:
+
+```rust
+fn make_array<T: Copy, const SIZE: usize>(init_value: T) -> [T; SIZE] {
+    [init_value; SIZE]
+}
+```
+
 Multiple bounds:
 
 ```rust
@@ -151,6 +167,8 @@ pub fn notify<T: Summary + Display>(item: &T) {
 - Generics runtime dispatch bo'ladi deb o'ylash; Rust ko'p generic code'ni monomorphization qiladi.
 - Trait bound generic type relationshipni ifodalashi mumkinligini unutish, masalan ikki parameter bir xil `T` bo'lishi.
 - Return-position `impl Trait` generic abstraction bo'lsa ham bitta concrete return type talab qilishini unutish.
+- Generic trait va associated type bir xil expressiveness beradi deb o'ylash.
+- Generic parameterlar faqat type bo'ladi deb o'ylash; Rustda [[const-generics|const generics]] ham bor.
 
 ## Related Concepts
 
@@ -166,6 +184,7 @@ pub fn notify<T: Summary + Display>(item: &T) {
 - [[where-clauses|where clauses]]
 - [[conditional-method-implementations|conditional method implementations]]
 - [[monomorphization]]
+- [[turbofish]]
 - [[abstraction]]
 - [[code-duplication|code duplication]]
 - [[type-inference|type inference]]
@@ -181,6 +200,7 @@ pub fn notify<T: Summary + Display>(item: &T) {
 - [[sized-trait|Sized trait]] — generic'larda implicit `T: Sized`
 - [[dynamically-sized-types|DST]] — `?Sized` cheklovi
 - [[associated-types|associated types]]
+- [[const-generics|const generics]]
 
 ## Sources
 
@@ -192,3 +212,4 @@ pub fn notify<T: Summary + Display>(item: &T) {
 - [[10-1-generic-data-types]]
 - [[10-2-defining-shared-behavior-with-traits]]
 - [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

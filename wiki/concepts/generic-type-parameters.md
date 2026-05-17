@@ -3,9 +3,9 @@ title: "Generic Type Parameters"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, generics]
-source_count: 3
+source_count: 4
 ---
 
 # Generic Type Parameters
@@ -27,6 +27,8 @@ Type parameter ishlatilishidan oldin e'lon qilinadi. Functionda `fn largest<T>(.
 Rust convention bo'yicha generic type parameter nomlari qisqa va UpperCamelCase bo'ladi: `T`, `U`, `K`, `V`, `E`, yoki ko'proq aniqlik uchun `X1`, `Y1`, `X2`, `Y2`.
 
 Trait bounds generic type parameterni behavior bilan cheklaydi. `T: Summary` `T` faqat `Summary` implement qilgan concrete type bo'lishini bildiradi; `T: Summary + Display` esa ikki capability talab qiladi.
+
+Backend beginner source muhim bir noaniqlikni yopadi: turli itemlardagi `T` bir xil harf bo'lsa ham, ular avtomatik bog'langan emas. `struct Holder<T>` ichidagi `T` bilan `fn make_holder<T>(v: T) -> Holder<T>` ichidagi `T` harf jihatdan bir xil, lekin scope bo'yicha alohida declaration. Istalsa `A`, `Element`, yoki boshqa nom bilan yozish mumkin.
 
 ## Syntax and Examples
 
@@ -89,6 +91,18 @@ where
 }
 ```
 
+Bir xil harfga bog'lanib qolmaslik:
+
+```rust
+struct Holder<Element> {
+    v: Element,
+}
+
+fn make_holder<A>(v: A) -> Holder<A> {
+    Holder { v }
+}
+```
+
 Method-level generics:
 
 ```rust
@@ -112,6 +126,7 @@ impl<X1, Y1> Point<X1, Y1> {
 - Juda ko'p generic parameter readability va design signalini berishini e'tiborsiz qoldirish.
 - Generic parameter bir nechta parameterda ishlatilsa, same concrete type relationship yaratilishini unutish.
 - Trait boundni type annotation deb o'ylash; u behavior constraint.
+- Bir itemdagi `T` boshqa itemdagi `T` bilan avtomatik bog'langan deb o'ylash.
 
 ## Related Concepts
 
@@ -129,9 +144,11 @@ impl<X1, Y1> Point<X1, Y1> {
 - [[result|Result<T, E>]]
 - [[vector|Vec<T>]]
 - [[hash-map|HashMap]]
+- [[const-generics|const generics]]
 
 ## Sources
 
 - [[wiki/sources/10-generic-types-traits-and-lifetimes]]
 - [[10-1-generic-data-types]]
 - [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

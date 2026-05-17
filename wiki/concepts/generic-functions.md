@@ -3,9 +3,9 @@ title: "Generic Functions"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, generics, functions]
-source_count: 2
+source_count: 3
 ---
 
 # Generic Functions
@@ -25,6 +25,8 @@ Generic functions bir xil body'ni `i32`, `char`, `String`, yoki boshqa concrete 
 Generic signature body'ga har qanday operationni bermaydi. Body `>` ishlatsa, `T` comparable bo'lishi kerak. Bunday behavior [[traits|trait]] bound bilan ko'rsatiladi, masalan `T: std::cmp::PartialOrd`.
 
 Chapter 10.2 generic function parameters uchun [[impl-trait|impl Trait]] va [[trait-bounds|trait bounds]]ni ko'rsatadi. `&impl Summary` simple case uchun concise, `T: Summary` esa two parameters same concrete type bo'lishi kerak kabi relationshipsni ifodalaydi.
+
+Backend beginner source bu modelni constructor-shape function bilan soddalashtiradi: `fn make_holder<T>(v: T) -> Holder<T>`. Shu source zero-argument generic functionning alohida case'ini ham ko'rsatadi: argument bo'lmasa compiler `T`ni infer qila olmasligi mumkin, shuning uchun type annotation yoki [[turbofish]] kerak bo'ladi.
 
 ## Syntax and Examples
 
@@ -66,6 +68,25 @@ pub fn notify<T: Summary>(item: &T) {
 }
 ```
 
+Generic constructor:
+
+```rust
+fn make_holder<T>(v: T) -> Holder<T> {
+    Holder { v }
+}
+```
+
+Inference yetmaydigan holat:
+
+```rust
+fn make_empty_vec<T>() -> Vec<T> {
+    Vec::new()
+}
+
+let xs: Vec<i32> = make_empty_vec();
+let ys = make_empty_vec::<i32>();
+```
+
 ## Common Mistakes
 
 - `fn largest(list: &[T]) -> &T` deb yozib, `T`ni `largest<T>`da e'lon qilmaslik.
@@ -74,6 +95,7 @@ pub fn notify<T: Summary>(item: &T) {
 - Generic function return type'idagi `T` inputdagi `T` bilan bir xil concrete typega resolve bo'lishini unutish.
 - `&impl Summary` ikki parameter uchun turli concrete typelarni ruxsat qilishini unutish.
 - Same-type relationship kerak bo'lganda `T: Summary` ishlatmaslik.
+- Zero-argument generic functionda compiler har doim type'ni o'zi topadi deb o'ylash.
 
 ## Related Concepts
 
@@ -84,6 +106,7 @@ pub fn notify<T: Summary>(item: &T) {
 - [[trait-bounds|trait bounds]]
 - [[impl-trait|impl Trait]]
 - [[where-clauses|where clauses]]
+- [[turbofish]]
 - [[partial-ord|PartialOrd]]
 - [[generic-largest-function|generic largest function]]
 - [[e0369-binary-operation-cannot-be-applied|E0369 binary operation cannot be applied]]
@@ -92,3 +115,4 @@ pub fn notify<T: Summary>(item: &T) {
 
 - [[10-1-generic-data-types]]
 - [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

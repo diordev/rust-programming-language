@@ -3,9 +3,9 @@ title: "Generic Methods"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, generics, methods]
-source_count: 2
+source_count: 3
 ---
 
 # Generic Methods
@@ -25,6 +25,8 @@ Generic methods behaviorni generic data modelga yaqin joyda saqlaydi. `Point<T>`
 `impl Point<f32>` esa generic emas: u faqat concrete `Point<f32>` uchun method beradi. Method signature o'z generic parameterlarini ham e'lon qilishi mumkin, masalan `fn mixup<X2, Y2>(...)`.
 
 Chapter 10.2 [[conditional-method-implementations|conditional method implementations]]ni ko'rsatadi: `impl<T: Display + PartialOrd> Pair<T>` methodni faqat `T` kerakli traitsni implement qilganda beradi.
+
+Backend beginner source shu modelni ancha yalang'och syntax bilan ko'rsatadi: `impl<T> Holder<T>` umumiy methodlar, `impl Holder<i32>` concrete-only method, va `impl<T: Clone> Holder<T>` capability-based method. Muhim signal shuki, method availability ham generic type surface'ining bir qismi.
 
 ## Syntax and Examples
 
@@ -85,6 +87,22 @@ impl<T: Display + PartialOrd> Pair<T> {
 }
 ```
 
+Concrete-only va capability-based methodlar:
+
+```rust
+impl Holder<i32> {
+    fn inc(&mut self) {
+        self.v += 1;
+    }
+}
+
+impl<T: Clone> Holder<T> {
+    fn clone_value(&self) -> T {
+        self.v.clone()
+    }
+}
+```
+
 ## Common Mistakes
 
 - `impl Point<T>` yozib, `impl<T>`da `T`ni e'lon qilmaslik.
@@ -92,6 +110,7 @@ impl<T: Display + PartialOrd> Pair<T> {
 - Struct generic parameterlari va method-level generic parameterlarni bir xil scope deb chalkashtirish.
 - Method `self`ni value bilan olsa, ownership move bo'lishini unutish.
 - Conditional impl sabab method hamma `Pair<T>` instancelarda mavjud bo'lmasligini unutish.
+- Concrete-only impl va trait-bound impl method surface'ni toraytirishini ko'rmaslik.
 
 ## Related Concepts
 
@@ -103,6 +122,7 @@ impl<T: Display + PartialOrd> Pair<T> {
 - [[conditional-method-implementations|conditional method implementations]]
 - [[display-formatting|Display]]
 - [[partial-ord|PartialOrd]]
+- [[clone]]
 - [[ownership]]
 - [[self-parameter|self parameter]]
 - [[generic-point|generic Point]]
@@ -111,3 +131,4 @@ impl<T: Display + PartialOrd> Pair<T> {
 
 - [[10-1-generic-data-types]]
 - [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

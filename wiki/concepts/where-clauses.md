@@ -3,9 +3,9 @@ title: "where Clauses"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, traits, generics]
-source_count: 1
+source_count: 2
 ---
 
 # where Clauses
@@ -38,6 +38,8 @@ where
 }
 ```
 
+Backend beginner source `where`ning haqiqiy foydasini nested genericsda ko'rsatadi: `F: FnMut() -> R` va `R: Display` birga kelganda inline signature tez buziladi. `where` constraintsni alohida qatlamga chiqaradi.
+
 ## Syntax and Examples
 
 ```rust
@@ -50,11 +52,35 @@ where
 }
 ```
 
+Nested callable bound:
+
+```rust
+fn print_produced<F, R>(mut f: F)
+where
+    F: FnMut() -> R,
+    R: Display,
+{
+    println!("{}", f());
+}
+```
+
+Type definition bilan:
+
+```rust
+struct Holder<T>
+where
+    T: Clone,
+{
+    v: T,
+}
+```
+
 ## Common Mistakes
 
 - `where` clause behaviorni o'zgartiradi deb o'ylash; u asosan readability syntax'i.
 - Bounds ko'p bo'lganda inline syntaxni zo'rlab saqlash.
 - `where` clause'da kerakli traitlarni import qilish zarurligini unutish.
+- `where` faqat functionlarda ishlaydi deb o'ylash.
 
 ## Related Concepts
 
@@ -65,7 +91,9 @@ where
 - [[display-formatting|Display]]
 - [[clone]]
 - [[debug-trait|Debug trait]]
+- [[fn-traits|Fn traits]]
 
 ## Sources
 
 - [[10-2-defining-shared-behavior-with-traits]]
+- [[wiki/sources/rust-for-backend-developers-generics]]

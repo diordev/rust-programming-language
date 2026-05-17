@@ -3,9 +3,9 @@ title: "Hash Trait"
 type: concept
 status: active
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, traits, hashing, collections]
-source_count: 1
+source_count: 2
 ---
 
 # Hash Trait
@@ -21,6 +21,8 @@ source_count: 1
 ## Mental Model
 
 `Hash` "bu value'ni barqaror tarzda hash qilish mumkin" degani. Derive bo'lganda type ichidagi barcha qismlar ham `Hash` bo'lishi kerak va ularning hash natijalari birlashtiriladi.
+
+Practical qoida: derived hash semantics derived yoki manual equality semantics bilan mos bo'lishi kerak; aks holda hash-based collectionlar kutilmagan tutum ko'rsatadi.
 
 ## Syntax and Examples
 
@@ -48,4 +50,5 @@ Bu type `HashMap<UserId, V>` uchun key bo'la oladi.
 
 ## Sources
 
+- [[wiki/sources/rust-for-backend-developers-auto-derive-traits]]
 - [[wiki/sources/22-3-c-derivable-traits|22.3]]

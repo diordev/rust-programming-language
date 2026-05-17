@@ -3,9 +3,9 @@ title: "Returning Closures"
 type: concept
 status: active
 created: 2026-05-09
-updated: 2026-05-09
+updated: 2026-05-17
 tags: [rust, closures, traits, impl-trait]
-source_count: 1
+source_count: 2
 ---
 
 # Returning Closures
@@ -25,6 +25,8 @@ Closure - compiler yaratadigan maxfiy struct + `Fn*` trait implementation. Captu
 - `impl Fn(i32) -> i32` - "aniq, lekin nomi yashirilgan bitta concrete type".
 - `Box<dyn Fn(i32) -> i32>` - "heapdagi trait object; runtime dispatch orqali chaqiriladi".
 
+Non-capturing callable uchun undan ham sodda variant bor: plain `fn(i32) -> i32` qaytarish. Lekin outer scope'dan qiymat ushlaydigan closure plain `fn` bo'la olmaydi.
+
 ## Syntax and Examples
 
 ### Bitta closure qaytarish
@@ -36,6 +38,14 @@ fn returns_closure() -> impl Fn(i32) -> i32 {
 
 let f = returns_closure();
 assert_eq!(f(5), 6);
+```
+
+### Non-capturing callable'ni `fn` sifatida qaytarish
+
+```rust
+fn create_inc() -> fn(i32) -> i32 {
+    |x| x + 1
+}
 ```
 
 ### Capture bilan closure qaytarish
@@ -88,4 +98,5 @@ for handler in handlers {
 
 ## Sources
 
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions]]
 - [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]

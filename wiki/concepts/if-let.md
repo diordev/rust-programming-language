@@ -3,9 +3,9 @@ title: "if let"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, control-flow, pattern-matching]
-source_count: 2
+source_count: 5
 ---
 
 # if let
@@ -23,6 +23,8 @@ source_count: 2
 `if let PATTERN = EXPRESSION { ... }`ni "agar expression shu pattern shaklida bo'lsa, ichidagi bindinglarni block ichida ishlat" deb o'qing. Bu `match`ning bitta interesting arm va qolgan cases uchun `_ => ()` yoki `else` arm bilan yozilgan qisqa shakli.
 
 Trade-off: `if let` [[exhaustive-matching|exhaustive checking]] bermaydi. Hamma variantlar muhim bo'lsa, [[match]] ishlating.
+
+Backend beginner sources `if let`ni uch xil kontekstda amaliy qiladi: enum variant (`Shape::Square { width }`), `Option` (`if let Some(v) = o`), va `Result` extraction. Shu sabab `if let`ni faqat `Option` syntactic sugar deb o'qish xato; u umumiy single-pattern control flow vositasi.
 
 ## Syntax and Examples
 
@@ -53,6 +55,14 @@ match config_max {
 }
 ```
 
+Struct-like enum variant:
+
+```rust
+if let Shape::Square { width } = s {
+    println!("This is square of width {width}");
+}
+```
+
 ## Common Mistakes
 
 - Hamma cases muhim bo'lgan joyda `if let` ishlatib, muhim variantni unutish.
@@ -60,6 +70,7 @@ match config_max {
 - `_` branchda nima bo'lishi kerakligini ongli qaror qilmasdan "qisqa yozish" uchun `if let`ga o'tish.
 - Shadowing xatosi: `if let Ok(age) = age && age > 30` yozib bo'lmaydi — yangi `age` faqat `{` dan keyin mavjud.
 - Irrefutable pattern bilan `if let` ishlatish (`if let x = 5`) — compiler warning beradi, chunki `else` hech qachon ishlamaydi.
+- `if let` faqat `Option` uchun deb o'ylash.
 
 ## Related Concepts
 
@@ -73,9 +84,12 @@ match config_max {
 - [[option|Option]]
 - [[enums]]
 - [[control-flow|control flow]]
+- [[result|Result]]
 
 ## Sources
 
 - [[6-3-concise-control-flow-with-if-let-and-let-else]]
 - [[wiki/sources/19-1-all-the-places-patterns-can-be-used]]
-
+- [[wiki/sources/rust-for-backend-developers-enums]]
+- [[wiki/sources/rust-for-backend-developers-option]]
+- [[wiki/sources/rust-for-backend-developers-result]]

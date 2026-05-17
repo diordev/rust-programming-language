@@ -3,9 +3,9 @@ title: "Default Trait"
 type: concept
 status: active
 created: 2026-05-13
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, traits, defaults]
-source_count: 1
+source_count: 2
 ---
 
 # Default Trait
@@ -21,6 +21,8 @@ Config struct'lar, builder-like initialization, `unwrap_or_default`, va `..Defau
 ## Mental Model
 
 `Default` "bu type uchun reasonable starting value bor" degan signal. Derive bo'lganda har fieldning `default()`i chaqiriladi.
+
+Shu sabab `#[derive(Default)]` faqat barcha fieldlar ham `Default` bo'lganda ishlaydi; bu mechanical derive oilasining bir qismi.
 
 ## Syntax and Examples
 
@@ -58,4 +60,5 @@ let owned = items.unwrap_or_default();
 
 ## Sources
 
+- [[wiki/sources/rust-for-backend-developers-auto-derive-traits]]
 - [[wiki/sources/22-3-c-derivable-traits|22.3]]

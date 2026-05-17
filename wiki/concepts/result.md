@@ -3,9 +3,9 @@ title: "Result"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, error-handling]
-source_count: 5
+source_count: 6
 ---
 
 # Result
@@ -28,6 +28,10 @@ Rust [[recoverable-errors|recoverable errors]]ni value sifatida ko'rsatadi. `rea
 Chapter 10.1 `Result<T, E>`ni [[generic-enums|generic enum]] sifatida qayta ko'rsatadi: `Ok(T)` success branch payloadi, `Err(E)` error branch payloadi.
 
 Fail bo'lishi mumkin bo'lgan function definitionida `Result` yaxshi default: caller recover qilishi, default tanlashi, retry qilishi, yoki o'zi panic qilishi mumkin.
+
+Backend beginner source bu modelni chuqurlashtiradi: `Err(E)`dagi `E` oddiy string bo'lishi mumkin, lekin ko'pincha custom enum error type yaxshiroq signal beradi. `NameParseError` misoli errorni ham domain data sifatida ko'rsatadi.
+
+O'sha source yana uchta amaliy qatlam qo'shadi: [[std-error-trait|std::error::Error]] ecosystem contracti, `map`/`and_then` combinatorlari, va `?` bilan linear [[error-propagation|error propagation]]. Oxirida ignored `Result` warning signalini ongli bosish uchun `let _ = ...;` patterni ko'rsatiladi.
 
 ## Syntax and Examples
 
@@ -67,6 +71,22 @@ fn read_username_from_file() -> Result<String, io::Error> {
 }
 ```
 
+Custom error enum:
+
+```rust
+#[derive(Debug)]
+enum NameParseError {
+    EmptyString,
+    NoMiddleName,
+}
+```
+
+Ignored `Result`:
+
+```rust
+let _ = function_that_may_fail();
+```
+
 ## Common Mistakes
 
 - `Result`ni e'tiborsiz qoldirish. Compiler `unused Result that must be used` warning beradi.
@@ -75,6 +95,8 @@ fn read_username_from_file() -> Result<String, io::Error> {
 - `?` errorni handle qiladi deb o'ylash; u [[error-propagation|propagate]] qiladi.
 - `Ok(...)` bilan success value'ni o'rashni unutish.
 - Callerga tanlov berish kerak bo'lgan API'da panic qilish.
+- `Result`ni shunchaki string message transporti deb ko'rish.
+- Ignored `Result` warningini shovqin deb qabul qilib, asl signalni yo'qotish.
 
 ## Related Concepts
 
@@ -86,6 +108,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 - [[recoverable-errors|recoverable errors]]
 - [[error-propagation|error propagation]]
 - [[question-mark-operator|question mark operator]]
+- [[std-error-trait|std::error::Error]]
 - [[unwrap]]
 - [[expect]]
 - [[io-error|io::Error]]
@@ -100,3 +123,4 @@ fn read_username_from_file() -> Result<String, io::Error> {
 - [[9-2-recoverable-errors-with-result]]
 - [[9-3-to-panic-or-not-to-panic]]
 - [[10-1-generic-data-types]]
+- [[wiki/sources/rust-for-backend-developers-result]]

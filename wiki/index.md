@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, index]
-source_count: 141
+source_count: 146
 ---
 
 # Rust Wiki Index
@@ -158,6 +158,11 @@ source_count: 141
 - [[wiki/sources/rust-for-backend-developers-auto-derive-traits|Rust for Backend Developers: Auto-Derive Traits]]
 - [[wiki/sources/rust-for-backend-developers-destructuring|Rust for Backend Developers: Destructuring]]
 - [[wiki/sources/rust-for-backend-developers-pattern-matching|Rust for Backend Developers: Pattern Matching]]
+- [[wiki/sources/rust-for-backend-developers-anonymous-functions|Rust for Backend Developers: Anonymous Functions]]
+- [[wiki/sources/rust-for-backend-developers-generics|Rust for Backend Developers: Generics]]
+- [[wiki/sources/rust-for-backend-developers-enums|Rust for Backend Developers: Enums]]
+- [[wiki/sources/rust-for-backend-developers-option|Rust for Backend Developers: Option]]
+- [[wiki/sources/rust-for-backend-developers-result|Rust for Backend Developers: Result]]
 
 ## Chapters
 
@@ -243,6 +248,11 @@ source_count: 141
 - [[wiki/chapters/rust-for-backend-developers-auto-derive-traits|Rust for Backend Developers: Auto-Derive Traits]]
 - [[wiki/chapters/rust-for-backend-developers-destructuring|Rust for Backend Developers: Destructuring]]
 - [[wiki/chapters/rust-for-backend-developers-pattern-matching|Rust for Backend Developers: Pattern Matching]]
+- [[wiki/chapters/rust-for-backend-developers-anonymous-functions|Rust for Backend Developers: Anonymous Functions]]
+- [[wiki/chapters/rust-for-backend-developers-generics|Rust for Backend Developers: Generics]]
+- [[wiki/chapters/rust-for-backend-developers-enums|Rust for Backend Developers: Enums]]
+- [[wiki/chapters/rust-for-backend-developers-option|Rust for Backend Developers: Option]]
+- [[wiki/chapters/rust-for-backend-developers-result|Rust for Backend Developers: Result]]
 
 ## Concepts
 
@@ -289,6 +299,7 @@ Core concepts and active concept pages:
 - [[generic-structs|generic structs]]
 - [[generic-enums|generic enums]]
 - [[generic-methods|generic methods]]
+- [[const-generics|const generics]]
 - [[partial-eq]]
 - [[partial-ord|PartialOrd]]
 - [[eq-trait]]
@@ -352,6 +363,7 @@ Core concepts and active concept pages:
 - [[compound-types|compound types]]
 - [[functions]]
 - [[function-pointers|function pointers]]
+- [[higher-order-functions|higher-order functions]]
 - [[main-function|main function]]
 - [[return-values|return values]]
 - [[statements-and-expressions|statements and expressions]]
@@ -379,6 +391,7 @@ Core concepts and active concept pages:
 - [[file-handle|file handle]]
 - [[from-trait|From trait]]
 - [[box-dyn-error|Box<dyn Error>]]
+- [[std-error-trait|std::error::Error]]
 - [[match]]
 - [[pattern-matching|pattern matching]]
 - [[exhaustive-matching|exhaustive matching]]

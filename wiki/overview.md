@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, overview]
-source_count: 146
+source_count: 148
 ---
 
 # Rust Wiki Overview
@@ -173,6 +173,8 @@ Ingested Rust for Backend Developers materials (`2. base` so far):
 - [[wiki/sources/rust-for-backend-developers-enums|Enums]]
 - [[wiki/sources/rust-for-backend-developers-option|Option]]
 - [[wiki/sources/rust-for-backend-developers-result|Result]]
+- [[wiki/sources/rust-for-backend-developers-iterators|Iterators]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers|Smart Pointers]]
 
 Current source baseline:
 
@@ -646,3 +648,4 @@ Rust for Backend Developers `2. base` synthesis:
 - Anonymous functions bo'limi shu foundation'ga callable values qatlamini qo'shadi: non-capturing callable [[function-pointers|function pointer]] bo'lishi mumkin, capturing callable esa [[closures]] bo'ladi. Shu yerda [[higher-order-functions|higher-order functions]], [[fn-traits|Fn traits]], `move` capture, `impl Fn` opaque return, va `Box<dyn Fn>` dynamic dispatch yechimi bitta amaliy chiziqqa tushadi.
 - Generics bo'limi `2. base`ni compile-time abstraction bilan to'ldiradi: `Holder<T>` template modeli, [[monomorphization]], [[turbofish]], generic trait vs [[associated-types|associated types]], [[trait-bounds|trait bounds]], [[where-clauses|where clauses]], va [[const-generics|const generics]] Rustning "parametrizatsiya, keyin specialization" mental modelini yig'adi. Shu yerda `impl Trait` nested `Fn` return boundning universal o'rnini bosa olmasligi ham ochiq ko'rsatiladi.
 - Enums, Option, va Result bo'limlari `2. base`ni "shape va failure" qatlami bilan tugatadi: [[enums]] payloadli ADT sifatida keladi, [[if-let|if let]] single-variant branch beradi, [[option|Option]] absence'ni type systemga ko'taradi, [[result|Result]] esa recoverable errorni explicit qiladi. Shu yerda `map`/`flatten`/`and_then` combinatorlari, [[std-error-trait|std::error::Error]], [[question-mark-operator|question mark operator]], va ignored `Result` uchun [[discarded-binding]] bir joyga tushadi.
+- [[wiki/chapters/rust-for-backend-developers-iterators|Iterators]] va [[wiki/chapters/rust-for-backend-developers-smart-pointers|Smart Pointers]] `2. base`ni traversal hamda heap ownership toolkit bilan kengaytiradi: `for` aslida [[into-iterator|IntoIterator]] orqali ishlashi, [[iterators]] lazy bo'lishi, [[box-t|Box<T>]] recursive type sizing berishi, [[rc-t|Rc<T>]] shared ownership ochishi, [[cell-t|Cell<T>]] va [[refcell-t|RefCell<T>]] esa single-threaded interior mutabilityning ikki boshqa modelini berishi shu yerda aniq ko'rinadi.

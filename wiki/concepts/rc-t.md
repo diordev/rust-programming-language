@@ -3,9 +3,9 @@ title: "Rc<T>"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, smart-pointers, rc, reference-counting, ownership]
-source_count: 2
+source_count: 3
 ---
 
 # Rc<T>
@@ -16,7 +16,7 @@ source_count: 2
 
 ## Why It Matters
 
-Oddiy ownership qoidalari bitta egani ko'zda tutadi. Graph, daraxt va boshqa tuzilmalarda bir node bir nechta qismga tegishli bo'lishi mumkin. `Rc<T>` shu muammoni hal qiladi — reference count nolga tushgandagina qiymat tozalanadi.
+Oddiy ownership qoidalari bitta egani ko'zda tutadi. Graph, daraxt va boshqa tuzilmalarda bir node bir nechta qismga tegishli bo'lishi mumkin. `Rc<T>` shu muammoni hal qiladi — reference count nolga tushgandagina qiymat tozalanadi. Backend beginner source bu modelni ikki pointerli mental model bilan aniqroq qiladi: heapdagi data pointeri va count pointeri.
 
 **Cheklov:** faqat **single-threaded**. Ko'p oqimli uchun `Arc<T>` (Atomically Reference Counted) ishlatiladi — `Rc<T>` bilan bir xil API, lekin reference counting atomik operatsiyalar orqali bajariladi, shuning uchun threadlar orasida xavfsiz. `Arc<T>` `Send + Sync` traitlarini implement qiladi.
 
@@ -73,6 +73,7 @@ Qoida: ota → bola `Rc<T>` (owns); bola → ota `Weak<T>` (non-owns).
 ## Common Mistakes
 
 - `Rc<T>` mutable access beradi deb o'ylash — faqat **immutable**. Mutable kerak bo'lsa `Rc<RefCell<T>>` ishlatiladi.
+- Whole-value replacement yetarli bo'lsa `Rc<RefCell<T>>` o'rniga `Rc<Cell<T>>` soddaroq bo'lishi mumkinligini unutish.
 - Multithreaded kodda `Rc<T>` ishlatishga urinish — compile xatosi; o'rniga `Arc<T>`.
 - `Rc::clone` chuqur nusxa qiladi deb o'ylash — yo'q, faqat count oshiradi.
 - `Rc<T>` + `RefCell<T>` bilan cycle yaratib qo'yish — kompilyator ogohlantirmaydi.
@@ -80,6 +81,7 @@ Qoida: ota → bola `Rc<T>` (owns); bola → ota `Weak<T>` (non-owns).
 ## Related Concepts
 
 - [[reference-counting]] — mexanizm
+- [[cell-t|Cell<T>]] — whole-value replacement kerak bo'lsa yengilroq kombinatsiya
 - [[refcell-t|RefCell<T>]] — `Rc<RefCell<T>>` kombinatsiyasi uchun
 - [[weak-t|Weak<T>]] — non-ownership referens; cycle ni oldini oladi
 - [[reference-cycle]] — `Rc<T>` + `RefCell<T>` bilan yuzaga kelishi mumkin
@@ -95,3 +97,4 @@ Qoida: ota → bola `Rc<T>` (owns); bola → ota `Weak<T>` (non-owns).
 
 - [[15-4-rc-the-reference-counted-smart-pointer]]
 - [[15-6-reference-cycles-can-leak-memory]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

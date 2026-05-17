@@ -3,9 +3,9 @@ title: "RefCell<T>"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, smart-pointers, refcell, interior-mutability, borrowing]
-source_count: 1
+source_count: 2
 ---
 
 # RefCell<T>
@@ -16,7 +16,7 @@ source_count: 1
 
 ## Why It Matters
 
-Kompilyator ba'zan to'g'ri kodni rad etadi — u "conservatively safe" ishlaydi (Halting Problem). Siz borrow qoidalari bajarilishiga ishonchingiz komil bo'lsa-yu, kompilyator buni anglay olmasa, `RefCell<T>` ishlatiladi.
+Kompilyator ba'zan to'g'ri kodni rad etadi — u "conservatively safe" ishlaydi (Halting Problem). Siz borrow qoidalari bajarilishiga ishonchingiz komil bo'lsa-yu, kompilyator buni anglay olmasa, `RefCell<T>` ishlatiladi. Agar sizga borrow emas, faqat whole-value replacement kerak bo'lsa, [[cell-t|Cell<T>]] ko'pincha soddaroq.
 
 Amaliy holat: `&self` (immutable) oladigan trait metodida ichki state ni o'zgartirish kerak bo'lganda — masalan, mock objects.
 
@@ -90,6 +90,7 @@ println!("{}", b.borrow()); // 15
 ## Related Concepts
 
 - [[interior-mutability]] — patternning o'zi
+- [[cell-t|Cell<T>]] — whole-value replacement uchun torroq alternativ
 - [[rc-t|Rc<T>]] — `Rc<RefCell<T>>` kombinatsiyasi
 - [[borrowing]] — qoidalar runtime da ham bir xil
 - [[smart-pointers]]
@@ -99,3 +100,4 @@ println!("{}", b.borrow()); // 15
 ## Sources
 
 - [[15-5-refcell-t-and-the-interior-mutability-pattern]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

@@ -3,9 +3,9 @@ title: "collect()"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, iterators, collections]
-source_count: 1
+source_count: 2
 ---
 
 # collect()
@@ -50,6 +50,18 @@ let map: HashMap<_, _> = vec![("a", 1), ("b", 2)]
     .collect();
 ```
 
+Iterator lazy bo'lsa, `collect()` ko'pincha computation boshlanadigan nuqta bo'ladi:
+
+```rust
+use std::collections::HashSet;
+
+let squares: HashSet<i32> = vec![1, 2, 3, 4]
+    .into_iter()
+    .filter(|x| x % 2 == 0)
+    .map(|x| x * x)
+    .collect();
+```
+
 ## Common Mistakes
 
 - Type annotation unutilsa: `error[E0282]: type annotations needed` — kompilyator qaysi collection ekanini aniqlay olmaydi.
@@ -66,3 +78,4 @@ let map: HashMap<_, _> = vec![("a", 1), ("b", 2)]
 ## Sources
 
 - [[12-1-accepting-command-line-arguments]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]

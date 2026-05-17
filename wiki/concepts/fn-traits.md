@@ -5,7 +5,7 @@ status: active
 created: 2026-05-07
 updated: 2026-05-17
 tags: [rust, fn-traits, closures, traits, functional]
-source_count: 5
+source_count: 6
 ---
 
 # Fn Traits: FnOnce, FnMut, Fn
@@ -17,6 +17,8 @@ Closure'ni qanday chaqirish mumkinligini ifodalovchi uch pog'onali trait hierarc
 ## Why It Matters
 
 Funksiya signature'ida `F: FnOnce()`, `F: FnMut()`, yoki `F: Fn()` yozish orqali closure'dan qanday foydalanilishini aniqlanadi. Bu closure'lar bilan ishlashning xavfsizligini ta'minlaydi: masalan, `sort_by_key` closure'ni bir necha marta chaqirishi kerak — shuning uchun `FnMut` talab qiladi, `FnOnce` emas.
+
+Iterator API bu hierarchy'ni juda ko'p ishlatadi: `map`, `filter`, `find`, `fold`, `filter_map` kabi metodlar odatda `FnMut` qabul qiladi, chunki traversal davomida callback bir necha marta ishlaydi.
 
 ## Mental Model
 
@@ -68,6 +70,17 @@ fn apply<F: Fn(i32) -> i32>(f: F) -> i32 {
 
 assert_eq!(apply(add_one), 6);      // function pointer ham Fn
 assert_eq!(apply(|x| x + 1), 6);    // closure ham Fn
+```
+
+```rust
+fn safe_sqrt(n: f32) -> Option<f32> {
+    if n < 0.0 { None } else { Some(n.sqrt()) }
+}
+
+let roots: Vec<f32> = [4.0, -25.0, 9.0]
+    .into_iter()
+    .filter_map(safe_sqrt)
+    .collect();
 ```
 
 ```rust
@@ -158,3 +171,4 @@ increment(); // ok
 - [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
 - [[wiki/sources/rust-for-backend-developers-generics]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]

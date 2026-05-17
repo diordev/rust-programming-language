@@ -3,9 +3,9 @@ title: "interior mutability"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, smart-pointers, refcell, borrowing, patterns]
-source_count: 2
+source_count: 3
 ---
 
 # interior mutability
@@ -21,6 +21,8 @@ Rustning oddiy borrow qoidalari: immutable referens bo'lsa, hech qanday mutable 
 ## Mental Model
 
 Tashqi dunyo ob'ektni "o'zgarmas" ko'radi. Lekin ob'ekt ichida, masalan, hisob yurituvi, log to'plami, cache kabi internal state o'zgarishi kerak. Interior mutability "tashqaridan muzlatilgan, ichkaridan harakatdagi" tuzilmalarni ifodalaydi.
+
+Bu pattern bitta implementatsiyaga yopishmaydi: [[cell-t|Cell<T>]] whole-value replacement beradi, [[refcell-t|RefCell<T>]] esa borrow-based mutationni runtime'da tekshiradi.
 
 ## Syntax and Examples
 
@@ -75,6 +77,7 @@ println!("{}", shared_val.borrow()); // 8
 ## Related Concepts
 
 - [[refcell-t|RefCell<T>]] — asosiy implementatsiya
+- [[cell-t|Cell<T>]] — whole-value replacement bilan yengilroq variant
 - [[mutex-t|Mutex<T>]] — thread-safe analog
 - [[rc-t|Rc<T>]] — ko'p egali variant bilan kombinatsiya
 - [[arc-t|Arc<T>]] — thread-safe ko'p egalilik
@@ -87,3 +90,4 @@ println!("{}", shared_val.borrow()); // 8
 
 - [[15-5-refcell-t-and-the-interior-mutability-pattern]]
 - [[16-3-shared-state-concurrency]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

@@ -3,9 +3,9 @@ title: "Consuming Adapters"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, iterators, consuming-adapters, functional]
-source_count: 1
+source_count: 2
 ---
 
 # Consuming Adapters
@@ -57,6 +57,14 @@ assert!(all_pos);
 // fold — o'zingiz belgilagan yig'ish logikasi
 let product = v.iter().fold(1, |acc, x| acc * x);
 assert_eq!(product, 6);
+
+// reduce — first item'dan boshlaydi, shuning uchun Option qaytaradi
+let sum = v.into_iter().reduce(|acc, x| acc + x);
+assert_eq!(sum, Some(6));
+
+// find — predicate'ga mos first item
+let first_even = [1, 3, 8, 9].into_iter().find(|x| x % 2 == 0);
+assert_eq!(first_even, Some(8));
 ```
 
 ## Common Mistakes
@@ -79,7 +87,9 @@ let c: Vec<_> = v.iter().collect(); // ok
 - [[iterators]] — consuming adapters iterator ustida ishlaydi
 - [[iterator-adapters]] — lazy transformations, consuming adapter bilan tugatiladi
 - [[closures]] — `fold`, `any`, `all` closure qabul qiladi
+- [[option|Option]] — `reduce` va `find` bo'sh yoki topilmagan holatni `Option` bilan signal qiladi
 
 ## Sources
 
 - [[13-2-processing-a-series-of-items-with-iterators|13.2 Iterators]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]

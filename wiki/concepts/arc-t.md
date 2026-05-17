@@ -3,9 +3,9 @@ title: "Arc<T>"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, concurrency, threads, arc, reference-counting, smart-pointers]
-source_count: 2
+source_count: 3
 ---
 
 # Arc<T>
@@ -16,7 +16,7 @@ source_count: 2
 
 ## Why It Matters
 
-`Rc<T>` single-threaded: reference count oddiy integer, atomic emas — ikki thread bir vaqtda count'ni o'zgartirsa, noto'g'ri hisob, memory leak yoki double-free. `Arc<T>` esa count'ni atomic tarzda boshqaradi — `Send + Sync` implement qiladi.
+`Rc<T>` single-threaded: reference count oddiy integer, atomic emas — ikki thread bir vaqtda count'ni o'zgartirsa, noto'g'ri hisob, memory leak yoki double-free. `Arc<T>` esa count'ni atomic tarzda boshqaradi — `Send + Sync` implement qiladi. Backend beginner source bu farqni intentionally tor signal bilan beradi: multi-thread bo'lsa `Rc<T>` o'rniga `Arc<T>`.
 
 Nima uchun `Arc<T>` standart emas? **Performance**: atomic operatsiyalar oddiy integer operatsiyalardan sekinroq. Single-threaded kodda bu overhead keraksiz — shuning uchun `Rc<T>` va `Arc<T>` alohida turibdi.
 
@@ -114,3 +114,4 @@ Bu yerda `Arc` bir nechta workerga bitta `Receiver<Job>` ownership'ini bo'lishis
 
 - [[16-3-shared-state-concurrency]]
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

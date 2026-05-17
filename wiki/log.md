@@ -5,10 +5,30 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, log]
-source_count: 146
+source_count: 148
 ---
 
 # Wiki Log
+
+## 2026-05-17 ingest | Rust for Backend Developers `2. base` 36-37
+
+- Ingested 2 ta source from `raw/books/rust-for-backend-developer/2. base/`:
+  - `36. Итераторы.md`
+  - `37. Умные указатели.md`
+- Created source summaries:
+  - [[wiki/sources/rust-for-backend-developers-iterators]]
+  - [[wiki/sources/rust-for-backend-developers-smart-pointers]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-iterators]]
+  - [[wiki/chapters/rust-for-backend-developers-smart-pointers]]
+- Created concept pages:
+  - [[into-iterator|IntoIterator]]
+  - [[cell-t|Cell<T>]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-2-base]]: source_count 28->30; [[iterators]], [[into-iterator|IntoIterator]], `.iter()`/`.into_iter()`, [[range]], [[iterator-adapters|iterator adapters]], `fold`/`reduce`, `filter_map`, `find`, [[smart-pointers]], [[box-t|Box<T>]], [[deref-trait|Deref]], [[rc-t|Rc<T>]], [[cell-t|Cell<T>]], [[refcell-t|RefCell<T>]], [[interior-mutability|interior mutability]], va [[arc-t|Arc<T>]] synthesis qo'shildi.
+- Updated concept pages: [[iterators]], [[iterator-adapters|iterator adapters]], [[consuming-adapters|consuming adapters]], [[collect]], [[range]], [[for-loop|for loop]], [[option|Option]], [[closures]], [[fn-traits|Fn traits]], [[smart-pointers]], [[box-t|Box<T>]], [[recursive-types]], [[deref-trait|Deref trait]], [[deref-mut-trait|DerefMut trait]], [[dereference-operator|dereference operator]], [[rc-t|Rc<T>]], [[refcell-t|RefCell<T>]], [[interior-mutability|interior mutability]], va [[arc-t|Arc<T>]].
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 146->148; 2 source, 2 chapter, va 2 concept link qo'shildi.
+- Appended iterator/smart-pointer relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation: `Vec::pop()` misolidagi "first element" da'vosi tuzatildi; iterator laziness consuming operationgacha alohida qayd qilindi; `Box<T>` zero-cost abstraction allocation bepul degani emasligi aniq yozildi; [[rc-t|Rc<T>]] single-threaded va [[arc-t|Arc<T>]] thread-safe reference counting ekani qat'iy ajratildi; [[cell-t|Cell<T>]] thread-safety emas, single-threaded replacement modeli sifatida yozildi.
 
 ## 2026-05-17 ingest | Rust for Backend Developers `2. base` 33-35
 

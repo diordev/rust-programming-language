@@ -3,9 +3,9 @@ title: "Iterator Adapters"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, iterators, iterator-adapters, functional, lazy]
-source_count: 1
+source_count: 2
 ---
 
 # Iterator Adapters
@@ -63,6 +63,16 @@ assert_eq!(skip_two, vec![&3, &4]);
 // flat_map: har elementni iteratorga aylantiradi va tekislaydi
 let words = vec!["hello world", "foo bar"];
 let chars: Vec<&str> = words.iter().flat_map(|s| s.split(' ')).collect();
+
+// filter_map: Option qaytargan transform + filter
+fn safe_sqrt(n: f32) -> Option<f32> {
+    if n < 0.0 { None } else { Some(n.sqrt()) }
+}
+
+let roots: Vec<f32> = [4.0, -25.0, 9.0]
+    .into_iter()
+    .filter_map(safe_sqrt)
+    .collect();
 ```
 
 ```rust
@@ -94,8 +104,10 @@ let v2: Vec<_> = v.iter().map(|x| { x + 1; }).collect();
 - [[iterators]] — adapter'lar ustida ishlaydi
 - [[consuming-adapters]] — adapter chain'ni tugatadi
 - [[closures]] — adapters closure qabul qiladi
+- [[option|Option]] — `filter_map` `Some` itemlarni o'tkazadi, `None`ni tashlaydi
 - [[zero-cost-abstractions]] — chainlangan adapterlar loop'ga teng samarali
 
 ## Sources
 
 - [[13-2-processing-a-series-of-items-with-iterators|13.2 Iterators]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]

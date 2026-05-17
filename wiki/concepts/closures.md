@@ -5,7 +5,7 @@ status: active
 created: 2026-05-07
 updated: 2026-05-17
 tags: [rust, closures, fn-traits, capture, functional]
-source_count: 7
+source_count: 8
 ---
 
 # Closures
@@ -16,7 +16,7 @@ source_count: 7
 
 ## Why It Matters
 
-Closures iterator metodlari (`map`, `filter`, `sort_by_key`), optional qiymatlar (`unwrap_or_else`, `Option::map`, `Option::and_then`), `Result` composition (`map`, `and_then`), va multithreading (`thread::spawn`) uchun asosiy building block. Capture qilish imkoniyati closure'ni funksiyadan ancha moslashuvchan qiladi.
+Closures iterator metodlari (`map`, `filter`, `filter_map`, `sort_by_key`), optional qiymatlar (`unwrap_or_else`, `Option::map`, `Option::and_then`), `Result` composition (`map`, `and_then`), va multithreading (`thread::spawn`) uchun asosiy building block. Capture qilish imkoniyati closure'ni funksiyadan ancha moslashuvchan qiladi.
 
 ## Mental Model
 
@@ -152,3 +152,4 @@ Batafsil: [[returning-closures]] va [[opaque-types]].
 - [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]
 - [[wiki/sources/rust-for-backend-developers-option]]
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]

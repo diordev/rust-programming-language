@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, enums, option]
-source_count: 10
+source_count: 11
 ---
 
 # Option
@@ -35,6 +35,8 @@ Vector accessda `get` methodi `Option<&T>` qaytaradi: index bor bo'lsa `Some(&el
 [[hash-map|HashMap]] lookupda ham `get` `Option<&V>` qaytaradi: key mavjud bo'lsa `Some(&value)`, missing key bo'lsa `None`. Shu sabab map lookupdan keyin absence case explicit handle qilinadi.
 
 `?` operator `Option` qaytaradigan function ichida ishlatilsa, `None` bo'lganda early return qiladi, `Some(value)` bo'lsa value'ni ochadi. Bu `Result` ustidagi `?`ga o'xshaydi, lekin `Result` va `Option` avtomatik bir-biriga convert bo'lmaydi.
+
+Iterator API ham `Option` bilan bevosita gaplashadi: `next()` keyingi itemni `Some(item)` yoki tugashni `None` bilan signal qiladi; `find` va `filter_map` ham presence/absence modelini shu enum orqali olib yuradi.
 
 Type-system guideline: function parameteri `Option<T>` emas, `T` bo'lsa, function body `None` case'ni runtime handle qilmaydi. Compiler caller haqiqiy `T` berganini tekshiradi.
 
@@ -215,3 +217,4 @@ Bu pattern ayniqsa `Drop` impl ichida foydali, chunki `&mut self` bilan borrowed
 - [[10-1-generic-data-types]]
 - [[wiki/sources/21-3-graceful-shutdown-and-cleanup|21.3]]
 - [[wiki/sources/rust-for-backend-developers-option]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]

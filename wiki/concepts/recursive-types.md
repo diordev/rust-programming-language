@@ -3,9 +3,9 @@ title: "Recursive Types"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, types, recursion, memory]
-source_count: 1
+source_count: 2
 ---
 
 # Recursive Types
@@ -16,7 +16,7 @@ Recursive type o'z definitioni ichida o'ziga qayta ishora qiladigan type. Rust b
 
 ## Why It Matters
 
-Linked list, tree, expression AST kabi data structures recursive shaklga ega. Rustda bunday typelarni to'g'ridan-to'g'ri value ichida value qilib yozib bo'lmaydi; odatda [[box-t|Box<T>]], `Rc<T>`, yoki reference kabi indirection kerak.
+Linked list, tree, expression AST kabi data structures recursive shaklga ega. Rustda bunday typelarni to'g'ridan-to'g'ri value ichida value qilib yozib bo'lmaydi; odatda [[box-t|Box<T>]], `Rc<T>`, yoki reference kabi indirection kerak. Agar recursive tuzilma shared ownership ham talab qilsa, `Box<T>` o'rniga ko'pincha `Rc<T>` yoki `Rc<RefCell<T>>` ishlatiladi.
 
 ## Mental Model
 
@@ -76,4 +76,4 @@ fn main() {
 ## Sources
 
 - [[15-1-using-box-t-to-point-to-data-on-the-heap]]
-
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

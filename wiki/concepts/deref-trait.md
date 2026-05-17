@@ -3,9 +3,9 @@ title: "Deref Trait"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, traits, deref, smart-pointers]
-source_count: 1
+source_count: 2
 ---
 
 # Deref Trait
@@ -42,6 +42,9 @@ impl<T> Deref for MyBox<T> {
         &self.0
     }
 }
+
+let b = Box::new(1);
+let r: &i32 = &b; // conceptually b.deref()
 ```
 
 ## Common Mistakes
@@ -63,4 +66,4 @@ impl<T> Deref for MyBox<T> {
 ## Sources
 
 - [[15-2-treating-smart-pointers-like-regular-references]]
-
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

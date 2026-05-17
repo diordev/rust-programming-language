@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, index]
-source_count: 146
+source_count: 148
 ---
 
 # Rust Wiki Index
@@ -163,6 +163,8 @@ source_count: 146
 - [[wiki/sources/rust-for-backend-developers-enums|Rust for Backend Developers: Enums]]
 - [[wiki/sources/rust-for-backend-developers-option|Rust for Backend Developers: Option]]
 - [[wiki/sources/rust-for-backend-developers-result|Rust for Backend Developers: Result]]
+- [[wiki/sources/rust-for-backend-developers-iterators|Rust for Backend Developers: Iterators]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers|Rust for Backend Developers: Smart Pointers]]
 
 ## Chapters
 
@@ -253,6 +255,8 @@ source_count: 146
 - [[wiki/chapters/rust-for-backend-developers-enums|Rust for Backend Developers: Enums]]
 - [[wiki/chapters/rust-for-backend-developers-option|Rust for Backend Developers: Option]]
 - [[wiki/chapters/rust-for-backend-developers-result|Rust for Backend Developers: Result]]
+- [[wiki/chapters/rust-for-backend-developers-iterators|Rust for Backend Developers: Iterators]]
+- [[wiki/chapters/rust-for-backend-developers-smart-pointers|Rust for Backend Developers: Smart Pointers]]
 
 ## Concepts
 
@@ -321,6 +325,7 @@ Core concepts and active concept pages:
 - [[string-slice|String slice]]
 - [[smart-pointers]]
 - [[box-t|Box<T>]]
+- [[cell-t|Cell<T>]]
 - [[recursive-types]]
 - [[dereference-operator|dereference operator]]
 - [[deref-trait|Deref trait]]
@@ -582,6 +587,7 @@ Core concepts and active concept pages:
 - [[returning-closures|returning closures]]
 - [[fn-traits|Fn traits (FnOnce, FnMut, Fn)]]
 - [[iterators]]
+- [[into-iterator|IntoIterator]]
 - [[consuming-adapters|consuming adapters]]
 - [[iterator-adapters|iterator adapters]]
 - [[cargo-workspaces|cargo workspaces]]

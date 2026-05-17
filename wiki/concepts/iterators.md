@@ -3,9 +3,9 @@ title: "Iterators"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-09
+updated: 2026-05-17
 tags: [rust, iterators, lazy, traits, functional]
-source_count: 4
+source_count: 5
 ---
 
 # Iterators
@@ -28,6 +28,8 @@ v1.iter() → [Some(&1), Some(&2), Some(&3), None, None, ...]
              .next() har safar
 ```
 
+`for` loop bu modelni yashiradi, lekin bekor qilmaydi: `for x in v` aslida `IntoIterator` orqali iterator olib, keyin `next()` bilan yuradi.
+
 ## Syntax and Examples
 
 ```rust
@@ -40,16 +42,28 @@ pub trait Iterator {
 
 ```rust
 // Uch xil yaratish
-let v = vec![1, 2, 3];
-let it1 = v.iter();       // &i32 — v owneri saqlanadi
-let it2 = v.into_iter();  // i32  — v consume bo'ladi
-let it3 = v.iter_mut();   // &mut i32 — mutable borrow
+let v1 = vec![1, 2, 3];
+let it1 = v1.iter();      // &i32 — owner saqlanadi
+
+let v2 = vec![1, 2, 3];
+let it2 = v2.into_iter(); // i32  — collection consume bo'ladi
+
+let mut v3 = vec![1, 2, 3];
+let it3 = v3.iter_mut();  // &mut i32 — mutable borrow
 
 // for loop — implicit iterator
-for val in &v { println!("{val}"); }
+let v4 = vec![1, 2, 3];
+for val in &v4 { println!("{val}"); }
+
+// ownership farqi
+let v5 = vec![1, 2, 3];
+for val in v5.into_iter() {
+    println!("{val}"); // i32
+}
 
 // next() to'g'ridan-to'g'ri
-let mut it = v.iter();
+let v6 = vec![1, 2, 3];
+let mut it = v6.iter();
 assert_eq!(it.next(), Some(&1));
 assert_eq!(it.next(), Some(&2));
 assert_eq!(it.next(), Some(&3));
@@ -89,6 +103,9 @@ Doim consuming adapter bilan tugatish: `.collect()`, `.sum()`, va hokazo.
 **2. `iter()` bilan owned qiymat kutish:**
 `iter()` reference beradi. `into_iter()` owned qiymat beradi (lekin original collection consume bo'ladi).
 
+**2.5. `for x in v` va `for x in &v`ni bir xil deb o'ylash:**
+Birinchisi collectionni consume qilishi mumkin, ikkinchisi borrow bilan yuradi.
+
 **3. `next()` uchun `mut` unutish:**
 ```rust
 let v1_iter = v1.iter();
@@ -108,12 +125,14 @@ let v2: Vec<_> = v1.iter().map(...).collect(); // ok
 
 - [[consuming-adapters]] (`sum`, `collect`, `count`, `fold`)
 - [[iterator-adapters]] (`map`, `filter`, `zip`, `enumerate`)
+- [[into-iterator|IntoIterator]] — `for` loop collectiondan iterator oladigan eshik
 - [[closures]] — iterator metodlari closure qabul qiladi
 - [[function-pointers|function pointers]] — named functionlar `map` callbacki bo'lishi mumkin
 - [[map-with-named-functions|map with named functions]]
 - [[traits]] — `Iterator` standart trait
 - [[zero-cost-abstractions]] — iterator vs for-loop tezlik farqi yo'q
 - [[for-loop]] — `for` loop ichida implicit iterator ishlatiladi
+- [[range]] — iteratorning collectionsiz ishlaydigan muhim misoli
 - [[associated-types|associated types]] — `Iterator::Item` placeholder
 
 ## Sources
@@ -122,3 +141,4 @@ let v2: Vec<_> = v1.iter().map(...).collect(); // ok
 - [[13-functional-language-features-iterators-and-closures|13. Intro]]
 - [[wiki/sources/20-2-advanced-traits|20.2 Advanced Traits — associated types]]
 - [[wiki/sources/20-4-advanced-functions-and-closures|20.4 Advanced Functions and Closures]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]

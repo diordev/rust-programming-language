@@ -3,9 +3,9 @@ title: "DerefMut Trait"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-17
 tags: [rust, traits, deref, mutability]
-source_count: 1
+source_count: 2
 ---
 
 # DerefMut Trait
@@ -30,6 +30,13 @@ Chapter 15.2 coercion qoidalari:
 2. `&mut T` -> `&mut U` agar `T: DerefMut<Target = U>`
 3. `&mut T` -> `&U` agar `T: Deref<Target = U>`
 
+Oddiy `Box<T>` mutation:
+
+```rust
+let mut b = Box::new(1);
+*b = 2;
+```
+
 ## Common Mistakes
 
 - `&T`dan `&mut U`ga coercion bo'ladi deb o'ylash.
@@ -47,4 +54,4 @@ Chapter 15.2 coercion qoidalari:
 ## Sources
 
 - [[15-2-treating-smart-pointers-like-regular-references]]
-
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

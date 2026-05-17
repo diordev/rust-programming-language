@@ -3,9 +3,9 @@ title: "Box<T>"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, smart-pointers, heap, ownership]
-source_count: 2
+source_count: 3
 ---
 
 # Box<T>
@@ -16,7 +16,7 @@ source_count: 2
 
 ## Why It Matters
 
-`Box<T>` Rustda indirection kerak bo'lgan joyda sodda yechim beradi. U recursive typelarni finite size qilish, katta data ownership'ini pointer orqali ko'chirish, va trait objects bilan ishlash uchun asosiy tool. Backend traits source'da `Box<dyn Trait>` return-position polymorphism uchun birinchi amaliy misol sifatida chiqadi.
+`Box<T>` Rustda indirection kerak bo'lgan joyda sodda yechim beradi. U recursive typelarni finite size qilish, katta data ownership'ini pointer orqali ko'chirish, va trait objects bilan ishlash uchun asosiy tool. Backend traits source'da `Box<dyn Trait>` return-position polymorphism uchun birinchi amaliy misol sifatida chiqadi. Backend smart-pointer source yana bitta muhim caveatni qo'shadi: `Box<T>`ning "zero-cost abstraction"ligi allocation yo'q degani emas, stack representation sodda degani.
 
 ## Mental Model
 
@@ -68,3 +68,4 @@ enum List {
 
 - [[15-1-using-box-t-to-point-to-data-on-the-heap]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

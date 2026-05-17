@@ -5,14 +5,14 @@ status: active
 created: 2026-05-16
 updated: 2026-05-17
 tags: [rust, backend, chapter, base]
-source_count: 28
+source_count: 30
 ---
 
 # Rust for Backend Developers: 2. Base
 
 ## Learning Goal
 
-`Rust for Backend Developers` kitobining `2. base` sectionini bir foundation layer sifatida tushunish: bindings, primitive types, strings, formatting, expression-oriented control flow, functions, tuples, structs, modules, traits, generics, enums, `Option`, `Result`, derive semantics, destructuring, pattern matching, anonymous functions va closures, ownership, borrowing, lifetimes, references, arrays, vectors, slices, declarative macros, va raw pointers.
+`Rust for Backend Developers` kitobining `2. base` sectionini bir foundation layer sifatida tushunish: bindings, primitive types, strings, formatting, expression-oriented control flow, functions, tuples, structs, modules, traits, generics, enums, `Option`, `Result`, anonymous functions va closures, iterators, smart pointers, ownership, borrowing, lifetimes, references, arrays, vectors, slices, derive semantics, destructuring, pattern matching, declarative macros, va raw pointers.
 
 ## Main Ideas
 
@@ -35,6 +35,8 @@ source_count: 28
 - Enums bobi Rustdagi ADT modelini front-stage'ga olib chiqadi: C-like variants, payloadli variants, methods, approximate discriminant mental modeli, va [[if-let|if let]] bilan single-variant branch shu yerda birga ko'rinadi.
 - `Option` bobi absence'ni sentinel value yoki null bilan emas, [[option|Option]] bilan ifodalashni normaga aylantiradi: `Some`/`None`, [[unwrap]], `unwrap_or`, [[match]], [[if-let|if let]], va `map`/`flatten`/`and_then` combinatorlari shu qatlamda keladi.
 - `Result` bobi recoverable error modelini shu foundation'ga qo'shadi: [[result|Result<T, E>]], custom error enum, [[std-error-trait|std::error::Error]], combinatorlar, [[question-mark-operator|question mark operator]], va ignored `Result` uchun [[discarded-binding]] signali Rustning explicit error flow'ini mustahkamlaydi.
+- Iterator bobi traversal modelini syntax orqasidan chiqaradi: [[iterators]], [[into-iterator|IntoIterator]], `.iter()`/`.into_iter()`, [[range]], lazy [[iterator-adapters|iterator adapters]], va [[consuming-adapters|consuming adapters]] orqali `for` loop ownership bilan bog'lanadi.
+- Smart pointer bobi ownership modelini heap va runtime rule qatlami bilan kengaytiradi: [[smart-pointers]], [[box-t|Box<T>]], [[deref-trait|Deref]], [[rc-t|Rc<T>]], [[cell-t|Cell<T>]], [[refcell-t|RefCell<T>]], [[interior-mutability|interior mutability]], va [[arc-t|Arc<T>]] bir-biridan qaysi constraintni yechishi bilan ajratiladi.
 - Ownership bobi Rustning markaziy compile-time resource modelini front-stage'ga olib chiqadi: move, deterministic cleanup, borrowing, va referential safety bitta chiziqqa tushadi.
 - Lifetimes bobi relation-level annotationlarni qo'shadi: reference umrini cho'zmaydi, lekin qaysi borrow qaysi natija bilan bog'langanini compilerga ko'rsatadi.
 - Declarative macro bobi compile-time code expansionni ochadi: `macro_rules!`, fragment specifierlar, repetition, va `vec![]` nega function emasligi.
@@ -66,6 +68,11 @@ source_count: 28
 - [[loop]]
 - [[for-loop|for loop]]
 - [[range]]
+- [[iterators]]
+- [[into-iterator|IntoIterator]]
+- [[iterator-adapters|iterator adapters]]
+- [[consuming-adapters|consuming adapters]]
+- [[collect]]
 - [[break]]
 - [[continue]]
 - [[functions]]
@@ -127,7 +134,16 @@ source_count: 28
 - [[where-clauses|where clauses]]
 - [[associated-types|associated types]]
 - [[self-type|Self type]]
+- [[smart-pointers]]
 - [[box-t|Box<T>]]
+- [[recursive-types]]
+- [[deref-trait|Deref trait]]
+- [[deref-mut-trait|DerefMut trait]]
+- [[rc-t|Rc<T>]]
+- [[cell-t|Cell<T>]]
+- [[refcell-t|RefCell<T>]]
+- [[interior-mutability|interior mutability]]
+- [[arc-t|Arc<T>]]
 - [[sized-trait|Sized trait]]
 - [[dyn-compatibility|dyn compatibility]]
 - [[unsafe-trait|unsafe trait]]
@@ -286,6 +302,22 @@ fn make_array<T: Copy, const SIZE: usize>(init_value: T) -> [T; SIZE] {
 ```
 
 ```rust
+let evens_squared = vec![1, 2, 3, 4, 5]
+    .into_iter()
+    .filter(|x| x % 2 == 0)
+    .map(|x| x * x)
+    .collect::<Vec<_>>();
+```
+
+```rust
+use std::{cell::RefCell, rc::Rc};
+
+let shared = Rc::new(RefCell::new(1));
+*shared.borrow_mut() += 10;
+println!("{}", shared.borrow());
+```
+
+```rust
 enum Shape {
     Square { width: f32 },
     Rectangle { width: f32, height: f32 },
@@ -335,6 +367,8 @@ fn read_text_file(path: &str) -> Result<String, std::io::Error> {
 - `make_empty_vec::<i32>()` va `let xs: Vec<i32> = make_empty_vec();` orasidagi inference farqini yozing.
 - Generic traitni associated type bilan qayta yozib, qaysi API signal o'zgarganini tushuntiring.
 - `make_array<T: Copy, const SIZE: usize>`ga o'xshash yana bitta `const generics` helper yozing.
+- `.iter()`, `&collection`, `.into_iter()`, va `collection` orqali bir xil data ustida item type hamda ownership farqini jadvalga tushiring.
+- `Rc<Cell<T>>` va `Rc<RefCell<T>>` bilan bitta shared-state example yozib, qaysi model replacement, qaysi model borrow-based mutation ekanini ajrating.
 - C-like enum va payloadli enum bilan bitta domainni ikki xil modellashtirib, qaysi joyda `match` va `if let` o'zgarishini ko'rsating.
 - `Option<User>`dan `Option<String>` field extractionni `map`, `flatten`, va `and_then` bilan yozib solishtiring.
 - String error qaytaradigan functionni custom enum error + `?` bilan qayta yozing.
@@ -365,6 +399,10 @@ fn read_text_file(path: &str) -> Result<String, std::io::Error> {
 - `turbofish` qachon zarur, qachon variable type annotationning o'zi yetarli?
 - Generic trait va associated type orasidagi eng muhim ikkita design farqi nima?
 - `const generics` oddiy type parameterdan qaysi jihati bilan sifat jihatdan boshqa?
+- `for item in collection` va `for item in &collection` nega ownership jihatdan boshqa natija beradi?
+- Iterator laziness qayerda tugaydi va `collect`, `fold`, `reduce`, `find` orasida terminal behavior qanday farqlanadi?
+- `Box<T>` uchun "zero-cost abstraction" deganda nimani tushunish kerak, nimani emas?
+- `Cell<T>` bilan `RefCell<T>` orasidagi eng muhim amaliy farq nima?
 - Nega enum memory layoutini faqat discriminant + payload sxemasi bilan to'liq tasdiqlangan representation deb qabul qilish xato?
 - `Option` nega empty string, `-1`, yoki null pointerdan kuchliroq signal beradi?
 - `unwrap` nega `unsafe` emas, lekin baribir productionda ehtiyotkor ishlatilishi kerak?
@@ -401,3 +439,5 @@ fn read_text_file(path: &str) -> Result<String, std::io::Error> {
 - [[wiki/sources/rust-for-backend-developers-enums]]
 - [[wiki/sources/rust-for-backend-developers-option]]
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-iterators]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

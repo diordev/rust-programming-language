@@ -3,9 +3,9 @@ title: "Dereference Operator"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, references, deref, smart-pointers]
-source_count: 5
+source_count: 6
 ---
 
 # Dereference Operator
@@ -52,6 +52,13 @@ Smart pointer:
 ```rust
 let y = Box::new(5);
 assert_eq!(5, *y);
+
+fn increment(v: &mut i32) {
+    *v += 1;
+}
+
+let mut b = Box::new(1);
+increment(&mut b);
 ```
 
 Raw pointer:
@@ -92,3 +99,4 @@ unsafe {
 - [[15-2-treating-smart-pointers-like-regular-references]]
 - [[wiki/sources/22-2-b-operators-and-symbols|22.2]]
 - [[wiki/sources/rust-for-backend-developers-pointers]]
+- [[wiki/sources/rust-for-backend-developers-smart-pointers]]

@@ -3,24 +3,24 @@ title: "Ordering"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-07
-tags: [rust, enum]
-source_count: 1
+updated: 2026-05-17
+tags: [rust, enum, comparisons]
+source_count: 2
 ---
 
 # Ordering
 
 ## Short Definition
 
-`Ordering` comparison natijasini bildiradigan enum: `Less`, `Greater`, yoki `Equal`.
+`std::cmp::Ordering` comparison natijasini bildiradigan enum: `Less`, `Equal`, yoki `Greater`.
 
 ## Why It Matters
 
-Guessing game `cmp` natijasini [[match]] bilan handle qilib, user guessini secret number bilan taqqoslaydi.
+`cmp()` total ordering natijasini, `partial_cmp()` esa `Option<Ordering>` ko'rinishida partial ordering natijasini beradi. Sorting va branching logic shu enumga tayanadi.
 
 ## Mental Model
 
-Comparison bitta numeric result emas, named variants bilan ifodalanadi.
+Comparison Rust'da "manfiy/nol/musbat son" emas, named semantic variantlar bilan ifodalanadi.
 
 ## Syntax and Examples
 
@@ -32,17 +32,23 @@ match guess.cmp(&secret_number) {
 }
 ```
 
+```rust
+println!("{:?}", 4.0.partial_cmp(&5.0)); // Some(Less)
+```
+
 ## Common Mistakes
 
-- `Ordering` variantlarini import qilmasdan ishlatish.
-- `cmp` references kutishini unutish.
+- `partial_cmp` natijasi har doim `Some(Ordering)` bo'ladi deb o'ylash.
+- `cmp` bilan `partial_cmp` semanticsini aralashtirish.
 
 ## Related Concepts
 
+- [[ord-trait|Ord]]
+- [[partial-ord]]
 - [[match]]
 - [[pattern-matching|pattern matching]]
-- [[result|Result]]
 
 ## Sources
 
 - [[wiki/sources/2-programming-a-guessing-game]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

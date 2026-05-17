@@ -3,9 +3,9 @@ title: "Sync trait"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, concurrency, threads, traits, marker, unsafe]
-source_count: 4
+source_count: 5
 ---
 
 # Sync trait
@@ -21,6 +21,8 @@ Shared-state concurrency uchun: bir nechta thread bir xil qiymatga bir vaqtda o'
 ## Mental Model
 
 "Bu qiymatga bir nechta thread bir vaqtda ko'z tashlay oladi" degan kafolat. `Mutex<T>` `Sync` — ichki qiymatga birin-ketin lock orqali kiradi. `RefCell<T>` `Sync` emas — runtime borrow checker thread-safe emas.
+
+Common-traits source bu traitni ham preview qiladi: `Sync`ning to'liq amaliy oqibatlari multithreading qismida ochiladi, lekin marker contractni oldindan bilish foydali.
 
 ## Kimlar `Sync`
 
@@ -91,3 +93,4 @@ unsafe impl Sync for MyType {}   // dasturchi va'da beradi
 - [[16-4-extensible-concurrency-with-send-and-sync]]
 - [[wiki/sources/20-1-unsafe-rust|20.1 Unsafe Rust]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

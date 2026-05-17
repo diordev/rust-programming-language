@@ -3,28 +3,37 @@ title: "From Trait"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, traits, conversion, error-handling]
-source_count: 1
+source_count: 2
 ---
 
 # From Trait
 
 ## Short Definition
 
-`From` trait bir type'dan boshqa type'ga conversionni belgilaydi. `?` operator error propagation paytida error type conversion uchun `From::from`dan foydalanishi mumkin.
+`From<T>` trait bir type'dan boshqa type'ga canonical ownership conversionni belgilaydi.
 
 ## Why It Matters
 
-Function bitta umumiy error type qaytarishi mumkin, lekin ichida turli operationlar turli error typelar qaytaradi. `From` implementationlari `?` operatorga bu errorlarni current function return error type'iga convert qilishga imkon beradi.
+Bu explicit constructor-like conversion uchun eng toza yo'l. Shuningdek `?` operator error propagation paytida `From::from`dan foydalanishi mumkin.
 
 ## Mental Model
 
-`?` errorni qaytarayotganda "bu error current function error type'iga qanday aylanadi?" deb so'raydi. Javob `From` implementationida bo'lishi mumkin.
+`From<X> for Y` degani: `X`dan `Y` yasashning rasmiy yo'li bor. Odatda aynan `From` implement qilinadi. `Into<Y> for X` esa undan avtomatik keladi, shu sabab `Into`ni qo'lda implement qilish default emas.
 
 ## Syntax and Examples
 
-Conceptual example:
+```rust
+impl From<[u8; 4]> for Ip4Addr {
+    fn from(value: [u8; 4]) -> Self {
+        let [a, b, c, d] = value;
+        Ip4Addr(a, b, c, d)
+    }
+}
+```
+
+Error conversion:
 
 ```rust
 impl From<std::io::Error> for OurError {
@@ -34,16 +43,15 @@ impl From<std::io::Error> for OurError {
 }
 ```
 
-Shundan keyin `Result<_, std::io::Error>` ustidagi `?` `OurError` qaytaradigan function ichida ishlashi mumkin.
-
 ## Common Mistakes
 
-- `?` hamma error typelarni avtomatik convert qiladi deb o'ylash.
-- Conversion uchun `From` yoki boshqa explicit mapping kerakligini unutish.
-- `From`ni generic trait bounds mavzusi bilan bog'lamaslik.
+- `Into`ni qo'lda implement qilish default yo'l deb o'ylash.
+- `From` har qanday potentially lossy yoki surprising conversion uchun ham to'g'ri deb taxmin qilish.
+- `?` hamma error typelarni `From`siz convert qiladi deb o'ylash.
 
 ## Related Concepts
 
+- [[into-trait]]
 - [[traits]]
 - [[question-mark-operator|question mark operator]]
 - [[error-propagation|error propagation]]
@@ -52,3 +60,4 @@ Shundan keyin `Result<_, std::io::Error>` ustidagi `?` `OurError` qaytaradigan f
 ## Sources
 
 - [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

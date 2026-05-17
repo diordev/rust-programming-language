@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, index]
-source_count: 155
+source_count: 156
 ---
 
 # Rust Wiki Index
@@ -172,6 +172,7 @@ source_count: 155
 - [[wiki/sources/rust-for-backend-developers-package-crate-module|Rust for Backend Developers: Package, Crate, Module]]
 - [[wiki/sources/rust-for-backend-developers-workspace-project|Rust for Backend Developers: Workspace Project]]
 - [[wiki/sources/rust-for-backend-developers-testing|Rust for Backend Developers: Testing]]
+- [[wiki/sources/rust-for-backend-developers-common-traits|Rust for Backend Developers: Common Traits]]
 
 ## Chapters
 
@@ -264,6 +265,8 @@ source_count: 155
 - [[wiki/chapters/rust-for-backend-developers-result|Rust for Backend Developers: Result]]
 - [[wiki/chapters/rust-for-backend-developers-iterators|Rust for Backend Developers: Iterators]]
 - [[wiki/chapters/rust-for-backend-developers-smart-pointers|Rust for Backend Developers: Smart Pointers]]
+- [[wiki/chapters/rust-for-backend-developers-3-advance|Rust for Backend Developers: 3. Advance]]
+- [[wiki/chapters/rust-for-backend-developers-common-traits|Rust for Backend Developers: Common Traits]]
 
 ## Concepts
 
@@ -283,6 +286,7 @@ Core concepts and active concept pages:
 - [[trait-definitions|trait definitions]]
 - [[trait-implementations|trait implementations]]
 - [[default-trait-implementations|default trait implementations]]
+- [[default-trait]]
 - [[trait-bounds|trait bounds]]
 - [[impl-trait|impl Trait]]
 - [[static-dispatch|static dispatch]]
@@ -316,7 +320,12 @@ Core concepts and active concept pages:
 - [[eq-trait]]
 - [[ord-trait]]
 - [[hash-trait]]
-- [[default-trait]]
+- [[into-trait]]
+- [[asref-trait]]
+- [[asmut-trait]]
+- [[borrow-trait]]
+- [[borrowmut-trait]]
+- [[to-owned-trait]]
 - [[monomorphization]]
 - [[attribute]]
 - [[derive-attribute|derive attribute]]

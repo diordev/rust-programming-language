@@ -22,6 +22,8 @@ Custom type'lar equality semantics'ga ega bo'lishi kerak bo'lsa, `PartialEq` aso
 
 `PartialEq` "bu type uchun tenglikni mantiqan ta'riflash mumkin" degani. `==` odatda `eq`, `!=` esa `ne` semanticsiga ulanadi. "Partial" qismi shuni eslatadi: barcha typelar self-equalityni to'liq kafolatlay olmaydi, masalan float `NaN`.
 
+`a == a` har doim true bo'lishi shart emas. Shu joyda `PartialEq` bilan [[eq-trait]] orasidagi chiziq paydo bo'ladi.
+
 ## Syntax and Examples
 
 ```rust
@@ -55,6 +57,7 @@ impl PartialEq for Point {
 - Equality semantics'ni domen mantiqiga mos kelmaydigan qilib derive qilish.
 - `assert_eq!` faqat `PartialEq` talab qiladi deb o'ylab, `Debug` talabini unutish.
 - `derive(PartialEq)` barcha fieldlar `PartialEq` bo'lmasa ham ishlaydi deb o'ylash.
+- Floatlardagi `NaN != NaN` holatini unutib, `PartialEq`ni total equality deb o'qish.
 
 ## Related Concepts
 
@@ -69,3 +72,4 @@ impl PartialEq for Point {
 
 - [[wiki/sources/rust-for-backend-developers-auto-derive-traits]]
 - [[wiki/sources/22-3-c-derivable-traits|22.3]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

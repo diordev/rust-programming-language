@@ -3,9 +3,9 @@ title: "Sized Trait"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, traits, types, marker]
-source_count: 2
+source_count: 3
 ---
 
 # Sized Trait
@@ -63,6 +63,8 @@ fn main() {
 
 `?Sized` — "T may or may not be Sized." Faqat `Sized` uchun bu sintaksis mavjud — `?Send`, `?Sync` mavjud emas.
 
+Amaliy signal: `&str`, `&[T]`, va `Box<dyn Trait>` `Sized`, chunki reference yoki smart pointerning o'lchami ma'lum; `str`, `[T]`, va bare `dyn Trait` esa `!Sized`.
+
 ## Auto Implementation
 
 Kompilyator avtomatik implement qiladi:
@@ -114,3 +116,4 @@ Bu pattern `std`'da `[T]` ustida ishlaydigan custom struct'lar uchun ishlatiladi
 
 - [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

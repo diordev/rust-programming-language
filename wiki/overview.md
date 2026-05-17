@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, overview]
-source_count: 155
+source_count: 156
 ---
 
 # Rust Wiki Overview
@@ -182,6 +182,11 @@ Ingested Rust for Backend Developers materials (`2. base` so far):
 - [[wiki/sources/rust-for-backend-developers-package-crate-module|Package, Crate, Module]]
 - [[wiki/sources/rust-for-backend-developers-workspace-project|Workspace Project]]
 - [[wiki/sources/rust-for-backend-developers-testing|Testing]]
+- [[wiki/sources/rust-for-backend-developers-common-traits|Common Traits]]
+
+Ingested Rust for Backend Developers materials (`3. advance` so far):
+
+- [[wiki/sources/rust-for-backend-developers-common-traits|Common Traits]]
 
 Current source baseline:
 
@@ -659,3 +664,9 @@ Rust for Backend Developers `2. base` synthesis:
 - Cargo va dependency bo'limlari `2. base`ni syntax/reference sectiondan real project workflow'iga olib chiqadi: [[cargo|Cargo]], [[cargo-toml|Cargo.toml]], [[dependencies]], [[crates-io|crates.io]], [[cargo-features]], va [[semver|SemVer]] endi code yozishdan tashqari package boshqarish mental modelini beradi.
 - `package`, `crate`, `module` farqi shu bosqichda yopiladi: [[package]] Cargo container, [[crate]] compile unit, [[module]] esa code organization boundary; `src/main.rs`, `src/lib.rs`, va [[src-bin|src/bin]] conventions bu modelni filesystem darajasida ko'rinadigan qiladi.
 - Workspace va testing bo'limlari sectionni team-scale practice bilan yakunlaydi: [[cargo-workspaces|cargo workspaces]], [[workspace-dependencies]], `cargo run -p`, [[testing]], [[unit-tests|unit tests]], [[integration-tests|integration tests]], [[dev-dependencies]], trait-based mock, va [[cargo-nextest]] backend codebase'ni build/test qilishda asosiy operational qatlamni beradi.
+
+Rust for Backend Developers `3. advance` synthesis:
+
+- [[wiki/chapters/rust-for-backend-developers-3-advance|3. Advance]] sectioni syntax va beginner ergonomics'dan keyingi semantic contract qatlamiga o'tadi.
+- [[wiki/chapters/rust-for-backend-developers-common-traits|Common Traits]] equality, ordering, conversion, borrowing, cleanup, DST, va thread-safety markerlarini standard traitlar orqali tartiblaydi.
+- `Eq` vs `PartialEq`, `Ord` vs `PartialOrd`, `From` vs `Into`, `AsRef` vs `Borrow`, va `T: Sized` vs `T: ?Sized` farqlari bu sectionning asosiy mental modeli bo'lib chiqadi.

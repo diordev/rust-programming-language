@@ -3,93 +3,59 @@ title: "PartialOrd"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-13
+updated: 2026-05-17
 tags: [rust, traits, comparisons]
-source_count: 3
+source_count: 4
 ---
 
 # PartialOrd
 
 ## Short Definition
 
-`PartialOrd` standard library trait'i qiymatlarni partial ordering bilan solishtirish imkonini bildiradi; `>`, `<`, `>=`, va `<=` kabi comparison operationlar shu behaviorga tayanadi.
+`PartialOrd` qiymatlarni partial ordering bilan taqqoslashga ruxsat beradi; uning markaziy methodi `partial_cmp` bo'lib, `Option<Ordering>` qaytaradi.
 
 ## Why It Matters
 
-Generic code comparison ishlatsa, compiler type parameter hamma possible type uchun comparable ekanini bilishi kerak. `largest<T>` misolida `item > largest` line'i uchun `T: std::cmp::PartialOrd` constraint kerak.
+Hamma qiymatlar ham har doim taqqoslanavermaydi. `PartialOrd` shu noaniqlikni type systemga ko'taradi, ayniqsa float `NaN` holatida.
 
 ## Mental Model
 
-`T` degani "istalgan type" emas, "signature ruxsat bergan type". Agar function body `>` ishlatsa, `T` kamida `PartialOrd` implement qilgan type bo'lishi kerak. `i32` va `char` buni implement qiladi, shuning uchun `largest` ular bilan ishlaydi.
+`PartialEq` "tengmi?" degan savolni beradi. `PartialOrd` esa "tartib bormi?" degan savolni qo'shadi. Javob har doim bo'lmasligi mumkin, shu sabab return type `Option<Ordering>`.
 
-Chapter 10.2da `Pair<T>` example'i `PartialOrd`ni [[display-formatting|Display]] bilan birga conditional method bound sifatida ishlatadi: `cmp_display` methodi `>=` comparison uchun `PartialOrd`, `{}` output uchun `Display` talab qiladi.
-
-Appendix C esa `PartialOrd`ning derive semantics'ini to'ldiradi: `partial_cmp` `Option<Ordering>` qaytaradi va ba'zi qiymatlar, masalan `NaN`, ordering bermasligi mumkin.
+`None` qaytsa, bu taqqoslab bo'lmaydigan juftlik.
 
 ## Syntax and Examples
 
 ```rust
-fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
-    let mut largest = &list[0];
-
-    for item in list {
-        if item > largest {
-            largest = item;
-        }
-    }
-
-    largest
-}
+println!("{:?}", 4.0.partial_cmp(&5.0));           // Some(Less)
+println!("{:?}", f32::NAN.partial_cmp(&f32::NAN)); // None
 ```
-
-Conditional method with `PartialOrd`:
 
 ```rust
-impl<T: Display + PartialOrd> Pair<T> {
-    fn cmp_display(&self) {
-        if self.x >= self.y {
-            println!("The largest member is x = {}", self.x);
-        } else {
-            println!("The largest member is y = {}", self.y);
-        }
-    }
+pub trait PartialOrd<Rhs = Self>: PartialEq<Rhs>
+where
+    Rhs: ?Sized,
+{
+    fn partial_cmp(&self, other: &Rhs) -> Option<Ordering>;
 }
 ```
-
-Derived ordering:
-
-```rust
-#[derive(PartialEq, PartialOrd)]
-struct Point {
-    x: i32,
-    y: i32,
-}
-```
-
-Structlarda derive field definition orderi bo'yicha, enumlarda esa variant declaration orderi bo'yicha comparison qiladi.
 
 ## Common Mistakes
 
-- `T` har qanday operationni support qiladi deb o'ylash.
-- Compiler errorida `PartialOrd` taklifini ko'rib, bu generic syntax emas, behavior constraint ekanini sezmaslik.
-- `PartialOrd` va boshqa comparison/order traits orasidagi farqni keyinroq aniqlashtirmaslik.
 - `PartialOrd` total orderingni kafolatlaydi deb o'ylash.
+- `partial_cmp` `Ordering` qaytaradi deb o'ylash.
+- `Ord` implement qilinadigan type uchun `PartialOrd`ni alohida boshqa logic bilan yozib yuborish.
 
 ## Related Concepts
 
-- [[traits]]
-- [[generics]]
-- [[generic-functions|generic functions]]
-- [[generic-type-parameters|generic type parameters]]
-- [[trait-bounds|trait bounds]]
-- [[conditional-method-implementations|conditional method implementations]]
-- [[display-formatting|Display]]
-- [[partial-eq]]
 - [[ord-trait|Ord]]
-- [[e0369-binary-operation-cannot-be-applied|E0369 binary operation cannot be applied]]
+- [[ordering]]
+- [[partial-eq]]
+- [[traits]]
 
 ## Sources
 
 - [[10-1-generic-data-types]]
 - [[10-2-defining-shared-behavior-with-traits]]
 - [[wiki/sources/22-3-c-derivable-traits|22.3]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

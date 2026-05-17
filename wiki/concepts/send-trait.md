@@ -3,9 +3,9 @@ title: "Send trait"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, concurrency, threads, traits, marker, unsafe]
-source_count: 5
+source_count: 6
 ---
 
 # Send trait
@@ -21,6 +21,8 @@ Rust `Send`ni compile time'da tekshiradi: agar type `Send` implement qilmasa, un
 ## Mental Model
 
 "Bu qiymatni boshqa threadga topshirish xavfsiz" degan kafolat. `Rc<T>` xavfli — reference count atomic emas, ikki thread bir vaqtda o'zgartirishi mumkin. `Arc<T>` xavfsiz — atomic. Rust shu farqni `Send` trait orqali ifodalaydi.
+
+Common-traits source bu traitni preview sifatida beradi: detail keyingi multithreading bobida, lekin semantic marker sifatida erta tanish bo'lish muhim.
 
 ## Kimlar `Send`
 
@@ -100,3 +102,4 @@ Bu [[unsafe-trait|unsafe trait]] implementatsiyasining klassik misoli.
 - [[wiki/sources/20-1-unsafe-rust|20.1 Unsafe Rust]]
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

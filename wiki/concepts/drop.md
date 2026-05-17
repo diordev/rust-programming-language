@@ -4,8 +4,9 @@ type: concept
 status: active
 created: 2026-05-06
 updated: 2026-05-16
+updated: 2026-05-17
 tags: [rust, ownership, memory, smart-pointers]
-source_count: 6
+source_count: 7
 ---
 
 # drop
@@ -35,6 +36,8 @@ Concurrency kodda ham `Drop` juda amaliy: `ThreadPool` scope'dan chiqayotganda w
 `drop` odatda qo'lda chaqirilmaydi; ownership/scope tugaganda Rust chaqiradi. `String` author'i cleanup code'ni drop logiciga joylaydi.
 
 Backend beginner source `std::mem::drop`ni ownership orqali early cleanup signalining sodda misoli sifatida ham ko'rsatadi: funksiya argumentni move qilib oladi va uni boshqa joyga uzatmaydi.
+
+`Drop` haqidagi common-traits source'dagi raw allocation demo mexanizmni ko'rsatish uchun. Uni production heap management namunasi deb o'qish noto'g'ri.
 
 Vector scope'dan chiqqanda vectorning o'zi va ichidagi elementlar dropped bo'ladi:
 
@@ -130,3 +133,4 @@ Bu yerda `drop(...)` explicit signal sifatida ishlatiladi: sender yo'qolishi wor
 - [[15-3-running-code-on-cleanup-with-the-drop-trait]]
 - [[wiki/sources/21-3-graceful-shutdown-and-cleanup|21.3]]
 - [[wiki/sources/rust-for-backend-developers-ownership]]
+- [[wiki/sources/rust-for-backend-developers-common-traits]]

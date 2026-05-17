@@ -5,10 +5,32 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, log]
-source_count: 155
+source_count: 156
 ---
 
 # Wiki Log
+
+## 2026-05-17 ingest | Rust for Backend Developers `3. advance` 45
+
+- Ingested 1 ta source from `raw/books/rust-for-backend-developer/3. advance/`:
+  - `45. Основные трейты.md`
+- Created source summary:
+  - [[wiki/sources/rust-for-backend-developers-common-traits]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-3-advance]]
+  - [[wiki/chapters/rust-for-backend-developers-common-traits]]
+- Created concept pages:
+  - [[into-trait]]
+  - [[asref-trait]]
+  - [[asmut-trait]]
+  - [[borrow-trait]]
+  - [[borrowmut-trait]]
+  - [[to-owned-trait]]
+- Updated existing concept pages:
+  - [[eq-trait]], [[partial-eq]], [[partial-ord]], [[ord-trait|Ord]], [[ordering|Ordering]], [[default-trait]], [[from-trait]], [[drop]], [[sized-trait]], [[send-trait|Send trait]], [[sync-trait|Sync trait]]
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 155->156; 1 source va 2 chapter link qo'shildi.
+- Appended common-traits relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation: `Eq` total equality contracti `NaN != NaN` misoli bilan ajratildi; `PartialOrd` vs `Ord` `Option<Ordering>` vs `Ordering` modeli bilan yozildi; `From` implement qilinganda `Into` avtomatik olinishi alohida qayd qilindi; `AsRef` va `Borrow` semantic contractlari aralashtirilmadi; `Drop`dagi raw allocation demo production heap management namunasi sifatida yozilmadi; `str`, `[T]`, `dyn Trait`, `&str`, `&[T]`, `Box<dyn Trait>`, `T: Sized`, va `T: ?Sized` boundarylari saqlandi.
 
 ## 2026-05-17 ingest | Rust for Backend Developers `2. base` 38-44
 

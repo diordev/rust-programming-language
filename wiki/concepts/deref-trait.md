@@ -5,28 +5,24 @@ status: active
 created: 2026-05-08
 updated: 2026-05-17
 tags: [rust, traits, deref, smart-pointers]
-source_count: 2
+source_count: 3
 ---
 
 # Deref Trait
 
 ## Short Definition
 
-`Deref` trait `*` [[dereference-operator|dereference operator]] behaviorini custom qilishga imkon beradi. Smart pointer reference kabi ishlashi uchun ko'pincha `Deref` implement qiladi.
+`Deref` trait `*` dereference behaviorini custom qilishga va deref coercion'ga asos bo'lishga xizmat qiladi.
 
 ## Why It Matters
 
-`Deref` tufayli `Box<T>`, `String`, va custom smart pointerlar reference kutadigan kod bilan ergonomic ishlaydi. Bu [[deref-coercions|deref coercions]] uchun ham asos.
+`Box<T>`, `String`, va ayrim wrapper typelar reference kutadigan API bilan ergonomic ishlaydi.
 
 ## Mental Model
 
-`*y` yozilganda, agar `y` oddiy reference emas, lekin `Deref` implement qilgan type bo'lsa, compiler buni conceptually `*(y.deref())` kabi ko'radi.
+`Deref` inner value'ni move qilmaydi; `&Self::Target` qaytaradi. Shuning uchun smart pointer yoki wrapper "referencega o'xshab" ishlashi mumkin.
 
-`deref` inner value'ni move qilmasligi uchun reference qaytaradi:
-
-```rust
-fn deref(&self) -> &Self::Target
-```
+Advance newtype source yana bir amaliy boundary ko'rsatadi: `FileWrapper(File)` uchun `Deref<Target = File>` yozilsa, wrapper ustida `metadata()` kabi method'lar ishlaydi. Bu qulay, lekin wrapperning alohida API surface'ini ham yumshatadi.
 
 ## Syntax and Examples
 
@@ -42,16 +38,13 @@ impl<T> Deref for MyBox<T> {
         &self.0
     }
 }
-
-let b = Box::new(1);
-let r: &i32 = &b; // conceptually b.deref()
 ```
 
 ## Common Mistakes
 
-- `Deref` method value qaytarishi kerak deb o'ylash.
-- `Deref`ni har qanday wrapper type uchun avtomatik implement qilish. Bu API'da yashirin coercion va method lookup behaviorini oshiradi.
-- `Deref` va [[drop|Drop trait]]ni chalkashtirish: biri access ergonomics, ikkinchisi cleanup.
+- `Deref`ni har qanday wrapper uchun avtomatik yozish.
+- `Deref`ni ownership conversion deb o'ylash.
+- Newtype uchun u default tavsiya deb hisoblash.
 
 ## Related Concepts
 
@@ -60,10 +53,12 @@ let r: &i32 = &b; // conceptually b.deref()
 - [[dereference-operator]]
 - [[deref-coercions]]
 - [[deref-mut-trait|DerefMut trait]]
+- [[newtype-pattern|newtype pattern]]
 - [[traits]]
-- [[trait-implementations|trait implementations]]
 
 ## Sources
 
 - [[15-2-treating-smart-pointers-like-regular-references]]
 - [[wiki/sources/rust-for-backend-developers-smart-pointers]]
+- [[wiki/sources/rust-for-backend-developers-newtype-pattern]]
+

@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, overview]
-source_count: 156
+source_count: 162
 ---
 
 # Rust Wiki Overview
@@ -187,6 +187,21 @@ Ingested Rust for Backend Developers materials (`2. base` so far):
 Ingested Rust for Backend Developers materials (`3. advance` so far):
 
 - [[wiki/sources/rust-for-backend-developers-common-traits|Common Traits]]
+- [[wiki/sources/rust-for-backend-developers-any|Any]]
+- [[wiki/sources/rust-for-backend-developers-collections|Collections]]
+- [[wiki/sources/rust-for-backend-developers-io|I/O]]
+- [[wiki/sources/rust-for-backend-developers-file-system|File System]]
+- [[wiki/sources/rust-for-backend-developers-newtype-pattern|Newtype Pattern]]
+- [[wiki/sources/rust-for-backend-developers-panic|panic]]
+
+`3. advance` sectioni endi quyidagi yo'nalishlarni qamrab oladi:
+
+- runtime type inspection: `Any`, `TypeId`, safe downcast
+- collection selection: `Vec` defaulti, `VecDeque`, `HashSet`, `BTreeMap`, `BinaryHeap`
+- byte I/O: `Read`, `Write`, `Cursor`
+- filesystem boundary: `std::fs`, `Path`, `OsStr`, `OsString`, `OpenOptions`
+- newtype workaround: orphan rule, local compare/conversion semantics
+- panic policy: `panic!` vs `Result`, `catch_unwind`, `panic_any`, hook va placeholder macro'lar
 
 Current source baseline:
 

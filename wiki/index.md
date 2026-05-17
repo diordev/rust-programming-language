@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, index]
-source_count: 156
+source_count: 162
 ---
 
 # Rust Wiki Index
@@ -173,6 +173,12 @@ source_count: 156
 - [[wiki/sources/rust-for-backend-developers-workspace-project|Rust for Backend Developers: Workspace Project]]
 - [[wiki/sources/rust-for-backend-developers-testing|Rust for Backend Developers: Testing]]
 - [[wiki/sources/rust-for-backend-developers-common-traits|Rust for Backend Developers: Common Traits]]
+- [[wiki/sources/rust-for-backend-developers-any|Rust for Backend Developers: Any]]
+- [[wiki/sources/rust-for-backend-developers-collections|Rust for Backend Developers: Collections]]
+- [[wiki/sources/rust-for-backend-developers-io|Rust for Backend Developers: I/O]]
+- [[wiki/sources/rust-for-backend-developers-file-system|Rust for Backend Developers: File System]]
+- [[wiki/sources/rust-for-backend-developers-newtype-pattern|Rust for Backend Developers: Newtype Pattern]]
+- [[wiki/sources/rust-for-backend-developers-panic|Rust for Backend Developers: panic]]
 
 ## Chapters
 
@@ -267,6 +273,12 @@ source_count: 156
 - [[wiki/chapters/rust-for-backend-developers-smart-pointers|Rust for Backend Developers: Smart Pointers]]
 - [[wiki/chapters/rust-for-backend-developers-3-advance|Rust for Backend Developers: 3. Advance]]
 - [[wiki/chapters/rust-for-backend-developers-common-traits|Rust for Backend Developers: Common Traits]]
+- [[wiki/chapters/rust-for-backend-developers-any|Rust for Backend Developers: Any]]
+- [[wiki/chapters/rust-for-backend-developers-collections|Rust for Backend Developers: Collections]]
+- [[wiki/chapters/rust-for-backend-developers-io|Rust for Backend Developers: I/O]]
+- [[wiki/chapters/rust-for-backend-developers-file-system|Rust for Backend Developers: File System]]
+- [[wiki/chapters/rust-for-backend-developers-newtype-pattern|Rust for Backend Developers: Newtype Pattern]]
+- [[wiki/chapters/rust-for-backend-developers-panic|Rust for Backend Developers: panic]]
 
 ## Concepts
 
@@ -301,6 +313,12 @@ Core concepts and active concept pages:
 - [[fully-qualified-syntax|fully qualified syntax]]
 - [[supertraits]]
 - [[newtype-pattern|newtype pattern]]
+- [[collections]]
+- [[linked-list|LinkedList]]
+- [[vecdeque|VecDeque]]
+- [[hash-set|HashSet]]
+- [[btree-map|BTreeMap]]
+- [[binary-heap|BinaryHeap]]
 - [[dyn-compatibility|dyn compatibility]]
 - [[type-alias|type alias]]
 - [[never-type|never type (!)]]
@@ -318,6 +336,10 @@ Core concepts and active concept pages:
 - [[partial-eq]]
 - [[partial-ord|PartialOrd]]
 - [[eq-trait]]
+- [[any-trait|Any]]
+- [[type-id|TypeId]]
+- [[downcasting]]
+- [[trait-object-vtable]]
 - [[ord-trait]]
 - [[hash-trait]]
 - [[into-trait]]
@@ -358,6 +380,24 @@ Core concepts and active concept pages:
 - [[static-lifetime|static lifetime]]
 - [[borrow-checker|borrow checker]]
 - [[testing]]
+- [[read-trait|Read]]
+- [[write-trait|Write]]
+- [[byte-buffer|byte buffer]]
+- [[cursor|Cursor]]
+- [[std-io|std::io]]
+- [[std-fs|std::fs]]
+- [[open-options|OpenOptions]]
+- [[osstring|OsString]]
+- [[osstr|OsStr]]
+- [[path|Path]]
+- [[panic]]
+- [[panic-vs-result|panic! vs Result]]
+- [[panic-hook]]
+- [[catch-unwind]]
+- [[panic-any]]
+- [[todo-macro|todo!]]
+- [[unimplemented-macro|unimplemented!]]
+- [[unreachable-macro|unreachable!]]
 - [[test-macros|test macros (assert!, assert_eq!, assert_ne!)]]
 - [[should-panic|should_panic]]
 - [[cfg-test|cfg(test) va mod tests]]

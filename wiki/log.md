@@ -5,10 +5,52 @@ status: active
 created: 2026-05-06
 updated: 2026-05-17
 tags: [rust, log]
-source_count: 156
+source_count: 162
 ---
 
 # Wiki Log
+
+## 2026-05-17 ingest | Rust for Backend Developers `3. advance` 46-51
+
+- Ingested 6 ta source from `raw/books/rust-for-backend-developer/3. advance/`:
+  - `46. Any.md`
+  - `47. Коллекции.md`
+  - `48. Вводвывод.md`
+  - `49. Файловая система.md`
+  - `50. Newtype паттерн.md`
+  - `51. Паника.md`
+- Created source summaries:
+  - [[wiki/sources/rust-for-backend-developers-any]]
+  - [[wiki/sources/rust-for-backend-developers-collections]]
+  - [[wiki/sources/rust-for-backend-developers-io]]
+  - [[wiki/sources/rust-for-backend-developers-file-system]]
+  - [[wiki/sources/rust-for-backend-developers-newtype-pattern]]
+  - [[wiki/sources/rust-for-backend-developers-panic]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-any]]
+  - [[wiki/chapters/rust-for-backend-developers-collections]]
+  - [[wiki/chapters/rust-for-backend-developers-io]]
+  - [[wiki/chapters/rust-for-backend-developers-file-system]]
+  - [[wiki/chapters/rust-for-backend-developers-newtype-pattern]]
+  - [[wiki/chapters/rust-for-backend-developers-panic]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-3-advance]]: source_count 1->7; runtime type inspection, collections selection, byte I/O, filesystem boundary, newtype workaround, va panic policy synthesis qo'shildi.
+- Created concept pages:
+  - [[any-trait|Any]], [[type-id|TypeId]], [[downcasting]], [[trait-object-vtable]]
+  - [[linked-list|LinkedList]], [[vecdeque|VecDeque]], [[hash-set|HashSet]], [[btree-map|BTreeMap]], [[binary-heap|BinaryHeap]]
+  - [[read-trait|Read]], [[write-trait|Write]], [[cursor|Cursor]], [[std-io|std::io]], [[std-fs|std::fs]], [[open-options|OpenOptions]]
+  - [[osstring|OsString]], [[osstr|OsStr]], [[path|Path]]
+  - [[panic-hook]], [[catch-unwind]], [[panic-any]], [[todo-macro|todo!]], [[unimplemented-macro|unimplemented!]], [[unreachable-macro|unreachable!]]
+- Updated existing concept pages:
+  - [[collections]], [[hash-map|HashMap]], [[file-io]], [[io-error]], [[newtype-pattern|newtype pattern]], [[orphan-rule|orphan rule]], [[deref-trait|Deref trait]], [[from-trait]], [[panic]], [[panic-vs-result|panic! vs Result]], [[unwrap]], [[diverging-functions|diverging functions]], [[never-type|never type (!)]], [[backtrace]], [[drop]]
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 156->162; 6 source, 6 chapter, va yangi concept linklari qo'shildi.
+- Appended Any/collections/I-O/filesystem/newtype/panic relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation:
+  - oddiy `dyn Trait` universal runtime type info bermasligi, lekin `Any` supertrait bilan safe downcast mumkinligi aniq yozildi
+  - `LinkedList` va `VecDeque` performance claimlari workload bo'yicha ajratildi
+  - `Read::read` va `Write::write` `io::Result<usize>` ekani, `Cursor<T>` esa `AsRef<[u8]>` modeli bilan bog'langani tuzatildi
+  - filesystem bo'limida `Path`, `OsStr`, `OsString`, `AsRef<Path>`, va `Drop` orqali file cleanup boundary'lari aniq yozildi
+  - newtype bo'limida `Deref` default tavsiya emas, ergonomics tradeoff sifatida yozildi
+  - panic bo'limida `Result` default, panic esa invariant/bug/contract break holati uchun ekani qat'iy saqlandi
 
 ## 2026-05-17 ingest | Rust for Backend Developers `3. advance` 45
 
@@ -1428,3 +1470,10 @@ source_count: 156
 - Updated [[index|Rust Wiki Index]] va [[overview]] source_count 137->138; 1 source va 1 chapter link qo'shildi.
 - Appended trait relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
 - Source caveat preservation: trait object cheklovlari wiki'da beginner simplification sifatida yozildi; source associated typesni umumiy taqiq sifatida soddalashtiradi, wiki esa bunu dyn compatibility modeli bilan ehtiyotkor tushuntirdi.
+
+## 2026-05-17 lint | byte buffer link fix
+
+- Fixed broken wikilink `[[byte-buffer]]` from [[wiki/sources/rust-for-backend-developers-io]].
+- Created concept page [[byte-buffer|byte buffer]] for Rust I/O buffer semantics.
+- Updated [[index|Rust Wiki Index]] with the new concept link.
+- Appended only new byte-buffer relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.

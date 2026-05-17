@@ -5,63 +5,49 @@ status: active
 created: 2026-05-07
 updated: 2026-05-17
 tags: [rust, error-handling, result, option]
-source_count: 5
+source_count: 6
 ---
 
 # unwrap
 
 ## Short Definition
 
-`unwrap` `Result` yoki `Option` ichidagi success value'ni qaytaradigan, failure/none holatda [[panic|panic!]] qiladigan shortcut method.
+`unwrap` `Result` yoki `Option` ichidagi success value'ni qaytaradi, failure holatda esa [[panic]] qiladi.
 
 ## Why It Matters
 
-`unwrap` prototyping, examples, yoki "bu yerda xato bo'lishi mumkin emas" assumptioni uchun qisqa. Lekin recoverable errors uchun u error handling emas; failure bo'lsa program to'xtaydi. Muhim aniqlik: `unwrap` Rust `unsafe` mexanizmi emas; u panic qilishi mumkin bo'lgan convenience shortcut.
+U qisqa, lekin bu error handling emas. Failure bo'lsa program flow buziladi.
 
 ## Mental Model
 
-`unwrap` "value borligiga ishonaman; bo'lmasa crash qil" degani.
+`unwrap` "bu yerda value borligiga ishonaman; bo'lmasa crash qil" degani.
 
-Examples, prototype code, va testsda `unwrap` temporary yoki deliberate panic marker sifatida mos bo'lishi mumkin. Production error handlingda esa ko'pincha [[expect]] yoki explicit `Result` handling yaxshiroq.
+Prototype, examples, yoki testsda ba'zan maqbul. Production error handlingda esa ko'pincha `expect`, explicit `match`, yoki `?` yaxshiroq.
+
+Advance panic source yana buni kuchaytiradi: `unwrap`dan kelgan panic'ni `catch_unwind` ushlashi mumkin, lekin bu `unwrap`ni normal error transportiga aylantirmaydi.
 
 ## Syntax and Examples
 
 ```rust
-use std::fs::File;
-
-fn main() {
-    let greeting_file = File::open("hello.txt").unwrap();
-}
-```
-
-`File::open` `Err` qaytarsa, `unwrap` panic qiladi.
-
-`Option` bilan:
-
-```rust
-let o: Option<i32> = Some(5);
-let i: i32 = o.unwrap();
+let a: Option<i32> = Some(5);
+let n = a.unwrap();
 ```
 
 ## Common Mistakes
 
-- User input, file system, network kabi normal failure holatlarida `unwrap`ni odatiy yechim qilish.
-- `unwrap` va [[expect]] orasidagi debugging message farqini hisobga olmaslik.
-- `unwrap` errorni handle qiladi deb o'ylash; u panic qiladi.
-- Prototype markerini production code'da qoldirish.
-- `unwrap`ni `unsafe` deb atash.
+- User input, filesystem, network failure'larda `unwrap`ni default qilish.
+- Uni `unsafe` bilan aralashtirish.
+- Request boundary'da `unwrap` panicini keyin tutib olaman deb o'ylab, baribir API'ni panic-heavy qilish.
 
 ## Related Concepts
 
 - [[expect]]
 - [[result|Result<T, E>]]
 - [[option|Option]]
-- [[panic|panic!]]
-- [[recoverable-errors|recoverable errors]]
+- [[panic]]
 - [[panic-vs-result|panic! vs Result]]
-- [[testing]]
-- [[never-type|never type (!)]] — `panic!` `!` qaytaradi → `match` da `T` ga coerce
-- [[diverging-functions|diverging functions]]
+- [[catch-unwind]]
+- [[never-type|never type (!)]]
 
 ## Sources
 
@@ -70,3 +56,5 @@ let i: i32 = o.unwrap();
 - [[wiki/sources/20-3-advanced-types|20.3 Advanced Types]]
 - [[wiki/sources/rust-for-backend-developers-option]]
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-panic]]
+

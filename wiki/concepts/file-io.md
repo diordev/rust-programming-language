@@ -3,60 +3,75 @@ title: "File I/O"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-17
 tags: [rust, io, filesystem]
-source_count: 1
+source_count: 3
 ---
 
 # File I/O
 
 ## Short Definition
 
-Rust standart kutubxonasi `std::fs` moduli orqali fayl o'qish va yozish imkonini beradi. Barcha fayl operatsiyalari `Result` qaytaradi — xatolar majburiy boshqariladi.
+File I/O Rust'da `std::fs` handle'lari va `std::io` traitlari orqali file'ni o'qish-yozish modeli.
 
 ## Why It Matters
 
-CLI dasturlari ko'pincha fayl o'qiydi yoki yozadi. `std::fs` ergonomik API taqdim etadi; `BufReader` kabi asboblar katta fayllar uchun samaradorlikni oshiradi.
+CLI, tooling, batch job, va ba'zi backend utility qatlamlarida fayl bilan ishlash muqarrar.
 
 ## Mental Model
 
-Fayl operatsiyasi doim muvaffaqiyatsiz bo'lishi mumkin (fayl yo'q, ruxsat yo'q, disk to'la). Shuning uchun Rust `Result` qaytaradi va xatolarni e'tiborsiz qoldirib bo'lmaydi.
+`File` concrete handle. `[[read-trait|Read]]` va `[[write-trait|Write]]` universal byte-stream interface. `[[path|Path]]` esa file location boundary'si.
+
+Oddiy workflow:
+
+1. `File::open` yoki `File::create`
+2. `read_to_string`, `read`, `write_all`, yoki `write`
+3. xatolar `Result` orqali chiqadi
+4. handle scope'dan chiqqanda `[[drop]]` cleanup qiladi
 
 ## Syntax and Examples
 
-To'liq fayl o'qish:
-
 ```rust
-use std::fs;
+use std::fs::File;
+use std::io::{self, Read};
 
-let contents = fs::read_to_string("poem.txt")
-    .expect("Should have been able to read the file");
-```
-
-Xatoni `?` bilan uzatish:
-
-```rust
-use std::fs;
-use std::error::Error;
-
-fn read_file(path: &str) -> Result<String, Box<dyn Error>> {
-    let contents = fs::read_to_string(path)?;
+fn read_file() -> io::Result<String> {
+    let mut file = File::open("poem.txt")?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
     Ok(contents)
 }
 ```
 
+```rust
+use std::fs::OpenOptions;
+use std::io::Write;
+
+let mut file = OpenOptions::new().append(true).open("app.log")?;
+file.write_all(b"hello\n")?;
+```
+
 ## Common Mistakes
 
-- Katta fayllar uchun `read_to_string` — butun faylni xotiraga yuklaydi. Katta fayllar uchun `BufReader` samarali.
-- Xato xabarida fayl yo'lini ko'rsatmaslik — debugging qiyinlashadi.
+- Katta input uchun `read_to_string`ni ehtiyotsiz ishlatish.
+- `write()` partial write bo'lishi mumkinligini unutish.
+- Path'ni faqat UTF-8 `String` deb ko'rish.
+- Error xabarida qaysi file bilan ishlanayotganini yozmaslik.
 
 ## Related Concepts
 
-- [[fs-read-to-string|fs::read_to_string]]
-- [[result|Result]]
-- [[question-mark-operator|? operatori]]
-- [[error-handling]]
+- [[std-fs|std::fs]]
+- [[std-io|std::io]]
+- [[read-trait|Read]]
+- [[write-trait|Write]]
+- [[open-options|OpenOptions]]
+- [[path|Path]]
+- [[io-error]]
+- [[drop]]
 
 ## Sources
 
 - [[12-2-reading-a-file]]
+- [[wiki/sources/rust-for-backend-developers-io]]
+- [[wiki/sources/rust-for-backend-developers-file-system]]
+

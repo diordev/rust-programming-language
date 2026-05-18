@@ -3,9 +3,9 @@ title: "Static Items"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-16
+updated: 2026-05-18
 tags: [rust, static, globals]
-source_count: 4
+source_count: 5
 ---
 
 # Static Items
@@ -69,7 +69,7 @@ unsafe {
 
 `static mut` bilan ishlash `unsafe`, chunki shared mutable global state data race xavfini oshiradi. Rust 2024'da `&LEVELS` reference'ni olish `static_mut_refs` lint orqali deny qilingan; o'rniga [[raw-borrow-operators|raw borrow operators]] (`&raw const LEVELS`) ishlatish kerak. Batafsil: [[mutable-static]].
 
-Rustda amalda ko'pincha `static mut` o'rniga `Atomic*`, `Mutex`, `RwLock`, yoki `OnceLock`/`LazyLock` kabi vositalar tanlanadi.
+Rustda amalda ko'pincha `static mut` o'rniga `Atomic*`, `Mutex`, `RwLock`, yoki [[oncelock|OnceLock]]/[[lazylock|LazyLock]] kabi vositalar tanlanadi.
 
 Source storage segmentlari (`data`, `bss`) haqida ham gapiradi. Bu foydali low-level mental model, lekin ABI va optimization tafsilotlari sifatida qarash to'g'riroq.
 
@@ -92,10 +92,14 @@ Source storage segmentlari (`data`, `bss`) haqida ham gapiradi. Bu foydali low-l
 - [[mutable-static|mutable static]]
 - [[unsafe-rust|unsafe Rust]]
 - [[raw-borrow-operators|raw borrow operators]]
+- [[lazylock|LazyLock]]
+- [[oncelock|OnceLock]]
+- [[global-data]]
 
 ## Sources
 
 - [[wiki/sources/20-1-unsafe-rust|20.1 Unsafe Rust]]
 - [[wiki/sources/rust-for-backend-developers-variables]]
+- [[wiki/sources/rust-for-backend-developers-global-data]]
 - [Rust Reference: Constant items](https://doc.rust-lang.org/stable/reference/items/constant-items.html)
 - [Rust Reference: Static items](https://doc.rust-lang.org/stable/reference/items/static-items.html)

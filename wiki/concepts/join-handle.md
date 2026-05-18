@@ -3,9 +3,9 @@ title: "JoinHandle"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-13
+updated: 2026-05-18
 tags: [rust, concurrency, threads]
-source_count: 2
+source_count: 3
 ---
 
 # JoinHandle
@@ -23,6 +23,8 @@ Handle saqlanmasa, thread "detached" holda ishlaydi va main thread tugatilishi b
 `JoinHandle` — "thread ning qo'li". Ushlab tursangiz, u tugaguncha kutasiz. Qo'yib yuborsangiz (handle ni drop qilsangiz), ishiga aralashmaysiz.
 
 Muhim nuance: `.join()` handle'ni borrow qilmaydi, balki consume qiladi. Demak `JoinHandle` ko'pincha "bir martalik ticket" sifatida ishlaydi.
+
+`thread::spawn` ham, [[thread-builder]] ham `JoinHandle` qaytaradi. Scoped thread'larda esa explicit `JoinHandle` bilan ishlamasdan scope exit paytida auto-join semantics olinadi.
 
 ## Syntax and Examples
 
@@ -43,7 +45,7 @@ fn main() {
         thread::sleep(Duration::from_millis(1));
     }
 
-    handle.join().unwrap(); // spawned thread tugashini kut
+    handle.join().unwrap();
 }
 ```
 
@@ -52,14 +54,14 @@ fn main() {
 ### `join` joyi execution tartibini belgilaydi
 
 ```rust
-// join KEYIN → interleaved chiqish
 let handle = thread::spawn(|| { /* ... */ });
 for i in 1..5 { /* main ish */ }
-handle.join().unwrap(); // spawned tugashini kut
+handle.join().unwrap();
+```
 
-// join OLDIN → sequential: avval spawned, keyin main
+```rust
 let handle = thread::spawn(|| { /* ... */ });
-handle.join().unwrap(); // oldin spawned tugasin
+handle.join().unwrap();
 for i in 1..5 { /* main ish */ }
 ```
 
@@ -75,13 +77,15 @@ Bu kod ishlamaydi, chunki `join(self)` `JoinHandle` ownership'ini oladi. Borrowe
 
 ## Common Mistakes
 
-- **`join` ni loopdan oldin qo'yish**: natijada ikkala thread parallel emas, ketma-ket ishlaydi. Ko'pincha bu niyat qilinmagan.
-- **`unwrap` bilan panic ni yutish**: spawned thread panic qilsa `join` `Err` qaytaradi; production kodda to'g'ri handle qiling.
+- **`join` ni loopdan oldin qo'yish**: natijada ikkala thread parallel emas, ketma-ket ishlaydi.
+- **`unwrap` bilan panic ni yutish**: spawned thread panic qilsa `join` `Err` qaytaradi.
 - **`join` borrow bilan ishlaydi deb o'ylash**: cleanup code'da bu ko'pincha [[e0507-cannot-move-out-of-borrowed-content|E0507]]ga olib keladi.
 
 ## Related Concepts
 
 - [[threads]]
+- [[thread-builder]]
+- [[scoped-threads]]
 - [[concurrency]]
 - [[closures]]
 - [[result]]
@@ -93,3 +97,4 @@ Bu kod ishlamaydi, chunki `join(self)` `JoinHandle` ownership'ini oladi. Borrowe
 
 - [[16-1-using-threads-to-run-code-simultaneously]]
 - [[wiki/sources/21-3-graceful-shutdown-and-cleanup|21.3]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

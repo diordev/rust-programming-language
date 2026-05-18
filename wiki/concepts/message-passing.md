@@ -3,60 +3,51 @@ title: "Message Passing"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-18
 tags: [rust, concurrency, threads, channels, patterns]
-source_count: 1
+source_count: 2
 ---
 
 # Message Passing
 
 ## Short Definition
 
-Concurrency modeli: threadlar shared memory orqali emas, **xabar uzatib** muloqot qiladi. Go til hujjatidan slogan: *"Do not communicate by sharing memory; instead, share memory by communicating."*
+Concurrency modeli: threadlar shared memory orqali emas, **xabar uzatib** muloqot qiladi.
 
 ## Why It Matters
 
-Shared mutable state ko'p concurrency xatolarining manbai. Message passing bu xatolarni oldini olishning eng samarali usullaridan biri:
-- Yuborilgan qiymat ownership o'tkaziladi → asl thread endi unga kira olmaydi.
-- Receiver ham bir vaqtda faqat bitta qiymatni qabul qiladi.
-- Race conditionlar tabiiy ravishda yo'q.
-
-Rustda message-passing [[channels]] orqali amalga oshiriladi va ownership system avtomatik ravishda xavfsizlikni kafolatlaydi.
+Shared mutable state ko'p concurrency xatolarining manbai. Message passing bu xatolarni oldini olishning samarali usullaridan biri.
 
 ## Mental Model
 
-Threadlar — alohida ofislar. Bir-biri bilan post orqali xat yozishadi. Hech qaysi ofis ikkinchisining ish stoliga aralashmaydi. Xat yuborilgandan keyin nusxa qolmaydi (Rustda) — original ofisda hujjat yo'q.
+Threadlar — alohida ofislar. Bir-biri bilan post orqali xat yozishadi. Xat yuborilgandan keyin ownership o'tadi.
+
+Bu modelda queue semantics ham muhim: unbounded channel producer'ni deyarli ushlamaydi, bounded [[sync-channel]] esa consumer ortda qolsa producer'ni block qilib backpressure beradi.
 
 ## Syntax and Examples
 
 ```rust
 use std::sync::mpsc;
-use std::thread;
 
 let (tx, rx) = mpsc::channel();
-
-thread::spawn(move || {
+std::thread::spawn(move || {
     tx.send(String::from("hello")).unwrap();
 });
-
 println!("Got: {}", rx.recv().unwrap());
 ```
 
-Batafsil: [[channels]].
-
 ## Message Passing vs Shared State
 
-| Pattern | Mexanizm | Sinxronizatsiya |
-|---------|----------|------------------|
-| Message passing | `mpsc::channel` | Channel ichidagi `Send` qoidalari |
-| Shared state | `Mutex<T>`, `Arc<T>` | Lock olishni boshqarish |
-
-Ikkalasi ham Rustda mavjud — vaziyatga qarab tanlanadi. Ko'pincha message passing aniqroq va xavfsiz, lekin ba'zan shared state samaraliroq.
+| Pattern | Mexanizm |
+|---------|----------|
+| Message passing | `mpsc::channel` |
+| Shared state | `Mutex<T>`, `Arc<T>` |
 
 ## Common Mistakes
 
-- **Message passing'da ham deadlock bo'ladi deb o'ylamaslik** — recvers va senders bir-birini kutib qolishi mumkin.
-- **Shared state pattern'ga "yomon" deb qarash** — vaziyatga qarab har biri to'g'ri tanlov.
+- **Message passing'da ham deadlock bo'ladi deb o'ylamaslik**.
+- **Shared state pattern'ga "yomon" deb qarash**.
+- **Shutdown semanticsni unutish** — sender close ko'pincha lifecycle signal bo'ladi.
 
 ## Related Concepts
 
@@ -65,7 +56,9 @@ Ikkalasi ham Rustda mavjud — vaziyatga qarab tanlanadi. Ko'pincha message pass
 - [[threads]]
 - [[ownership]]
 - [[mutex-t]]
+- [[sync-channel]]
 
 ## Sources
 
 - [[16-2-transfer-data-between-threads-with-message-passing]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

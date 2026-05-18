@@ -3,9 +3,9 @@ title: "Result"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, error-handling]
-source_count: 6
+source_count: 7
 ---
 
 # Result
@@ -32,6 +32,8 @@ Fail bo'lishi mumkin bo'lgan function definitionida `Result` yaxshi default: cal
 Backend beginner source bu modelni chuqurlashtiradi: `Err(E)`dagi `E` oddiy string bo'lishi mumkin, lekin ko'pincha custom enum error type yaxshiroq signal beradi. `NameParseError` misoli errorni ham domain data sifatida ko'rsatadi.
 
 O'sha source yana uchta amaliy qatlam qo'shadi: [[std-error-trait|std::error::Error]] ecosystem contracti, `map`/`and_then` combinatorlari, va `?` bilan linear [[error-propagation|error propagation]]. Oxirida ignored `Result` warning signalini ongli bosish uchun `let _ = ...;` patterni ko'rsatiladi.
+
+Advance backend error source esa `E` parametri uchun uchta amaliy shape'ni bir joyga qo'yadi: concrete domain enum, higher-level wrapping enum, va erased app-level error (`Box<dyn Error>` yoki `anyhow::Error`).
 
 ## Syntax and Examples
 
@@ -96,6 +98,7 @@ let _ = function_that_may_fail();
 - `Ok(...)` bilan success value'ni o'rashni unutish.
 - Callerga tanlov berish kerak bo'lgan API'da panic qilish.
 - `Result`ni shunchaki string message transporti deb ko'rish.
+- Domain layer bilan app layer'da bir xil `E` shape majbur deb o'ylash.
 - Ignored `Result` warningini shovqin deb qabul qilib, asl signalni yo'qotish.
 
 ## Related Concepts
@@ -115,6 +118,9 @@ let _ = function_that_may_fail();
 - [[panic|panic!]]
 - [[panic-vs-result|panic! vs Result]]
 - [[e0308-mismatched-types|E0308 mismatched types]]
+- [[custom-error-enum]]
+- [[error-wrapping]]
+- [[box-dyn-error|Box<dyn Error>]]
 
 ## Sources
 
@@ -124,3 +130,4 @@ let _ = function_that_may_fail();
 - [[9-3-to-panic-or-not-to-panic]]
 - [[10-1-generic-data-types]]
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-error-handling]]

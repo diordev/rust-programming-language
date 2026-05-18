@@ -3,12 +3,104 @@ title: "Wiki Log"
 type: overview
 status: active
 created: 2026-05-06
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, log]
-source_count: 162
+source_count: 165
 ---
 
 # Wiki Log
+
+## 2026-05-18 ingest | Rust for Backend Developers `3. advance` 53-54
+
+- Ingested 2 ta source from `raw/books/rust-for-backend-developer/3. advance/`:
+  - `53. Глобальные данные.md`
+  - `54. Обработка ошибок.md`
+- Created source summaries:
+  - [[wiki/sources/rust-for-backend-developers-global-data]]
+  - [[wiki/sources/rust-for-backend-developers-error-handling]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-global-data]]
+  - [[wiki/chapters/rust-for-backend-developers-error-handling]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-3-advance]]: source_count 8->10; global data va backend error handling synthesis qo'shildi.
+- Created concept pages:
+  - [[global-data]]
+  - [[global-state]]
+  - [[lazylock|LazyLock]]
+  - [[oncelock|OnceLock]]
+  - [[custom-error-enum]]
+  - [[error-wrapping]]
+  - [[error-context]]
+  - [[error-downcasting]]
+  - [[root-cause]]
+- Created crate pages:
+  - [[thiserror]]
+  - [[anyhow]]
+- Updated existing concept pages:
+  - [[constants]], [[static-items]], [[mutable-static]], [[mutex-t|Mutex<T>]], [[rwlock|RwLock]], [[arc-t|Arc<T>]]
+  - [[error-handling]], [[std-error-trait|std::error::Error]], [[box-dyn-error|Box<dyn Error>]]
+  - [[question-mark-operator|question mark operator]], [[error-propagation]], [[from-trait]], [[backtrace]], [[result|Result]]
+- Created example pages:
+  - [[global-mutex-counter|Global mutex counter]]
+  - [[lazylock-mutex-hashmap|LazyLock mutex hashmap]]
+  - [[oncelock-explicit-init|OnceLock explicit init]]
+  - [[lazylock-rwlock-session-store|LazyLock RwLock session store]]
+  - [[thiserror-reserve-error|thiserror reserve error]]
+  - [[thiserror-from-error-wrapping|thiserror from error wrapping]]
+  - [[box-dyn-error-downcast|Box dyn Error downcast]]
+  - [[anyhow-context-backtrace|anyhow context and backtrace]]
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 163->165; 2 source, 2 chapter, 9 concept, 8 example, va 2 crate link qo'shildi.
+- Appended global-data/error-handling relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation:
+  - `LazyLock` va `OnceLock` safe init pattern sifatida yozildi, lekin global state default yaxshi design deb yozilmadi
+  - session storage misolida registry lock va session lock scope'i qisqa bo'lishi alohida qayd qilindi
+  - `OnceLock::get().unwrap()` init bo'lmagan holatda panic qilishi aniq yozildi
+  - `thiserror = "1"` source snapshot sifatida saqlandi; latest deb yozilmadi
+  - `PurchaseError` snippet'dagi `servation` va `(0)` artefaktlari source typo sifatida qayd qilindi
+  - `thiserror` library/domain, `anyhow` esa app-level boundary uchun ajratildi
+
+## 2026-05-18 ingest | Rust for Backend Developers `3. advance` 52
+
+- Ingested 1 ta source from `raw/books/rust-for-backend-developer/3. advance/`:
+  - `52. Многопоточность.md`
+- Created source summary:
+  - [[wiki/sources/rust-for-backend-developers-multithreading]]
+- Created chapter page:
+  - [[wiki/chapters/rust-for-backend-developers-multithreading]]
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-3-advance]]: source_count 7->8; multithreading layer - threads, `Send`/`Sync`, sync primitives, scoped threads, atomics, TLS, va channel backpressure synthesis qo'shildi.
+- Created concept pages:
+  - [[thread-builder]]
+  - [[scoped-threads]]
+  - [[rwlock|RwLock]]
+  - [[condvar|Condvar]]
+  - [[barrier|Barrier]]
+  - [[atomic-types]]
+  - [[atomic-memory-ordering]]
+  - [[compare-exchange]]
+  - [[thread-local-storage]]
+  - [[poisoned-mutex]]
+  - [[sync-channel]]
+- Updated existing concept/error pages:
+  - [[threads]], [[join-handle]], [[send-trait|Send trait]], [[sync-trait|Sync trait]]
+  - [[mutex-t|Mutex<T>]], [[mutexguard-lifetime]], [[arc-t|Arc<T>]], [[rc-t|Rc<T>]], [[cell-t|Cell<T>]]
+  - [[channels]], [[message-passing|message passing]], [[data-race|data race]], [[concurrency]]
+  - [[e0277-trait-bound-not-satisfied|E0277 trait bound not satisfied]]
+- Created example pages:
+  - [[thread-builder-name-stack-size|thread::Builder name and stack size]]
+  - [[poisoned-mutex-recovery|Poisoned mutex recovery]]
+  - [[rwlock-read-write|RwLock read and write]]
+  - [[condvar-flag-wait|Condvar flag wait]]
+  - [[barrier-batch-processing|Barrier batch processing]]
+  - [[scoped-thread-borrow-local|Scoped thread borrows local]]
+  - [[atomic-counter-relaxed|Atomic counter with Relaxed ordering]]
+  - [[thread-local-cell|Thread-local Cell]]
+  - [[sync-channel-backpressure|sync_channel backpressure]]
+- Updated [[index|Rust Wiki Index]] va [[overview|Rust Wiki Overview]] source_count 162->163; 1 source, 1 chapter, 11 concept, va 9 example link qo'shildi.
+- Appended multithreading relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+- Source caveat preservation:
+  - `atomic-memory-ordering` `[[ordering|std::cmp::Ordering]]` bilan aralashtirilmadi; alohida sahifa ochildi
+  - atomic counter prose'dagi `100000` typo deb qayd qilindi; code bo'yicha natija `1_000_000`
+  - `Element::Finish` demo'si explicit sentinel emas, sender close shutdown sifatida yozildi
+  - `std::sync::mpmc` haqidagi gap current stable API deb emas, source claim sifatida saqlandi
 
 ## 2026-05-17 ingest | Rust for Backend Developers `3. advance` 46-51
 

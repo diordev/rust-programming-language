@@ -3,9 +3,9 @@ title: "Constants"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-16
+updated: 2026-05-18
 tags: [rust, variables]
-source_count: 2
+source_count: 3
 ---
 
 # Constants
@@ -28,6 +28,8 @@ Constants compile-time constant expressionga bog'lanadi va declared scope ichida
 
 Backend beginner source yana ikkita amaliy qoidani aniq qiladi: type annotation har doim majburiy va naming convention odatda `UPPER_SNAKE_CASE`.
 
+Global-data source shu boundary'ni yana aniqroq qiladi: `const` global access berishi mumkin, lekin runtime'da quriladigan heap-owning value yoki mutable shared state uchun vosita emas.
+
 ## Syntax and Examples
 
 ```rust
@@ -43,6 +45,7 @@ const ANONYMOUS_NAME: &str = "anonymous";
 - Constantga `mut` qo'shishga urinish.
 - Type annotationni unutish.
 - Runtime computed valueni constant sifatida e'lon qilishga urinish.
+- `HashMap::new()` kabi non-const initializer'ni `const`ga tiqishga urinish.
 
 ## Related Concepts
 
@@ -50,8 +53,10 @@ const ANONYMOUS_NAME: &str = "anonymous";
 - [[immutability]]
 - [[type-annotations|type annotations]]
 - [[static-items]]
+- [[global-data]]
 
 ## Sources
 
 - [[3-1-variables-and-mutability]]
 - [[wiki/sources/rust-for-backend-developers-variables]]
+- [[wiki/sources/rust-for-backend-developers-global-data]]

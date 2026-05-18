@@ -3,9 +3,9 @@ title: "Sync trait"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, concurrency, threads, traits, marker, unsafe]
-source_count: 5
+source_count: 6
 ---
 
 # Sync trait
@@ -24,16 +24,18 @@ Shared-state concurrency uchun: bir nechta thread bir xil qiymatga bir vaqtda o'
 
 Common-traits source bu traitni ham preview qiladi: `Sync`ning to'liq amaliy oqibatlari multithreading qismida ochiladi, lekin marker contractni oldindan bilish foydali.
 
+Source `String` uchun shared immutable reference va `Cell<T>` uchun compile error misolini qarama-qarshi qo'yadi. Durable signal shu: `Cell<T>` shared static state uchun emas, lekin [[thread-local-storage]] ichida har thread o'z nusxasi bilan ishlaganda muammo yo'q.
+
 ## Kimlar `Sync`
 
 - **Deyarli barcha primitive type'lar**: `i32`, `f64`, `bool`, va hokazo.
 - **`Arc<T>`** (T: Send + Sync bo'lsa).
-- **`Mutex<T>`** (T: Send bo'lsa) — `lock()` orqali mutual exclusion kafolati.
+- **`Mutex<T>`** (T: Send bo'lsa).
 - `Sync` type'lardan tashkil topgan type'lar **avtomatik** `Sync`.
 
 ## Kimlar `Sync` emas
 
-- **`Rc<T>`** — reference count atomic emas; xuddi `Send` emas sababi bilan.
+- **`Rc<T>`** — reference count atomic emas.
 - **`RefCell<T>`** va `Cell<T>` oilasi — runtime borrow checking thread-safe emas.
 - **`UnsafeCell<T>`** — interior mutability'ning asosi; `Sync` emas.
 
@@ -41,13 +43,11 @@ Common-traits source bu traitni ham preview qiladi: `Sync`ning to'liq amaliy oqi
 
 ```rust
 use std::sync::{Arc, Mutex};
-use std::thread;
 
-// Arc<Mutex<T>>: T: Send → Mutex<T>: Send + Sync → Arc<Mutex<T>>: Send + Sync
 let shared = Arc::new(Mutex::new(0));
 let shared2 = Arc::clone(&shared);
 
-let handle = thread::spawn(move || {
+let handle = std::thread::spawn(move || {
     *shared2.lock().unwrap() += 1;
 });
 handle.join().unwrap();
@@ -57,35 +57,32 @@ handle.join().unwrap();
 
 | Trait | Kafolat | Xavfsiz bo'lmagan misol |
 |-------|---------|------------------------|
-| `Send` | Ownership o'tkazish | `Rc<T>` (count atomic emas) |
-| `Sync` | `&T` orqali kirish | `RefCell<T>` (borrow check thread-safe emas) |
-
-Munosabat: `T: Sync` ↔ `&T: Send`
+| `Send` | Ownership o'tkazish | `Rc<T>` |
+| `Sync` | `&T` orqali kirish | `RefCell<T>` |
 
 ## Manual Implementation
 
-Hech qanday metodsiz marker trait. Composite type'lar avtomatik `Sync`. Qo'lda implement — **unsafe Rust** talab qiladi. Backend traits source bu patternni `unsafe trait`ning klassik motivatsiyasi sifatida keltiradi: xavf method syntaxida emas, implementor invariantlarida.
+Hech qanday metodsiz marker trait. Composite type'lar avtomatik `Sync`. Qo'lda implement — **unsafe Rust** talab qiladi.
 
 ```rust
 struct MyType { ptr: *mut u8 }
-unsafe impl Sync for MyType {}   // dasturchi va'da beradi
+unsafe impl Sync for MyType {}
 ```
-
-[[unsafe-trait|Unsafe trait]] implementatsiyasining klassik misoli.
 
 ## Related Concepts
 
 - [[send-trait|Send trait]]
 - [[threads]]
 - [[concurrency]]
-- [[arc-t|Arc<T>]] — `Send + Sync`
-- [[rc-t|Rc<T>]] — `Sync` emas
-- [[mutex-t|Mutex<T>]] — `Sync`
-- [[refcell-t|RefCell<T>]] — `Sync` emas
+- [[arc-t|Arc<T>]]
+- [[rc-t|Rc<T>]]
+- [[mutex-t|Mutex<T>]]
+- [[refcell-t|RefCell<T>]]
 - [[interior-mutability]]
 - [[unsafe-rust]]
 - [[unsafe-trait|unsafe trait]]
 - [[raw-pointer|raw pointer]]
+- [[thread-local-storage]]
 
 ## Sources
 
@@ -94,3 +91,4 @@ unsafe impl Sync for MyType {}   // dasturchi va'da beradi
 - [[wiki/sources/20-1-unsafe-rust|20.1 Unsafe Rust]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
 - [[wiki/sources/rust-for-backend-developers-common-traits]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

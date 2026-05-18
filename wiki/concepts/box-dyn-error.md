@@ -3,9 +3,9 @@ title: "Box<dyn Error>"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-05-18
 tags: [rust, error-handling, traits]
-source_count: 1
+source_count: 2
 ---
 
 # Box<dyn Error>
@@ -20,7 +20,9 @@ source_count: 1
 
 ## Mental Model
 
-`Box<dyn Error>` ortida [[traits|trait object]] bor; bu Chapter 18da chuqurlashadi. Hozircha uni "main turli errorlarni bitta return type orqali qaytara oladi" deb tushunish yetarli.
+`Box<dyn Error>` ortida [[traits|trait object]] bor; bu Chapter 18da chuqurlashadi. Hozircha uni "turli concrete error'larni bitta erased boundary orqali qaytarish" deb tushunish yetarli.
+
+Backend source bu type'ning app-level foydasini aniq ko'rsatadi: har error turi bo'yicha maxsus recovery yo'q bo'lsa, typed wrapping'ni davom ettirish o'rniga log + generic response yetarli bo'lishi mumkin.
 
 ## Syntax and Examples
 
@@ -35,11 +37,20 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 ```
 
+Downcast bilan selected concrete type'ni ajratish ham mumkin:
+
+```rust
+if let Some(err_a) = e.downcast_ref::<ErrA>() {
+    println!("Handle ErrA separately: {err_a}");
+}
+```
+
 ## Common Mistakes
 
 - `Box<dyn Error>`ni har doim eng yaxshi app-level error design deb qabul qilish.
 - `dyn Error` trait object ekanini keyingi trait object mavzusidan oldin chuqur tushunishga urinish.
 - `Ok(())`ni unutish.
+- Erased error qaytarib, keyin ko'p joyda manual downcast qilish.
 
 ## Related Concepts
 
@@ -47,7 +58,10 @@ fn main() -> Result<(), Box<dyn Error>> {
 - [[question-mark-operator|question mark operator]]
 - [[traits]]
 - [[error-propagation|error propagation]]
+- [[error-downcasting]]
+- [[wiki/crates/anyhow]]
 
 ## Sources
 
 - [[9-2-recoverable-errors-with-result]]
+- [[wiki/sources/rust-for-backend-developers-error-handling]]

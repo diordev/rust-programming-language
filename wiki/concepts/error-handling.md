@@ -3,9 +3,9 @@ title: "Error Handling"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, error-handling]
-source_count: 6
+source_count: 7
 ---
 
 # Error Handling
@@ -31,6 +31,8 @@ Beginner mental model: user/environment xatolari ko'pincha recoverable; violated
 Chapter 9.2dan keyingi practical rule: local context recovery qilishga yetarli bo'lsa `match` yoki helper method bilan handle qiling; caller yaxshiroq qaror qila olsa [[question-mark-operator|?]] bilan [[error-propagation|propagate]] qiling.
 
 Backend beginner result source bu modelni uchta qo'shimcha signal bilan mustahkamlaydi: custom error enumlar stringdan yaxshiroq API signal bo'lishi mumkin, [[std-error-trait|std::error::Error]] ecosystem uchun umumiy contract beradi, va `?` linear code beradi, lekin errorni handle qilmaydi.
+
+Advance backend error source esa shu modelni qatlamlarga ajratadi: library/domain API uchun [[custom-error-enum]] va [[wiki/crates/thiserror|thiserror]], app-level boundary uchun esa [[box-dyn-error|Box<dyn Error>]] yoki [[wiki/crates/anyhow|anyhow]].
 
 ## Syntax and Examples
 
@@ -77,6 +79,7 @@ let _ = function_that_may_fail();
 - `unwrap`ni error handling deb qabul qilish.
 - `?` errorni avtomatik hal qiladi deb o'ylash.
 - Custom error type kerak joyda hamma narsani stringga tushirib yuborish.
+- Library va final application uchun bir xil error shape'ni majburan ishlatish.
 
 ## Related Concepts
 
@@ -89,6 +92,10 @@ let _ = function_that_may_fail();
 - [[error-propagation|error propagation]]
 - [[question-mark-operator|question mark operator]]
 - [[std-error-trait|std::error::Error]]
+- [[custom-error-enum]]
+- [[error-wrapping]]
+- [[error-context]]
+- [[box-dyn-error|Box<dyn Error>]]
 - [[unwrap]]
 - [[expect]]
 
@@ -100,3 +107,4 @@ let _ = function_that_may_fail();
 - [[9-1-unrecoverable-errors-with-panic]]
 - [[9-2-recoverable-errors-with-result]]
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-error-handling]]

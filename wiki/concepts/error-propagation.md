@@ -3,9 +3,9 @@ title: "Error Propagation"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, error-handling, result]
-source_count: 2
+source_count: 3
 ---
 
 # Error Propagation
@@ -23,6 +23,8 @@ Ba'zan function ichida to'g'ri recovery qarori uchun yetarli context bo'lmaydi. 
 Propagation "men bu errorni ko'rdim, lekin uni hal qilish mening vazifam emas; caller hal qilsin" degani. Rustda bu odatda `Result<T, E>` return type va [[question-mark-operator|question mark operator]] bilan yoziladi.
 
 Backend beginner result source propagationning uch ko'rinishini yonma-yon beradi: manual `match` + `return Err(e)`, combinatorlar (`map`, `and_then`), va `?`. Muhim signal: `?` aynan propagation instrumenti, handling instrumenti emas.
+
+Backend advance source yana ikki propagation style'ni ko'rsatadi: concrete higher-level enum'ga wrapping propagation va app-level erased propagation (`Box<dyn Error>` / `anyhow::Error`).
 
 ## Syntax and Examples
 
@@ -75,6 +77,7 @@ File::open(file_name).and_then(|mut file| {
 - Function return type'ini `Result` qilmasdan `?` ishlatishga urinish.
 - Propagation errorni "yo'q qildi" deb o'ylash; error callerga ko'chadi.
 - `?` va handlingni bir narsa deb o'ylash.
+- Har qatlamda concrete error enum saqlashni yoki juda erta type erasure qilishni dogma deb qabul qilish.
 
 ## Related Concepts
 
@@ -84,8 +87,11 @@ File::open(file_name).and_then(|mut file| {
 - [[io-error|io::Error]]
 - [[from-trait|From trait]]
 - [[std-error-trait|std::error::Error]]
+- [[error-wrapping]]
+- [[box-dyn-error|Box<dyn Error>]]
 
 ## Sources
 
 - [[9-2-recoverable-errors-with-result]]
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-error-handling]]

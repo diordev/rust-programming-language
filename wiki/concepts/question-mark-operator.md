@@ -3,9 +3,9 @@ title: "Question Mark Operator"
 type: concept
 status: active
 created: 2026-05-07
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, error-handling, result, option]
-source_count: 3
+source_count: 4
 ---
 
 # Question Mark Operator
@@ -35,6 +35,8 @@ Appendix B bu syntax'ni operator jadvalida `expr?` ko'rinishida reference qiladi
 - `None` -> `return None`
 
 Muhim chegara: `?` errorni handle qilmaydi, faqat current functiondan chiqib ketib callerga uzatadi. Demak functionning own return type'i mos bo'lishi shart.
+
+Advanced backend source bu yerga yana bir qatlam qo'shadi: `?` [[from-trait|From]] conversion bilan pastki qatlam error'ni yuqori qatlam error'iga wrap qila oladi. `thiserror`dagi `#[from]` aynan shu chain uchun qulay.
 
 ## Syntax and Examples
 
@@ -84,6 +86,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 - [[result|Result<T, E>]]
 - [[option|Option]]
 - [[from-trait|From trait]]
+- [[error-wrapping]]
 - [[main-function|main function]]
 - [[std-error-trait|std::error::Error]]
 - [[e0277-trait-bound-not-satisfied|E0277 trait bound not satisfied]]
@@ -94,3 +97,4 @@ fn main() -> Result<(), Box<dyn Error>> {
 - [[9-2-recoverable-errors-with-result]]
 - [[wiki/sources/22-2-b-operators-and-symbols|22.2]]
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-error-handling]]

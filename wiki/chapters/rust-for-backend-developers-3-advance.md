@@ -3,16 +3,16 @@ title: "Rust for Backend Developers: 3. Advance"
 type: chapter
 status: active
 created: 2026-05-17
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, backend, chapter, advance]
-source_count: 7
+source_count: 10
 ---
 
 # Rust for Backend Developers: 3. Advance
 
 ## Learning Goal
 
-`Rust for Backend Developers` kitobining `3. advance` sectionini language surface'dan keyingi contract va boundary qatlam sifatida ochish: standard/common traits, runtime type inspection, collections tanlovi, byte I/O, filesystem semantics, newtype workaround, va panic policy.
+`Rust for Backend Developers` kitobining `3. advance` sectionini language surface'dan keyingi contract va boundary qatlam sifatida ochish: standard/common traits, runtime type inspection, collections tanlovi, byte I/O, filesystem semantics, newtype workaround, panic policy, multithreading, global data, va backend error handling.
 
 ## Main Ideas
 
@@ -25,6 +25,9 @@ source_count: 7
 - Filesystem qatlami `Path`, `OsStr`, `OsString`, `OpenOptions`, va `io::Result` bilan platform boundary'ni ko'rsatadi.
 - Newtype pattern orphan rule workaround, lekin shu bilan birga compare/conversion semantics'ni local model qilish vositasi ham.
 - Panic bo'limi `panic!`, `catch_unwind`, `panic_any`, hook va placeholder macro'larni ko'rsatadi, lekin expected error handling uchun `Result`ni default qilib qoldiradi.
+- Multithreading bo'limi `thread::spawn`, `Send`/`Sync`, sync primitives, scoped threads, atomics, TLS, va channel backpressure'ni bir operational qatlamga yig'adi.
+- Global data bo'limi `const`, `static`, `static mut`, `LazyLock`, `OnceLock`, va synchronized session registry patternlarini ajratadi.
+- Error handling bo'limi domain error enum, wrapping, `Box<dyn Error>`, `anyhow`, context, root cause, va backtrace signal'larini qatlamlarga bo'ladi.
 
 ## Concepts
 
@@ -45,6 +48,30 @@ source_count: 7
 - [[sized-trait]]
 - [[send-trait|Send trait]]
 - [[sync-trait|Sync trait]]
+- [[thread-builder]]
+- [[threads]]
+- [[join-handle]]
+- [[mutex-t|Mutex<T>]]
+- [[poisoned-mutex]]
+- [[rwlock|RwLock]]
+- [[condvar|Condvar]]
+- [[barrier|Barrier]]
+- [[scoped-threads]]
+- [[atomic-types]]
+- [[atomic-memory-ordering]]
+- [[compare-exchange]]
+- [[thread-local-storage]]
+- [[channels]]
+- [[sync-channel]]
+- [[global-data]]
+- [[global-state]]
+- [[lazylock|LazyLock]]
+- [[oncelock|OnceLock]]
+- [[custom-error-enum]]
+- [[error-wrapping]]
+- [[error-context]]
+- [[error-downcasting]]
+- [[root-cause]]
 - [[any-trait|Any]]
 - [[type-id|TypeId]]
 - [[downcasting]]
@@ -105,6 +132,33 @@ c.read_to_string(&mut s)?;
 let result = std::panic::catch_unwind(|| panic!("boom"));
 ```
 
+```rust
+std::thread::scope(|scope| {
+    scope.spawn(|| println!("{s}"));
+});
+```
+
+```rust
+let a = std::sync::atomic::AtomicI32::new(0);
+a.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+```
+
+```rust
+static M: std::sync::LazyLock<
+    std::sync::Mutex<std::collections::HashMap<String, i32>>
+> = std::sync::LazyLock::new(|| {
+    std::sync::Mutex::new(std::collections::HashMap::new())
+});
+```
+
+```rust
+#[derive(Debug, thiserror::Error)]
+enum PurchaseError {
+    #[error("Nested reservation error: {0}")]
+    ReservationFailed(#[from] ReserveError),
+}
+```
+
 ## Exercises
 
 - `Eq`, `PartialOrd`, va `Borrow` contracts'ini bitta domain type ustida alohida yozib ko'ring.
@@ -113,6 +167,9 @@ let result = std::panic::catch_unwind(|| panic!("boom"));
 - `Cursor<Vec<u8>>` va `File`ni bir xil `Read` helper orqali o'qib ko'ring.
 - `newtype` wrapper yozib, external trait implement qiling.
 - `panic!` va `Result` uchun backend'dagi uchta scenario ajrating.
+- `Mutex`, `RwLock`, `Condvar`, `Barrier`, va `AtomicI32` uchun bittadan real backend coordination case yozing.
+- `LazyLock` va `OnceLock` uchun qaysi init scenariylar mosligini yozing.
+- Domain/library error enum va app-level `anyhow` boundary'ni bir misolda ajrating.
 
 ## Review Questions
 
@@ -123,6 +180,10 @@ let result = std::panic::catch_unwind(|| panic!("boom"));
 - Qaysi operation pattern `VecDeque`ni `Vec`dan afzal qiladi?
 - Nega filesystem API `AsRef<Path>` ishlatadi?
 - Nega `panic_any` mavjud bo'lsa ham normal xatolar `Result` bilan qaytariladi?
+- `thread::scope` qachon `Arc` va `move`dan soddaroq yechim beradi?
+- `Relaxed` ordering nimani kafolatlaydi, nimani kafolatlamaydi?
+- Nega `static mut` default global mutation vositasi emas?
+- Nega `thiserror` va `anyhow` bir xil qatlam uchun tavsiya qilinmaydi?
 
 ## Related Pages
 
@@ -135,9 +196,15 @@ let result = std::panic::catch_unwind(|| panic!("boom"));
 - [[wiki/sources/rust-for-backend-developers-file-system]]
 - [[wiki/sources/rust-for-backend-developers-newtype-pattern]]
 - [[wiki/sources/rust-for-backend-developers-panic]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]
+- [[wiki/sources/rust-for-backend-developers-global-data]]
+- [[wiki/sources/rust-for-backend-developers-error-handling]]
 - [[wiki/chapters/rust-for-backend-developers-any]]
 - [[wiki/chapters/rust-for-backend-developers-collections]]
 - [[wiki/chapters/rust-for-backend-developers-io]]
 - [[wiki/chapters/rust-for-backend-developers-file-system]]
 - [[wiki/chapters/rust-for-backend-developers-newtype-pattern]]
 - [[wiki/chapters/rust-for-backend-developers-panic]]
+- [[wiki/chapters/rust-for-backend-developers-multithreading]]
+- [[wiki/chapters/rust-for-backend-developers-global-data]]
+- [[wiki/chapters/rust-for-backend-developers-error-handling]]

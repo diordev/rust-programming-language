@@ -3,9 +3,9 @@ title: "Threads"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-13
+updated: 2026-05-18
 tags: [rust, concurrency, threads]
-source_count: 4
+source_count: 5
 ---
 
 # Threads
@@ -23,6 +23,8 @@ Ko'p yadrodan foydalanish va uzluksiz ishni parallel bajarish imkonini beradi. L
 Har bir thread o'z stack'iga ega mustaqil execution context. **Main thread tugasa hamma spawned threadlar ham to'xtaydi** — agar `join` qilinmagan bo'lsa.
 
 OS scheduler threadlarni almashtirish tartibini kafolatlamaydi; shuning uchun spawned threadlar hamma vaqt ham ishlab tugamaydi.
+
+Operational detail kerak bo'lsa `thread::spawn` o'rniga [[thread-builder]] ishlatiladi. Agar thread'lar local borrow bilan faqat shu scope ichida yashashi kerak bo'lsa, [[scoped-threads]] odatda to'g'riroq model.
 
 ## Syntax and Examples
 
@@ -44,7 +46,7 @@ fn main() {
         println!("main thread: {i}");
         thread::sleep(Duration::from_millis(1));
     }
-    // main tugadi → spawned thread ham to'xtaydi!
+    // main tugadi -> spawned thread ham to'xtaydi!
 }
 ```
 
@@ -58,10 +60,19 @@ fn main() {
         println!("spawned thread ishlayapti");
     });
 
-    // ... boshqa ish ...
-
-    handle.join().unwrap(); // spawned thread tugaguncha kut
+    handle.join().unwrap();
 }
+```
+
+### Builder bilan name va stack size berish
+
+```rust
+let handle = std::thread::Builder::new()
+    .name("worker-1".to_string())
+    .stack_size(8192)
+    .spawn(|| println!("{:?}", std::thread::current().name()))
+    .unwrap();
+handle.join().unwrap();
 ```
 
 ### move closure bilan data o'tkazish
@@ -96,13 +107,14 @@ Bu concurrency beradi, lekin har request uchun alohida thread yaratgani uchun ch
 
 - **`join` ni unutish**: spawned thread ishlab tugamadan main tugatadi. `JoinHandle`ni saqlab, `.join()` chaqirish shart.
 - **`move` siz closure**: `thread::spawn(|| ...)` closure'da tashqi o'zgaruvchi ishlatilsa E0373 xatosi.
+- **Local reference'ni oddiy `spawn`ga berish**: `.join()` keyin chaqirilsa ham compiler bunu proof deb olmaydi; bunday holatda [[scoped-threads]] kerak.
 - **`join` joyini noto'g'ri tanlash**: `join`ni for loopdan *oldin* qo'ysangiz sequential ishlaydi; keyin qo'ysangiz interleaved. Qarang: [[join-handle]].
 
 ## Threadlar orasida muloqot
 
 Threadlarning natijalarini main thread'ga uzatish uchun ikki asosiy pattern:
 - **Message passing** — [[channels]] (`mpsc::channel`) orqali xabar yuborish.
-- **Shared state** — `Mutex<T>` + `Arc<T>` (ch16.3).
+- **Shared state** — `Mutex<T>` + `Arc<T>`.
 
 Message passing ko'pincha xavfsizroq, chunki ownership transfer aniq.
 
@@ -112,6 +124,8 @@ Threadlardan amaliy foydalanishning keng patternlaridan biri - fixed-size [[thre
 
 - [[concurrency]]
 - [[join-handle]]
+- [[thread-builder]]
+- [[scoped-threads]]
 - [[move-closures-threads]]
 - [[channels]]
 - [[message-passing]]
@@ -129,3 +143,4 @@ Threadlardan amaliy foydalanishning keng patternlaridan biri - fixed-size [[thre
 - [[16-1-using-threads-to-run-code-simultaneously]]
 - [[16-2-transfer-data-between-threads-with-message-passing]]
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

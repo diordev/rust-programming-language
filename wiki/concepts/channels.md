@@ -3,26 +3,28 @@ title: "Channels"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-13
+updated: 2026-05-18
 tags: [rust, concurrency, threads, channels, mpsc]
-source_count: 3
+source_count: 4
 ---
 
 # Channels
 
 ## Short Definition
 
-Threadlar orasida ma'lumot uzatish vositasi. Channelda ikki yarim bor: **transmitter** (yuboruvchi `tx`) va **receiver** (qabul qiluvchi `rx`). Rust standart kutubxonasi `std::sync::mpsc` modulida implement qiladi.
+Threadlar orasida ma'lumot uzatish vositasi. Channelda ikki yarim bor: **transmitter** (`tx`) va **receiver** (`rx`). Rust standart kutubxonasi `std::sync::mpsc` modulida implement qiladi.
 
 ## Why It Matters
 
-Channels [[message-passing]] concurrency modelini amalga oshiradi. Shared state o'rniga threadlar bir-biriga xabar yuboradi — bu ko'p concurrency xatolarining oldini oladi. Ownership rules `send` orqali avtomatik ravishda kafolatlanadi: yuborilgan qiymatga endi yuboruvchi thread'da kira olmaysiz.
+Channels [[message-passing]] concurrency modelini amalga oshiradi. Shared state o'rniga threadlar bir-biriga xabar yuboradi.
 
 ## Mental Model
 
-Daryo: yuqorida (`tx`) rezina o'rdakcha tashlaysiz, pastda (`rx`) kimdir uni oladi. Channel yopiq deyiladi agar `tx` yoki `rx` drop bo'lsa. **mpsc** = *multiple producer, single consumer* — bir nechta `tx` bo'lishi mumkin (clone orqali), lekin faqat bitta `rx`.
+**mpsc** = *multiple producer, single consumer*. Bir nechta `tx` bo'lishi mumkin, lekin faqat bitta `rx`.
 
-`mpsc`da amaliy shutdown signali ko'pincha shunday ishlaydi: barcha senderlar drop bo'lsa, `recv()` endi block qilib turmaydi va `Err` qaytaradi.
+`mpsc`da amaliy shutdown signali ko'pincha shunday ishlaydi: barcha senderlar drop bo'lsa, `recv()` `Err` qaytaradi.
+
+Source'dagi `Element::Finish` demo'sida `Finish` sentineli e'lon qilingan, lekin yuborilmagan. Loop amalda sender drop bo'lgani uchun tugaydi. Demak bu explicit shutdown message emas, channel-close shutdown.
 
 ## Syntax and Examples
 
@@ -30,32 +32,16 @@ Daryo: yuqorida (`tx`) rezina o'rdakcha tashlaysiz, pastda (`rx`) kimdir uni ola
 
 ```rust
 use std::sync::mpsc;
-use std::thread;
 
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let val = String::from("hi");
-        tx.send(val).unwrap();
-    });
-
-    let received = rx.recv().unwrap();
-    println!("Got: {received}");
-}
+let (tx, rx) = mpsc::channel();
 ```
 
 ### `send` ownership oladi
 
 ```rust
-thread::spawn(move || {
-    let val = String::from("hi");
-    tx.send(val).unwrap();
-    println!("val is {val}"); // E0382: send val'ni move qildi
-});
+let val = String::from("hi");
+tx.send(val).unwrap();
 ```
-
-`send` parametrini move qiladi — yuborilgandan keyin asl scope'da ishlatib bo'lmaydi. Bu compile-time da concurrency xatolarini oldini oladi.
 
 ### `rx` ni iterator sifatida ishlatish
 
@@ -63,66 +49,51 @@ thread::spawn(move || {
 for received in rx {
     println!("Got: {received}");
 }
-// Channel yopilganda iteratsiya tugaydi.
 ```
 
 ### `recv` vs `try_recv`
 
 | Metod | Xulq |
 |-------|------|
-| `recv()` | Block qiladi, qiymat kelguncha kutadi. `Result<T, E>` qaytaradi |
-| `try_recv()` | Block qilmaydi, darhol `Result` qaytaradi (`Ok(val)` yoki `Err`) |
+| `recv()` | Block qiladi |
+| `try_recv()` | Darhol qaytadi |
 
-`try_recv` thread'ning boshqa ishi bo'lsa foydali — pollingga moslashgan.
-
-### Multiple producers — `tx.clone()`
+### Multiple producers
 
 ```rust
-let (tx, rx) = mpsc::channel();
 let tx1 = tx.clone();
-
-thread::spawn(move || tx1.send(String::from("hi")).unwrap());
-thread::spawn(move || tx.send(String::from("more")).unwrap());
-
-for received in rx {
-    println!("Got: {received}");
-}
 ```
-
-Har bir clone alohida thread'ga berilishi mumkin — barchasi bir xil receiver'ga yuboradi.
 
 ### Thread pool queue sifatida
 
 ```rust
 type Job = Box<dyn FnOnce() + Send + 'static>;
 
-let (sender, receiver) = mpsc::channel::<Job>();
-let receiver = Arc::new(Mutex::new(receiver));
+let (sender, receiver) = std::sync::mpsc::channel::<Job>();
+let receiver = std::sync::Arc::new(std::sync::Mutex::new(receiver));
 ```
 
-Bu pattern'da `sender` pool ichida saqlanadi, workerlar esa shared `receiver` orqali job oladi. `mpsc` std kanalida receiver clone qilinmaydi, shuning uchun workerlar orasida uni [[arc-t|Arc<Mutex<_>>]] bilan ulashish kerak.
+### Bounded channel: `sync_channel`
+
+```rust
+let (tx, rx) = std::sync::mpsc::sync_channel::<i32>(3);
+```
+
+`sync_channel` to'lsa `send()` block bo'ladi. Bu producer tomonda natural backpressure beradi.
 
 ### Sender drop orqali shutdown
 
 ```rust
 drop(self.sender.take());
-
-match receiver.lock().unwrap().recv() {
-    Ok(job) => job(),
-    Err(_) => break,
-}
 ```
-
-Bu yerda channel message tashishdan tashqari lifecycle coordination vazifasini ham bajaryapti: sender tugashi workerlar uchun "endi yangi job yo'q" degan signal.
 
 ## Common Mistakes
 
-- **`send` dan keyin qiymatni ishlatish** — E0382. Channel ownership oladi.
-- **Receiver'ni clone qilishga urinish** — `mpsc` faqat *single consumer*. Bir nechta receiver kerak bo'lsa, boshqa pattern (`crossbeam-channel` crati) zarur.
-- **Receiver'ni loop ichida ownership bilan workerlarga tarqatish** — `E0382` beradi va design noto'g'ri ekanini ko'rsatadi.
-- **`unwrap` ni production'da qoldirish** — `send`/`recv` `Result` qaytaradi; receiver/transmitter drop bo'lsa `Err` chiqadi.
-- **`recv` cheksiz block bo'lib qolishi** — agar transmitter drop bo'lmasa va xabar kelmasa, thread to'xtab qoladi.
-- **Shutdown semanticsni e'tiborsiz qoldirish** — senderni hech qachon drop qilmaslik `join()` paytida deadlockga o'xshash kutishga olib kelishi mumkin.
+- **`send` dan keyin qiymatni ishlatish**.
+- **Receiver'ni clone qilishga urinish**.
+- **Receiver'ni loop ichida ownership bilan workerlarga tarqatish**.
+- **`recv` cheksiz block bo'lib qolishi**.
+- **Shutdown semanticsni e'tiborsiz qoldirish**.
 
 ## Related Concepts
 
@@ -138,9 +109,11 @@ Bu yerda channel message tashishdan tashqari lifecycle coordination vazifasini h
 - [[job-queue]]
 - [[worker-thread]]
 - [[graceful-shutdown]]
+- [[sync-channel]]
 
 ## Sources
 
 - [[16-2-transfer-data-between-threads-with-message-passing]]
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
 - [[wiki/sources/21-3-graceful-shutdown-and-cleanup|21.3]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

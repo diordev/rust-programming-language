@@ -3,9 +3,9 @@ title: "Send trait"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, concurrency, threads, traits, marker, unsafe]
-source_count: 6
+source_count: 7
 ---
 
 # Send trait
@@ -34,14 +34,14 @@ Common-traits source bu traitni preview sifatida beradi: detail keyingi multithr
 ## Kimlar `Send` emas
 
 - **`Rc<T>`** — reference count atomic emas; `thread::spawn`ga berish kompilyatsiya xatosi.
-- **Raw pointerlar** (`*const T`, `*mut T`) — ch20 da ko'riladi.
+- **Raw pointerlar** (`*const T`, `*mut T`) — auto `Send` emas; qo'lda `unsafe impl Send` faqat invariantni o'zingiz kafolatlasangiz yoziladi.
 
 ## Syntax and Examples
 
 ```rust
 use std::thread;
 
-let x = 5i32; // i32: Send
+let x = 5i32;
 let handle = thread::spawn(move || println!("{x}"));
 handle.join().unwrap();
 ```
@@ -54,11 +54,9 @@ Thread pool job'i `Send` bo'lishi shart, chunki closure `execute` chaqirilgan th
 
 ```rust
 use std::rc::Rc;
-use std::thread;
 
 let rc = Rc::new(5);
-// XATO: `Rc<i32>` cannot be sent between threads safely
-// let handle = thread::spawn(move || println!("{rc}"));
+// let handle = std::thread::spawn(move || println!("{rc}"));
 ```
 
 ## `Send` vs `Sync`
@@ -71,12 +69,12 @@ let rc = Rc::new(5);
 
 ## Manual Implementation
 
-`Send` — hech qanday metodsiz marker trait. `Send` type'lardan tashkil topgan composite type'lar avtomatik `Send`. Qo'lda implement talab qilsa — **unsafe Rust** (noto'g'ri implement thread-safety kafolatlarini buzadi). Backend traits source bu nuqtani juda foydali ko'rsatadi: `unsafe trait` bo'lishi uchun trait metodlari unsafe bo'lishi shart emas.
+`Send` — hech qanday metodsiz marker trait. `Send` type'lardan tashkil topgan composite type'lar avtomatik `Send`. Qo'lda implement talab qilsa — **unsafe Rust**.
 
 ```rust
-struct MyType { ptr: *mut u8 }   // *mut u8: !Send
+struct MyType { ptr: *mut u8 }
 
-unsafe impl Send for MyType {}   // dasturchi va'da beradi
+unsafe impl Send for MyType {}
 ```
 
 Bu [[unsafe-trait|unsafe trait]] implementatsiyasining klassik misoli.
@@ -86,14 +84,14 @@ Bu [[unsafe-trait|unsafe trait]] implementatsiyasining klassik misoli.
 - [[sync-trait|Sync trait]]
 - [[threads]]
 - [[concurrency]]
-- [[arc-t|Arc<T>]] — `Send + Sync`
-- [[rc-t|Rc<T>]] — `Send` emas
-- [[mutex-t|Mutex<T>]] — `Send`
+- [[arc-t|Arc<T>]]
+- [[rc-t|Rc<T>]]
+- [[mutex-t|Mutex<T>]]
 - [[move-closures-threads]]
 - [[thread-pool]]
 - [[unsafe-rust]]
-- [[unsafe-trait|unsafe trait]] — `Send` ni qo'lda implement qilish
-- [[raw-pointer|raw pointer]] — `*const`/`*mut` ni `!Send`
+- [[unsafe-trait|unsafe trait]]
+- [[raw-pointer|raw pointer]]
 
 ## Sources
 
@@ -103,3 +101,4 @@ Bu [[unsafe-trait|unsafe trait]] implementatsiyasining klassik misoli.
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
 - [[wiki/sources/rust-for-backend-developers-traits]]
 - [[wiki/sources/rust-for-backend-developers-common-traits]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

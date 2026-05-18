@@ -3,9 +3,9 @@ title: "Rust Wiki Index"
 type: overview
 status: active
 created: 2026-05-06
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, index]
-source_count: 162
+source_count: 165
 ---
 
 # Rust Wiki Index
@@ -179,6 +179,9 @@ source_count: 162
 - [[wiki/sources/rust-for-backend-developers-file-system|Rust for Backend Developers: File System]]
 - [[wiki/sources/rust-for-backend-developers-newtype-pattern|Rust for Backend Developers: Newtype Pattern]]
 - [[wiki/sources/rust-for-backend-developers-panic|Rust for Backend Developers: panic]]
+- [[wiki/sources/rust-for-backend-developers-multithreading|Rust for Backend Developers: Multithreading]]
+- [[wiki/sources/rust-for-backend-developers-global-data|Rust for Backend Developers: Global Data]]
+- [[wiki/sources/rust-for-backend-developers-error-handling|Rust for Backend Developers: Error Handling]]
 
 ## Chapters
 
@@ -279,6 +282,9 @@ source_count: 162
 - [[wiki/chapters/rust-for-backend-developers-file-system|Rust for Backend Developers: File System]]
 - [[wiki/chapters/rust-for-backend-developers-newtype-pattern|Rust for Backend Developers: Newtype Pattern]]
 - [[wiki/chapters/rust-for-backend-developers-panic|Rust for Backend Developers: panic]]
+- [[wiki/chapters/rust-for-backend-developers-multithreading|Rust for Backend Developers: Multithreading]]
+- [[wiki/chapters/rust-for-backend-developers-global-data|Rust for Backend Developers: Global Data]]
+- [[wiki/chapters/rust-for-backend-developers-error-handling|Rust for Backend Developers: Error Handling]]
 
 ## Concepts
 
@@ -410,6 +416,10 @@ Core concepts and active concept pages:
 - [[immutability]]
 - [[constants]]
 - [[static-items]]
+- [[global-data]]
+- [[global-state]]
+- [[lazylock|LazyLock]]
+- [[oncelock|OnceLock]]
 - [[shadowing]]
 - [[data-types|data types]]
 - [[type-inference|type inference]]
@@ -446,6 +456,11 @@ Core concepts and active concept pages:
 - [[function-contracts|function contracts]]
 - [[error-propagation|error propagation]]
 - [[question-mark-operator|question mark operator]]
+- [[custom-error-enum]]
+- [[error-wrapping]]
+- [[error-context]]
+- [[error-downcasting]]
+- [[root-cause]]
 - [[unwrap]]
 - [[expect]]
 - [[io-error|io::Error]]
@@ -524,11 +539,22 @@ Core concepts and active concept pages:
 - [[concurrency]]
 - [[threads]]
 - [[join-handle]]
+- [[thread-builder]]
+- [[scoped-threads]]
 - [[move-closures-threads|move closures (threads)]]
 - [[channels]]
+- [[sync-channel]]
 - [[message-passing|message passing]]
 - [[mutex-t|Mutex<T>]]
+- [[poisoned-mutex]]
+- [[rwlock|RwLock]]
+- [[condvar|Condvar]]
+- [[barrier|Barrier]]
 - [[arc-t|Arc<T>]]
+- [[atomic-types]]
+- [[atomic-memory-ordering]]
+- [[compare-exchange]]
+- [[thread-local-storage]]
 - [[reference-counting|reference counting]]
 - [[send-trait|Send trait]]
 - [[sync-trait|Sync trait]]
@@ -689,6 +715,23 @@ Core concepts and active concept pages:
 - [[thread-spawn-basic|thread::spawn basic examples]]
 - [[channel-basic-messages|channel basic messages]]
 - [[mutex-arc-counter|Mutex<T> + Arc<T> counter]]
+- [[thread-builder-name-stack-size|thread::Builder name and stack size]]
+- [[poisoned-mutex-recovery|Poisoned mutex recovery]]
+- [[rwlock-read-write|RwLock read and write]]
+- [[condvar-flag-wait|Condvar flag wait]]
+- [[barrier-batch-processing|Barrier batch processing]]
+- [[scoped-thread-borrow-local|Scoped thread borrows local]]
+- [[atomic-counter-relaxed|Atomic counter with Relaxed ordering]]
+- [[thread-local-cell|Thread-local Cell]]
+- [[sync-channel-backpressure|sync_channel backpressure]]
+- [[global-mutex-counter|Global mutex counter]]
+- [[lazylock-mutex-hashmap|LazyLock mutex hashmap]]
+- [[oncelock-explicit-init|OnceLock explicit init]]
+- [[lazylock-rwlock-session-store|LazyLock RwLock session store]]
+- [[thiserror-reserve-error|thiserror reserve error]]
+- [[thiserror-from-error-wrapping|thiserror from error wrapping]]
+- [[box-dyn-error-downcast|Box dyn Error downcast]]
+- [[anyhow-context-backtrace|anyhow context and backtrace]]
 - [[async-page-scraper|async page scraper]]
 - [[async-concurrent-tasks|async concurrent tasks]]
 - [[async-channel-messages|async channel messages]]
@@ -839,6 +882,8 @@ Core concepts and active concept pages:
 ## Crates
 
 - [[rand]]
+- [[thiserror]]
+- [[anyhow]]
 
 ## Tools
 

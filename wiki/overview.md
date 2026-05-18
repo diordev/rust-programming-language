@@ -3,9 +3,9 @@ title: "Rust Wiki Overview"
 type: overview
 status: active
 created: 2026-05-06
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, overview]
-source_count: 162
+source_count: 165
 ---
 
 # Rust Wiki Overview
@@ -193,6 +193,9 @@ Ingested Rust for Backend Developers materials (`3. advance` so far):
 - [[wiki/sources/rust-for-backend-developers-file-system|File System]]
 - [[wiki/sources/rust-for-backend-developers-newtype-pattern|Newtype Pattern]]
 - [[wiki/sources/rust-for-backend-developers-panic|panic]]
+- [[wiki/sources/rust-for-backend-developers-multithreading|Multithreading]]
+- [[wiki/sources/rust-for-backend-developers-global-data|Global Data]]
+- [[wiki/sources/rust-for-backend-developers-error-handling|Error Handling]]
 
 `3. advance` sectioni endi quyidagi yo'nalishlarni qamrab oladi:
 
@@ -202,6 +205,9 @@ Ingested Rust for Backend Developers materials (`3. advance` so far):
 - filesystem boundary: `std::fs`, `Path`, `OsStr`, `OsString`, `OpenOptions`
 - newtype workaround: orphan rule, local compare/conversion semantics
 - panic policy: `panic!` vs `Result`, `catch_unwind`, `panic_any`, hook va placeholder macro'lar
+- multithreading: threads, `Send`/`Sync`, sync primitives, scoped threads, atomics, TLS, channels
+- global data: `const`, `static`, `static mut`, `LazyLock`, `OnceLock`, synchronized registry patterns
+- error handling: `thiserror`, wrapping, `Box<dyn Error>`, `anyhow`, context, root cause, backtrace
 
 Current source baseline:
 
@@ -685,3 +691,15 @@ Rust for Backend Developers `3. advance` synthesis:
 - [[wiki/chapters/rust-for-backend-developers-3-advance|3. Advance]] sectioni syntax va beginner ergonomics'dan keyingi semantic contract qatlamiga o'tadi.
 - [[wiki/chapters/rust-for-backend-developers-common-traits|Common Traits]] equality, ordering, conversion, borrowing, cleanup, DST, va thread-safety markerlarini standard traitlar orqali tartiblaydi.
 - `Eq` vs `PartialEq`, `Ord` vs `PartialOrd`, `From` vs `Into`, `AsRef` vs `Borrow`, va `T: Sized` vs `T: ?Sized` farqlari bu sectionning asosiy mental modeli bo'lib chiqadi.
+- Keyingi qatlamda [[wiki/chapters/rust-for-backend-developers-multithreading|Multithreading]] shu marker traitlarni amaliy execution modelga ulaydi: `thread::spawn`, [[join-handle]], [[thread-builder]], va `FnOnce + Send + 'static` boundary'si endi real operational ma'no oladi.
+- Shared state bu yerda bitta pattern emas: [[mutex-t|Mutex<T>]] exclusive access beradi, [[rwlock|RwLock]] read-heavy workload'ni ochadi, [[condvar|Condvar]] signal/wait coordination beradi, [[barrier|Barrier]] esa phase synchronization uchun ishlaydi. Shu joyda [[poisoned-mutex]] va [[mutexguard-lifetime]] kabi nozik, lekin real bug manbalari ham ochiladi.
+- [[scoped-threads]] ordinary `spawn` local borrow'ni qabul qilmaydigan joyda `thread::scope` `Arc` va `move`ni chetlab o'tadi, lekin background task modeli emas, scope-bound parallelism ekanini saqlaydi.
+- [[atomic-types]] `Mutex<T>`ning o'rnini bosadigan universal vosita emas. Counter, flag, va tor state uchun qulay, lekin [[atomic-memory-ordering]] tanlovi noto'g'ri bo'lsa race-free bo'lsa ham visibility mantiqi buzilishi mumkin. Shu sabab `[[ordering|Ordering]]` sahifasidagi compare enum bilan aralashtirilmaydigan alohida memory-model sahifa ochildi.
+- [[compare-exchange]] CAS loop logikasini aniq qiladi: oddiy `load + store` concurrent update uchun yetmaydi; `expected -> new` modeli failure'da actual value'ni qaytarib retry qilishni talab qiladi.
+- [[thread-local-storage]] `Cell<T>`ni boshqa kontekstda qayta joylashtiradi: shared `static`da `Cell<T>` `Sync` emas, lekin TLS ichida har thread o'z nusxasi bilan ishlaydi.
+- [[channels]] bo'limi endi faqat ownership transfer emas, lifecycle coordination sifatida ham ko'riladi. Source'dagi `Element::Finish` variant yuborilmagani alohida qayd qilindi: loop sender close sabab tugaydi. [[sync-channel]] esa bounded queue orqali backpressure modelini qo'shadi.
+- [[wiki/chapters/rust-for-backend-developers-global-data|Global Data]] shu concurrency foundation ustiga global initialization qatlamini qo'yadi: [[constants]] compile-time only, [[static-items]] bitta shared allocation, [[mutable-static]] esa unsafe escape hatch. Safe defaultlar sifatida [[lazylock|LazyLock]] va [[oncelock|OnceLock]] ajratildi.
+- Session storage misoli `global registry lock` va `object lock` farqini amaliy ko'rsatadi: tashqi `RwLock<HashMap<...>>` qisqa ushlanadi, ichki `Arc<Mutex<UserSession>>` esa individual session mutation uchun ishlatiladi. Bu pattern qulay, lekin global state'ni yaxshi design deb avtomatik oqlamaydi.
+- [[wiki/chapters/rust-for-backend-developers-error-handling|Error Handling]] sectionni app/library boundary bo'yicha bo'ladi: [[custom-error-enum]] va [[wiki/crates/thiserror|thiserror]] public/domain API uchun, [[box-dyn-error|Box<dyn Error>]] va [[wiki/crates/anyhow|anyhow]] esa typed recovery kerak bo'lmagan app-level boundary uchun.
+- [[error-wrapping]] va `#[from]` bilan `?` birga ishlaganda lower-level service errors higher-level API errors'ga o'tadi. Source snippet'dagi `servation` va `(0)` artefaktlari canonical syntax sifatida emas, source typo sifatida qayd qilindi.
+- [[error-context]] va [[root-cause]] bir xil narsa emas: root cause asli failure, context esa qaysi operation yiqilganini aytadi. `anyhow` shu ikkisini birga ko'taradi va kerak bo'lsa backtrace ham beradi.

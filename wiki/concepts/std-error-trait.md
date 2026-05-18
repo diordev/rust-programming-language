@@ -3,9 +3,9 @@ title: "std::error::Error"
 type: concept
 status: active
 created: 2026-05-17
-updated: 2026-05-17
+updated: 2026-05-18
 tags: [rust, error-handling, traits]
-source_count: 1
+source_count: 2
 ---
 
 # std::error::Error
@@ -28,7 +28,7 @@ Bu trait "men error type'iman" degan marker emas, balki formatting va chaining c
 
 uchligini beradi.
 
-Source'dagi muhim caveat: qo'lda impl yozish mumkin, lekin real Rust ecosystem'da buni helper crate yoki macro bilan yengillashtirish keng tarqalgan.
+Source'dagi muhim caveat: qo'lda impl yozish mumkin, lekin real Rust ecosystem'da buni helper crate yoki macro bilan yengillashtirish keng tarqalgan. Amaliy defaultlar: domain/library tarafda [[wiki/crates/thiserror|thiserror]], app-level erased boundary'da esa ko'pincha [[wiki/crates/anyhow|anyhow]].
 
 ## Syntax and Examples
 
@@ -68,7 +68,10 @@ impl std::error::Error for NameParseError {}
 - [[debug-trait|Debug trait]]
 - [[box-dyn-error|Box<dyn Error>]]
 - [[question-mark-operator|question mark operator]]
+- [[custom-error-enum]]
+- [[wiki/crates/thiserror]]
 
 ## Sources
 
 - [[wiki/sources/rust-for-backend-developers-result]]
+- [[wiki/sources/rust-for-backend-developers-error-handling]]

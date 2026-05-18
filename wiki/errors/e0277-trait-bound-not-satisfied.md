@@ -3,9 +3,9 @@ title: "E0277 trait bound not satisfied"
 type: error
 status: active
 created: 2026-05-06
-updated: 2026-05-08
+updated: 2026-05-18
 tags: [rust, compiler-error, traits, debug]
-source_count: 7
+source_count: 8
 ---
 
 # E0277 trait bound not satisfied
@@ -20,6 +20,8 @@ Type kerakli traitni implement qilmaganida `error[E0277]` chiqishi mumkin. Tushi
 4. Chapter 9.2 - `?` operatorni `()` qaytaradigan functionda `Result` ustida ishlatishga urinish.
 5. Chapter 10.2 - trait bound talab qilgan functionga traitni implement qilmagan type berishga urinish.
 6. Chapter 15.2 - integer value bilan reference'ni to'g'ridan-to'g'ri compare qilishga urinish.
+7. Multithreading - `Rc<T>`ni `thread::spawn` ichiga move qilish.
+8. Multithreading - shared `static`da `Cell<T>` ishlatish.
 
 ## Cause
 
@@ -34,6 +36,10 @@ Type kerakli traitni implement qilmaganida `error[E0277]` chiqishi mumkin. Tushi
 **Trait bound uchun:** `fn notify<T: Summary>(item: &T)` faqat `Summary` implement qilgan typelarni qabul qiladi. `String` yoki `i32` `Summary` implement qilmagan bo'lsa, compiler kerakli trait bound bajarilmaganini bildiradi.
 
 **Reference compare uchun:** `assert_eq!(5, y)` da `y: &i32` bo'lsa, `i32` bilan `&i32` solishtirilmoqda. Avval [[dereference-operator|dereference operator]] bilan `*y` orqali inner value'ga yetish kerak.
+
+**`Rc<T>`ni threadga yuborish uchun:** `thread::spawn` closure `Send` bound talab qiladi. `Rc<T>` reference count'i atomic emas, shuning uchun `Send` implement qilmaydi. Odatda yechim [[arc-t|Arc<T>]].
+
+**Shared `static Cell<T>` uchun:** shared static qiymat `Sync` bo'lishi kerak. `Cell<T>` interior mutation beradi, lekin thread-safe emas. Odatda yechim `Atomic*`, `Mutex<T>`, yoki [[thread-local-storage]].
 
 ## Fix Pattern
 
@@ -261,6 +267,28 @@ thread::spawn(move || {
 
 **Yechim:** `Rc<T>` o'rniga `Arc<T>` ishlatish — `Arc<T>: Send + Sync`.
 
+## Shared `static Cell<T>` kontekstida E0277 — `Sync` emas
+
+```rust
+use std::cell::Cell;
+
+static C: Cell<i32> = Cell::new(5);
+```
+
+Bu compile bo'lmaydi, chunki shared `static` qiymat `Sync` bo'lishi kerak.
+
+Minimal safe yo'nalish:
+
+```rust
+use std::sync::atomic::{AtomicI32, Ordering};
+
+static C: AtomicI32 = AtomicI32::new(5);
+
+fn bump() {
+    C.fetch_add(1, Ordering::Relaxed);
+}
+```
+
 ## Related Concepts
 
 - [[debug-trait|Debug trait]]
@@ -283,8 +311,11 @@ thread::spawn(move || {
 - [[impl-trait|impl Trait]]
 - [[trait-implementations|trait implementations]]
 - [[send-trait|Send trait]]
+- [[sync-trait|Sync trait]]
 - [[arc-t|Arc<T>]]
 - [[rc-t|Rc<T>]]
+- [[cell-t|Cell<T>]]
+- [[thread-local-storage]]
 - [[threads]]
 
 ## Sources
@@ -296,3 +327,4 @@ thread::spawn(move || {
 - [[10-2-defining-shared-behavior-with-traits]]
 - [[15-2-treating-smart-pointers-like-regular-references]]
 - [[16-3-shared-state-concurrency]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

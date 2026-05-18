@@ -3,31 +3,34 @@ title: "Concurrency"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-13
+updated: 2026-05-18
 tags: [rust, concurrency]
-source_count: 8
+source_count: 9
 ---
 
 # Concurrency
 
 ## Short Definition
 
-Dasturning turli qismlari **mustaqil** (concurrent) yoki **bir vaqtda** (parallel) bajariladigan execution modeli. Rust bu ikkalasini qo'llab-quvvatlaydi va ownership + type system orqali ko'plab xatolarni **compile time'da** tutadi.
+Dasturning turli qismlari **mustaqil** yoki **bir vaqtda** bajariladigan execution modeli. Rust ownership + type system orqali ko'plab xatolarni **compile time'da** tutadi.
 
 ## Why It Matters
 
-Ko'p protsessorli hisoblash kuchidan foydalanish uchun concurrency zarur. Ammo an'anaviy tillarda race conditions, deadlocks, va hard-to-reproduce buglar keng tarqalgan. Rust **fearless concurrency** falsafasi: noto'g'ri concurrent kod kompilyatsiyadan o'tmaydi — runtime debug o'rniga compiler xato ko'rsatadi.
+Ko'p protsessorli hisoblash kuchidan foydalanish uchun concurrency zarur. Ammo an'anaviy tillarda race conditions, deadlocks, va hard-to-reproduce buglar keng tarqalgan.
 
 ## Mental Model
 
 Ownership va borrowing qoidalari threadlar orasida ham to'liq amal qiladi:
-- Bitta mutable referens yoki ko'p immutable referenslar — shu qoida threadlarda ham.
-- [[data-race|data race]] = compile time xato, runtime emas.
-- Thread'ga o'tkaziladigan qiymat `Send` bo'lishi kerak; shared referens `Sync`.
+- bitta mutable reference yoki ko'p immutable references;
+- [[data-race|data race]] = compile time xato;
+- thread'ga o'tkaziladigan qiymat `Send`;
+- shared referens `Sync`.
 
-Erlang kabi tillar faqat message-passing'ni qo'llaydi. Rust moslashuvchan: message-passing (channels), shared state (`Mutex<T>`), va boshqa yondashuvlar hammasini qamraydi.
+Rust moslashuvchan: message-passing (channels), shared state (`Mutex<T>`), va boshqa yondashuvlar hammasini qamraydi.
 
-Amaliy server design'larida concurrency faqat "ko'proq thread" degani emas. [[thread-pool]] kabi fixed-size yondashuvlar throughput'ni oshirib, shu bilan birga resource usage'ni nazorat qiladi.
+Amaliy server design'larida concurrency faqat "ko'proq thread" degani emas. [[thread-pool]] kabi fixed-size yondashuvlar throughput'ni oshirib, resource usage'ni nazorat qiladi.
+
+Shu qatlamda yana uchta muhim vosita bor: [[scoped-threads]] local borrow bilan qisqa umrli parallel ishlar uchun, [[atomic-types]] tor state uchun lock-free update uchun, va [[thread-local-storage]] per-thread context uchun.
 
 ## Syntax and Examples
 
@@ -35,25 +38,22 @@ Amaliy server design'larida concurrency faqat "ko'proq thread" degani emas. [[th
 use std::thread;
 use std::time::Duration;
 
-// Asosiy thread yaratish
 let handle = thread::spawn(|| {
     println!("spawned thread ishlayapti");
     thread::sleep(Duration::from_millis(1));
 });
 
-handle.join().unwrap(); // spawned tugashini kut
+handle.join().unwrap();
 ```
-
-Qarang: [[threads]] va [[thread-spawn-basic]].
 
 ## Common Mistakes
 
-- **Concurrent va parallel'ni bir xil deb ishlatish** — concurrent = mustaqil (overlap mumkin), parallel = bir vaqtda.
-- **`move` siz closure thread'da** — E0373 chiqadi; `thread::spawn(move || ...)` kerak.
-- **`join` ni unutish** — main thread tugashi bilan spawned threadlar ham to'xtaydi.
-- **Deadlock** — ikki thread bir-birini kutib qolsa, hech biri davom etolmaydi.
-- **Har request uchun cheksiz thread yaratish** — concurrency bersa ham operational jihatdan xavfli.
-- **Lock lifetime'ni e'tiborsiz qoldirish** — compile bo'lgan kod ham amalda serial ishlashi mumkin. Qarang: [[mutexguard-lifetime]].
+- **Concurrent va parallel'ni bir xil deb ishlatish**.
+- **`move` siz closure thread'da**.
+- **`join` ni unutish**.
+- **Deadlock**.
+- **Har request uchun cheksiz thread yaratish**.
+- **Lock lifetime'ni e'tiborsiz qoldirish**.
 
 ## Related Concepts
 
@@ -72,6 +72,10 @@ Qarang: [[threads]] va [[thread-spawn-basic]].
 - [[job-queue]]
 - [[send-trait|Send trait]]
 - [[sync-trait|Sync trait]]
+- [[scoped-threads]]
+- [[atomic-types]]
+- [[thread-local-storage]]
+- [[sync-channel]]
 - [[async-await|async/await]]
 - [[future|Future trait]]
 - [[async-runtime|async runtime]]
@@ -88,3 +92,4 @@ Qarang: [[threads]] va [[thread-spawn-basic]].
 - [[16-4-extensible-concurrency-with-send-and-sync]]
 - [[17-fundamentals-of-asynchronous-programming]]
 - [[wiki/sources/21-2-from-single-threaded-to-multithreaded-server|21.2]]
+- [[wiki/sources/rust-for-backend-developers-multithreading]]

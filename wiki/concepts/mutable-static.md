@@ -3,9 +3,9 @@ title: "Mutable Static Variable"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-18
 tags: [rust, unsafe, globals, concurrency]
-source_count: 1
+source_count: 2
 ---
 
 # Mutable Static Variable
@@ -16,7 +16,7 @@ source_count: 1
 
 ## Why It Matters
 
-Global mutable state — ko'p tillarda oddiy, lekin Rust'da xavfli. Concurrency'da deyarli har doim noto'g'ri tanlov; o'rniga `Mutex`, `RwLock`, yoki `OnceLock` ishlatish kerak. Lekin ba'zan FFI yoki low-level kodda majbur bo'ladi.
+Global mutable state — ko'p tillarda oddiy, lekin Rust'da xavfli. Concurrency'da deyarli har doim noto'g'ri tanlov; o'rniga `Mutex`, `RwLock`, [[oncelock|OnceLock]], yoki [[lazylock|LazyLock]] ishlatish kerak. Lekin ba'zan FFI yoki low-level kodda majbur bo'ladi.
 
 ## Mental Model
 
@@ -117,7 +117,11 @@ Bu yechim `unsafe`siz va thread-safe.
 - [[constants]] — alternativ
 - [[concurrency]] — `Mutex`/`Atomic` xavfsiz alternativalari
 - [[mutex-t|Mutex<T>]]
+- [[lazylock|LazyLock]]
+- [[oncelock|OnceLock]]
+- [[global-state]]
 
 ## Sources
 
 - [[wiki/sources/20-1-unsafe-rust|20.1 Unsafe Rust]]
+- [[wiki/sources/rust-for-backend-developers-global-data]]

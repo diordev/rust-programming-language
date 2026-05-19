@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-19
 tags: [rust, index]
-source_count: 169
+source_count: 170
 ---
 
 # Rust Wiki Index
@@ -186,6 +186,7 @@ source_count: 169
 - [[wiki/sources/rust-for-backend-developers-date-and-time|Rust for Backend Developers: Date and Time]]
 - [[wiki/sources/rust-for-backend-developers-logging|Rust for Backend Developers: Logging]]
 - [[wiki/sources/rust-for-backend-developers-application-configuration|Rust for Backend Developers: Application Configuration]]
+- [[wiki/sources/rust-for-backend-developers-async-in-rust|Rust for Backend Developers: Async in Rust]]
 
 ## Chapters
 
@@ -293,6 +294,8 @@ source_count: 169
 - [[wiki/chapters/rust-for-backend-developers-date-and-time|Rust for Backend Developers: Date and Time]]
 - [[wiki/chapters/rust-for-backend-developers-logging|Rust for Backend Developers: Logging]]
 - [[wiki/chapters/rust-for-backend-developers-application-configuration|Rust for Backend Developers: Application Configuration]]
+- [[wiki/chapters/rust-for-backend-developers-4-async|Rust for Backend Developers: 4. Async]]
+- [[wiki/chapters/rust-for-backend-developers-async-in-rust|Rust for Backend Developers: Async in Rust]]
 
 ## Concepts
 
@@ -474,7 +477,7 @@ Core concepts and active concept pages:
 - [[serialize-trait|Serialize trait]]
 - [[deserialize-trait|Deserialize trait]]
 - [[serde-json-value|serde_json::Value]]
-- [[serde-enum-tagging]]
+- [[wiki/concepts/serde-enum-tagging|serde enum tagging]]
 - [[serde-rename]]
 - [[deserializeowned|DeserializeOwned]]
 - [[higher-ranked-trait-bounds|higher-ranked trait bounds]]
@@ -615,9 +618,17 @@ Core concepts and active concept pages:
 - [[async-await|async/await]]
 - [[future|Future trait]]
 - [[async-runtime|async runtime]]
+- [[executor]]
+- [[block-on|block_on]]
 - [[polling|polling]]
+- [[poll-enum|Poll]]
+- [[task-context|Task Context]]
+- [[waker|Waker]]
 - [[async-state-machine|async state machine]]
 - [[async-task|async task]]
+- [[async-block|async block]]
+- [[async-closure|async closure]]
+- [[fiber]]
 - [[async-join|async join]]
 - [[async-channel|async channel]]
 - [[async-move-block|async move block]]
@@ -787,7 +798,7 @@ Core concepts and active concept pages:
 - [[box-dyn-error-downcast|Box dyn Error downcast]]
 - [[anyhow-context-backtrace|anyhow context and backtrace]]
 - [[serde-json-employee|serde JSON Employee]]
-- [[serde-enum-tagging|serde enum tagging]]
+- [[wiki/examples/serde-enum-tagging|serde enum tagging]]
 - [[chrono-date-time-formatting|chrono DateTime formatting]]
 - [[instant-elapsed-timing|Instant elapsed timing]]
 - [[tracing-basic-logging|tracing basic logging]]
@@ -798,6 +809,10 @@ Core concepts and active concept pages:
 - [[async-concurrent-tasks|async concurrent tasks]]
 - [[async-channel-messages|async channel messages]]
 - [[async-timeout|async timeout]]
+- [[futures-block-on-basic|futures block_on basic]]
+- [[async-user-address-composition|async user address composition]]
+- [[async-closure-and-block|async closure and block]]
+- [[minimal-waker-executor|minimal waker executor]]
 - [[stream-from-iter|stream from iterator]]
 - [[join-all-pinned|join_all with pinned futures]]
 - [[thread-async-combined|thread and async combined]]
@@ -943,6 +958,7 @@ Core concepts and active concept pages:
 
 ## Crates
 
+- [[futures]]
 - [[rand]]
 - [[thiserror]]
 - [[anyhow]]

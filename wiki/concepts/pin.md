@@ -3,9 +3,9 @@ title: "Pin va Unpin"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-19
 tags: [rust, async, memory, safety]
-source_count: 1
+source_count: 2
 ---
 
 # Pin va Unpin
@@ -17,6 +17,8 @@ source_count: 1
 ## Why It Matters
 
 Async `Future`'larning state machine'lari **self-referential** bo'lishi mumkin — bir variant boshqa variantga reference saqlaydi. Bunday tur ko'chirilsa, ichki reference yangi manzilga ko'rsatmay, eski (endi yaroqsiz) manzilga ko'rsatib qoladi — dangling reference. `Pin` bu muammoni hal qiladi: qiymatni xotirada qotirib, ko'chirishni taqiqlaydi.
+
+Shuning uchun `Future::poll` signature'i `self: Pin<&mut Self>` oladi. Oddiy backend async kodda `Pin` ko'pincha bevosita yozilmaydi, lekin custom future yoki executor yozilganda u darhol ko'rinadi.
 
 ## Mental Model
 
@@ -108,6 +110,7 @@ async {}  // ✗ !Unpin — self-referential bo'lishi mumkin
 ## Related Concepts
 
 - [[future|Future trait]] — `poll(self: Pin<&mut Self>...)` — Pin zarurligi
+- [[executor]] — custom executor future'ni `Pin<Box<dyn Future>>` sifatida saqlashi mumkin
 - [[async-state-machine|async state machine]] — self-referential variantlar sabab
 - [[join-all|join_all]] — Vec ichida future'lar, Pin talab qiladi
 - [[send-trait|Send trait]] — o'xshash marker trait pattern
@@ -115,3 +118,4 @@ async {}  // ✗ !Unpin — self-referential bo'lishi mumkin
 ## Sources
 
 - [[wiki/sources/17-5-a-closer-look-at-the-traits-for-async]]
+- [[wiki/sources/rust-for-backend-developers-async-in-rust]]

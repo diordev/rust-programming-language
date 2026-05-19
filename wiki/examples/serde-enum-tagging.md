@@ -41,7 +41,6 @@ Output shape:
 
 ## Related
 
-- [[serde-enum-tagging]]
+- [[wiki/concepts/serde-enum-tagging|serde enum tagging]]
 - [[wiki/crates/serde]]
 - [[wiki/crates/serde-json]]
-

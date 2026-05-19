@@ -3,9 +3,9 @@ title: "Polling"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-19
 tags: [rust, async, futures]
-source_count: 1
+source_count: 2
 ---
 
 # Polling
@@ -26,6 +26,8 @@ Polling'ni restoran so'rash jarayoni sifatida tasavvur qiling:
 - Yo'q bo'lsa: "Bir ozdan keyin qaytaman" (`Pending`)
 
 Zamonaviy runtime'lar aslida **waker** mexanizmi orqali ishlaydi: future `Pending` qaytarganda, tayyor bo'lganda runtime'ni xabardor qilish uchun `Waker` ob'ektini saqlab qo'yadi. Bu runtime'ni bekor polling'dan saqlaydi.
+
+Oqim shunday: executor yangi future'ni `poll` qiladi; `Poll::Pending` bo'lsa, future [[task-context|Context]] orqali berilgan [[waker|Waker]]ni saqlaydi; event tayyor bo'lganda waker taskni yana queue'ga qaytaradi; executor keyin future'ni qayta `poll` qiladi.
 
 ## Syntax and Examples
 
@@ -81,9 +83,13 @@ async fn example() {
 
 - [[future|Future trait]] — poll metodi shu traitda
 - [[async-runtime|async runtime]] — polling'ni amalga oshiruvchi
+- [[poll-enum|Poll]] — `Ready` va `Pending` protokoli
+- [[waker|Waker]] — `Pending`dan keyingi qayta poll signalini beradi
+- [[task-context|Context]] — waker'ni future'ga uzatadi
 - [[async-state-machine|async state machine]] — har bir poll call state'ni o'zgartirishi mumkin
 - [[async-await|async/await]] — polling'ning abstraksiyasi
 
 ## Sources
 
 - [[17-1-futures-and-the-async-syntax]]
+- [[wiki/sources/rust-for-backend-developers-async-in-rust]]

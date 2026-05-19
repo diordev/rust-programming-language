@@ -3,9 +3,9 @@ title: "Async State Machine"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-19
 tags: [rust, async, compiler]
-source_count: 1
+source_count: 2
 ---
 
 # Async State Machine
@@ -70,6 +70,8 @@ enum PageTitleFuture<'a> {
 
 Har bir holat kerakli ma'lumotlarni saqlaydi. Runtime `poll` chaqirganda machine joriy holatidan keyingi holat bo'yicha ishni davom ettiradi.
 
+Manbadagi "fiber" analogiyasini shu yerda ehtiyotkor ishlatish mumkin: async function bajarilishi `.await` nuqtalarida to'xtab, keyin davom etadi. Rustdagi real interface esa [[future|Future]] state machine va [[executor]] tomonidan `poll` qilish modelidir.
+
 ### Nega `async move` kerak?
 
 ```rust
@@ -101,6 +103,7 @@ async fn problematic() {
 
 - [[future|Future trait]] — state machine shu trait'ni implement qiladi
 - [[polling|polling]] — har poll chaqiruvida machine bir qadam oldinga boradi
+- [[waker|Waker]] — pending state'dan keyin davom ettirish signalini beradi
 - [[async-await|async/await]] — state machine'ni yashiradigan sintaksis
 - [[async-runtime|async runtime]] — state machine'ni ishlatuvchi
 - [[zero-cost-abstractions|zero-cost abstractions]] — state machine qo'shimcha heap sarflamaydi
@@ -108,3 +111,4 @@ async fn problematic() {
 ## Sources
 
 - [[17-1-futures-and-the-async-syntax]]
+- [[wiki/sources/rust-for-backend-developers-async-in-rust]]

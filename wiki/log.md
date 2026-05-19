@@ -3,9 +3,9 @@ title: "Wiki Log"
 type: overview
 status: active
 created: 2026-05-06
-updated: 2026-05-18
+updated: 2026-05-19
 tags: [rust, log]
-source_count: 165
+source_count: 170
 ---
 
 # Wiki Log
@@ -1582,7 +1582,7 @@ source_count: 165
   - [[wiki/chapters/rust-for-backend-developers-serialization]]
   - [[wiki/chapters/rust-for-backend-developers-date-and-time]]
 - Created crate pages: [[wiki/crates/serde]], [[wiki/crates/serde-json]], [[wiki/crates/serde-xml-rs]], [[wiki/crates/chrono]].
-- Created examples: [[serde-json-employee]], [[serde-enum-tagging]], [[chrono-date-time-formatting]], [[instant-elapsed-timing]].
+- Created examples: [[serde-json-employee]], [[wiki/examples/serde-enum-tagging|serde-enum-tagging]], [[chrono-date-time-formatting]], [[instant-elapsed-timing]].
 - Created concept/tool pages for serde serialization, enum tagging, `DeserializeOwned`, std time primitives, chrono timezone model, RFC formats, and [[cargo-expand|cargo expand]].
 - Updated section chapter [[wiki/chapters/rust-for-backend-developers-3-advance]]: source_count 10->12; serialization and date/time synthesis qo'shildi.
 - Updated [[index|Rust Wiki Index]] va [[overview]] source_count 165->167; 2 source va 2 chapter link qo'shildi.
@@ -1609,3 +1609,28 @@ source_count: 165
 - Appended logging/configuration relations to `infranodus/rust-book-relations.txt`; existing ontology qayta generatsiya qilinmadi.
 - Source caveats preserved: `mod1/mod2` filter typo corrected, `rolling::daily` daily rotation clarified, dotenv/dotenvy status kept as source claim, and plain config-file secrets flagged as production risk.
 - Verification: tracing/tracing-subscriber/tracing-appender/config/serde temp Cargo project `cargo check`dan o'tdi; warnings faqat unused demo fields haqida.
+
+## 2026-05-19 ingest | Rust for Backend Developers `4. async` 60
+
+- Ingested 1 ta source from `raw/books/rust-for-backend-developer/4. async/`:
+  - `60. Асинхронность в Rust.md`
+- Created source summary:
+  - [[wiki/sources/rust-for-backend-developers-async-in-rust]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-4-async]]
+  - [[wiki/chapters/rust-for-backend-developers-async-in-rust]]
+- Created crate page: [[wiki/crates/futures]].
+- Created concept pages: [[executor]], [[block-on|block_on]], [[waker|Waker]], [[task-context|Task Context]], [[poll-enum|Poll]], [[async-closure|async closure]], [[async-block|async block]], [[fiber]].
+- Created examples: [[futures-block-on-basic]], [[async-user-address-composition]], [[async-closure-and-block]], [[minimal-waker-executor]].
+- Updated async concept pages: [[future]], [[async-await|async/await]], [[async-runtime|async runtime]], [[polling]], [[pin|Pin va Unpin]], [[async-state-machine|async state machine]], [[async-task|async task]].
+- Updated [[index|Rust Wiki Index]] va [[overview]] source_count 169->170; 1 source, 2 chapter link, 8 concept, 4 example, va 1 crate link qo'shildi.
+- Appended async executor/future relations to `infranodus/rust-book-relations.txt`; existing ontology qayta generatsiya qilinmadi.
+- Source caveats preserved: "fiber" Rust public API atamasi emasligi, `futures::executor::block_on` production runtime emasligi, va `Sleep` future misoli har `poll`da thread spawn qilishi real timer dizayni emasligi qayd qilindi.
+
+## 2026-05-19 lint | serde enum tagging disambiguation
+
+- Ran structural lint over `wiki/` and `raw/`.
+- Fixed ambiguous `[[serde-enum-tagging]]` links by targeting [[wiki/concepts/serde-enum-tagging|serde enum tagging concept]] or [[wiki/examples/serde-enum-tagging|serde enum tagging example]] explicitly.
+- Final lint state: 0 broken wikilinks, 0 ambiguous wikilinks, 0 orphan pages, 0 frontmatter issues, 0 index coverage gaps.
+- Remaining ingest gap: 3 raw async files do not yet have `wiki/sources/` summaries.
+- Report saved: `output/2026-05-19-wiki-lint-report.md`.

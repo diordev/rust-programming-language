@@ -5,7 +5,7 @@ status: active
 created: 2026-05-06
 updated: 2026-05-19
 tags: [rust, overview]
-source_count: 169
+source_count: 170
 ---
 
 # Rust Wiki Overview
@@ -200,6 +200,10 @@ Ingested Rust for Backend Developers materials (`3. advance` so far):
 - [[wiki/sources/rust-for-backend-developers-date-and-time|Date and Time]]
 - [[wiki/sources/rust-for-backend-developers-logging|Logging]]
 - [[wiki/sources/rust-for-backend-developers-application-configuration|Application Configuration]]
+
+Ingested Rust for Backend Developers materials (`4. async` so far):
+
+- [[wiki/sources/rust-for-backend-developers-async-in-rust|Async in Rust]]
 
 `3. advance` sectioni endi quyidagi yo'nalishlarni qamrab oladi:
 
@@ -719,3 +723,12 @@ Rust for Backend Developers `3. advance` synthesis:
 - Logging bo'limida [[rust-log|RUST_LOG]] runtime filter policy sifatida, [[tracing-span|tracing span]] esa request/function contextni loglarga bog'lash vositasi sifatida ajratildi. Async `.await` boundary bilan entered span scope ehtiyotkorlik talab qilishi alohida qayd qilindi.
 - [[wiki/chapters/rust-for-backend-developers-application-configuration|Application Configuration]] startup boundary'ni ko'rsatadi: [[wiki/crates/config|config]] file va env sourcelarni merge qiladi, [[wiki/crates/serde|serde]] esa final config tree'ni typed structga aylantiradi.
 - Configuration bo'limi `default.toml` + profile TOML + env override orderini asosiy mental model qiladi. Source passwordlarni TOMLda ko'rsatsa ham, wiki production secretlarni plain tracked config file'da saqlashni xavfli deb belgilaydi.
+
+Rust for Backend Developers `4. async` synthesis:
+
+- [[wiki/chapters/rust-for-backend-developers-4-async|4. Async]] sectioni Rust async modelini user-space execution flow sifatida ochishni boshladi.
+- [[wiki/chapters/rust-for-backend-developers-async-in-rust|Async in Rust]] `async fn` chaqiruvi natijani emas, [[future|Future]] qaytarishini aniq qiladi; natijani olish uchun [[executor]] yoki [[async-runtime|async runtime]] kerak.
+- [[wiki/crates/futures|futures]] source'da sodda `futures::executor::block_on` demo uchun ishlatiladi. Bu high-load backend runtime emas, executor zarurligini ko'rsatuvchi kichik kirish nuqtasi.
+- `.await` sequential compositionni callback zanjirisiz yozdiradi, lekin aslida suspension point: future `Pending` bo'lsa [[waker|Waker]] signali kelganda qayta `poll` qilinadi.
+- [[task-context|Context]], [[poll-enum|Poll]], [[waker|Waker]], va [[pin|Pin]] endi async trait contractining alohida tushunchalari sifatida ajratildi.
+- Source'dagi "fiber" atamasi Rust rasmiy public API nomi emas; wiki uni [[fiber]] sahifasida faqat [[future|Future]] va async state machine uchun mental model sifatida saqlaydi.

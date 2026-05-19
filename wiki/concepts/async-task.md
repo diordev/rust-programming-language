@@ -3,9 +3,9 @@ title: "Async Task"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-19
 tags: [rust, async, concurrency]
-source_count: 1
+source_count: 2
 ---
 
 # Async Task
@@ -21,6 +21,8 @@ Thread yaratish OS resurslari sarflaydi — har bir thread o'zining stack xotira
 ## Mental Model
 
 Thread'ni alohida ishchi sifatida tasavvur qiling — har birining ish stoli (stack) bor. Task esa bitta ishchi o'z ish stoliga yozib qo'yadigan qog'oz parcha — u stolni egallamas, istalgan vaqt qo'yib ketishi mumkin.
+
+Past darajada task odatda future va uni qayta queue'ga qo'yadigan [[waker|Waker]] bilan bog'lanadi. Custom executor misollarida task `Pin<Box<dyn Future<Output = ()>>>` va queue senderini o'zida saqlashi mumkin.
 
 | | Thread | Async Task |
 |---|---|---|
@@ -88,6 +90,8 @@ trpl::block_on(async {
 ## Related Concepts
 
 - [[future|Future trait]] — task handle future implement qiladi
+- [[executor]] — tasklarni queue'dan olib poll qiladi
+- [[waker|Waker]] — pending taskni qayta queue'ga yuboradi
 - [[async-join|async join]] — bir nechta task/future'ni birgalikda kutish
 - [[async-runtime|async runtime]] — task'larni boshqaruvchi executor
 - [[threads]] — OS-darajasidagi og'ir ekvivalent
@@ -96,3 +100,4 @@ trpl::block_on(async {
 ## Sources
 
 - [[wiki/sources/17-2-applying-concurrency-with-async]]
+- [[wiki/sources/rust-for-backend-developers-async-in-rust]]

@@ -31,7 +31,7 @@ Backend boundary'da Rust domain typelarini JSON/XML kabi wire formatlarga barqar
 - [[serialize-trait|Serialize trait]]
 - [[deserialize-trait|Deserialize trait]]
 - [[serde-json-value|serde_json::Value]]
-- [[serde-enum-tagging]]
+- [[wiki/concepts/serde-enum-tagging|serde enum tagging]]
 - [[serde-rename]]
 - [[deserializeowned|DeserializeOwned]]
 - [[higher-ranked-trait-bounds|higher-ranked trait bounds]]
@@ -77,4 +77,3 @@ enum Event {
 - [[wiki/crates/serde]]
 - [[wiki/crates/serde-json]]
 - [[wiki/crates/serde-xml-rs]]
-

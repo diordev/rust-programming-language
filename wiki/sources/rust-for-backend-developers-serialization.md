@@ -41,7 +41,7 @@ Oxirgi bo'lim [[deserializeowned|DeserializeOwned]] haqida. `Deserialize<'de>` i
 - [[serialize-trait|Serialize trait]]
 - [[deserialize-trait|Deserialize trait]]
 - [[serde-json-value|serde_json::Value]]
-- [[serde-enum-tagging]]
+- [[wiki/concepts/serde-enum-tagging|serde enum tagging]]
 - [[serde-rename]]
 - [[deserializeowned|DeserializeOwned]]
 - [[higher-ranked-trait-bounds|higher-ranked trait bounds]]

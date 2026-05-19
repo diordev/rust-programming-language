@@ -3,9 +3,9 @@ title: "Future"
 type: concept
 status: active
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-19
 tags: [rust, async, futures]
-source_count: 2
+source_count: 3
 ---
 
 # Future
@@ -17,6 +17,8 @@ source_count: 2
 ## Why It Matters
 
 `Future` trait Rust async ekotizimining yadrosida turadi. Har qanday async operatsiya — tarmoq so'rovi, fayl o'qish, `async fn` — `Future` implementatsiyasiga aylanadi. Bu trait tufayli turli xil async operatsiyalar bir xil interfeys orqali boshqarilishi mumkin.
+
+Rust standard library `Future` trait va async syntaxni beradi, lekin bu future'larni bajaradigan [[executor]] yoki to'liq [[async-runtime|async runtime]]ni bermaydi. Shu sabab `async fn` yozish va uni ishga tushirish ikki alohida masala.
 
 ## Mental Model
 
@@ -78,11 +80,14 @@ fn main() {
 }
 ```
 
+Executor future bilan `poll` orqali gaplashadi. `poll` `Pending` qaytarsa, future [[task-context|Context]]dan olingan [[waker|Waker]]ni keyinroq signal berish uchun saqlashi kerak.
+
 ## Common Mistakes
 
 - **`.await` unutib qolish**: Rust compiler warning beradi (`unused future`), lekin beginner'lar buni ko'rmay o'tishi mumkin.
 - **Future + async bo'lmagan kontekstda ishlatish**: `.await` faqat async funksiya yoki async blok ichida ishlaydi.
 - **Thread::spawn bilan aralashtirib yuborish**: `thread::spawn` darhol boshlaydi, future esa lazy.
+- **`Pending` future waker saqlaydi degan qoidani unutish**: custom future `Pending` qaytarsa, executor uni qachon qayta `poll` qilishini waker orqali biladi.
 
 ```rust
 // Xato — await qo'shilmagan, hech narsa bajarilmaydi
@@ -99,6 +104,8 @@ let result = fetch_data("https://example.com").await;
 - [[async-state-machine|async state machine]] — future ichidagi yashirin holat mashinasi
 - [[async-runtime|async runtime]] — future'larni bajoruvchi executor
 - [[pin|Pin va Unpin]] — `poll(self: Pin<&mut Self>)` — Pin zarurligi
+- [[waker|Waker]] — `Pending` future tayyor bo'lganda executor'ni uyg'otadi
+- [[poll-enum|Poll]] — `Ready` yoki `Pending` natijasi
 - [[join-all|join_all]] — Vec ichida future'lar, Pin bilan
 - [[iterators]] — o'xshash lazy model
 
@@ -106,3 +113,4 @@ let result = fetch_data("https://example.com").await;
 
 - [[17-1-futures-and-the-async-syntax]]
 - [[wiki/sources/17-5-a-closer-look-at-the-traits-for-async]]
+- [[wiki/sources/rust-for-backend-developers-async-in-rust]]

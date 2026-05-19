@@ -3,9 +3,9 @@ title: "Async Await"
 type: concept
 status: active
 created: 2026-05-06
-updated: 2026-05-08
+updated: 2026-05-19
 tags: [rust, async]
-source_count: 3
+source_count: 4
 ---
 
 # Async Await
@@ -23,6 +23,8 @@ I/O-bound operatsiyalar (tarmoq so'rovlari, fayl o'qish) uchun thread'larga qara
 `async` blok yoki funksiya yozilganda — compilator bu kodni `Future` trait'ini implement qiladigan **state machine**ga aylantiradi. `.await` — state machine'ning "davom et" buyrug'i:
 - Tayyor bo'lsa natija olinsn
 - Tayyor bo'lmasa boshqaruv runtime'ga qaytarilsin
+
+`.await` shu bilan birga suspension point: [[executor]] future'ni aynan shu chegaralarda to'xtatib, keyin [[waker|Waker]] signali kelganda davom ettirishi mumkin. Rustda `await` postfix yoziladi, bu method chaining bilan yaxshi moslashadi.
 
 Iterator bilan o'xshashlik:
 - Iterator `.next()` chaqirilmasa ishlamaydi
@@ -69,6 +71,15 @@ fn add(a: i32, b: i32) -> impl Future<Output = i32> {
 }
 ```
 
+### async closure va async block
+
+```rust
+let future_from_block = async { 1 };
+
+let closure = async || { 2 };
+let future_from_closure = closure();
+```
+
 ### main funksiyasida runtime
 
 ```rust
@@ -90,6 +101,7 @@ async fn main() {
 - **`.await` async bo'lmagan funksiyada ishlatish**: `.await` faqat `async` funksiya yoki `async {}` blok ichida ishlaydi.
 - **Runtime'ni unutish**: `main` async bo'lolmaydi — `block_on` yoki `#[tokio::main]` kerak.
 - **Lazy ekanligini unutish**: Future yaratish uni ishlatish emas — `.await` bo'lmasa hech narsa bajarmaydi.
+- **Sequential `.await`ni parallel deb o'ylash**: bitta async function ichida `a.await; b.await;` ketma-ket bajariladi, agar `b` `a` natijasiga bog'liq bo'lsa bu to'g'ri model.
 
 ```rust
 // Xato — natija hech qachon olinmaydi
@@ -105,6 +117,8 @@ let result = fetch_data("https://example.com").await;
 - [[async-runtime|async runtime]] — future'larni bajoruvchi executor
 - [[async-state-machine|async state machine]] — compilator async kodni bunga aylantiradi
 - [[polling|polling]] — runtime future'ni qanday tekshiradi
+- [[async-block|async block]] — nomli funksiya yozmasdan future yaratish
+- [[async-closure|async closure]] — chaqirilganda future qaytaradigan closure
 - [[io-bound|I/O-bound]] — async'ning asosiy qo'llanish sohasi
 - [[concurrency]] — async concurrent model
 - [[zero-cost-abstractions|zero-cost abstractions]] — state machine heap allocationsiz ishlaydi
@@ -114,3 +128,4 @@ let result = fetch_data("https://example.com").await;
 - [[wiki/sources/0-2-introduction]]
 - [[17-fundamentals-of-asynchronous-programming]]
 - [[17-1-futures-and-the-async-syntax]]
+- [[wiki/sources/rust-for-backend-developers-async-in-rust]]

@@ -1569,3 +1569,43 @@ source_count: 165
 - Created concept page [[byte-buffer|byte buffer]] for Rust I/O buffer semantics.
 - Updated [[index|Rust Wiki Index]] with the new concept link.
 - Appended only new byte-buffer relations to `infranodus/rust-book-relations.txt`; ontology qayta generatsiya qilinmadi.
+
+## 2026-05-19 ingest | Rust for Backend Developers `3. advance` 55-56
+
+- Ingested 2 ta source from `raw/books/rust-for-backend-developer/3. advance/`:
+  - `55. Сериализация.md`
+  - `56. Дата и время.md`
+- Created source summaries:
+  - [[wiki/sources/rust-for-backend-developers-serialization]]
+  - [[wiki/sources/rust-for-backend-developers-date-and-time]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-serialization]]
+  - [[wiki/chapters/rust-for-backend-developers-date-and-time]]
+- Created crate pages: [[wiki/crates/serde]], [[wiki/crates/serde-json]], [[wiki/crates/serde-xml-rs]], [[wiki/crates/chrono]].
+- Created examples: [[serde-json-employee]], [[serde-enum-tagging]], [[chrono-date-time-formatting]], [[instant-elapsed-timing]].
+- Created concept/tool pages for serde serialization, enum tagging, `DeserializeOwned`, std time primitives, chrono timezone model, RFC formats, and [[cargo-expand|cargo expand]].
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-3-advance]]: source_count 10->12; serialization and date/time synthesis qo'shildi.
+- Updated [[index|Rust Wiki Index]] va [[overview]] source_count 165->167; 2 source va 2 chapter link qo'shildi.
+- Appended serialization/date-time relations to `infranodus/rust-book-relations.txt`; existing ontology qayta generatsiya qilinmadi.
+- Source corrections preserved: cargo-expand install command, std `Duration` minute constructor, and camelCase field typo wiki'da tuzatildi.
+- Verification: std time snippet `rustc 1.95.0` bilan compile bo'ldi; serde/serde_json/serde-xml-rs/chrono temp Cargo project `cargo check`dan o'tdi.
+
+## 2026-05-19 ingest | Rust for Backend Developers `3. advance` 57-58
+
+- Ingested 2 ta source from `raw/books/rust-for-backend-developer/3. advance/`:
+  - `57. Логирование.md`
+  - `58. Конфигурация приложения.md`
+- Created source summaries:
+  - [[wiki/sources/rust-for-backend-developers-logging]]
+  - [[wiki/sources/rust-for-backend-developers-application-configuration]]
+- Created chapter pages:
+  - [[wiki/chapters/rust-for-backend-developers-logging]]
+  - [[wiki/chapters/rust-for-backend-developers-application-configuration]]
+- Created crate pages: [[wiki/crates/tracing]], [[wiki/crates/tracing-subscriber]], [[wiki/crates/tracing-appender]], [[wiki/crates/config]].
+- Created examples: [[tracing-basic-logging]], [[tracing-env-filter-rust-log]], [[tracing-file-appender-layers]], [[config-layered-toml-env-override]].
+- Created concept pages for logging levels, subscriber/filter/writer/layers/spans, `RUST_LOG`, non-blocking logging, app configuration, config layering, environment profile/overrides, and config deserialization.
+- Updated section chapter [[wiki/chapters/rust-for-backend-developers-3-advance]]: source_count 12->14; logging and application configuration synthesis qo'shildi.
+- Updated [[index|Rust Wiki Index]] va [[overview]] source_count 167->169; 2 source va 2 chapter link qo'shildi.
+- Appended logging/configuration relations to `infranodus/rust-book-relations.txt`; existing ontology qayta generatsiya qilinmadi.
+- Source caveats preserved: `mod1/mod2` filter typo corrected, `rolling::daily` daily rotation clarified, dotenv/dotenvy status kept as source claim, and plain config-file secrets flagged as production risk.
+- Verification: tracing/tracing-subscriber/tracing-appender/config/serde temp Cargo project `cargo check`dan o'tdi; warnings faqat unused demo fields haqida.

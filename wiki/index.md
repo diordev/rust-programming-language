@@ -3,9 +3,9 @@ title: "Rust Wiki Index"
 type: overview
 status: active
 created: 2026-05-06
-updated: 2026-05-18
+updated: 2026-05-19
 tags: [rust, index]
-source_count: 165
+source_count: 169
 ---
 
 # Rust Wiki Index
@@ -182,6 +182,10 @@ source_count: 165
 - [[wiki/sources/rust-for-backend-developers-multithreading|Rust for Backend Developers: Multithreading]]
 - [[wiki/sources/rust-for-backend-developers-global-data|Rust for Backend Developers: Global Data]]
 - [[wiki/sources/rust-for-backend-developers-error-handling|Rust for Backend Developers: Error Handling]]
+- [[wiki/sources/rust-for-backend-developers-serialization|Rust for Backend Developers: Serialization]]
+- [[wiki/sources/rust-for-backend-developers-date-and-time|Rust for Backend Developers: Date and Time]]
+- [[wiki/sources/rust-for-backend-developers-logging|Rust for Backend Developers: Logging]]
+- [[wiki/sources/rust-for-backend-developers-application-configuration|Rust for Backend Developers: Application Configuration]]
 
 ## Chapters
 
@@ -285,6 +289,10 @@ source_count: 165
 - [[wiki/chapters/rust-for-backend-developers-multithreading|Rust for Backend Developers: Multithreading]]
 - [[wiki/chapters/rust-for-backend-developers-global-data|Rust for Backend Developers: Global Data]]
 - [[wiki/chapters/rust-for-backend-developers-error-handling|Rust for Backend Developers: Error Handling]]
+- [[wiki/chapters/rust-for-backend-developers-serialization|Rust for Backend Developers: Serialization]]
+- [[wiki/chapters/rust-for-backend-developers-date-and-time|Rust for Backend Developers: Date and Time]]
+- [[wiki/chapters/rust-for-backend-developers-logging|Rust for Backend Developers: Logging]]
+- [[wiki/chapters/rust-for-backend-developers-application-configuration|Rust for Backend Developers: Application Configuration]]
 
 ## Concepts
 
@@ -461,6 +469,52 @@ Core concepts and active concept pages:
 - [[error-context]]
 - [[error-downcasting]]
 - [[root-cause]]
+- [[serialization]]
+- [[deserialization]]
+- [[serialize-trait|Serialize trait]]
+- [[deserialize-trait|Deserialize trait]]
+- [[serde-json-value|serde_json::Value]]
+- [[serde-enum-tagging]]
+- [[serde-rename]]
+- [[deserializeowned|DeserializeOwned]]
+- [[higher-ranked-trait-bounds|higher-ranked trait bounds]]
+- [[duration|Duration]]
+- [[system-time|SystemTime]]
+- [[instant|Instant]]
+- [[monotonic-clock|monotonic clock]]
+- [[unix-time|Unix time]]
+- [[naive-date|NaiveDate]]
+- [[naive-time|NaiveTime]]
+- [[naive-date-time|NaiveDateTime]]
+- [[date-time|DateTime<Tz>]]
+- [[time-zone|time zone]]
+- [[utc|UTC]]
+- [[local-time|local time]]
+- [[fixed-offset|FixedOffset]]
+- [[rfc3339|RFC3339]]
+- [[rfc2822|RFC2822]]
+- [[logging]]
+- [[structured-logging|structured logging]]
+- [[log-levels|log levels]]
+- [[subscriber]]
+- [[env-filter|EnvFilter]]
+- [[rust-log|RUST_LOG]]
+- [[log-target|log target]]
+- [[log-writer|log writer]]
+- [[non-blocking-logging|non-blocking logging]]
+- [[worker-guard|WorkerGuard]]
+- [[tracing-layer|tracing layer]]
+- [[tracing-registry|tracing registry]]
+- [[tracing-span|tracing span]]
+- [[entered-span|EnteredSpan]]
+- [[instrument-attribute|#[instrument]]]
+- [[application-configuration|application configuration]]
+- [[config-file|config file]]
+- [[toml-config|TOML config]]
+- [[configuration-layering|configuration layering]]
+- [[environment-profile|environment profile]]
+- [[environment-overrides|environment overrides]]
+- [[config-deserialization|config deserialization]]
 - [[unwrap]]
 - [[expect]]
 - [[io-error|io::Error]]
@@ -732,6 +786,14 @@ Core concepts and active concept pages:
 - [[thiserror-from-error-wrapping|thiserror from error wrapping]]
 - [[box-dyn-error-downcast|Box dyn Error downcast]]
 - [[anyhow-context-backtrace|anyhow context and backtrace]]
+- [[serde-json-employee|serde JSON Employee]]
+- [[serde-enum-tagging|serde enum tagging]]
+- [[chrono-date-time-formatting|chrono DateTime formatting]]
+- [[instant-elapsed-timing|Instant elapsed timing]]
+- [[tracing-basic-logging|tracing basic logging]]
+- [[tracing-env-filter-rust-log|tracing EnvFilter with RUST_LOG]]
+- [[tracing-file-appender-layers|tracing file appender layers]]
+- [[config-layered-toml-env-override|config layered TOML env override]]
 - [[async-page-scraper|async page scraper]]
 - [[async-concurrent-tasks|async concurrent tasks]]
 - [[async-channel-messages|async channel messages]]
@@ -884,6 +946,14 @@ Core concepts and active concept pages:
 - [[rand]]
 - [[thiserror]]
 - [[anyhow]]
+- [[serde]]
+- [[serde-json|serde_json]]
+- [[serde-xml-rs]]
+- [[chrono]]
+- [[tracing]]
+- [[tracing-subscriber]]
+- [[tracing-appender]]
+- [[config]]
 
 ## Tools
 
@@ -898,6 +968,7 @@ Core concepts and active concept pages:
 - [[rustfmt]]
 - [[clippy]]
 - [[cargo-fix|cargo fix / rustfix]]
+- [[cargo-expand|cargo expand]]
 - [[rustup]]
 - [[rust-language-server|Rust Language Server]]
 - [[rust-analyzer]]

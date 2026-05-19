@@ -3,9 +3,9 @@ title: "Rust Wiki Overview"
 type: overview
 status: active
 created: 2026-05-06
-updated: 2026-05-18
+updated: 2026-05-19
 tags: [rust, overview]
-source_count: 165
+source_count: 169
 ---
 
 # Rust Wiki Overview
@@ -196,6 +196,10 @@ Ingested Rust for Backend Developers materials (`3. advance` so far):
 - [[wiki/sources/rust-for-backend-developers-multithreading|Multithreading]]
 - [[wiki/sources/rust-for-backend-developers-global-data|Global Data]]
 - [[wiki/sources/rust-for-backend-developers-error-handling|Error Handling]]
+- [[wiki/sources/rust-for-backend-developers-serialization|Serialization]]
+- [[wiki/sources/rust-for-backend-developers-date-and-time|Date and Time]]
+- [[wiki/sources/rust-for-backend-developers-logging|Logging]]
+- [[wiki/sources/rust-for-backend-developers-application-configuration|Application Configuration]]
 
 `3. advance` sectioni endi quyidagi yo'nalishlarni qamrab oladi:
 
@@ -208,6 +212,10 @@ Ingested Rust for Backend Developers materials (`3. advance` so far):
 - multithreading: threads, `Send`/`Sync`, sync primitives, scoped threads, atomics, TLS, channels
 - global data: `const`, `static`, `static mut`, `LazyLock`, `OnceLock`, synchronized registry patterns
 - error handling: `thiserror`, wrapping, `Box<dyn Error>`, `anyhow`, context, root cause, backtrace
+- serialization: `serde`, `Serialize`, `Deserialize`, JSON/XML format crates, enum tagging, field rename, `DeserializeOwned`
+- date/time: `Duration`, `SystemTime`, `Instant`, `chrono`, `Naive*`, `DateTime<Tz>`, timezone, RFC3339
+- logging: `tracing`, subscriber, `EnvFilter`, `RUST_LOG`, file appender, non-blocking writer, layers, spans, `instrument`
+- configuration: `config` crate, TOML config, profile layers, environment overrides, typed serde config structs
 
 Current source baseline:
 
@@ -703,3 +711,11 @@ Rust for Backend Developers `3. advance` synthesis:
 - [[wiki/chapters/rust-for-backend-developers-error-handling|Error Handling]] sectionni app/library boundary bo'yicha bo'ladi: [[custom-error-enum]] va [[wiki/crates/thiserror|thiserror]] public/domain API uchun, [[box-dyn-error|Box<dyn Error>]] va [[wiki/crates/anyhow|anyhow]] esa typed recovery kerak bo'lmagan app-level boundary uchun.
 - [[error-wrapping]] va `#[from]` bilan `?` birga ishlaganda lower-level service errors higher-level API errors'ga o'tadi. Source snippet'dagi `servation` va `(0)` artefaktlari canonical syntax sifatida emas, source typo sifatida qayd qilindi.
 - [[error-context]] va [[root-cause]] bir xil narsa emas: root cause asli failure, context esa qaysi operation yiqilganini aytadi. `anyhow` shu ikkisini birga ko'taradi va kerak bo'lsa backtrace ham beradi.
+- [[wiki/chapters/rust-for-backend-developers-serialization|Serialization]] backend boundary'ni data format tomondan yopadi: [[wiki/crates/serde|serde]] format emas, `Serialize`/`Deserialize` trait layer; [[wiki/crates/serde-json|serde_json]] va [[wiki/crates/serde-xml-rs|serde-xml-rs]] esa format crate'lari.
+- Serialization bo'limida enum tagging va field rename public API contract sifatida qaraladi. `serde_json::Value` dynamic JSON inspection uchun bor, lekin typed DTO defaultini almashtirmaydi. `DeserializeOwned` generic parsingda input lifetime'dan mustaqil owned result talabini beradi.
+- [[wiki/chapters/rust-for-backend-developers-date-and-time|Date and Time]] elapsed timing va wall-clock timestampni ajratadi: [[instant|Instant]] measurement uchun, [[system-time|SystemTime]] Unix timestamp uchun, [[duration|Duration]] esa interval uchun ishlatiladi.
+- [[wiki/crates/chrono|chrono]] qatlami timezone modelini ochadi: [[naive-date-time|NaiveDateTime]] exact instant emas, [[date-time|DateTime<Tz>]] timezone context saqlaydi, [[rfc3339|RFC3339]] esa API timestamp uchun aniq wire format beradi.
+- [[wiki/chapters/rust-for-backend-developers-logging|Logging]] `3. advance`ni observability boundary bilan kengaytiradi: [[wiki/crates/tracing|tracing]] event/span API, [[wiki/crates/tracing-subscriber|tracing-subscriber]] subscriber/filter/layer implementation, [[wiki/crates/tracing-appender|tracing-appender]] esa rolling va non-blocking output uchun ishlatiladi.
+- Logging bo'limida [[rust-log|RUST_LOG]] runtime filter policy sifatida, [[tracing-span|tracing span]] esa request/function contextni loglarga bog'lash vositasi sifatida ajratildi. Async `.await` boundary bilan entered span scope ehtiyotkorlik talab qilishi alohida qayd qilindi.
+- [[wiki/chapters/rust-for-backend-developers-application-configuration|Application Configuration]] startup boundary'ni ko'rsatadi: [[wiki/crates/config|config]] file va env sourcelarni merge qiladi, [[wiki/crates/serde|serde]] esa final config tree'ni typed structga aylantiradi.
+- Configuration bo'limi `default.toml` + profile TOML + env override orderini asosiy mental model qiladi. Source passwordlarni TOMLda ko'rsatsa ham, wiki production secretlarni plain tracked config file'da saqlashni xavfli deb belgilaydi.
